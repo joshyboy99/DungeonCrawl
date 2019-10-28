@@ -1,5 +1,9 @@
 package unsw.dungeon;
 
+import java.util.ArrayList;
+import java.util.List;
+import unsw.dungeon.*;
+
 /**
  * The player entity
  * @author Robert Clifton-Everest
@@ -8,6 +12,10 @@ package unsw.dungeon;
 public class Player extends Entity {
 
     private Dungeon dungeon;
+    private List<Observer> observers = new ArrayList<Observer>();
+    private Direction direction;
+    private int treasureScore;
+    private Inventory invent;
 
     /**
      * Create a player positioned in square (x,y)
@@ -38,4 +46,6 @@ public class Player extends Entity {
         if (getX() < dungeon.getWidth() - 1)
             x().set(getX() + 1);
     }
+    
+    
 }
