@@ -1,4 +1,4 @@
-package unsw.dungeon.unitTesting;
+package unsw.unitTesting;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
