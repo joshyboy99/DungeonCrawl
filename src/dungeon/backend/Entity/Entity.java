@@ -17,8 +17,8 @@ public class Entity {
     private IntegerProperty x, y;
     private boolean paused;
     
-    private MoveBehaviour moveBehaviour;
-    private ContactBehaviour contactBehaviour;
+    protected MoveBehaviour moveBehaviour;
+    protected ContactBehaviour contactBehaviour;
 
     /**
      * Create an entity positioned in square (x,y)
@@ -65,8 +65,8 @@ public class Entity {
     	this.moveBehaviour.move();
     }
     
-    public void performTouch() {
-    	this.contactBehaviour.onTouch(entity);
+    public void performTouch(Entity e) {
+    	this.contactBehaviour.onTouch(e);
     }
 
 
