@@ -9,6 +9,7 @@ public interface ContactBehaviour {
 }
 
 
+
 public class Canpickup implements ContactBehaviour {
 
 	
