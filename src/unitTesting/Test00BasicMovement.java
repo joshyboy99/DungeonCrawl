@@ -3,7 +3,10 @@ package unitTesting;
 import dungeon.LevelMaker.*;
 import dungeon.backend.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 /*
@@ -25,12 +28,18 @@ class Test00BasicMovement {
         Dungeon dungeon = new Dungeon(5,5);
         Player player = new Player(dungeon, 1 ,1);
         
-//        player.setX(2);
-//        assertTrue(player.getXLocation() == 2);
-//        assertTrue(player.getYLocation() == 1);
+        System.out.println("- - TEST RANDOM MOVEMENT - -");
         
+        IntegerProperty one = new SimpleIntegerProperty(1);
+        IntegerProperty two = new SimpleIntegerProperty(2);
+        IntegerProperty six = new SimpleIntegerProperty(6);
         
-
+        player.setX(two);
+        assertTrue(player.x().getValue().intValue() == 2);
+        assertTrue(player.y().getValue().intValue() == 1);
+        
+        System.out.println("Move Up working");
+             
     }
 
     @Test
@@ -39,6 +48,41 @@ class Test00BasicMovement {
     	// 5x5 Map,  spawn at center of map
     	// LEFT RIGHT UP DOWN STATIONARY
     	// Check position every time
+    	
+    	LevelProducer producer = new LevelProducer();
+        Level emptyLevel = producer.generateEmptyLevel(5, 5);
+        Dungeon dungeon = new Dungeon(5,5);
+        Player player = new Player(dungeon, 1 ,1);
+        
+        System.out.println("- - TEST SINGLE MOVEMENT - -");
+        
+        IntegerProperty one = new SimpleIntegerProperty(1);
+        IntegerProperty two = new SimpleIntegerProperty(2);
+        
+        player.setX(two);
+        assertTrue(player.x().getValue().intValue() == 2);
+        assertTrue(player.y().getValue().intValue() == 1);
+        
+        System.out.println("Move Up working");
+                
+        player.setX(one);
+        assertTrue(player.x().getValue().intValue() == 1);
+        assertTrue(player.y().getValue().intValue() == 1);
+
+        System.out.println("Move Down Up");
+        
+        player.setY(two);
+        assertTrue(player.x().getValue().intValue() == 1);
+        assertTrue(player.y().getValue().intValue() == 2);
+        
+        System.out.println("Move Right working");
+
+        player.setY(one);
+        assertTrue(player.x().getValue().intValue()  == 1);
+        assertTrue(player.y().getValue().intValue() == 1);
+        
+        System.out.println("Move Left working");
+        
     }
 
     @Test
@@ -48,6 +92,7 @@ class Test00BasicMovement {
     	// 3 TIMES UP, DOWN, LEFT , RIGHT , STATIONARY
     	// check position every time
 
+        
     }
 
 }
