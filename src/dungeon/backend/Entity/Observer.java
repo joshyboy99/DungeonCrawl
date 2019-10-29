@@ -1,4 +1,4 @@
-package dungeon.backend;
+package dungeon.backend.Entity;
 
 public interface Observer {
 

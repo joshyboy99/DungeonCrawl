@@ -1,4 +1,4 @@
-package dungeon.backend;
+package dungeon.backend.Entity;
 
 import java.util.ArrayList;
 import java.util.List;

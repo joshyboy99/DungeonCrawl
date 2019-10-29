@@ -1,4 +1,6 @@
-package dungeon.backend;
+package dungeon.backend.Entity;
+
+import dungeon.backend.MoveBehaviour.MoveBehaviour;
 
 public class Wall extends Entity {
 

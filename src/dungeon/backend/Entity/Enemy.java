@@ -1,5 +1,4 @@
-package dungeon.backend;
-import dungeon.backend.*;
+package dungeon.backend.Entity;
 
 public class Enemy extends Entity {
 	

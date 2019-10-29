@@ -1,8 +1,8 @@
-package dungeon.backend;
+package dungeon.backend.Entity;
 
-public class Exit extends Entity{
+public class Key extends Entity {
 
-	public Exit(int x, int y) {
+	public Key(int x, int y) {
 		super(x, y, moveBehaviour, contactBehaviour, spawnBehaviour);
 		// TODO Auto-generated constructor stub
 	}
