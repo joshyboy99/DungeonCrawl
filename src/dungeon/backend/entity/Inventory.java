@@ -4,11 +4,12 @@ import java.util.ArrayList;
 
 public class Inventory {
 	
-	private ArrayList<InventoryItem> items;
+	private ArrayList<Pickup> items;
 	
     public Inventory() {
-        this.items = new ArrayList<InventoryItem>();
+        this.items = new ArrayList<Pickup>();
     }
     
 
 }
+Í
