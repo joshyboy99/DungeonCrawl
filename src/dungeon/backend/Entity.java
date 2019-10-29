@@ -57,7 +57,7 @@ public class Entity {
     	this.exist = true;
     }
 
-    // change it Exist to 
+    // getCurrent
     public boolean isExist() {
     	return this.exist;
     }

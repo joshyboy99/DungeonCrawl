@@ -13,11 +13,12 @@ import dungeon.backend.*;
 public class Player extends Entity {
 
     private Dungeon dungeon;
-    private List<Observer> observers = new ArrayList<Observer>();
-    private Direction direction;
+    private PlayerState state;
     private int treasureScore;
-    private Inventory invent;
-
+    private Inventory inventory;
+    // private Direction direction;
+    private List<Observer> observers = new ArrayList<Observer>();
+    
     /**
      * Create a player positioned in square (x,y)
      * @param x
@@ -26,6 +27,9 @@ public class Player extends Entity {
     public Player(Dungeon dungeon, int x, int y) {
         super(x, y);
         this.dungeon = dungeon;
+        this.state = PlayerState.NORMAL;
+        this.treasureScore = 0;
+        this.inventory = new Inventory();
     }
 
     public void moveUp() {
@@ -48,5 +52,24 @@ public class Player extends Entity {
             x().set(getX() + 1);
     }
     
+    public int getTreasure() {
+        return this.treasureScore;
+    }
+
+    public PlayerState getState() {
+        return this.state;
+    }
+
+    public Inventory getInventory() {
+        return this.inventory;
+    }
+    
+    public void changePlayerState(PlayerState state) {
+        this.state = state;
+    }
+    
+    public void addTreasure(int value) {
+        this.treasureScore += value;
+    }    
     
 }
