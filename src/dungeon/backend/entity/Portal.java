@@ -1,8 +1,7 @@
 package dungeon.backend.entity;
 
-import dungeon.backend.ContactBehaviour.ContactBehaviour;
-import dungeon.backend.ContactBehaviour.Transport;
-import dungeon.backend.MoveBehaviour.MoveBehaviour;
+import dungeon.backend.ContactBehaviour.*;
+import dungeon.backend.MoveBehaviour.*;
 import javafx.beans.property.IntegerProperty;
 
 public class Portal extends Entity {
@@ -10,8 +9,9 @@ public class Portal extends Entity {
 	private IntegerProperty teleportY;
 	public Portal(int x, int y) {
 		super(x, y);
+		
 		this.contactBehaviour = new Transport(this);
-		this.moveBehaviour = moveBehaviour;
+		this.moveBehaviour = new Static();
 		// TODO Auto-generated constructor stub
 	}
 	/**
