@@ -25,7 +25,7 @@ public class Player extends Entity {
      * @param y
      */
     public Player(Dungeon dungeon, int x, int y) {
-        super(x, y);
+        super(x, y, moveBehaviour, contactBehaviour, spawnBehaviour);
         this.dungeon = dungeon;
         this.state = PlayerState.NORMAL;
         this.treasureScore = 0;

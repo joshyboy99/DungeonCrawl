@@ -62,15 +62,15 @@ public class Entity {
     }
     
     public void performMove() {
-    	
+    	this.moveBehaviour.move();
     }
     
     public void performTouch() {
-    	
+    	this.contactBehaviour.onTouch(entity);
     }
     
     public void performSpawn() {
-    	
+    	this.spawnBehaviour.spawn();
     }
     
     
