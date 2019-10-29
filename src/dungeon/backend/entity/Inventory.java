@@ -10,11 +10,11 @@ public class Inventory {
         this.items = new ArrayList<Pickup>();
     }
     
-    public void addToInventory(Pickup item) {
+    public void add(Pickup item) {
     	items.add(item);
     }
     
-    public void removeFromInventory(Pickup item) {
+    public void remove(Pickup item) {
     	items.remove(item);
     }
     
