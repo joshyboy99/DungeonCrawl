@@ -11,7 +11,7 @@ public class Key extends Pickup {
 		super(x, y);
 		this.contactBehaviour= new Canpickup(this);
 		this.moveBehaviour= new Static();
-		this.pickupBehaviour= new AddToInventory();
+		this.pickupBehaviour= new AddToInventory(this);
 		this.keyID = keyID;
 		// TODO Auto-generated constructor stub
 	}
