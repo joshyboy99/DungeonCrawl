@@ -13,7 +13,7 @@ public class Entity {
     // IntegerProperty is used so that changes to the entities position can be
     // externally observed.
     private IntegerProperty x, y;
-    private boolean exist;
+    private boolean paused;
 
     /**
      * Create an entity positioned in square (x,y)
@@ -42,23 +42,4 @@ public class Entity {
         return x().get();
     }
     
-    // can be walked over
-    public boolean isPassable() {
-    	return true;
-    }
-    
-    // cannot exist
-    public void notExist() {
-    	this.exist = false;
-    }
-
-    // change existence to true
-    public void itExist() {
-    	this.exist = true;
-    }
-
-    // getCurrent
-    public boolean isExist() {
-    	return this.exist;
-    }
 }

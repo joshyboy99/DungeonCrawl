@@ -10,7 +10,6 @@ public interface ContactBehaviour {
 
 
 public class Canpickup implements Contactbehaviour {
-
 	
 	@Override
 	public void onTouch(Entity e) {

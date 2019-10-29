@@ -56,16 +56,9 @@ public class Player extends Entity {
         return this.treasureScore;
     }
 
-    public PlayerState getState() {
-        return this.state;
-    }
 
     public Inventory getInventory() {
         return this.inventory;
-    }
-    
-    public void changePlayerState(PlayerState state) {
-        this.state = state;
     }
     
     public void addTreasure(int value) {
