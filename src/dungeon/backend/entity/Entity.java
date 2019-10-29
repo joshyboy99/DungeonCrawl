@@ -32,7 +32,10 @@ public abstract class Entity {
         this.moveBehaviour = moveBehaviour;
         this.paused = true;
     }
-
+    public Entity(int x, int y) {
+        this.x = new SimpleIntegerProperty(x);
+        this.y = new SimpleIntegerProperty(y);
+    }
     public IntegerProperty x() {
         return x;
     }
