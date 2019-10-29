@@ -23,8 +23,6 @@ class Test00BasicMovement {
     	// Make a series of random movement
     	// check the Player's position every time
     	
-    	LevelProducer producer = new LevelProducer();
-        Level emptyLevel = producer.generateEmptyLevel(5, 5);
         Dungeon dungeon = new Dungeon(5,5);
         Player player = new Player(dungeon, 1,1);
         
@@ -42,6 +40,20 @@ class Test00BasicMovement {
         player.moveRight();
         assertTrue(player.x().getValue().intValue() == 4);
         assertTrue(player.y().getValue().intValue() == 1);
+        
+        player.moveDown();
+        assertTrue(player.x().getValue().intValue() == 4);
+        assertTrue(player.y().getValue().intValue() == 2);
+        
+        player.moveDown();
+        assertTrue(player.x().getValue().intValue() == 4);
+        assertTrue(player.y().getValue().intValue() == 2);
+        
+        player.moveLeft();
+        int myint = player.x().getValue().intValue();
+        System.out.print(myint);
+        assertTrue(player.x().getValue().intValue() == 3);
+        assertTrue(player.y().getValue().intValue() == 2);
         System.out.println("Move SNAKE working");
              
     }
@@ -53,8 +65,6 @@ class Test00BasicMovement {
     	// LEFT RIGHT UP DOWN STATIONARY
     	// Check position every time
     	
-    	LevelProducer producer = new LevelProducer();
-        Level emptyLevel = producer.generateEmptyLevel(5, 5);
         Dungeon dungeon = new Dungeon(5,5);
         Player player = new Player(dungeon, 1 ,1);
         
@@ -83,6 +93,10 @@ class Test00BasicMovement {
         assertTrue(player.y().getValue().intValue() == 1);
         
         System.out.println("Move UP working");
+        
+        assertTrue(player.x().getValue().intValue()  == 1);
+        assertTrue(player.y().getValue().intValue() == 1);
+        System.out.println("No move working");
         
     }
 
