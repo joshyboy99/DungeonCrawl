@@ -1,8 +1,5 @@
 package dungeon.backend;
 
-import unsw.dungeon.Contactbehaviour;
-import unsw.dungeon.Entity;
-
 // Contact Behaviour strategy pattern
 public interface ContactBehaviour {
 	void onTouch(Entity entity);

@@ -17,19 +17,17 @@ public class Entity {
     
     private MoveBehaviour moveBehaviour;
     private ContactBehaviour contactBehaviour;
-    private SpawnBehaviour spawnBehaviour;
 
     /**
      * Create an entity positioned in square (x,y)
      * @param x
      * @param y
      */
-    public Entity(int x, int y, MoveBehaviour moveBehaviour, ContactBehaviour contactBehaviour, SpawnBehaviour spawnBehaviour) {
+    public Entity(int x, int y, MoveBehaviour moveBehaviour, ContactBehaviour contactBehaviour) {
         this.x = new SimpleIntegerProperty(x);
         this.y = new SimpleIntegerProperty(y);
         this.contactBehaviour = contactBehaviour;
         this.moveBehaviour = moveBehaviour;
-        this.spawnBehaviour = spawnBehaviour;
         this.paused = true;
     }
 
@@ -68,11 +66,24 @@ public class Entity {
     public void performTouch() {
     	this.contactBehaviour.onTouch(entity);
     }
-    
-    public void performSpawn() {
-    	this.spawnBehaviour.spawn();
-    }
-    
+
+
+	public MoveBehaviour getMoveBehaviour() {
+		return moveBehaviour;
+	}
+
+	public void setMoveBehaviour(MoveBehaviour moveBehaviour) {
+		this.moveBehaviour = moveBehaviour;
+	}
+
+	public ContactBehaviour getContactBehaviour() {
+		return contactBehaviour;
+	}
+
+	public void setContactBehaviour(ContactBehaviour contactBehaviour) {
+		this.contactBehaviour = contactBehaviour;
+	}
+
     
     
     

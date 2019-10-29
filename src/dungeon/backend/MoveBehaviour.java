@@ -1,7 +1,7 @@
 package dungeon.backend;
 
 public interface MoveBehaviour {
-	void movement();
+	void move();
 }
 
 class Pushable implements MoveBehaviour {
