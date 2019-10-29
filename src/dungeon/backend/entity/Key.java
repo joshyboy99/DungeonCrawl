@@ -22,6 +22,9 @@ public class Key extends Pickup {
 	public int getKeyID() {
 		return keyID;
 	}
+	
+	//TO DO:
+	//CHANGE PICKUPBEHAVIOUR WHEN PLAYER HAS KEY 
 
 	
 }
