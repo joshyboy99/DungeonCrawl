@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dungeon.backend.*;
+import dungeon.backend.ContactBehaviour.ContactBehaviour;
+import dungeon.backend.MoveBehaviour.MoveBehaviour;
 
 /**
  * The player entity
@@ -22,7 +24,7 @@ public class Player extends Entity {
      * @param x
      * @param y
      */
-    public Player(Dungeon dungeon, int x, int y) {
+    public Player(Dungeon dungeon, int x, int y, MoveBehaviour moveBehaviour, ContactBehaviour contactBehaviour) {
         super(x, y, moveBehaviour, contactBehaviour);
         this.dungeon = dungeon;
         this.treasureScore = 0;

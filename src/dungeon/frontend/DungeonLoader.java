@@ -1,6 +1,8 @@
 package dungeon.frontend;
 
 import dungeon.backend.entity.*;
+import dungeon.backend.MoveBehaviour.*;
+import dungeon.backend.ContactBehaviour.*;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
