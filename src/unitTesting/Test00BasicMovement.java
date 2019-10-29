@@ -26,19 +26,23 @@ class Test00BasicMovement {
     	LevelProducer producer = new LevelProducer();
         Level emptyLevel = producer.generateEmptyLevel(5, 5);
         Dungeon dungeon = new Dungeon(5,5);
-        Player player = new Player(dungeon, 1 ,1);
+        Player player = new Player(dungeon, 1,1);
         
         System.out.println("- - TEST RANDOM MOVEMENT - -");
         
-        IntegerProperty one = new SimpleIntegerProperty(1);
-        IntegerProperty two = new SimpleIntegerProperty(2);
-        IntegerProperty six = new SimpleIntegerProperty(6);
-        
-        player.setX(two);
+        player.moveRight();
         assertTrue(player.x().getValue().intValue() == 2);
         assertTrue(player.y().getValue().intValue() == 1);
         
-        System.out.println("Move Up working");
+        
+        player.moveRight();
+        assertTrue(player.x().getValue().intValue() == 3);
+        assertTrue(player.y().getValue().intValue() == 1);
+        
+        player.moveRight();
+        assertTrue(player.x().getValue().intValue() == 4);
+        assertTrue(player.y().getValue().intValue() == 1);
+        System.out.println("Move SNAKE working");
              
     }
 
@@ -56,32 +60,29 @@ class Test00BasicMovement {
         
         System.out.println("- - TEST SINGLE MOVEMENT - -");
         
-        IntegerProperty one = new SimpleIntegerProperty(1);
-        IntegerProperty two = new SimpleIntegerProperty(2);
-        
-        player.setX(two);
+        player.moveRight();
         assertTrue(player.x().getValue().intValue() == 2);
         assertTrue(player.y().getValue().intValue() == 1);
         
-        System.out.println("Move Up working");
+        System.out.println("Move RIGHT working");
                 
-        player.setX(one);
+        player.moveLeft();
         assertTrue(player.x().getValue().intValue() == 1);
         assertTrue(player.y().getValue().intValue() == 1);
 
-        System.out.println("Move Down Up");
+        System.out.println("Move LEFT working");
         
-        player.setY(two);
+        player.moveDown();
         assertTrue(player.x().getValue().intValue() == 1);
         assertTrue(player.y().getValue().intValue() == 2);
         
-        System.out.println("Move Right working");
+        System.out.println("Move DOWN working");
 
-        player.setY(one);
+        player.moveUp();
         assertTrue(player.x().getValue().intValue()  == 1);
         assertTrue(player.y().getValue().intValue() == 1);
         
-        System.out.println("Move Left working");
+        System.out.println("Move UP working");
         
     }
 

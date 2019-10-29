@@ -76,11 +76,11 @@ public class DungeonControllerLoader extends DungeonLoader {
     	addEntity(boulder, view);
     }
     
-    @Override
-    public void onLoad(Trigger floorSwitch) {
-    	ImageView view = new ImageView(switchImage);
-    	addEntity(floorSwitch, view);
-    }
+//    @Override
+//    public void onLoad(Trigger floorSwitch) {
+//    	ImageView view = new ImageView(switchImage);
+//    	addEntity(floorSwitch, view);
+//    }
     
     @Override
     public void onLoad(Enemy enemy) {

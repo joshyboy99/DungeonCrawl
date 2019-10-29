@@ -132,7 +132,7 @@ public abstract class DungeonLoader {
 
     public abstract void onLoad(Boulder boulder);
 
-    public abstract void onLoad(Trigger floorSwitch);
+    // public abstract void onLoad(Trigger floorSwitch);
 
     public abstract void onLoad(Enemy enemy);
 
