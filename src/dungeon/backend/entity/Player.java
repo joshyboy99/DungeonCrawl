@@ -1,11 +1,12 @@
 package dungeon.backend.entity;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import dungeon.backend.*;
-import dungeon.backend.ContactBehaviour.ContactBehaviour;
-import dungeon.backend.MoveBehaviour.MoveBehaviour;
+import dungeon.backend.ContactBehaviour.*;
+import dungeon.backend.MoveBehaviour.*;
 
 /**
  * The player entity
@@ -25,7 +26,7 @@ public class Player extends Entity {
      * @param y
      */
     public Player(Dungeon dungeon, int x, int y) {
-        super(x, y, new UserControled(), new doNothing());
+        super(x, y, new PlayerControl(), new NoContact());
         this.dungeon = dungeon;
         this.treasureScore = 0;
         this.inventory = new Inventory();
