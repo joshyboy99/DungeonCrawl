@@ -73,4 +73,8 @@ public class Player extends Entity {
     	this.inventory.remove(p);
     }
     
+    public boolean checkInventory(Pickup p) {
+    	return this.inventory.checkForItem(p);
+    }
+    
 }
