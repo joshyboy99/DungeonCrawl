@@ -6,7 +6,7 @@ import dungeon.backend.MoveBehaviour.MoveBehaviour;
 public class Boulder extends Entity{
 
 	public Boulder(int x, int y, MoveBehaviour moveBehaviour, ContactBehaviour contactBehaviour) {
-		super(x, y, moveBehaviour, contactBehaviour);
+		super(x, y, new , contactBehaviour);
 		// TODO Auto-generated constructor stub
 	}
 
