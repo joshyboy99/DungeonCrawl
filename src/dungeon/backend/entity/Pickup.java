@@ -1,4 +1,4 @@
-package dungeon.backend.Entity;
+package dungeon.backend.entity;
 
 
 public interface Pickup {
