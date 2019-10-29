@@ -9,7 +9,7 @@ public class Enemy extends Entity {
 	private Player player;
 	
 	public Enemy(int x, int y, Player player) {
-		super(x, y, new MoveTowards(), new Destroy());
+		super(x, y, new MoveTowards(), new Destroy(this));
 		this.player = player;
 	}
 	
