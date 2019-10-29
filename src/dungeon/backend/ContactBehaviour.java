@@ -60,3 +60,28 @@ public class Moveable implements ContactBehaviour {
 
 
 }
+
+public class RepelEnemy implements ContactBehaviour {
+
+	@Override
+	public void onTouch(Entity e) {
+		int playerPositionX= e.getX();
+		int playerPositionY = e.getY();
+		
+	}
+
+
+}
+
+public class TransportEntity implements ContactBehaviour {
+
+	@Override
+	public void onTouch(Entity e) {
+		int x = getteleportXTeleport().get();
+		int y = getteleportYTeleport().get();
+		e.setX(x);
+		e.setY(y);
+	}
+
+
+}
