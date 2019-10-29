@@ -12,5 +12,7 @@ public class Enemy extends Entity {
 		this.player = player;
 		this.dead = false;
 	}
+	
+	
 
 }
