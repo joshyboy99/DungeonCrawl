@@ -1,5 +1,7 @@
 package dungeon.frontend;
 
+import dungeon.backend.entity.*;
+
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package dungeon.backend.ContactBehaviour;
 
-import dungeon.backend.Entity;
+import dungeon.backend.entity.*;
 
 public class Transport implements ContactBehaviour {
 	@Override

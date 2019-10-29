@@ -1,5 +1,7 @@
 package dungeon.frontend;
 
+import dungeon.backend.entity.*;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 

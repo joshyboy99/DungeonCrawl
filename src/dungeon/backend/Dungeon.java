@@ -3,6 +3,8 @@
  */
 package dungeon.backend;
 
+import dungeon.backend.entity.*;
+
 import java.util.ArrayList;
 import java.util.List;
 

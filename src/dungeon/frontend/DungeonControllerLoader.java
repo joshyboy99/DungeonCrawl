@@ -1,5 +1,6 @@
 package dungeon.frontend;
 
+import dungeon.backend.entity.*;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
