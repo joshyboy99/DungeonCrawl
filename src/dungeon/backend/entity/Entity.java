@@ -1,7 +1,7 @@
 package dungeon.backend.entity;
 
 import dungeon.backend.ContactBehaviour.*;
-import dungeon.backend.MoveBehaviour.MoveBehaviour;
+import dungeon.backend.MoveBehaviour.*;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
