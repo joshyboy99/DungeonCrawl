@@ -15,10 +15,5 @@ public class Door extends Entity {
 		this.moveBehaviour = new Static();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
-	
-	
-	
 
 }
