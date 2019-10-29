@@ -10,9 +10,14 @@ public class Door extends Entity {
 	
 	
 	public Door(int x, int y) {
-		super(x, y, new Static(), new Repel());
+		super(x, y);
+		this.contactBehaviour = new Repel(this);
+		this.moveBehaviour = new Static();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+	
 	
 	
 
