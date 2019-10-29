@@ -1,4 +1,4 @@
-package dungeon.backend.Entity;
+package dungeon.backend.entity;
 
 import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.MoveBehaviour;
