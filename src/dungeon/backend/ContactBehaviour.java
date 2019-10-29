@@ -9,7 +9,9 @@ public interface ContactBehaviour {
 }
 
 
-public class Canpickup implements Contactbehaviour {
+
+public class Canpickup implements ContactBehaviour {
+
 	
 	@Override
 	public void onTouch(Entity e) {
@@ -20,7 +22,7 @@ public class Canpickup implements Contactbehaviour {
 
 }
 
-public class Destroy implements Contactbehaviour {
+public class Destroy implements ContactBehaviour {
 	Entity entity; 
 	public Killentity(Entity entity) {
 		super();
@@ -36,10 +38,49 @@ public class Destroy implements Contactbehaviour {
 
 }
 
-class Transport implements ContactBehaviour {
+public class Transport implements ContactBehaviour {
 
 	@Override
-	public void contactInteraction() {
+	public void onTouch(Entity e) {
+		// TODO Auto-generated method stub
+		this.entity.kill(e);
+	}
+
+
+}
+
+public class Moveable implements ContactBehaviour {
+
+	@Override
+	public void onTouch(Entity e) {
+		int playerPositionX= e.getX();
+		int playerPositionY = e.getY();
+		
+	}
+
+
+}
+
+public class RepelEnemy implements ContactBehaviour {
+
+	@Override
+	public void onTouch(Entity e) {
+		int playerPositionX= e.getX();
+		int playerPositionY = e.getY();
+		
+	}
+
+
+}
+
+public class TransportEntity implements ContactBehaviour {
+
+	@Override
+	public void onTouch(Entity e) {
+		int x = getteleportXTeleport().get();
+		int y = getteleportYTeleport().get();
+		e.setX(x);
+		e.setY(y);
 	}
 
 
