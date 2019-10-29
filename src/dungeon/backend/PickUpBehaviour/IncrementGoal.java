@@ -4,14 +4,14 @@ import dungeon.backend.entity.*;
 
 public class IncrementGoal implements PickUpBehaviour {
 	
-	private Entity attatched; 
+	private Pickup attatched; 
 	
-	public IncrementGoal (Entity e) {
+	public IncrementGoal (Pickup e) {
 		attatched = e;
 	}
 	
 	@Override
-	public void Pickup(Pickup e) {
+	public void Pickup(Player p) {
 		
 	}
 

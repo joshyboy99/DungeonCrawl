@@ -4,14 +4,14 @@ import dungeon.backend.entity.*;
 
 public class EffectPlayer implements PickUpBehaviour {
 	
-	private Entity attatched; 
+	private Pickup attatched; 
 	
-	public EffectPlayer (Entity e) {
+	public EffectPlayer (Pickup e) {
 		attatched = e;
 	}
 	
 	@Override
-	public void Pickup(Pickup e) {
+	public void Pickup(Player p) {
 		
 	}
 
