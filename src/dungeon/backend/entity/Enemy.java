@@ -1,20 +1,17 @@
 package dungeon.backend.entity;
 
-import dungeon.backend.ContactBehaviour.ContactBehaviour;
-import dungeon.backend.MoveBehaviour.MoveBehaviour;
+import dungeon.backend.ContactBehaviour.*;
+import dungeon.backend.MoveBehaviour.*;
 
 public class Enemy extends Entity {
 	
 
 	private Player player;
-	private boolean dead;
 	
-	public Enemy(int x, int y, Player player,MoveBehaviour moveBehaviour, ContactBehaviour contactBehaviour) {
-		super(x, y, moveBehaviour, contactBehaviour);
+	public Enemy(int x, int y, Player player) {
+		super(x, y, new MoveTowards(), new Destroy());
 		this.player = player;
-		this.dead = false;
 	}
 	
 	
-
 }

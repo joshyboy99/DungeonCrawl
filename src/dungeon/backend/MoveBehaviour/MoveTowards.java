@@ -1,7 +1,10 @@
 package dungeon.backend.MoveBehaviour;
 
-class MoveTowards implements MoveBehaviour {
-
+public class MoveTowards implements MoveBehaviour {
+	
+	public MoveTowards() {
+	}
+	
 	@Override
 	public void move() {
 		

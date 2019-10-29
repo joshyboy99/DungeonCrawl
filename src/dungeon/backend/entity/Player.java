@@ -24,8 +24,8 @@ public class Player extends Entity {
      * @param x
      * @param y
      */
-    public Player(Dungeon dungeon, int x, int y, MoveBehaviour moveBehaviour, ContactBehaviour contactBehaviour) {
-        super(x, y, moveBehaviour, contactBehaviour);
+    public Player(Dungeon dungeon, int x, int y) {
+        super(x, y, new UserControled(), new doNothing());
         this.dungeon = dungeon;
         this.treasureScore = 0;
         this.inventory = new Inventory();
