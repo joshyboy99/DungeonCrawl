@@ -13,7 +13,7 @@ import dungeon.backend.*;
 public class Player extends Entity {
 
     private Dungeon dungeon;
-    private PlayerState state;
+    // private PlayerState state;
     private int treasureScore;
     private Inventory inventory;
     // private Direction direction;
@@ -27,7 +27,7 @@ public class Player extends Entity {
     public Player(Dungeon dungeon, int x, int y) {
         super(x, y);
         this.dungeon = dungeon;
-        this.state = PlayerState.NORMAL;
+        // this.state = PlayerState.NORMAL;
         this.treasureScore = 0;
         this.inventory = new Inventory();
     }
@@ -56,17 +56,17 @@ public class Player extends Entity {
         return this.treasureScore;
     }
 
-    public PlayerState getState() {
-        return this.state;
-    }
+//    public PlayerState getState() {
+//        return this.state;
+//    }
 
     public Inventory getInventory() {
         return this.inventory;
     }
     
-    public void changePlayerState(PlayerState state) {
-        this.state = state;
-    }
+//    public void changePlayerState(PlayerState state) {
+//        this.state = state;
+//    }
     
     public void addTreasure(int value) {
         this.treasureScore += value;

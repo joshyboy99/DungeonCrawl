@@ -1,5 +1,8 @@
 package unitTesting;
 
+import dungeon.LevelMaker.*;
+import dungeon.backend.*;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
@@ -16,6 +19,17 @@ class Test00BasicMovement {
     	// 5x5 Map
     	// Make a series of random movement
     	// check the Player's position every time
+    	
+    	LevelProducer producer = new LevelProducer();
+        Level emptyLevel = producer.generateEmptyLevel(5, 5);
+        Dungeon dungeon = new Dungeon(5,5);
+        Player player = new Player(dungeon, 1 ,1);
+        
+//        player.setX(2);
+//        assertTrue(player.getXLocation() == 2);
+//        assertTrue(player.getYLocation() == 1);
+        
+        
 
     }
 
