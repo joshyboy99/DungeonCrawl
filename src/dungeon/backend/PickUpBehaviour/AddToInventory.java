@@ -1,17 +1,17 @@
 package dungeon.backend.PickUpBehaviour;
 
-import dungeon.backend.entity.Entity;
+import dungeon.backend.entity.*;
 
 public class AddToInventory implements PickUpBehaviour {
-	private Entity attatched; 
+	private Player attatched; 
 	
-	public AddToInventory (Entity e) {
-		attatched = e;
+	public AddToInventory (Player p) {
+		attatched = p;
 	}
 	
 	@Override
-	public void Pickup(Entity e) {
-		
+	public void Pickup(Pickup e) {
+		attatched.addItem(e);
 	}
 
 }
