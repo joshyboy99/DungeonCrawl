@@ -42,7 +42,15 @@ public class Entity {
         return x().get();
     }
     
-    // can be walked over
+    public void setX(IntegerProperty x) {
+		this.x = x;
+	}
+
+	public void setY(IntegerProperty y) {
+		this.y = y;
+	}
+
+	// can be walked over
     public boolean isPassable() {
     	return true;
     }
