@@ -14,7 +14,12 @@ public abstract class Pickup extends Entity {
 		this.pickupBehaviour = pickupBehaviour;
 	}
 	
-    public void useItem(Player p) {
+    public Pickup(int x, int y) {
+		// TODO Auto-generated constructor stub
+    	super(x,y);
+	}
+
+	public void useItem(Player p) {
     	
 	} 
 
