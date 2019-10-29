@@ -14,16 +14,23 @@ public class Entity {
     // externally observed.
     private IntegerProperty x, y;
     private boolean paused;
+    
+    private MoveBehaviour moveBehaviour;
+    private ContactBehaviour contactBehaviour;
+    private SpawnBehaviour spawnBehaviour;
 
     /**
      * Create an entity positioned in square (x,y)
      * @param x
      * @param y
      */
-    public Entity(int x, int y) {
+    public Entity(int x, int y, MoveBehaviour moveBehaviour, ContactBehaviour contactBehaviour, SpawnBehaviour spawnBehaviour) {
         this.x = new SimpleIntegerProperty(x);
         this.y = new SimpleIntegerProperty(y);
-        this.exist = true;
+        this.contactBehaviour = contactBehaviour;
+        this.moveBehaviour = moveBehaviour;
+        this.spawnBehaviour = spawnBehaviour;
+        this.paused = true;
     }
 
     public IntegerProperty x() {
@@ -41,5 +48,33 @@ public class Entity {
     public int getX() {
         return x().get();
     }
+    
+    public void setY(int y) {
+        this.y.set(y);
+    }
+
+    public void setX(int x) {
+        this.x.set(x);
+    }
+    
+    public void togglePaused() {
+    	paused = !paused;
+    }
+    
+    public void performMove() {
+    	
+    }
+    
+    public void performTouch() {
+    	
+    }
+    
+    public void performSpawn() {
+    	
+    }
+    
+    
+    
+    
     
 }
