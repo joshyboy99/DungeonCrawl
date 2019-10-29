@@ -56,14 +56,13 @@ public class Player extends Entity {
         return this.treasureScore;
     }
 
-
     public Inventory getInventory() {
         return this.inventory;
     }
     
     public void addTreasure(int value) {
         this.treasureScore += value;
-    }    
+    }
     
     public void addItem(Pickup p) {
     	this.inventory.add(p);
@@ -73,4 +72,5 @@ public class Player extends Entity {
     public void removeItem(Pickup p) {
     	this.inventory.remove(p);
     }
+    
 }

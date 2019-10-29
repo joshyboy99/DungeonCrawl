@@ -13,7 +13,5 @@ public class Door extends Entity {
 		super(x, y, new Static(), new Repel());
 		// TODO Auto-generated constructor stub
 	}
-	
-	
 
 }
