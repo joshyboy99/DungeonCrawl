@@ -1,5 +1,7 @@
 package dungeon.backend.entity;
 
+
+import dungeon.backend.*;
 import java.util.ArrayList;
 
 import java.util.List;
@@ -15,6 +17,7 @@ import dungeon.backend.MoveBehaviour.*;
  */
 public class Player extends Entity {
 
+	Dungeon dungeon;
     private int treasureScore;
     private Inventory inventory;
     private List<Observer> observers = new ArrayList<Observer>();
@@ -25,10 +28,12 @@ public class Player extends Entity {
      * @param y
      */
     public Player(Dungeon dungeon, int x, int y) {
-        super(x, y, new PlayerControl(), new NoContact());
+        super(x, y);
         this.dungeon = dungeon;
         this.treasureScore = 0;
         this.inventory = new Inventory();
+        this.contactBehaviour = new NoContact(this);
+        this.moveBehaviour = new PlayerControl();
     }
 
     public void moveUp() {
