@@ -5,34 +5,40 @@ import java.util.List;
 
 import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 
-public class FloorSwitch extends Entity implements Observable{
+public class FloorSwitch extends Entity implements Observable {
 
-	String State;
-	List<Observer> Observers;
+	private boolean state;
+	private List<Observer> Observers;
 	
 	public FloorSwitch(int x, int y) {
 		super(x, y, new Static(), null);
 		this.contactBehaviour = new Trigger(this);
-		State = "Open";
+		this.state = false;
 		Observers = new ArrayList<Observer>();
 	}
 
-	public void checkState() {
-		
+	public void setState(boolean state) {
+		this.state = state;
 	}
 	
+	public boolean getState() {
+		return this.state;
+	}
+
 	public boolean isClosed() {
-		if(State.equals("Open")) {
+		if(this.state = true) {
 			return true;
 		}
 		
 		else return false;
 	}
-	
-	public void changeState(){
-		if(contactBehaviour.)
-	}
+//	
+//	public void changeState(){
+//		if(contactBehaviour.)
+//	}
 
 	@Override
 	public void notifyObservers() {
@@ -43,16 +49,15 @@ public class FloorSwitch extends Entity implements Observable{
 	}
 
 	@Override
-	public void addObserver(Observer o) {
+	public void addListener(InvalidationListener listener) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void removeObserver(Observer o) {
+	public void removeListener(InvalidationListener listener) {
 		// TODO Auto-generated method stub
 		
 	}
-	
 
 }
