@@ -84,12 +84,12 @@ public abstract class DungeonLoader {
         	entity = boulder;
         	break;
 
-//        case "switch":
-//        	Trigger floorSwitch = new Trigger(x, y);
-//        	onLoad(floorSwitch);
-//        	entity = floorSwitch;
-//        	break;
-//
+        case "switch":
+        	FloorSwitch floorSwitch = new FloorSwitch(x, y);
+        	onLoad(floorSwitch);
+        	entity = floorSwitch;
+        	break;
+
 //        case "enemy":
 //        	Enemy enemy = new Enemy(dungeon, x, y);
 //        	onLoad(enemy);
@@ -109,15 +109,15 @@ public abstract class DungeonLoader {
         	break;
 
         case "door":
-        	// int id = json.getInt("id");
-        	Door door = new Door(x, y);
+        	int id = json.getInt("id");
+        	Door door = new Door(x, y, id);
         	onLoad(door);
         	entity = door;
         	break;
 
         case "key":
-        	// id = json.getInt("id");
-        	Key key = new Key(x, y);
+        	id = json.getInt("id");
+        	Key key = new Key(x, y, id);
         	onLoad(key);
         	entity = key;
         	break;
@@ -135,7 +135,7 @@ public abstract class DungeonLoader {
 
     public abstract void onLoad(Boulder boulder);
 
-    // public abstract void onLoad(Trigger floorSwitch);
+    public abstract void onLoad(FloorSwitch floorSwitch);
 
     public abstract void onLoad(Enemy enemy);
 
