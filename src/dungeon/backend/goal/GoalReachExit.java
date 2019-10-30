@@ -22,7 +22,13 @@ public class GoalReachExit extends GoalBase {
 	private boolean atExit(Exit e) {
 		int x = e.getX();
 		int y = e.getY();
-		// if (player.samePosition(x, y)) return true;
+		
+		int playerX = player.getX();
+		int playerY = player.getY();
+		
+		if (x == playerX && y == playerY) {
+			return true;
+		}
 		return false;
 	}
 
