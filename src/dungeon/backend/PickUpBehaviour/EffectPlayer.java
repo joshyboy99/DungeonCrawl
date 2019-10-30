@@ -1,13 +1,13 @@
 package dungeon.backend.PickUpBehaviour;
 
+import dungeon.backend.InteractableBehaviour;
 import dungeon.backend.entity.*;
 
-public class EffectPlayer implements PickUpBehaviour {
+public class EffectPlayer extends InteractableBehaviour implements PickUpBehaviour {
 	
-	private Pickup attatched; 
 	
 	public EffectPlayer (Pickup e) {
-		attatched = e;
+		super(e);
 	}
 	
 	@Override
