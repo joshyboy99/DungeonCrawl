@@ -1,5 +1,6 @@
 package dungeon.backend.entity;
 
+import dungeon.backend.*;
 import java.util.ArrayList;
 
 import java.util.List;
@@ -15,6 +16,7 @@ import dungeon.backend.MoveBehaviour.*;
  */
 public class Player extends Entity {
 
+	Dungeon dungeon;
     private int treasureScore;
     private Inventory inventory;
     private List<Observer> observers = new ArrayList<Observer>();
