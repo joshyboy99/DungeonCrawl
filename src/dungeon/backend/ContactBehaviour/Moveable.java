@@ -12,7 +12,7 @@ public class Moveable implements ContactBehaviour {
 		int playerPositionX= e.getX();
 		int playerPositionY = e.getY();
 		//if behind obj
-		if(playerPositionX - e.getX() <1) {
+		if(playerPositionX - e.getX() < 1 && ) {
 			
 		}  //if to the left of obj
 		else if() {
