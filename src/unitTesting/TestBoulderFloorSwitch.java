@@ -61,9 +61,6 @@ class TestBoulderFloorSwitch {
         
     }
     
-    @Test
-    void testPlayerPushesBoulderIntoTeleport() {
-    }
     
     @Test
     void testPlayerTriggerFloorSwitchByBoulder() {

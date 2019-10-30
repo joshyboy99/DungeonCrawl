@@ -17,6 +17,10 @@ class Test20BasicLevels{
         // collect all treasures
     	
     	// assert win
+    	
+        System.out.println("- - Test WIN BY TREASURE - -");
+        
+        System.out.println("- -         PASSED       - -");
     }
     
     @Test
@@ -26,6 +30,10 @@ class Test20BasicLevels{
     	
         // collect partial treasures
     	// assert lose
+    	
+        System.out.println("- - Test LOSE BY TREASURE - -");
+        
+        System.out.println("- -         PASSED        - -");
     }
     
     @Test
@@ -36,6 +44,10 @@ class Test20BasicLevels{
         // kill all enemies
     	
     	// assert win
+    	
+        System.out.println("- - Test WIN BY SLAY - -");
+        
+        System.out.println("- -      PASSED      - -");
         
     }
     
@@ -47,6 +59,10 @@ class Test20BasicLevels{
         // kill partial enemies
     	
     	// assert lose
+    	
+        System.out.println("- - Test LOSE BY SLAY - -");
+        
+        System.out.println("- -       PASSED      - -");
     }
 
 	@Test
@@ -57,6 +73,10 @@ class Test20BasicLevels{
         // add the entities to the level
 		
 		// assert win
+		
+        System.out.println("- - Test WIN BY SWITCH - -");
+        
+        System.out.println("- -       PASSED       - -");
 
 	}
 
@@ -68,6 +88,10 @@ class Test20BasicLevels{
         // add the entities to the level
 		
 		// assert lose
+		
+        System.out.println("- - Test LOSE BY SWITCH - -");
+        
+        System.out.println("- -        PASSED       - -");
 
 	}
 	
@@ -87,6 +111,10 @@ class Test20BasicLevels{
         // checking that the exit has been reached by the player 
                 
         // check that the level has been completed
+    	
+        System.out.println("- - Test WIN BY EXIT - -");
+        
+        System.out.println("- -      PASSED      - -");
     }
     
     

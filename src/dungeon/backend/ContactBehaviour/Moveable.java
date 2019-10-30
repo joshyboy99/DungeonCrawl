@@ -5,14 +5,14 @@ import dungeon.backend.entity.*;
 import dungeon.backend.*;
 
 public class Moveable extends InteractableBehaviour implements ContactBehaviour {
-	private Entity attatched; 
+ 
 	public Moveable(Entity attached) {
 		super(attached);
 	}
 	@Override
 	public void onTouch(Entity e) {
-		int playerPositionX= e.getX();
-		int playerPositionY = e.getY();
+		int entityPositionX= e.getX();
+		int entityPositionY = e.getY();
 		//if behind obj
 		if(playerPositionX - e.getX() < 1 && ) {
 			
