@@ -1,11 +1,13 @@
 package dungeon.backend.ContactBehaviour;
 
+import dungeon.backend.InteractableBehaviour;
 import dungeon.backend.entity.*;
+import dungeon.backend.*;
 
-public class Moveable implements ContactBehaviour {
+public class Moveable extends InteractableBehaviour implements ContactBehaviour {
 	private Entity attatched; 
-	public Moveable(Entity attatched) {
-		this.attatched = attatched;
+	public Moveable(Entity attached) {
+		super(attached);
 	}
 	@Override
 	public void onTouch(Entity e) {

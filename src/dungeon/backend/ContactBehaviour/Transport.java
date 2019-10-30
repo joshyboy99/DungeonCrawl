@@ -1,13 +1,13 @@
 package dungeon.backend.ContactBehaviour;
 
+import dungeon.backend.InteractableBehaviour;
 import dungeon.backend.entity.*;
 
-public class Transport implements ContactBehaviour {
-	private Entity attatched;
+public class Transport extends InteractableBehaviour implements ContactBehaviour {
 	
 	//will attatch this behaviour to an entity
-	public Transport(Entity attatched) {
-		this.attatched = attatched;
+	public Transport(Entity attached) {
+		super(attached);
 	}
 	
 	@Override

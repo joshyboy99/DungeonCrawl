@@ -1,11 +1,12 @@
 package dungeon.backend.ContactBehaviour;
 
+import dungeon.backend.InteractableBehaviour;
 import dungeon.backend.entity.Entity;
 
-public class Trigger implements ContactBehaviour {
-	private Entity attatched; 
-	public Trigger(Entity attatched) {
-		this.attatched = attatched;
+public class Trigger extends InteractableBehaviour implements ContactBehaviour {
+
+	public Trigger(Entity attached) {
+		super(attached);
 	}
 	
 	@Override
