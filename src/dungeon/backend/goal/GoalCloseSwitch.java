@@ -16,10 +16,10 @@ public class GoalCloseSwitch extends GoalBase{
 				// do nothing 
 			}
 			if (e instanceof FloorSwitch) {
-//				if (!((FloorSwitch) e).getState()) { 
-//					this.complete = false;
-//					return;
-//				}
+				if (!((FloorSwitch) e).getState()) { 
+					this.complete = false;
+					return;
+				}
 			}
 		}
 		this.complete = true;
