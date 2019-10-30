@@ -5,10 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import dungeon.LevelMaker.Level;
-import dungeon.LevelMaker.LevelProducer;
-import dungeon.backend.Dungeon;
-import dungeon.backend.Player;
+import dungeon.backend.entity.*;
+import dungeon.backend.*;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
@@ -24,8 +22,6 @@ class Test03Collectable {
     	// Treasure in (0,2) 
     	// pick up by going left once 
     	// check if on board
-    	LevelProducer producer = new LevelProducer();
-        Level emptyLevel = producer.generateEmptyLevel(5, 5);
         Dungeon dungeon = new Dungeon(5,5);
         Player player = new Player(dungeon, 0 ,1);
         
