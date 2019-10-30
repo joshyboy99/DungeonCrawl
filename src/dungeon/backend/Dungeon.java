@@ -49,4 +49,24 @@ public class Dungeon {
     public void addEntity(Entity entity) {
         entities.add(entity);
     }
+    
+    public List<Entity> getEntities() {
+    	return entities;
+    }
+    
+//    public void addEntity(Entity entity) {
+//    	if (entity instanceof Observer) {
+//    		registerObserver((Observer)entity);
+//    	}
+//    	if (entity instanceof Door) {
+//    		if (doorNum == 3) return;
+//    		doorNum++;
+//    	}
+//        entities.add(entity);
+//        entity.itExist();
+//    }
+    
+    public void removeEntity(Entity entity) {
+    	entities.remove(entity);
+    }
 }
