@@ -1,5 +1,6 @@
 package dungeon.backend.entity;
 
+
 import dungeon.backend.*;
 import java.util.ArrayList;
 
@@ -27,10 +28,12 @@ public class Player extends Entity {
      * @param y
      */
     public Player(Dungeon dungeon, int x, int y) {
-        super(x, y, new PlayerControl(), new NoContact());
+        super(x, y);
         this.dungeon = dungeon;
         this.treasureScore = 0;
         this.inventory = new Inventory();
+        this.contactBehaviour = new NoContact(this);
+        this.moveBehaviour = new PlayerControl();
     }
 
     public void moveUp() {

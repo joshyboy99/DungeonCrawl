@@ -48,13 +48,11 @@ class Test00BasicMovement {
         
         player.moveDown();
         assertTrue(player.x().getValue().intValue() == 4);
-        assertTrue(player.y().getValue().intValue() == 2);
+        assertTrue(player.y().getValue().intValue() == 3);
         
         player.moveLeft();
-        int myint = player.x().getValue().intValue();
-        System.out.print(myint);
         assertTrue(player.x().getValue().intValue() == 3);
-        assertTrue(player.y().getValue().intValue() == 2);
+        assertTrue(player.y().getValue().intValue() == 3);
         System.out.println("Move SNAKE working");
              
     }
