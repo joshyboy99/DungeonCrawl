@@ -5,7 +5,7 @@ import dungeon.backend.entity.*;
 
 public class Transport extends InteractableBehaviour implements ContactBehaviour {
 	
-	//will attatch this behaviour to an entity
+	//will attach this behaviour to an entity
 	public Transport(Entity attached) {
 		super(attached);
 	}
@@ -14,7 +14,7 @@ public class Transport extends InteractableBehaviour implements ContactBehaviour
 	public void onTouch(Entity e) {
 		int x = e.getX();
 		int y = e.getY();
-		attatched.setX(x);
-		attatched.setY(y);
+		this.attached.setX(x);
+		this.attached.setY(y);
 	}
 }
