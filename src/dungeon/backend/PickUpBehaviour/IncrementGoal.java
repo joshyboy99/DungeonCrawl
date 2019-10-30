@@ -1,13 +1,13 @@
 package dungeon.backend.PickUpBehaviour;
 
+import dungeon.backend.InteractableBehaviour;
 import dungeon.backend.entity.*;
 
-public class IncrementGoal implements PickUpBehaviour {
-	
-	private Pickup attatched; 
+public class IncrementGoal extends InteractableBehaviour implements PickUpBehaviour {
+
 	
 	public IncrementGoal (Pickup e) {
-		attatched = e;
+		super(e);
 	}
 	
 	@Override

@@ -1,12 +1,13 @@
 package dungeon.backend.ContactBehaviour;
 
+import dungeon.backend.InteractableBehaviour;
 import dungeon.backend.entity.*;
 
-public class Repel implements ContactBehaviour {
-	private Entity attatched; 
+public class Repel extends InteractableBehaviour implements ContactBehaviour {
 	
-	public Repel(Entity attatched) {
-		this.attatched = attatched;
+	
+	public Repel(Entity attached) {
+		super(attached);
 	}
 	
 	@Override

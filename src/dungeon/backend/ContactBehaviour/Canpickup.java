@@ -1,13 +1,13 @@
 package dungeon.backend.ContactBehaviour;
 
 import dungeon.backend.entity.*;
+import dungeon.backend.*;
 
 
-public class Canpickup implements ContactBehaviour {
-	private Entity attatched; 
+public class Canpickup extends InteractableBehaviour implements ContactBehaviour {
 	
-	public Canpickup(Entity attatched) {
-		this.attatched = attatched;
+	public Canpickup(Entity attached) {
+		super(attached);
 	}
 	
 	@Override

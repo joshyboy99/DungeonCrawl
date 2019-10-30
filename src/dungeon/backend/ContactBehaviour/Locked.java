@@ -1,11 +1,13 @@
 package dungeon.backend.ContactBehaviour;
 
+import dungeon.backend.InteractableBehaviour;
 import dungeon.backend.entity.Entity;
+import dungeon.backend.*;
 
-public class Locked implements ContactBehaviour {
-	private Entity attatched; 
-	public Locked(Entity attatched) {
-		this.attatched = attatched;
+public class Locked extends InteractableBehaviour implements ContactBehaviour {
+
+	public Locked(Entity attached) {
+		super(attached);
 	}	
 	
 	@Override
