@@ -15,7 +15,6 @@ import dungeon.backend.MoveBehaviour.*;
  */
 public class Player extends Entity {
 
-    private Dungeon dungeon;
     private int treasureScore;
     private Inventory inventory;
     private List<Observer> observers = new ArrayList<Observer>();
@@ -55,7 +54,6 @@ public class Player extends Entity {
     public int getTreasure() {
         return this.treasureScore;
     }
-
     public Inventory getInventory() {
         return this.inventory;
     }

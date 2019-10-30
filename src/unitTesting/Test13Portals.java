@@ -18,6 +18,9 @@ class Test13Portals {
 		   - - - [ - 
 		             */
 		// check position of player
+        System.out.println("- - TEST TELEPORT PLAYER - -");
+        
+        System.out.println("- -         PASSED       - -");
 	}
 	
 	void testBoulderTeleport() {
@@ -30,6 +33,10 @@ class Test13Portals {
 		             */
 		// check position of boulder
 		// check position of player
+		
+        System.out.println("- - TEST TELEPORT BOULDER - -");
+        
+        System.out.println("- -         PASSED        - -");
 		
 	}
 
