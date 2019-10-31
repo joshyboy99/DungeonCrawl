@@ -40,7 +40,7 @@ public class Player extends Entity {
     public void moveUp() {
         if (getY() > 0) {
         	dungeon.scanTile(this, getX(), getY() - 1);
-            y().set(getY() + this.getMx());
+            y().set(getY() + this.getMy());
         }
     }
 
