@@ -64,7 +64,6 @@ public class Dungeon {
     			//	return false;
     			}
     		}
-    	}
     	return true; 
     }
     

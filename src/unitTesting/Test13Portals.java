@@ -3,6 +3,8 @@ package unitTesting;
 import dungeon.backend.entity.*;
 import dungeon.backend.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Test;
 
 /*
@@ -19,8 +21,28 @@ class Test13Portals {
 		   - - - - -
 		   - - - [ - 
 		             */
-		// check position of player
+		Dungeon dungeon = new Dungeon(5,5);
+		Player player = new Player(dungeon, 1,1);
+        dungeon.addEntity(new Portal(0,1,dungeon, 0));
+        dungeon.addEntity(new Portal(3,3,dungeon, 0));
+        dungeon.addEntity(new Portal(2,1,dungeon, 1));
+        dungeon.addEntity(new Portal(4,3,dungeon, 1));     
         System.out.println("- - TEST TELEPORT PLAYER - -");
+		// check position of player
+        assertTrue(player.x().getValue().intValue() == 1);
+        assertTrue(player.y().getValue().intValue() == 1);	
+        //move into portal
+        player.moveLeft();
+        System.out.print(player.getX() + "\n");
+        System.out.print(player.getX() + "\n");
+        assertTrue(player.x().getValue().intValue() == 3);
+        assertTrue(player.y().getValue().intValue() == 3);	        
+		//Each portal has a corresponding portal.
+		
+		//When the player walks on the same square as a portal, the player appears on the square of corresponding portal.
+		
+		//When an enemy walks on the same square as a portal, the enemy appears on the square of corresponding portal.
+
         
         System.out.println("- -         PASSED       - -");
 	}

@@ -121,5 +121,12 @@ public abstract class Entity {
 	public void setMy(int my) {
 		this.my.set(my);
 	}
+	
+	public void setToChangeTiles() {
+		this.setX(this.mx.intValue());
+		this.setY(this.my.intValue());
+	}
+	
+
     
 }
