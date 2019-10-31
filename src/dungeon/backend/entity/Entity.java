@@ -37,6 +37,8 @@ public abstract class Entity {
         this.contactBehaviour = contactBehaviour;
         this.moveBehaviour = moveBehaviour;
         this.paused = true;
+        this.mx = new SimpleIntegerProperty(0);
+        this.my = new SimpleIntegerProperty(0);
     }
     
     public Entity(int x, int y) {
@@ -109,7 +111,7 @@ public abstract class Entity {
 	}
     
 	public int getMx() {
-			return this.mx.get();
+		return this.mx.get();
 	}
 
 	public void setMx(int mx) {
