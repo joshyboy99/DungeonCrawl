@@ -60,6 +60,32 @@ public class Player extends Entity {
         }
     }
     
+    public void move(int dx, int dy) {
+//    	System.out.println("observers: " + observers);
+
+    	int mx = getX() + dx;
+    	int my = getY() + dy;
+    	if (mx< 0 || my < 0 || mx > dungeon.getWidth()- 1 || my > dungeon.getHeight() -1) {
+    		//notifyObservers();
+    		return;
+    	}
+    	if (dungeon.getEntities() != null) {
+			for (int i = 0; i < dungeon.getEntities().size(); i++) {
+				Entity e = dungeon.getEntities().get(i);
+				if (e == null) continue;
+				if (e.samePosition(mx,my)) {
+					// cannot interact
+//					if (!e.interact(this)) {
+//						//notifyObservers();
+//						return;
+//					}
+				}
+			}
+    	}
+    	x().set(mx);
+    	y().set(my);
+    }
+    
     public int getTreasure() {
         return this.treasureScore;
     }
