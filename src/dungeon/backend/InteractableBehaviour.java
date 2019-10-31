@@ -31,4 +31,5 @@ public abstract class InteractableBehaviour {
 	protected boolean checkEntity(Entity e) {
 		return true;
 	}
+	
 }

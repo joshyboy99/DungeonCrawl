@@ -14,7 +14,7 @@ public class Moveable extends InteractableBehaviour implements ContactBehaviour 
 		int entityPositionX= e.getX();
 		int entityPositionY = e.getY();
 		//if to left of obj
-		if(attached.getX() - entityPositionX == 1) {
+		if(attached.getX() - entityPositionX == 1 && ) {
 			attached.setX(attached.getX()+1);
 		}  //if bottom of obj
 		else if(attached.getY() - entityPositionY == -1) {

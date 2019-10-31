@@ -97,6 +97,10 @@ public abstract class Entity {
 	public void setContactBehaviour(ContactBehaviour contactBehaviour) {
 		this.contactBehaviour = contactBehaviour;
 	}
+	
+	public String getContactBehaviourString() {
+		return contactBehaviour.getClass().getSimpleName();
+	}
     
     
 }
