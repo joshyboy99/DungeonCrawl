@@ -52,12 +52,4 @@ public class Portal extends Entity {
 		return this.getY();
 	}
 
-	
-	
-	
-	
-	
-	
-	
-
 }
