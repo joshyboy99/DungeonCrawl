@@ -65,5 +65,6 @@ public class MoveTowards extends Behaviour implements MoveBehaviour {
 		}
 
 	}
+	//PROBLEMS : WHAT IF ENEMY STUCK IN CORNER?
 
 }
