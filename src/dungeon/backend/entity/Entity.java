@@ -33,7 +33,6 @@ public abstract class Entity {
         this.x = new SimpleIntegerProperty(x);
         this.y = new SimpleIntegerProperty(y);
         
-        
         this.contactBehaviour = contactBehaviour;
         this.moveBehaviour = moveBehaviour;
         this.paused = true;
@@ -44,6 +43,8 @@ public abstract class Entity {
     public Entity(int x, int y) {
         this.x = new SimpleIntegerProperty(x);
         this.y = new SimpleIntegerProperty(y);
+        this.mx = new SimpleIntegerProperty(0);
+        this.my = new SimpleIntegerProperty(0);
     }
     
     public IntegerProperty x() {
