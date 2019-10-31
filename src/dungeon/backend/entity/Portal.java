@@ -28,6 +28,7 @@ public class Portal extends Entity {
 				Portal p = (Portal) portal;
 				System.out.print(p.getportalID() + "\n");				
 				if(p.getportalID() == this.getportalID() && p.equals(this) == false ) {
+					System.out.print(p.getportalID() + "\n");	
 					return portal.getX();					
 				}
 			}
