@@ -49,13 +49,17 @@ public class Dungeon {
     public void addEntity(Entity entity) {
         entities.add(entity);
     }
-    //scan tile, invoke contact behavior on entity which touched tile. 
-    public void scanTile(Entity touched, int x, int y) {
+    //scan tile, invoke contact behavior on entity which touched tile. Will return false if tile cannot be walked over.
+    public boolean scanTile(Entity touched, int x, int y) {
     	for(Entity e: entities) {
     		if(e.getX() == x && e.getY() == y) {
     			e.performTouch(touched);
+    			if(e.getContactBehaviourString() == "Repel") {
+    				return false;
+    			}
     		}
     	}
+    	return true; 
     }
     
     
