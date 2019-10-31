@@ -28,6 +28,7 @@ public class Dungeon {
         this.height = height;
         this.entities = new ArrayList<>();
         this.player = null;
+        
     }
 
     public int getWidth() {
@@ -55,16 +56,18 @@ public class Dungeon {
     }
     //scan tile, invoke contact behavior on entity which touched tile. Will return false if tile cannot be walked over.
     public boolean scanTile(Entity touched, int x, int y) {
+    	
     	for(Entity e: entities) {
     		if(e.getX() == x && e.getY() == y) {
     			e.performTouch(touched);
-    			if(e.getContactBehaviourString().equals("Repel")) {
-    				return false;
+    			//if(e.getContactBehaviourString().equals("Repel")) {
+    			//	return false;
     			}
     		}
     	}
     	return true; 
     }
     
+	
     
 }

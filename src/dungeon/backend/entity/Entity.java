@@ -15,7 +15,11 @@ public abstract class Entity {
     // IntegerProperty is used so that changes to the entities position can be
     // externally observed.
     private IntegerProperty x, y;
-    private boolean paused;
+    private IntegerProperty mx, my;
+   
+
+	private boolean paused;
+    
     
     protected MoveBehaviour moveBehaviour;
     protected ContactBehaviour contactBehaviour;
@@ -102,5 +106,20 @@ public abstract class Entity {
 		return contactBehaviour.getClass().getSimpleName();
 	}
     
+	public IntegerProperty getMx() {
+			return mx;
+	}
+
+	public void setMx(int mx) {
+		this.mx.set(mx);
+	}
+
+	public IntegerProperty getMy() {
+		return my;
+	}
+
+	public void setMy(int my) {
+		this.my.set(my);
+	}
     
 }

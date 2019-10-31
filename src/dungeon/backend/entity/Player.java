@@ -9,6 +9,7 @@ import java.util.List;
 import dungeon.backend.*;
 import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
+import javafx.beans.property.IntegerProperty;
 
 /**
  * The player entity
@@ -44,7 +45,7 @@ public class Player extends Entity {
 
     public void moveDown() {
         if (getY() < dungeon.getHeight() - 1 && dungeon.scanTile(this, getX(), getY() + 1) == true) {
-            y().set(getY() + 1);
+        	y().set(getY() + 1);
         }
     }
 
@@ -65,10 +66,11 @@ public class Player extends Entity {
 
     	int mx = getX() + dx;
     	int my = getY() + dy;
-    	if (mx< 0 || my < 0 || mx > dungeon.getWidth()- 1 || my > dungeon.getHeight() -1) {
+    	if (mx < 0 || my < 0 || mx > dungeon.getWidth() - 1 || my > dungeon.getHeight() -1) {
     		//notifyObservers();
     		return;
     	}
+    	
     	if (dungeon.getEntities() != null) {
 			for (int i = 0; i < dungeon.getEntities().size(); i++) {
 				Entity e = dungeon.getEntities().get(i);

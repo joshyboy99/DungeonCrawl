@@ -14,7 +14,8 @@ public class Repel extends InteractableBehaviour implements ContactBehaviour {
 	
 	@Override
 	public void onTouch(Entity entity) {
-		
+		entity.setMx(0);
+		entity.setMy(0);
 	}
 
 }
