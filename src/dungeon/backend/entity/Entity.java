@@ -17,13 +17,12 @@ public abstract class Entity {
     private IntegerProperty x, y;
     private IntegerProperty mx, my;
    
-
 	private boolean paused;
-    
-    
+    private String Facing;
+
     protected MoveBehaviour moveBehaviour;
     protected ContactBehaviour contactBehaviour;
-
+    
     /**
      * Create an entity positioned in square (x,y)
      * @param x
@@ -33,6 +32,7 @@ public abstract class Entity {
         this.x = new SimpleIntegerProperty(x);
         this.y = new SimpleIntegerProperty(y);
         
+        this.Facing = "DOWN";
         this.contactBehaviour = contactBehaviour;
         this.moveBehaviour = moveBehaviour;
         this.paused = true;
@@ -45,6 +45,8 @@ public abstract class Entity {
         this.y = new SimpleIntegerProperty(y);
         this.mx = new SimpleIntegerProperty(0);
         this.my = new SimpleIntegerProperty(0);
+        this.paused = true;
+
     }
     
     public IntegerProperty x() {
@@ -135,6 +137,23 @@ public abstract class Entity {
 	public void nextMove() {
 		this.x = mx;
 		this.y = my;
+		this.setMx(0);
+		this.setMy(0);
 	}
+	
+	protected void changeFace() {
+    	if(this.getMx() > this.getX()) {
+    		this.Facing = "RIGHT";    		
+    	}
+    	if(this.getMx() > this.getX()) {
+    		this.Facing = "LEFT";    		
+    	}
+    	if(this.getMy() > this.getY()) {
+    		this.Facing = "DOWN";
+    	}
+    	if(this.getMy() < this.getY()) {
+    		this.Facing = "UP";
+    	}
+    }
 	
 }

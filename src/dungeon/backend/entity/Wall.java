@@ -9,7 +9,5 @@ public class Wall extends Entity {
         super(x, y);
         this.contactBehaviour = new Repel(this);
         this.moveBehaviour = new Static(this);
-        
-
     }
 }

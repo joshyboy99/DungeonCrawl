@@ -22,7 +22,6 @@ public class Player extends Entity {
     private int treasureScore;
     private Inventory inventory;
     private List<Observer> observers = new ArrayList<Observer>();
-    
     /**
      * Create a player positioned in square (x,y)
      * @param x
@@ -92,6 +91,7 @@ public class Player extends Entity {
 				}
 			}
     	}
+    	this.changeFace();
     	this.nextMove();
     }
     

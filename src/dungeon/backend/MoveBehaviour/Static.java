@@ -8,8 +8,6 @@ public class Static extends Behaviour implements MoveBehaviour {
 	public Static(Entity attached) {
 		super(attached);
 	}
-	
-	
 
 	@Override
 	public void move() {
