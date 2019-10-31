@@ -1,6 +1,5 @@
 package unitTesting;
 
-import dungeon.LevelMaker.*;
 import dungeon.backend.*;
 import dungeon.backend.entity.*;
 
