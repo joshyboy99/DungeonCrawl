@@ -57,6 +57,13 @@ public abstract class Entity {
     public void setY(int y) {
         this.y.set(y);
     }
+    
+    public boolean samePosition(int x, int y) {
+    	if (x == this.getX() && y == this.getY()) {
+    		return true;
+    	}
+    	return false;
+    }
 
     public void setX(int x) {
         this.x.set(x);
