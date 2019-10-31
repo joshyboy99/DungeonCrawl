@@ -58,11 +58,12 @@ public class DungeonControllerLoader extends DungeonLoader {
         addEntity(wall, view);
     }
     
-//    @Override
-//    public void onLoad(Exit exit) {
-//    	ImageView view = new ImageView(exitImage);
-//    	addEntity(exit, view);
-//    }
+    @Override
+    public void onLoad(Exit exit) {
+    	ImageView view = new ImageView(exitImage);
+    	addEntity(exit, view);
+    }
+    
 //    @Override
 //    public void onLoad(Sword sword) {
 //    	ImageView view = new ImageView(swordImage);
