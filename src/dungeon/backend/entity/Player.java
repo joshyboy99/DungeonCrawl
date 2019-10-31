@@ -88,8 +88,7 @@ public class Player extends Entity {
 				}
 			}
     	}
-    	x().set(mx);
-    	y().set(my);
+    	this.nextMove();
     }
     
     public int getTreasure() {

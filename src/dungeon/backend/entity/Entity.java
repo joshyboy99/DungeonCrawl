@@ -82,7 +82,7 @@ public abstract class Entity {
     }
     
     public void performMove() {
-    	this.moveBehaviour.move();
+    	if(this.paused == false) this.moveBehaviour.move();
     }
     
     public void performTouch(Entity e) {
