@@ -27,15 +27,16 @@ public class MoveTowards extends Behaviour implements MoveBehaviour {
 			
 			this.dungeon.scanTile(attached, aX - 1, aY);
 			
-			attached.setX(aX - 1);
+			attached.setMx(aX - 1);
 			
 			//if enemy is above targetEntity 
 			if (aY < tY == true) {
-				attached.setY(aY + 1);
+				attached.setMy(aY + 1);
 			}
+			
 			//below
 			else if (aY > tY == true) {
-				attached.setY(aY - 1);
+				attached.setMy(aY - 1);
 			}
 			
 		} 
@@ -45,20 +46,19 @@ public class MoveTowards extends Behaviour implements MoveBehaviour {
 			
 			this.dungeon.scanTile(attached, aX + 1, aY);
 			
-			attached.setX(aX + 1);
+			attached.setMx(aX + 1);
 			
 			//above
 			if(aY < tY) {
 				this.dungeon.scanTile(attached, aX, aY + 1);
-				attached.setY(aY + 1);
+				attached.setMy(aY + 1);
 			}
 			
 			//below
 			else if(aY > tY) {
 				this.dungeon.scanTile(attached, aX, aY-1);
-				attached.setY(aY - 1);
+				attached.setMy(aY - 1);
 			}
-			
 		} 
 		
 		////if targetEntity and attached inline on x axis 
@@ -66,16 +66,19 @@ public class MoveTowards extends Behaviour implements MoveBehaviour {
 			
 			if(aY < tY) {
 				this.dungeon.scanTile(attached, aX, aY+1);
-				attached.setX(aY + 1);
+				attached.setMx(aY + 1);
 			}
 			
 			//below
-			else if(aY < tY) {
+			else if(aY > tY) {
 				this.dungeon.scanTile(attached, aX, aY-1);
-				attached.setX(aY - 1);
+				attached.setMx(aY - 1);
 			}
 			
-		} 
+		}
+		
+		attached.nextMove();
+		
 	}
 	//PROBLEMS : WHAT IF ENEMY STUCK IN CORNER?
 }

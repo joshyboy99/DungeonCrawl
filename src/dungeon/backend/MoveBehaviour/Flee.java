@@ -62,7 +62,8 @@ class Flee extends Behaviour implements MoveBehaviour {
 				attached.setX(attachedEntityY + 1);
 			}
 		}
-
+		
+		attached.nextMove();
 	}
 	
 
