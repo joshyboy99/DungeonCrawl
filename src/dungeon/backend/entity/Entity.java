@@ -127,6 +127,7 @@ public abstract class Entity {
 		this.setY(this.my.intValue());
 	}
 	
+	
 
     
 }
