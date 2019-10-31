@@ -34,23 +34,24 @@ public class Player extends Entity {
         this.treasureScore = 0;
         this.inventory = new Inventory();
         this.contactBehaviour = new NoContact(this);
-        this.moveBehaviour = new PlayerControl();
+        //this.moveBehaviour = new PlayerControl();
     }
 
     public void moveUp() {
-        if (getY() > 0 && dungeon.scanTile(this, getX(), getY() - 1) == true) {
-            y().set(getY() - 1);
+        if (getY() > 0) {
+        	dungeon.scanTile(this, getX(), getY() - 1);
+            y().set(getY() + this.getMx());
         }
     }
 
     public void moveDown() {
-        if (getY() < dungeon.getHeight() - 1 && dungeon.scanTile(this, getX(), getY() + 1) == true) {
+        if (getY() < dungeon.getHeight() - 1 && dungeon.scanTile(this, getX(), getY() + 1)) {
         	y().set(getY() + 1);
         }
     }
 
     public void moveLeft() {
-        if (getX() > 0 && dungeon.scanTile(this, getX() -1 , getY()) == true) {	
+        if (getX() > 0 && dungeon.scanTile(this, getX() -1 , getY())) {	
             x().set(getX() - 1);
         }
     }

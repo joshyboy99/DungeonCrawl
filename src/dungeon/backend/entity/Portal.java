@@ -11,7 +11,7 @@ public class Portal extends Entity {
 	public Portal(int x, int y, Dungeon dungeon,int portalID) {
 		super(x, y);
 		this.contactBehaviour = new Transport(this);
-		this.moveBehaviour = new Static();
+		this.moveBehaviour = new Static(this);
 		this.portalID = portalID;
 		this.dungeon = dungeon; 
 		// TODO Auto-generated constructor stub
@@ -28,6 +28,7 @@ public class Portal extends Entity {
 				Portal p = (Portal) portal;
 				System.out.print(p.getportalID() + "\n");				
 				if(p.getportalID() == this.getportalID() && p.equals(this) == false ) {
+					System.out.print(p.getportalID() + "\n");	
 					return portal.getX();					
 				}
 			}

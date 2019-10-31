@@ -5,7 +5,7 @@ import dungeon.backend.entity.Entity;
 
 public class Static extends Behaviour implements MoveBehaviour {
 
-	protected Static(Entity attached) {
+	public Static(Entity attached) {
 		super(attached);
 		// TODO Auto-generated constructor stub
 	}

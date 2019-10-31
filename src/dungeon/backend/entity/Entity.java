@@ -106,16 +106,16 @@ public abstract class Entity {
 		return contactBehaviour.getClass().getSimpleName();
 	}
     
-	public IntegerProperty getMx() {
-			return mx;
+	public int getMx() {
+			return this.mx.get();
 	}
 
 	public void setMx(int mx) {
 		this.mx.set(mx);
 	}
 
-	public IntegerProperty getMy() {
-		return my;
+	public int getMy() {
+		return this.my.get();
 	}
 
 	public void setMy(int my) {
