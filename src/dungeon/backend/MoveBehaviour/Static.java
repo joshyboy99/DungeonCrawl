@@ -4,7 +4,6 @@ public class Static implements MoveBehaviour {
 
 	@Override
 	public void move() {
-
 	}
 
 }
