@@ -1,14 +1,15 @@
 package dungeon.backend.MoveBehaviour;
 
+import dungeon.backend.Behaviour;
 import dungeon.backend.Dungeon;
 import dungeon.backend.entity.Entity;
 
-class Flee implements MoveBehaviour {
-	Entity attached;
+class Flee extends Behaviour implements MoveBehaviour {
+	
 	Entity targetEntity;
 	Dungeon dungeon; 
 	public Flee(Entity attached, Entity targetEntity, Dungeon dungeon) {
-		this.attached = attached;
+		super(attached);
 		this.targetEntity = targetEntity;
 		this.dungeon = dungeon;
 	}

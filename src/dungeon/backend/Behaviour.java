@@ -5,7 +5,7 @@ import dungeon.backend.entity.*;
 public abstract class Behaviour {
 	protected Entity attached;
 	
-	Behaviour (Entity attached) {
+	protected Behaviour (Entity attached) {
 		this.attached = attached;
 	}
 	
