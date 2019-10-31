@@ -14,7 +14,8 @@ public class FloorSwitch extends Entity implements Observable {
 	private List<Observer> Observers;
 	
 	public FloorSwitch(int x, int y) {
-		super(x, y, new Static(), null);
+		super(x, y);
+		this.moveBehaviour = new Static(this);
 		this.contactBehaviour = new Trigger(this);
 		this.state = false;
 		Observers = new ArrayList<Observer>();
