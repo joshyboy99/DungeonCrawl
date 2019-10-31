@@ -156,4 +156,8 @@ public abstract class Entity {
     	}
     }
 	
+	protected String getFacing() {
+		return this.Facing;
+	}
+	
 }
