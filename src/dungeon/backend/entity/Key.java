@@ -10,7 +10,7 @@ public class Key extends Pickup {
 	public Key(int x, int y, int keyID) {
 		super(x, y);
 		this.contactBehaviour= new Canpickup(this);
-		this.moveBehaviour= new Static();
+		this.moveBehaviour= new Static(this);
 		this.pickupBehaviour= new AddToInventory(this);
 		this.keyID = keyID;
 		// TODO Auto-generated constructor stub
