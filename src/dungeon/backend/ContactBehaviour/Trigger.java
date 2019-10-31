@@ -9,16 +9,16 @@ public class Trigger extends InteractableBehaviour implements ContactBehaviour {
 	
 	public Trigger(Entity attached) {
 		super(attached);
-		triggered = false;
+		this.triggered = false;
 	}
 	
 	@Override
 	public void onTouch(Entity entity) {
-		
 		if(checkEntity(entity)) {
-			triggered = ;
-		}
+			this.triggered = true;
+		} 
 		
+		this.triggered = false;
 	}
 	
 	@Override
