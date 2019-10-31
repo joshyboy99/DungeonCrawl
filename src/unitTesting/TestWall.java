@@ -18,10 +18,10 @@ class TestWall {
 		
         Dungeon dungeon = new Dungeon(3,3);
         Player player = new Player(dungeon, 1,1);
-        Wall topWall = new Wall(0,1);
-        Wall rightWall = new Wall(1,2);
-        Wall downWall = new Wall(2,1);
-        Wall leftWall = new Wall(1,0);
+        dungeon.addEntity(new Wall(0,1));
+        dungeon.addEntity(new Wall(1,2));
+        dungeon.addEntity(new Wall(2,1));
+        dungeon.addEntity(new Wall(1,0));
         
         System.out.println("- - TEST TRAPPED WITH WALL - -");
         

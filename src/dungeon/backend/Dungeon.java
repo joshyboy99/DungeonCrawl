@@ -58,7 +58,7 @@ public class Dungeon {
     	for(Entity e: entities) {
     		if(e.getX() == x && e.getY() == y) {
     			e.performTouch(touched);
-    			if(e.getContactBehaviourString() == "Repel") {
+    			if(e.getContactBehaviourString().equals("Repel")) {
     				return false;
     			}
     		}
