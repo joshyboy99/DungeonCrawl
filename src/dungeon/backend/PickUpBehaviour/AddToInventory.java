@@ -11,7 +11,7 @@ public class AddToInventory extends InteractableBehaviour implements PickUpBehav
 	
 	@Override
 	public void Pickup(Player p) {
-		p.addItem(attatched);
+		p.addItem(attached);
 	}
 
 }

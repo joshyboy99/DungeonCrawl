@@ -6,7 +6,10 @@ import dungeon.backend.MoveBehaviour.*;
 public class Wall extends Entity {
 
     public Wall(int x, int y) {
-        super(x, y, new Static(), new Repel());
+        super(x, y);
+        this.contactBehaviour = new Repel(this);
+        this.moveBehaviour = new Static();
+        
 
     }
     
