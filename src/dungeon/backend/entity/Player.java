@@ -39,6 +39,7 @@ public class Player extends Entity {
 
     public void moveUp() {
         if (getY() > 0) {
+        	this.setMy(-1);
         	dungeon.scanTile(this, getX(), getY() - 1);
             y().set(getY() + this.getMy());
         }
@@ -46,6 +47,7 @@ public class Player extends Entity {
 
     public void moveDown() {
         if (getY() < dungeon.getHeight() - 1) {
+        	this.setMy(1);
         	dungeon.scanTile(this, getX(), getY() + 1);
         	y().set(getY() + getMy());
         }
@@ -53,6 +55,7 @@ public class Player extends Entity {
 
     public void moveLeft() {
         if (getX() > 0 ) {
+        	this.setMx(-1);
         	dungeon.scanTile(this, getX() -1 , getY());
             x().set(getX() + this.getMx());
         }
@@ -60,6 +63,7 @@ public class Player extends Entity {
 
     public void moveRight() {
         if (getX() < dungeon.getWidth() - 1){
+        	this.setMx(1);
         	dungeon.scanTile(this, getX() + 1 , getY());
             x().set(getX() + this.getMx());
         }
