@@ -28,15 +28,21 @@ class TestWall {
         assertTrue(player.x().getValue().intValue() == 1);
         assertTrue(player.y().getValue().intValue() == 1);
 
-        // right         
         player.moveRight();
         assertTrue(player.x().getValue().intValue() == 1);
         assertTrue(player.y().getValue().intValue() == 1);
         
-        // wrong
-//        player.moveRight();
-//        assertTrue(player.x().getValue().intValue() == 2);
-//        assertTrue(player.y().getValue().intValue() == 1);
+        player.moveLeft();
+        assertTrue(player.x().getValue().intValue() == 1);
+        assertTrue(player.y().getValue().intValue() == 1);
+        
+        player.moveUp();
+        assertTrue(player.x().getValue().intValue() == 1);
+        assertTrue(player.y().getValue().intValue() == 1);
+        
+        player.moveDown();
+        assertTrue(player.x().getValue().intValue() == 1);
+        assertTrue(player.y().getValue().intValue() == 1);
         
         System.out.println("- -       TEST PASSED      - -");
         
