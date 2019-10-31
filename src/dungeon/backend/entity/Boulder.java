@@ -11,5 +11,7 @@ public class Boulder extends Entity{
 		this.moveBehaviour = new Static();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
 
 }
