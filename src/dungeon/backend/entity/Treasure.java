@@ -10,7 +10,7 @@ public class Treasure extends Entity {
 	public Treasure(int x, int y, int val) {
 		super(x, y);
 		this.value = val;
-		this.moveBehaviour = new Static();
+		this.moveBehaviour = new Static(this);
 		this.contactBehaviour =  new Canpickup(this);
 	}
 	

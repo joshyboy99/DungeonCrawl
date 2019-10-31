@@ -7,8 +7,9 @@ public class Static extends Behaviour implements MoveBehaviour {
 
 	public Static(Entity attached) {
 		super(attached);
-		// TODO Auto-generated constructor stub
 	}
+	
+	
 
 	@Override
 	public void move() {
