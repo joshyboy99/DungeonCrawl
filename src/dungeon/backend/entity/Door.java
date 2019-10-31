@@ -11,9 +11,8 @@ public class Door extends Entity {
 	public Door(int x, int y, int keyID) {
 		super(x, y);
 		this.contactBehaviour = new Repel(this);
-		this.moveBehaviour = new Static();
+		this.moveBehaviour = new Static(this);
 		this.keyID = keyID;
-		// TODO Auto-generated constructor stub
 	}
 	
 	public void checkKey(Key key) {
