@@ -137,6 +137,7 @@ public abstract class Entity {
 	public void nextMove() {
 		this.x = mx;
 		this.y = my;
+		this.changeFace();
 		this.setMx(0);
 		this.setMy(0);
 	}
