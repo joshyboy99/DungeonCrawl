@@ -15,7 +15,7 @@ public class AddToInventory extends InteractableBehaviour implements ContactBeha
 
 	@Override
 	public void onTouch(Entity entity) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

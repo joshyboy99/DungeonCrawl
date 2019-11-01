@@ -6,22 +6,20 @@ import dungeon.backend.MoveBehaviour.*;
 
 public abstract class Pickup extends Entity {
 	
-	protected PickUpBehaviour pickupBehaviour;
+	//protected PickUpBehaviour pickupBehaviour;
 	
-	public Pickup(int x, int y, MoveBehaviour moveBehaviour, PickUpBehaviour pickupBehaviour) {
+	protected boolean pickedUp;
+	
+	public Pickup(int x, int y) {
 		super(x,y);
-		this.moveBehaviour = moveBehaviour;
+		this.moveBehaviour = new Static(this);
 		this.contactBehaviour = new Canpickup(this);
-		this.pickupBehaviour = pickupBehaviour;
-	}
-	
-    public Pickup(int x, int y) {
-		// TODO Auto-generated constructor stub
-    	super(x,y);
+		// this.pickupBehaviour = ;
+		this.pickedUp = false;
 	}
 
-	public void useItem(Player p) {
-    	
-	} 
+//	public void useItem(Player p) {
+//    	
+//	} 
 
 }
