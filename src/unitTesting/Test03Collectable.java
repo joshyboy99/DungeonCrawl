@@ -70,7 +70,7 @@ class Test03Collectable {
         System.out.println("- -   TEST PICK UP KEY    - -");        
         assertTrue(invent.getPickUp().isEmpty());
         player.moveRight();
-        assertTrue(invent.checkForItem(key));
+        assertTrue(player.checkInventory(key));
         
         System.out.println("- -         PASSED        - -");
     }

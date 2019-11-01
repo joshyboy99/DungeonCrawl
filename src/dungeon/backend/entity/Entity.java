@@ -110,9 +110,9 @@ public abstract class Entity {
 		this.contactBehaviour = contactBehaviour;
 	}
 	
-	public String getContactBehaviourString() {
-		return contactBehaviour.getClass().getSimpleName();
-	}
+//	public String getContactBehaviourString() {
+//		return contactBehaviour.getClass().getSimpleName();
+//	}
     
 	public int getMx() {
 		return this.mx.get();
