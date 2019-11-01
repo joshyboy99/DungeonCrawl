@@ -119,4 +119,8 @@ public class Player extends Entity {
     	return this.inventory.checkForItem(p);
     }
     
+    public Dungeon getDungeon() {
+    	return this.dungeon;
+    }
+    
 }
