@@ -66,12 +66,7 @@ public class Dungeon {
     
     public Portal getGetPortalPair(Portal portal,int ID) {
     	for(Entity entity : this.entities) {
-    		if(entity instanceof Portal) {
-    			Portal p = (Portal) entity;
-    			if(p.getportalID() == portal.getportalID()) {
-    				return p;
-    			}
-    		}
+    		System.out.print("he;llo");
     	}
 		return portal;
     }
