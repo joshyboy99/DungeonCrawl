@@ -8,20 +8,13 @@ public abstract class Pickup extends Entity {
 	
 	protected PickUpBehaviour pickupBehaviour;
 	
-	public Pickup(int x, int y, MoveBehaviour moveBehaviour, PickUpBehaviour pickupBehaviour) {
-		super(x,y);
-		this.moveBehaviour = moveBehaviour;
-		this.contactBehaviour = new Canpickup(this);
-		this.pickupBehaviour = pickupBehaviour;
-	}
+	// protected boolean pickedUp;
 	
-    public Pickup(int x, int y) {
-		// TODO Auto-generated constructor stub
-    	super(x,y);
+	public Pickup(int x, int y) {
+		super(x,y);
+		this.moveBehaviour = new Static(this);
+		this.contactBehaviour = new Canpickup(this);
+		this.pickupBehaviour = new AddToInventory(this);
 	}
-
-	public void useItem(Player p) {
-    	
-	} 
 
 }

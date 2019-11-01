@@ -1,22 +1,18 @@
 package dungeon.backend.ContactBehaviour;
 
 import dungeon.backend.InteractableBehaviour;
+import dungeon.backend.PickUpBehaviour.PickUpBehaviour;
 import dungeon.backend.entity.*;
 
-public class AddToInventory extends InteractableBehaviour implements ContactBehaviour { 
-	
+public class AddToInventory extends InteractableBehaviour implements PickUpBehaviour { 
 
-	
-
-	public AddToInventory(Entity attached) {
+	public AddToInventory(Pickup attached) {
 		super(attached);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public void onTouch(Entity entity) {
-		// TODO Auto-generated method stub
-		
+	public void onTouch(Player player) {
+		player.addItem((Pickup) this.attached);
 	}
 
 }

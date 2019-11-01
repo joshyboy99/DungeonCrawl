@@ -11,11 +11,11 @@ public class Enemy extends Entity {
 	private Player player;
 	private Dungeon dungeon;
 	
-	public Enemy(int x, int y, Player player, Dungeon dungeon) {
+	public Enemy(int x, int y, Dungeon dungeon) {
 		super(x, y);
-		this.player = player;
+		this.player = dungeon.getPlayer();
 		this.contactBehaviour = new Destroy(this);
-		this.moveBehaviour = new MoveTowards(this, player, dungeon);
+		this.moveBehaviour = new MoveTowards(this, this.player, dungeon);
 		this.dungeon = dungeon;
 	}
 	

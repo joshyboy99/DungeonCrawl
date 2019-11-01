@@ -18,25 +18,27 @@ import javafx.beans.property.SimpleIntegerProperty;
  */
 
 class Test03Collectable {
-    @Test
-    void testPickUpTreasure() {
-    	// 5x5 Map player at (0,1)
-    	// Treasure in (0,2) 
-    	// pick up by going left once 
-    	// check if on board
-        Dungeon dungeon = new Dungeon(5,5);
-        Player player = new Player(dungeon, 0 ,1);
-        Treasure treasure = new Treasure(0, 2, 1);
-        Inventory invent = player.getInventory();
-        
-        System.out.println("- - TEST PICK UP TREASURE - -");
-        assertTrue(invent.getPickUp().isEmpty());
-        player.moveRight();
-        assertTrue(invent.checkForItem(treasure));
-        
-        System.out.println("- -         PASSED        - -");
-
-    }
+//    @Test
+//    void testPickUpTreasure() {
+//    	// 5x5 Map player at (0,1)
+//    	// Treasure in (0,2) 
+//    	// pick up by going left once 
+//    	// check if on board
+//        Dungeon dungeon = new Dungeon(5,5);
+//        Player player = new Player(dungeon, 0 ,1);
+//        Treasure treasure = new Treasure(0, 2, 1);
+//        Inventory invent = player.getInventory();
+//        
+//        System.out.println("- - TEST PICK UP TREASURE - -");
+//        assertTrue(invent.getPickUp().isEmpty());
+//        
+//        System.out.println("-- asdfasdf");
+//        player.moveRight();
+//        assertTrue(invent.checkForItem(treasure));
+//        
+//        System.out.println("- -         PASSED        - -");
+//
+//    }
 
 //    @Test
 //    void testPickUpSword() {
@@ -55,20 +57,23 @@ class Test03Collectable {
 //    }
 //
 //
-//    @Test
-//    void testPickUpKey() {
-//    	// 5x5 Map player at (0,1)
-//    	// Key in (0,2) 
-//    	// pick up by going left once 
-//    	// check if on board
-//        Dungeon dungeon = new Dungeon(5,5);
-//        Player player = new Player(dungeon, 0 ,1);
-//        Key key = new Key(0, 2, 1);
-//        Inventory invent = player.getInventory();
-//        System.out.println("- -   TEST PICK UP KEY    - -");
-//        
-//        System.out.println("- -         PASSED        - -");
-//    }
+    @Test
+    void testPickUpKey() {
+    	// 5x5 Map player at (0,1)
+    	// Key in (0,2) 
+    	// pick up by going left once 
+    	// check if on board
+        Dungeon dungeon = new Dungeon(5,5);
+        Player player = new Player(dungeon, 0 ,1);
+        Key key = new Key(1, 1, 1);
+        Inventory invent = player.getInventory();
+        System.out.println("- -   TEST PICK UP KEY    - -");        
+        assertTrue(invent.getPickUp().isEmpty());
+        player.moveRight();
+        assertTrue(player.checkInventory(key));
+        
+        System.out.println("- -         PASSED        - -");
+    }
 //
 //    @Test
 //    void testPickUpInvincibilityPotion() {

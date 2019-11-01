@@ -59,6 +59,7 @@ public class Dungeon {
     public void scanTile(Entity touched, int x, int y) {
     	for(Entity e: entities) {
     		if(e.getX() == x && e.getY() == y) {
+
     			e.performTouch(touched);
     		}
     	}
