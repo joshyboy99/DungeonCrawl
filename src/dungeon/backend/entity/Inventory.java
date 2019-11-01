@@ -16,11 +16,11 @@ public class Inventory {
     	return this.items;
     }
     
-    public void add(Pickup item) {
+    public void add(Entity item) {
     	items.add(item);
     }
     
-    public void remove(Pickup item) {
+    public void remove(Entity item) {
     	items.remove(item);
     }
     
