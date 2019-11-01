@@ -60,7 +60,7 @@ public class Dungeon {
     	for(Entity e: entities) {
     		if(e.getX() == x && e.getY() == y) {
 
-    			touched.performTouch(e);
+    			e.performTouch(touched);
     		}
     	}
     }
