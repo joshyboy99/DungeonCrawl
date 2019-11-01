@@ -5,13 +5,13 @@ import java.util.List;
 
 import dungeon.backend.entity.*;
 
-public abstract class InteractableBehaviour extends Behaviour {
+public abstract class InteractableBehaviour {
 	
 	protected Entity attached;
 	protected List<Entity> ValidEntities;
 	
 	public InteractableBehaviour(Entity attached) {
-		super(attached);
+		this.attached = attached; 
 		this.ValidEntities = new ArrayList<Entity>();
 	}
 	

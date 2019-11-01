@@ -59,7 +59,6 @@ public class Dungeon {
     public void scanTile(Entity touched, int x, int y) {
     	for(Entity e: entities) {
     		if(e.getX() == x && e.getY() == y) {
-
     			e.performTouch(touched);
     		}
     	}
@@ -67,7 +66,15 @@ public class Dungeon {
     
     public Portal getGetPortalPair(Portal portal,int ID) {
     	for(Entity entity : this.entities) {
-    		System.out.print("he;llo");
+    		//first, find entities which are portals
+    		if(entity instanceof Portal) {
+    			//force entity to act as portal
+    			Portal p = (Portal) entity;
+    			//check if same ID, and also is not same portal being passed thru
+    			if(p.getportalID() == ID && portal.equals(p) == false) {
+    				return p;
+    			}
+    		}
     	}
 		return portal;
     }

@@ -13,7 +13,9 @@ import org.junit.jupiter.api.Test;
 
 class Test13Portals {
 	@Test
-	void testPlayerTeleport() {
+	//Each portal has a corresponding portal.
+	//When the player walks on the same square as a portal, the player appears on the square of corresponding portal.
+	void testPlayerTeleportAcceptance1and2() {
 		// 5x5 map
 		/* 
 		   x ] - - -
@@ -22,25 +24,32 @@ class Test13Portals {
 		   - - - [ - 
 		             */
 		Dungeon dungeon = new Dungeon(5,5);
-		Player player = new Player(dungeon, 1,1);
-        dungeon.addEntity(new Portal(0,1,dungeon, 0));
+		Player player = new Player(dungeon, 2,1);
+		System.out.print("Created 4 portals (2 pairs) and a player instantiated at square 2,1");
+        dungeon.addEntity(new Portal(1,1,dungeon, 0)); 
         dungeon.addEntity(new Portal(3,3,dungeon, 0));
-        dungeon.addEntity(new Portal(2,1,dungeon, 1));
-        dungeon.addEntity(new Portal(4,3,dungeon, 1));     
+        dungeon.addEntity(new Portal(3,1,dungeon, 1));
+        dungeon.addEntity(new Portal(4,3,dungeon, 1));
+        System.out.print("Portal 1: Coordinates (1,1) ID: 0 \n");  
+        System.out.print("Portal 2: Coordinates (3,3) ID: 0 \n");    
+        System.out.print("Portal 3: Coordinates (3,1) ID: 1 \n");    
+        System.out.print("Portal 4: Coordinates (4,3) ID: 1 \n");    
         System.out.println("- - TEST TELEPORT PLAYER - -");
 		// check position of player
-        assertTrue(player.x().getValue().intValue() == 1);
+        assertTrue(player.x().getValue().intValue() == 2);
         assertTrue(player.y().getValue().intValue() == 1);	
-        //move into portal
-        player.moveRight();
-        System.out.print(player.getX() + "\n");
-        System.out.print(player.getY() + "\n");
+        System.out.print("Moving player into portal 1 through a left movement\n");
+        player.moveLeft();
         assertTrue(player.x().getValue().intValue() == 3);
-        assertTrue(player.y().getValue().intValue() == 3);	        
-		//Each portal has a corresponding portal.
-		
-		//When the player walks on the same square as a portal, the player appears on the square of corresponding portal.
-		
+        assertTrue(player.y().getValue().intValue() == 3);	
+        System.out.print("New coordinates: (" + player.getX() + "," + player.getY() + ")\n");
+        System.out.print("Move successful!\n");
+        System.out.print("Moving player into portal 4 with a right movement\n");
+        player.moveRight();
+        assertTrue(player.x().getValue().intValue() == 3);
+        assertTrue(player.y().getValue().intValue() == 1);	       
+        System.out.print("New coordinates: (" + player.getX() + "," + player.getY() + ")\n");
+        System.out.print("Move successful!\n");		
 		//When an enemy walks on the same square as a portal, the enemy appears on the square of corresponding portal.
 
         

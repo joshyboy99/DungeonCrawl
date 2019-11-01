@@ -13,9 +13,11 @@ public class Transport extends InteractableBehaviour implements ContactBehaviour
 	@Override
 	public void onTouch(Entity e) {
 		Portal portal = (Portal) attached;
-		System.out.print("hello!");
 		e.setX(portal.getPortX());
+		System.out.print("Portx:" + portal.getPortX() + "\n");
+		
 		e.setY(portal.getPortY());
+		System.out.print("Porty:" + portal.getPortY() + "\n");
 		e.setMx(0);
 		e.setMy(0);
 	}
