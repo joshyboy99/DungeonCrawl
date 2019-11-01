@@ -76,6 +76,7 @@ public class MoveTowards extends Behaviour implements MoveBehaviour {
 			}
 			
 		}
+		
 		attached.nextMove();
 		
 	}

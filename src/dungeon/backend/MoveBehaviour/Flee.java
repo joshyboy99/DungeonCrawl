@@ -20,7 +20,7 @@ class Flee extends Behaviour implements MoveBehaviour {
 		int targetEntitiyX = targetEntity.getX();
 		int targetEntitiyY = targetEntity.getY();
 		//if attached is to the left of targetEntity
-		if(attachedEntityX > targetEntitiyX && this.dungeon.scanTile(attached, attachedEntityX - 1, attachedEntityY) == true) {
+		if(attachedEntityX > attachedEntityY && this.dungeon.scanTile(attached, attachedEntityX - 1, attachedEntityY)) {
 			attached.setX(attachedEntityX + 1);
 			//if enemy is above targetEntity 
 			if(attachedEntityY < targetEntitiyY == true) {
