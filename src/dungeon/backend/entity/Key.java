@@ -4,14 +4,14 @@ import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
 import dungeon.backend.PickUpBehaviour.*;
 
-public class Key extends Pickup {
+public class Key extends Entity {
 	private int keyID; 	
 	
 	public Key(int x, int y, int keyID) {
 		super(x, y);
-		this.contactBehaviour= new Canpickup(this);
-		this.moveBehaviour= new Static(this);
-		this.pickupBehaviour= new AddToInventory(this);
+		this.contactBehaviour = new Canpickup(this);
+		this.moveBehaviour = new Static(this);
+		// this.pickupBehaviour = new AddToInventory(this);
 		this.keyID = keyID;
 		// TODO Auto-generated constructor stub
 	}
