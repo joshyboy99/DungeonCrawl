@@ -7,7 +7,6 @@ import javafx.beans.property.IntegerProperty;
 
 public class Portal extends Entity {
 	private int portalID; 
-	private Dungeon dungeon; 
 	public Portal(int x, int y, Dungeon dungeon,int portalID) {
 		super(x, y);
 		this.contactBehaviour = new Transport(this);

@@ -1,5 +1,6 @@
 package dungeon.backend.entity;
 
+import dungeon.backend.Dungeon;
 import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
 import javafx.beans.property.IntegerProperty;
@@ -22,6 +23,7 @@ public abstract class Entity {
 
     protected MoveBehaviour moveBehaviour;
     protected ContactBehaviour contactBehaviour;
+    protected Dungeon dungeon;
     
     /**
      * Create an entity positioned in square (x,y)
@@ -67,6 +69,17 @@ public abstract class Entity {
     
     public void setY(int y) {
         this.y.set(y);
+    }
+    
+    public Dungeon getDungeon() {
+        return this.dungeon;
+    }
+    
+    public int getDungeonHeight(){
+        return this.dungeon.getHeight();
+    }
+    public int getDungeonWidth(){
+        return this.dungeon.getWidth();
     }
     
     public boolean samePosition(int x, int y) {

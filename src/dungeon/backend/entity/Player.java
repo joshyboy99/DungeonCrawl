@@ -18,7 +18,6 @@ import javafx.beans.property.IntegerProperty;
  */
 public class Player extends Entity {
 
-	Dungeon dungeon;
     private int treasureScore;
     private Inventory inventory;
     private List<Observer> observers = new ArrayList<Observer>();
