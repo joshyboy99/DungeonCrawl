@@ -32,9 +32,9 @@ class Test13Portals {
         assertTrue(player.x().getValue().intValue() == 1);
         assertTrue(player.y().getValue().intValue() == 1);	
         //move into portal
-        player.moveLeft();
+        player.moveRight();
         System.out.print(player.getX() + "\n");
-        System.out.print(player.getX() + "\n");
+        System.out.print(player.getY() + "\n");
         assertTrue(player.x().getValue().intValue() == 3);
         assertTrue(player.y().getValue().intValue() == 3);	        
 		//Each portal has a corresponding portal.
