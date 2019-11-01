@@ -27,6 +27,8 @@ public class DungeonController {
     private Player player;
 
     private Dungeon dungeon;
+    
+    private DungeonScreen dungeonScreen;
 
     public DungeonController(Dungeon dungeon, List<ImageView> initialEntities) {
         this.dungeon = dungeon;
@@ -68,6 +70,10 @@ public class DungeonController {
         default:
             break;
         }
+    }
+    
+    public void setDungeonScreen(DungeonScreen dungeonScreen) {
+    	this.dungeonScreen = dungeonScreen;
     }
 
 }
