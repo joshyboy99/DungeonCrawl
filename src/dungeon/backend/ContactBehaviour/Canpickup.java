@@ -2,6 +2,7 @@ package dungeon.backend.ContactBehaviour;
 
 import dungeon.backend.entity.*;
 import dungeon.backend.*;
+import dungeon.backend.PickUpBehaviour.PickUpBehaviour;
 
 
 public class Canpickup extends InteractableBehaviour implements ContactBehaviour {
@@ -11,9 +12,11 @@ public class Canpickup extends InteractableBehaviour implements ContactBehaviour
 	}
 	
 	@Override
-		public void onTouch(Entity e) {
-			
+	public void onTouch(Entity entity) {
+		// TODO Auto-generated method stub
+		
 	}
+
 
 }
 
