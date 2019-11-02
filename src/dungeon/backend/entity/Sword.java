@@ -1,21 +1,57 @@
 package dungeon.backend.entity;
 
+import java.util.ArrayList;
+
 import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 
 public class Sword extends Pickup {
 	
+	//relative coordinates of next swing
+	private IntegerProperty sx,sy;
 	
+	private int successfulSwings;
+	private int maxSwings;
 	
 	public Sword(int x, int y) {
 		super(x, y);
 		this.moveBehaviour = new Static(this);
 		this.contactBehaviour = new ActivePickup(this);
+		this.sx = new SimpleIntegerProperty();
+		this.sy = new SimpleIntegerProperty();
+		this.maxSwings = 5;
+		this.successfulSwings = 0;
 		
 	}
 	
-	public void use(String facing) {
+	public void aim(String facing, int x, int y) {
+		switch facing:
+			
+			
+	}
+	
+	public void use() {
 		
+		for(Entity e: this.dungeon.EntitiesOnTile(sx.get(), sy.get()) ) {
+			
+			if(e instanceof Enemy) {
+				
+				e.removeSelf();
+				successfulSwings++;
+				
+				if(successfulSwings == maxSwings) {
+					this.removeSelf();
+				}
+				
+			}
+		}
+	}
+	
+	public void Swing(String facing, int x, int y) {
+		aim(facing, x, y);
+		use();
 	}
 
 }

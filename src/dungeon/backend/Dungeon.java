@@ -93,7 +93,13 @@ public class Dungeon {
     }
     
     public void removeEntity(Entity e) {
+    	
     	entities.remove(e);
+    	if(e instanceof Pickup) {
+    		if(player.checkInventory((Pickup) e)) {
+    			player.removeItem((Pickup) e);
+    		}
+    	}
     }
     
 }
