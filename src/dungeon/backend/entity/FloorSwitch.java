@@ -13,8 +13,8 @@ public class FloorSwitch extends Entity implements Observer {
 	// private List<Observer> Observers;
 	boolean state;
 	
-	public FloorSwitch(int x, int y) {
-		super(x, y);
+	public FloorSwitch(int x, int y, Dungeon dungeon) {
+		super(x, y, dungeon);
 		this.moveBehaviour = new Static(this);
 		this.contactBehaviour = new NoContact(this);
 		this.state=false; 

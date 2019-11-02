@@ -21,11 +21,10 @@ public class Portal extends Entity {
 	}
 
 	public Portal(int x, int y, Dungeon dungeon, int dx, int dy) {
-		super(x, y);
+		super(x, y, dungeon);
 		this.contactBehaviour = new Transport(this, dx, dy);
 		
 		this.moveBehaviour = new Static(this);
-		this.dungeon = dungeon; 
 	}
 
 	

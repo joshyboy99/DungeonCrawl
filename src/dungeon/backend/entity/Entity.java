@@ -49,7 +49,8 @@ public abstract class Entity {
         this.effects = new ArrayList<Effect>();
     }
     
-    public Entity(int x, int y) {
+    public Entity(int x, int y, Dungeon dungeon) {
+    	this.dungeon = dungeon;
         this.x = new SimpleIntegerProperty(x);
         this.y = new SimpleIntegerProperty(y);
         this.mx = new SimpleIntegerProperty(0);

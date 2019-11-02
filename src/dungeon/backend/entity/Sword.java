@@ -1,6 +1,7 @@
 package dungeon.backend.entity;
 
 
+import dungeon.backend.Dungeon;
 import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
 import dungeon.backend.PickUpBehaviour.Store;
@@ -15,8 +16,8 @@ public class Sword extends Pickup {
 	private int successfulSwings;
 	private int maxSwings;
 	
-	public Sword(int x, int y) {
-		super(x, y);
+	public Sword(int x, int y, Dungeon dungeon) {
+		super(x, y, dungeon);
 		this.moveBehaviour = new Static(this);
 		this.contactBehaviour = new ActivePickup(this);
 		this.pickupBehaviour = new Store(this);

@@ -9,8 +9,8 @@ public class Door extends Entity {
 		private int keyID; 
 	
 	
-	public Door(int x, int y, int keyID) {
-		super(x, y);
+	public Door(int x, int y, int keyID, Dungeon dungeon) {
+		super(x, y, dungeon);
 		this.contactBehaviour = new Repel(this);
 		this.moveBehaviour = new Static(this);
 		this.keyID = keyID;

@@ -12,14 +12,13 @@ public class Enemy extends Entity {
 	private Dungeon dungeon;
 	
 	public Enemy(int x, int y, Dungeon dungeon) {
-		super(x, y);
+		super(x, y, dungeon);
 		this.player = dungeon.getPlayer();
 		
 		this.contactBehaviour = new Destroy(this);
 		((InteractableBehaviour) contactBehaviour).addEntity(player);
 		
 		this.moveBehaviour = new MoveTowards(this, this.player, dungeon);
-		this.dungeon = dungeon;
 		
 	}
 	
