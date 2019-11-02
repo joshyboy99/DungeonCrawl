@@ -11,6 +11,10 @@ public class Boulder extends Entity{
 		this.contactBehaviour= new Moveable(this);
 		this.moveBehaviour = new Static(this);
 	}
+
+	public Boulder() {
+		super();
+	}
 	
 	
 

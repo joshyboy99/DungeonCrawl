@@ -163,7 +163,7 @@ class TestBoulderFloorSwitch {
 		Player player = new Player(dungeon, 3,5);
 		Boulder b1 = new Boulder(4,5, dungeon);
         dungeon.addEntity(b1); 
-        Wall w1 = new Wall(5,5);
+        Wall w1 = new Wall(5,5, dungeon);
         dungeon.addEntity(w1); 
         System.out.print("New wall position: (" + w1.getX() + "," + w1.getY() + ")\n");
         System.out.print("New boulder position: (" + b1.getX() + "," + b1.getY() + ")\n");
@@ -262,7 +262,7 @@ class TestBoulderFloorSwitch {
 		Player player = new Player(dungeon, 0, 0);
 		dungeon.setPlayer(player);
 		Boulder boulder = new Boulder(1, 0, dungeon);
-		FloorSwitch fswitch = new FloorSwitch(2, 0);
+		FloorSwitch fswitch = new FloorSwitch(2, 0, dungeon);
 		dungeon.addEntity(boulder);
 		dungeon.addEntity(fswitch);		
 		assertFalse(fswitch.getState());

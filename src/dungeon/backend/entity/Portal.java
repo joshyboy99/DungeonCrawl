@@ -20,13 +20,6 @@ public class Portal extends Entity {
 		this.dungeon = dungeon; 
 	}
 
-	public Portal(int x, int y, Dungeon dungeon, int dx, int dy) {
-		super(x, y, dungeon);
-		this.contactBehaviour = new Transport(this, dx, dy);
-		
-		this.moveBehaviour = new Static(this);
-	}
-
 	
 	public void addPair(Portal p) {
 		pair = p;
@@ -55,6 +48,11 @@ public class Portal extends Entity {
 		Portal PortalPair = dungeon.getGetPortalPair(this, this.portalID);
 		//return this portal if could not be found (so player does not go anywhere)
 		return PortalPair.getY();
+	}
+	
+	public void wasTouched(Entity e) {
+		e.setX(this.getPortX());
+		e.setY(this.getPortY());
 	}
 
 

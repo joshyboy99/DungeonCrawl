@@ -1,5 +1,6 @@
 package unitTesting;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -35,16 +36,9 @@ class Test03Collectable {
         
         System.out.println("- - TEST PICK UP TREASURE - -");
         assertTrue(invent.getItems().isEmpty());
-        player.moveRight();
-        System.out.println(player.x().getValue().intValue());
-        System.out.println(player.y().getValue().intValue());
-        
-        System.out.println(treasure.x().getValue().intValue());
-        System.out.println(treasure.y().getValue().intValue());
-        
-        //assertTrue(invent.checkForItem(treasure));
-        System.out.println(invent.checkForItem(treasure));
-        
+        player.moveRight();     
+        assertFalse(dungeon.checkEntitiesOnDungeon(treasure));
+        assertTrue(invent.checkForItem(treasure));        
         System.out.println("- -         PASSED        - -");
 
     }
