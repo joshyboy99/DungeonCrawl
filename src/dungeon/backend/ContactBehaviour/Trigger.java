@@ -14,20 +14,19 @@ public class Trigger extends InteractableBehaviour implements ContactBehaviour {
 	
 	@Override
 	public void onTouch(Entity entity) {
-		if(checkEntity(entity)) {
-			this.triggered = true;
+		if(checkValidEntityClass(entity)) {
+			changeTriggeredStatus();
 		} 
-		
 		this.triggered = false;
 	}
 	
-	//@Override
-	public boolean checkEntity(Entity e) {
-		if(this.ValidEntities.contains(e)) {
-			return true;
+	public boolean changeTriggeredStatus() {
+		if(this.triggered == false) {
+			return this.triggered = true;
+		} else {
+			return this.triggered = false;
 		}
-		
-		else return false;
-		
 	}
+
+
 }
