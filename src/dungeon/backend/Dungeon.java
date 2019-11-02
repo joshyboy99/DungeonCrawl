@@ -28,6 +28,7 @@ public class Dungeon {
     private List<Entity> entities;
     private Player player;
     private GoalManager goalManager;
+    private boolean fail;
 
     public Dungeon(int width, int height) {
         this.width = width;
@@ -35,6 +36,7 @@ public class Dungeon {
         this.entities = new ArrayList<>();
         this.player = null;
         this.goalManager = null;
+        this.fail = false;
         
     }
 
@@ -134,6 +136,14 @@ public class Dungeon {
 
     public boolean isComplete() {
     	return goalManager.checkComplete();
+    }
+    
+    public void failStage() {
+    	this.fail = true;
+    }
+
+    public boolean isFail() {
+    	return this.fail;
     }
 }
 
