@@ -17,7 +17,7 @@ import org.json.JSONObject;
  * A dungeon can contain many entities, each occupy a square. More than one
  * entity can occupy the same square.
  *
- * @author Robert Clifton-Everest
+ * @author JAG
  *
  */
 
@@ -25,11 +25,16 @@ public class Dungeon implements Observable {
 
     private int width, height;
     private List<Entity> entities;
+    private List<Entity> observers;
+    private boolean fail;
     private Player player;
     private GoalManager goalManager;
-    private boolean fail;
-    private List<Entity> observers;
 
+    /**
+     * A constructor for the Dungeon Class. 
+     * @param width The width of the Dungeon
+     * @param height The Height of the Dungeon
+     */
     public Dungeon(int width, int height) {
         this.width = width;
         this.height = height;
@@ -41,23 +46,47 @@ public class Dungeon implements Observable {
         
     }
 
+    /**
+     * Getter of the Dungeon's Width
+     * @return The Width of the Dungeon
+     */
     public int getWidth() {
         return width;
     }
 
+    /**
+     * Getter of the Dungeon's Height
+     * @return The Height of the Dungeon
+     */
     public int getHeight() {
         return height;
     }
 
+    /**
+     * Getter of the Dungeon's Player
+     * @return The Player that Belong in the Dungeon
+     */
     public Player getPlayer() {
         return player;
     }
 
+    /**
+     * Setter of the Player in Dungeon. 
+     * It instantiate the goalManager, making sure that this goal is 
+     * for this particular player. 
+     * @param player Setting the Player in belongs in Dungeon. 
+     */
     public void setPlayer(Player player) {
         this.player = player;
         this.goalManager = new GoalManager(this, player);
     }
 
+    /**
+     * While importing Entity, it checks if it's an observer,
+     * so it gets added into the list. Then subsequently into 
+     * the own entities' list.
+     * @param entity
+     */
     public void addEntity(Entity entity) {
     	if (entity instanceof Observer) {
     		addObserver( (Observer) entity);
@@ -65,23 +94,36 @@ public class Dungeon implements Observable {
         entities.add(entity);
     }
     
+    /**
+     * Getter of entities of the Dungeon
+     * @return Dungeon's entities.
+     */
     public List<Entity> getEntities() {
     	return this.entities;
     }
     
-    //scan tile, invoke contact behavior on entity which touched tile. Will return false if tile cannot be walked over.
+    /**
+     * Scan tile, invoke contact behavior on entity which touched tile. 
+     *  
+     * @param touched The entity that touches 
+     * @param x The x coordinate of where the interact entity
+     * @param y The y coordinate of where the interact entity
+     */
     public void scanTile(Entity touched, int x, int y) {
-//    	for(Entity e: entities) {
-//    		if (e.samePosition(x, y)) {
-//    			e.performTouch(touched);
-//    		}
-//    	}
+
     	for (Entity e: EntitiesOnTile(x,y)) {
     		e.performTouch(touched);
     	}
 
     }
     
+    /**
+     * The list of entities on that particular tile. 
+     * 
+     * @param x The x coordinate of that tile
+     * @param y The y coordinate of that tile
+     * @return List of the entities
+     */
     public List<Entity> EntitiesOnTile(int x, int y) {
     	
     	List<Entity> entList = new ArrayList<Entity>();
@@ -95,6 +137,13 @@ public class Dungeon implements Observable {
 		return entList;
     }
     
+    /**
+     * Finds the other portal with the same ID within the same 
+     * Dungeon 
+     * @param portal Initial portal 
+     * @param ID Initial ID of initial portal
+     * @return Portal of the new Portal
+     */
     public Portal getGetPortalPair(Portal portal,int ID) {
     	for(Entity entity : this.entities) {
     		//first, find entities which are portals
@@ -110,6 +159,10 @@ public class Dungeon implements Observable {
 		return portal;
     }
     
+    /**
+     * Remove the entity within dungeon
+     * @param e The entity ready to be removed
+     */
     public void removeEntity(Entity e) {
     	
 //	    	if(e instanceof Pickup) {
@@ -120,11 +173,15 @@ public class Dungeon implements Observable {
     	entities.remove(e);
     }
     
+    /**
+     * Checks if the Entity is still in Dungeon 
+     * @param e
+     * @return
+     */
     public boolean checkEntitiesOnDungeon(Entity e) {
     	return this.entities.contains(e);
     }
     
-    // set up goals
     public void setupGoal(JSONObject goalCondition) {
     	goalManager.setGoal(goalCondition);
     }
@@ -152,14 +209,12 @@ public class Dungeon implements Observable {
 
 	@Override
 	public void addObserver(Observer o) {
-		// TODO Auto-generated method stub
 		observers.add((Entity)o);
 
 	}
 
 	@Override
 	public void removeObserver(Observer o) {
-		// TODO Auto-generated method stub
 		observers.remove((Entity)o);
 	}
 

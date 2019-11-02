@@ -3,10 +3,10 @@ package dungeon.backend;
 import dungeon.backend.entity.*;
 
 /**
- * This abstract class is responsible for all behaviours below it, passign on the attribute of attached,
+ * This abstract class is responsible for all behaviours below it, passing on the attribute of attached,
  * such that a behaviour can interact with the entity to which it belongs. It also allows for the modification
  * of this attribute at runtime. 
- * @author simon
+ * @author JAG
  *
  */
 public abstract class Behaviour {
