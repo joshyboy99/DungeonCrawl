@@ -8,7 +8,6 @@ import dungeon.backend.goal.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
 
 import org.json.JSONObject;
 
@@ -110,12 +109,12 @@ public class Dungeon implements Observable {
     
     public void removeEntity(Entity e) {
     	
-    	entities.remove(e);
     	if(e instanceof Pickup) {
     		if(player.checkInventory((Pickup) e)) {
     			player.removeItem((Pickup) e);
     		}
     	}
+    	entities.remove(e);
     }
     
     
