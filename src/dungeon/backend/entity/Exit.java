@@ -14,7 +14,10 @@ public class Exit extends Entity{
 	
 	public void wasTouched(Entity entity) {
 		Player p0 = (Player) entity;
-		
+		if(//PLAYER HAS COMPLETED GAME) {
+			//player has required key, open door
+			//END GAME
+		} //if not, keep locked. 
 		
 	}
 }
