@@ -26,5 +26,4 @@ public class Trigger extends InteractableBehaviour implements ContactBehaviour {
 		return triggered = !triggered;
 	}
 
-
 }
