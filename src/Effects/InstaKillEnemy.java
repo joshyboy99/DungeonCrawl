@@ -19,7 +19,7 @@ public class InstaKillEnemy extends Behaviour implements Effect, Observer{
 	public void effect(Entity e) {
 		e.setContactBehaviour(new Destroy(e));
 		e.addValidEntityContact(new Enemy(0,0, null));
-		
+		this.attached = e;
 		
 		//Endtime = Timer.instant().plusSeconds(90);
 		
@@ -28,15 +28,15 @@ public class InstaKillEnemy extends Behaviour implements Effect, Observer{
 	}
 
 	@Override
-	public void endEffect(Entity e) {
-		e.setContactBehaviour(new NoContact(e));
+	public void endEffect() {
+		attached.setContactBehaviour(new NoContact(e));
 	}
 
 	@Override
 	public void update(Player player) {
 		duration--;
 		if(duration<=0) {
-			endEffect()
+			endEffect();
 		}
 	}
 	
