@@ -10,7 +10,6 @@ public class GoalManager {
 	private Dungeon dungeon;
 	private Player player;
 	private Goal goal;
-	private Goal ExitGoal;
 	
 	public GoalManager(Dungeon dungeon, Player player) {
 		this.dungeon = dungeon;
@@ -24,14 +23,6 @@ public class GoalManager {
 		}
 		return this.goal.isComplete();
 	}
-	
-	public boolean checkExit() {
-		if (this.ExitGoal == null) {
-			return false;
-		}
-		return ExitGoal.isComplete();
-	}
-	
 	
 	public void setGoal(JSONObject goalCondition) {
 		this.goal = createGoal(goalCondition);
@@ -66,7 +57,6 @@ public class GoalManager {
     			break;
     		case "exit":
     			GoalBase exitGoal = new GoalReachExit(dungeon, player);
-    			this.ExitGoal = exitGoal;
     			newGoal = exitGoal;
     			break;
     		case "boulders":
