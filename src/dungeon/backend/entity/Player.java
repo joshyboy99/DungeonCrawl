@@ -34,13 +34,13 @@ public class Player extends Entity {
         //this.moveBehaviour = new PlayerControl();
     }
 
-    public Player(int x, int y) {
-        super(x, y);
-        this.treasureScore = 0;
-        this.inventory = new Inventory();
-        this.contactBehaviour = new NoContact(this);
-        //this.moveBehaviour = new PlayerControl();
-    }
+//    public Player(int x, int y) {
+//        super(x, y);
+//        this.treasureScore = 0;
+//        this.inventory = new Inventory();
+//        this.contactBehaviour = new NoContact(this);
+//        //this.moveBehaviour = new PlayerControl();
+//    }
     
     public void activePickup() {
     	dungeon.EntitiesOnTile(getX(), getY());

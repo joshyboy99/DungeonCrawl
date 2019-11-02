@@ -8,7 +8,7 @@ public class Moveable extends InteractableBehaviour implements ContactBehaviour 
  
 	public Moveable(Entity attached) {
 		super(attached);
-		this.ValidEntities.add(new Player(-1,-1));	
+		this.ValidEntities.add(new Player(null, -1,-1));	
 	}
 	@Override
 	public void onTouch(Entity e) {
