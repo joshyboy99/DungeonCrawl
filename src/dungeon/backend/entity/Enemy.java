@@ -1,9 +1,9 @@
 package dungeon.backend.entity;
 
 import dungeon.backend.Dungeon;
+import dungeon.backend.InteractableBehaviour;
 import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
-import javafx.beans.property.IntegerProperty;
 
 public class Enemy extends Entity {
 	
@@ -14,10 +14,26 @@ public class Enemy extends Entity {
 	public Enemy(int x, int y, Dungeon dungeon) {
 		super(x, y);
 		this.player = dungeon.getPlayer();
+		
 		this.contactBehaviour = new Destroy(this);
+		((InteractableBehaviour) contactBehaviour).addEntity(player);
+		
 		this.moveBehaviour = new MoveTowards(this, this.player, dungeon);
 		this.dungeon = dungeon;
+		
 	}
 	
+	public void Flee() {
+		this.moveBehaviour = new Flee(this, player, dungeon);
+		this.contactBehaviour = new NoContact(this);
+	}
+	
+	public void Hunt() {
+		
+		this.contactBehaviour = new Destroy(this);
+		((InteractableBehaviour) contactBehaviour).addEntity(player);
+		
+		this.moveBehaviour = new MoveTowards(this, this.player, dungeon);
+	}
 	
 }
