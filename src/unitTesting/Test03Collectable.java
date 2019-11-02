@@ -41,14 +41,17 @@ class Test03Collectable {
 		System.out.println("Sword coordinates: (" + sword0.getX()+ "," +sword0.getY() +")");
 		System.out.println("Sword coordinates: (" + sword1.getX()+ "," +sword1.getY() +")");
         player.moveDown();
+        player.activePickup();
         assertFalse(dungeon.checkEntitiesOnDungeon(sword0));
         assertTrue(invent.checkForItem(sword0));  
         assertTrue(player.getX() == 0);
         assertTrue(player.getY() == 2);
         System.out.println("Move player down again, seeing if next sword is collected");
         player.moveDown();
+        player.activePickup();
         assertTrue(invent.checkForItem(sword1));  
-        assertTrue(dungeon.checkEntitiesOnDungeon(sword1));
+        assertFalse(dungeon.checkEntitiesOnDungeon(sword1));
+        assertTrue(dungeon.checkEntitiesOnDungeon(sword0)); 
 		System.out.println("Player coordinates: (" + player.getX()+ "," +player.getY() +")");
 		System.out.println("Sword coordinates: (" + sword0.getX()+ "," +sword0.getY() +")");
 		System.out.println("Sword coordinates: (" + sword1.getX()+ "," +sword1.getY() +")");
@@ -85,9 +88,9 @@ class Test03Collectable {
         player.moveDown();
         player.activePickup();
         System.out.println("Player coordinates: (" + player.getX()+ "," +player.getY() +")");
-        assertTrue(invent.checkForItem(key2)); 
         assertFalse(invent.checkForItem(key1)); 
-        assertTrue(dungeon.checkEntitiesOnDungeon(key2));
+        assertFalse(dungeon.checkEntitiesOnDungeon(key2));
+        assertTrue(invent.checkForItem(key2)); 
         System.out.println("- -         PASSED        - -");
 
 	}

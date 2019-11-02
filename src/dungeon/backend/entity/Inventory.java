@@ -61,6 +61,26 @@ public class Inventory {
     	return counter;
     }
     
+	public Key getKey() {
+		// TODO Auto-generated method stub
+		for(Pickup p: this.items) {
+			if(p instanceof Key) {
+				return (Key)p;
+			}
+		}
+		return null;
+	}
+
+	public Sword getSword() {
+		// TODO Auto-generated method stub
+		for(Pickup p: this.items) {
+			if(p instanceof Sword) {
+				return (Sword)p;
+			}
+		}
+		return null;
+	}
+    
     
     
 
