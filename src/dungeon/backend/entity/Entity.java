@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Effects.Effect;
-import dungeon.backend.Behaviour;
 import dungeon.backend.Dungeon;
 import dungeon.backend.InteractableBehaviour;
 import dungeon.backend.ContactBehaviour.*;
