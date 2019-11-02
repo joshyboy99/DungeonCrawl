@@ -252,33 +252,19 @@ class TestBoulderFloorSwitch {
     
     @Test
     void testPlayerTriggerFloorSwitchByBoulder() {
-    	System.out.println("1");
+    	
 		Dungeon dungeon = new Dungeon(10, 10);
-    	System.out.println("2");
-
 		Player player = new Player(dungeon, 0, 0);
-    	System.out.println("3");
-
-
+		dungeon.setPlayer(player);
 		Boulder boulder = new Boulder(1, 0, dungeon);
-    	System.out.println("4");
-
-		FloorSwitch fswitch = new FloorSwitch(2, 0, dungeon);
-    	System.out.println("5");
-
+		FloorSwitch fswitch = new FloorSwitch(2, 0);
 		dungeon.addEntity(boulder);
-    	System.out.println("6");
-
-		dungeon.addEntity(fswitch);
-		
-		System.out.println("7");
+		dungeon.addEntity(fswitch);		
 		assertFalse(fswitch.getState());
 		
 		player.moveRight();
 		dungeon.updateDungeon();
-		System.out.println("8");
 		assertTrue(fswitch.getState());
-		System.out.println("9");
 		player.moveRight();
 		dungeon.updateDungeon();
 		assertFalse(fswitch.getState());

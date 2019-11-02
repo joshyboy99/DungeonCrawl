@@ -13,12 +13,11 @@ public class FloorSwitch extends Entity implements Observer {
 	// private List<Observer> Observers;
 	boolean state;
 	
-	public FloorSwitch(int x, int y, Dungeon dungeon) {
+	public FloorSwitch(int x, int y) {
 		super(x, y);
 		this.moveBehaviour = new Static(this);
 		this.contactBehaviour = new Trigger(this);
 		this.state=false; 
-		this.dungeon = dungeon;
 		// Observers = new ArrayList<Observer>();
 	}
 	
@@ -61,12 +60,5 @@ public class FloorSwitch extends Entity implements Observer {
 		return;
 		
 	}
-
-	@Override
-	public void update(boolean bool) {
-		// TODO Auto-generated method stub
-		
-	}
-
 
 }
