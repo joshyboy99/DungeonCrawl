@@ -18,7 +18,7 @@ public class Inventory {
     }
     
     /**
-     * This Mehthod returns the first instance in the inventory of any 
+     * This Method returns the first instance in the inventory of any 
      * item that is the same class as the one you are checking for p
      * @param p a 
      * @return
@@ -39,6 +39,8 @@ public class Inventory {
     public void remove(Pickup item) {
     	items.remove(item);
     }
+    
+    public void 
     
     public boolean checkForItem(Pickup item) {
     	

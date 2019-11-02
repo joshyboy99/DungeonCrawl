@@ -74,9 +74,9 @@ public class Dungeon implements Observable {
     //scan tile, invoke contact behavior on entity which touched tile. Will return false if tile cannot be walked over.
     public void scanTile(Entity touched, int x, int y) {
     	for(Entity e: entities) {
-    			if(e.samePosition(x, y)) {
-    				e.performTouch(touched);
-    			}
+			if(e.samePosition(x, y)) {
+				e.performTouch(touched);
+			}
 		}	
     }
     
