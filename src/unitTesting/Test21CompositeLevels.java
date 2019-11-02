@@ -36,7 +36,7 @@ class Test21CompositeLevels {
 		
 		JSONArray subGoal = new JSONArray();
 		JSONObject sub1 = new JSONObject();
-		sub1.put("goal", "exit");
+		sub1.put("goal", "boulders");
 		JSONObject sub2 = new JSONObject();
 		sub2.put("goal", "treasure");
 		
@@ -49,30 +49,36 @@ class Test21CompositeLevels {
 		Treasure treasure = new Treasure(4,2, dungeon);
 		dungeon.addEntity(treasure);
 		
+		Inventory invent = player.getInventory();
+		
 		Boulder boulder = new Boulder(2, 2, dungeon);
 		FloorSwitch fswitch = new FloorSwitch(1, 2, dungeon);
 		dungeon.addEntity(boulder);
 		dungeon.addEntity(fswitch);		
 		assertFalse(fswitch.getState());
-        System.out.println("- -        PASSED        - -");
 
 
 		assertFalse(dungeon.isComplete());
-        System.out.println("- -        PASSED        - -");
 
 
 		player.moveLeft();
 		dungeon.updateDungeon();
 		assertTrue(fswitch.getState());
-        System.out.println("- -        PASSED        - -");
 
 		assertFalse(dungeon.isComplete());
+
 		player.moveRight();
+
 		dungeon.updateDungeon();
 		assertFalse(dungeon.isComplete());
 		player.moveRight();
 		dungeon.updateDungeon();
-		assertTrue(dungeon.isComplete());
+
+        assertFalse(dungeon.checkEntitiesOnDungeon(treasure));
+        assertTrue(invent.checkForItem(treasure));    
+        dungeon.updateDungeon();
+        assertTrue(dungeon.isComplete());
+        
         
         System.out.println("- -        PASSED        - -");
 		

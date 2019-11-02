@@ -12,9 +12,6 @@ public class GoalCloseSwitch extends GoalBase{
 	// @Override
 	public void checkComplete() {
 		for (Entity e : dungeon.getEntities()) {
-//			if (e == null) {
-//				// do nothing 
-//			}
 			if (e instanceof FloorSwitch) {
 				if (!((FloorSwitch) e).getState()) { 
 					this.complete = false;

@@ -67,6 +67,7 @@ public class GoalManager {
     		case "exit":
     			GoalBase exitGoal = new GoalReachExit(dungeon, player);
     			this.ExitGoal = exitGoal;
+    			newGoal = exitGoal;
     			break;
     		case "boulders":
     			GoalBase switchGoal = new GoalCloseSwitch(dungeon, player);
