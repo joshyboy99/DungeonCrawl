@@ -120,6 +120,23 @@ public class Dungeon {
     			player.removeItem((Pickup) e);
     		}
     	}
+<<<<<<< HEAD
+=======
+    }
+    
+    
+    // set up goals
+    public void setupGoal(JSONObject goalCondition) {
+    	goalManager.setGoal(goalCondition);
+    }
+
+    public Goal getGoal() {
+    	return goalManager.getGoal();
+    }
+
+    public boolean isComplete() {
+    	return goalManager.checkComplete();
+>>>>>>> e9ea96dae4af810610475431533efd7aa412b95b
     }
     
     
