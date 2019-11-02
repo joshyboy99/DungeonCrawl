@@ -59,6 +59,14 @@ public abstract class Entity {
         this.effects = new ArrayList<Effect>();
 
     }
+    public Entity() {
+        this.x = new SimpleIntegerProperty(0);
+        this.y = new SimpleIntegerProperty(0);
+        this.mx = new SimpleIntegerProperty(0);
+        this.my = new SimpleIntegerProperty(0);
+        this.paused = true;
+        this.effects = new ArrayList<Effect>();
+    }
     
     public IntegerProperty x() {
         return x;

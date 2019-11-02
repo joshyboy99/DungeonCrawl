@@ -7,7 +7,8 @@ public class Transport extends InteractableBehaviour implements ContactBehaviour
 	
 	public Transport(Entity attached) {
 		super(attached);
-	
+		this.ValidEntities.add(new Boulder());
+		this.ValidEntities.add(new Player());
 	}
 
 	
