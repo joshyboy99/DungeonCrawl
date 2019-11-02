@@ -39,8 +39,7 @@ public class Inventory {
     public void remove(Pickup item) {
     	items.remove(item);
     }
-    
-    public void 
+ 
     
     public boolean checkForItem(Pickup item) {
     	
