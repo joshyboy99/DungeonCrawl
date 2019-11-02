@@ -14,9 +14,14 @@ public class Transport extends InteractableBehaviour implements ContactBehaviour
 	
 	@Override
 	public void onTouch(Entity e) {
-		e.setMx(0);
-		e.setMx(0);
-		attached.wasTouched(e);
+		if(checkValidEntityClass(e)) {
+			e.setMx(0);
+			e.setMx(0);
+			attached.wasTouched(e);
+		} else {
+			e.setMx(0);
+			e.setMx(0);
+		}
 	}
 }
 
