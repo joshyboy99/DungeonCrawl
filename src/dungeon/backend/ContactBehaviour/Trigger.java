@@ -16,7 +16,8 @@ public class Trigger extends InteractableBehaviour implements ContactBehaviour {
 	public void onTouch(Entity entity) {
 		if(checkValidEntityClass(entity)) {
 			changeTriggeredStatus();
-			attached.dungeon.isComplete();
+			attached.wasTouched();
+			attached.isComplete();
 			
 		} 
 	}

@@ -197,6 +197,8 @@ public abstract class Entity {
 	public void removeSelf(){
 		dungeon.removeEntity(this);
 	}
+	
+	
 
 	public void affect(Entity entity) {
 
@@ -210,4 +212,9 @@ public abstract class Entity {
 		Effect e = effects.get(effects.indexOf(eff));
 		((InteractableBehaviour)e).addEntity(ent);
 	}
+	
+	public void isComplete(){
+		this.dungeon.isComplete();
+	}
+
 }

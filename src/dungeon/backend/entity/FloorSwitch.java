@@ -11,14 +11,23 @@ import javafx.beans.Observable;
 
 public class FloorSwitch extends Entity{
 	// private List<Observer> Observers;
+	boolean state;
 	
 	public FloorSwitch(int x, int y) {
 		super(x, y);
 		this.moveBehaviour = new Static(this);
 		this.contactBehaviour = new Trigger(this);
+		this.state=false; 
 		// Observers = new ArrayList<Observer>();
 	}
 	
+	public void wasTouched() { 
+		if(this.state == true) {
+			this.state =false; 
+		} else {
+			this.state =true; 
+		}
+	}
 	
 /*
 	public void setState(boolean state) {

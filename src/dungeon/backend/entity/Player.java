@@ -57,6 +57,7 @@ public class Player extends Entity {
         	dungeon.scanTile(this, getX(), getY() + 1);
         	y().set(getY() + getMy());
         }
+        
     }
 
     public void moveLeft() {
