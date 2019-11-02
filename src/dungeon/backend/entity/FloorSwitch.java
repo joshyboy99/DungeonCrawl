@@ -16,14 +16,8 @@ public class FloorSwitch extends Entity implements Observer {
 	public FloorSwitch(int x, int y) {
 		super(x, y);
 		this.moveBehaviour = new Static(this);
-<<<<<<< HEAD
 		this.contactBehaviour = new NoContact(this);
 		this.state=false; 
-=======
-		this.contactBehaviour = new Trigger(this);
-		this.state = false; 
->>>>>>> 9739285a99fc15e3068d82b40b27122284a93dfd
-		// Observers = new ArrayList<Observer>();
 	}
 	
 	public void wasTouched() { 
