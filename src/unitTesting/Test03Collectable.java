@@ -29,7 +29,7 @@ class Test03Collectable {
         Player player = new Player(dungeon, 0 ,1);
 
         dungeon.setPlayer(player);
-        Treasure treasure = new Treasure( 1, 1);
+        Treasure treasure = new Treasure(1, 1, dungeon);
         dungeon.addEntity(treasure);
         Inventory invent = player.getInventory();
         
