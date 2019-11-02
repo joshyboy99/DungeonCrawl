@@ -26,10 +26,10 @@ class Test03Collectable {
     	// check if on board
         Dungeon dungeon = new Dungeon(5,5);
 
-        Player player = new Player(dungeon, 0 ,1);
+        Player player = new Player(dungeon, 1 ,1);
 
         dungeon.setPlayer(player);
-        Treasure treasure = new Treasure(1, 1, dungeon);
+        Treasure treasure = new Treasure(2, 1, dungeon);
         dungeon.addEntity(treasure);
         Inventory invent = player.getInventory();
         
