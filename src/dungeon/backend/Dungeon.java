@@ -109,11 +109,11 @@ public class Dungeon implements Observable {
     
     public void removeEntity(Entity e) {
     	
-    	if(e instanceof Pickup) {
-    		if(player.checkInventory((Pickup) e)) {
-    			player.removeItem((Pickup) e);
-    		}
-    	}
+//	    	if(e instanceof Pickup) {
+//	    		if(player.checkInventory((Pickup) e)) {
+//	    			player.removeItem((Pickup) e);
+//	    		}
+//	    	}
     	entities.remove(e);
     }
     
