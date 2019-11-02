@@ -21,8 +21,7 @@ import org.junit.jupiter.api.Test;
  */
 
 class TestBoulderFloorSwitch {
-    @Test
-    
+
     
     @Test
     void testPlayerCanOnlyPushOneBoulderAtATime() {

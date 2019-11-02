@@ -77,7 +77,6 @@ public class Player extends Entity {
         	this.setMy(-1);
         	dungeon.scanTile(this, getX(), getY() - 1);
             y().set(getY() + this.getMy());
-            this.activePickup();
         }
     }
 
@@ -87,7 +86,6 @@ public class Player extends Entity {
         	this.setMy(1);
         	dungeon.scanTile(this, getX(), getY() + 1);
         	y().set(getY() + getMy());
-        	this.activePickup();
         }
         
     }
@@ -98,7 +96,6 @@ public class Player extends Entity {
         	this.setMx(-1);
         	dungeon.scanTile(this, getX() -1 , getY());
             x().set(getX() + this.getMx());
-            this.activePickup();
         }
     }
 
@@ -108,7 +105,6 @@ public class Player extends Entity {
         	this.setMx(1);
         	dungeon.scanTile(this, getX() + 1 , getY());
             x().set(getX() + this.getMx());
-            this.activePickup();
         }
     }
     

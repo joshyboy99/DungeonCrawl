@@ -77,14 +77,17 @@ class Test03Collectable {
 		System.out.println("Key2 coordinates: (" + key2.getX()+ "," +key2.getY() +")");
 		System.out.println("Move player down to collect first key");
 		player.moveDown();
+		player.activePickup();
 		System.out.println("Player coordinates: (" + player.getX()+ "," +player.getY() +")");
         assertTrue(invent.checkForItem(key1)); 
         assertFalse(dungeon.checkEntitiesOnDungeon(key1));
         System.out.println("Move player down to collect second key");
         player.moveDown();
-        assertFalse(invent.checkForItem(key2)); 
+        player.activePickup();
+        System.out.println("Player coordinates: (" + player.getX()+ "," +player.getY() +")");
+        assertTrue(invent.checkForItem(key2)); 
+        assertFalse(invent.checkForItem(key1)); 
         assertTrue(dungeon.checkEntitiesOnDungeon(key2));
- 
         System.out.println("- -         PASSED        - -");
 
 	}
@@ -117,7 +120,10 @@ class Test03Collectable {
     	 Player player = new Player(dungeon, 1 ,1);
     	 dungeon.setPlayer(player);
     	 Potion p0 = new Potion(2, 1, dungeon);
+    	 Potion p1 = new Potion(3, 1, dungeon);
     	 dungeon.addEntity(p0);
+    	 dungeon.addEntity(p1);
+    	 System.out.println("- - TEST PICK UP TREASURE - -");
     	 
     	 System.out.println("- -         PASSED        - -");  
     	 
