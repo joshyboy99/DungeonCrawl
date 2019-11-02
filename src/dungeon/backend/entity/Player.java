@@ -132,4 +132,7 @@ public class Player extends Entity {
     	return this.dungeon;
     }
     
+    public void useSword() {
+    	
+    }
 }

@@ -1,6 +1,12 @@
 package dungeon.backend.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import Effects.Effect;
+import dungeon.backend.Behaviour;
 import dungeon.backend.Dungeon;
+import dungeon.backend.InteractableBehaviour;
 import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
 import javafx.beans.property.IntegerProperty;
@@ -23,6 +29,7 @@ public abstract class Entity {
 
     protected MoveBehaviour moveBehaviour;
     protected ContactBehaviour contactBehaviour;
+    protected List<Effect> effects;
     protected Dungeon dungeon;
     
     /**
@@ -40,6 +47,7 @@ public abstract class Entity {
         this.paused = true;
         this.mx = new SimpleIntegerProperty(0);
         this.my = new SimpleIntegerProperty(0);
+        this.effects = new ArrayList<Effect>();
     }
     
     public Entity(int x, int y) {
@@ -48,6 +56,7 @@ public abstract class Entity {
         this.mx = new SimpleIntegerProperty(0);
         this.my = new SimpleIntegerProperty(0);
         this.paused = true;
+        this.effects = new ArrayList<Effect>();
 
     }
     
@@ -185,5 +194,17 @@ public abstract class Entity {
 	public void removeSelf(){
 		dungeon.removeEntity(this);
 	}
+
+	public void affect(Entity entity) {
+
+	};
 	
+	public void addValidEntityContact(Entity e) {
+		((InteractableBehaviour)contactBehaviour).addEntity(e);
+	}
+	
+	public void addValidEntityEffect(Effect eff, Entity ent) {
+		Effect e = effects.get(effects.indexOf(eff));
+		((InteractableBehaviour)e).addEntity(ent);
+	}
 }

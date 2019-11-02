@@ -6,7 +6,5 @@ public interface PickUpBehaviour {
 	
 	 void onPickup(Entity Entity);
 	 
-	 void removeFromDungeon();
-	 
 	 
 }

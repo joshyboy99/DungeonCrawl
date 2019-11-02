@@ -20,12 +20,6 @@ public class IncrementGoal extends InteractableBehaviour implements PickUpBehavi
 		removeFromDungeon();
 		
 	}
-
-	@Override
-	public void removeFromDungeon() {
-		// TODO Auto-generated method stub
-		
-	}
 	
 
 }

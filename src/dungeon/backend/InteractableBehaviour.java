@@ -23,7 +23,7 @@ public abstract class InteractableBehaviour extends Behaviour {
 		this.ValidEntities = new ArrayList<Entity>();
 	}
 	
-	protected boolean checkEntity(Entity e) {
+	protected boolean checkValidEntityClass(Entity e) {
 		for (Entity ie : ValidEntities) {
 			if(e.getClass().equals(ie.getClass())) {
 					return true;
@@ -32,7 +32,7 @@ public abstract class InteractableBehaviour extends Behaviour {
 		return false;
 	}
 	
-	protected void addEntity(Entity e) {
+	public void addEntity(Entity e) {
 		this.ValidEntities.add(e);
 	}
 	

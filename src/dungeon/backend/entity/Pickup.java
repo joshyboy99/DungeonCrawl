@@ -10,10 +10,10 @@ public abstract class Pickup extends Entity {
 	
 	// protected boolean pickedUp;
 	
-	public Pickup(int x, int y, PickUpBehaviour pickupBehaviour) {
+	public Pickup(int x, int y, ContactBehaviour contactBehaviour, PickUpBehaviour pickupBehaviour) {
 		super(x,y);
 		this.moveBehaviour = new Static(this);
-		this.contactBehaviour = new Canpickup(this);
+		this.contactBehaviour = contactBehaviour;
 		this.pickupBehaviour = pickupBehaviour;
 	}
 
@@ -25,8 +25,9 @@ public abstract class Pickup extends Entity {
 		this.pickupBehaviour = pickupBehaviour;
 	}
 
-	protected void performPickup() {
-		this.pickupBehaviour.onPickup(null);
+	protected void performPickup(Entity entity) {
+		this.pickupBehaviour.onPickup(entity);
+		this.removeSelf();
 	}
 
 }
