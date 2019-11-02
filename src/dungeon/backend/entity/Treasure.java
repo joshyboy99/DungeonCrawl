@@ -23,6 +23,4 @@ public class Treasure extends Pickup {
 	public void setValue(int val) {
 		this.value = val;
 	}
-
-
 }
