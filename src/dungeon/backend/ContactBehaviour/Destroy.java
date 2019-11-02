@@ -11,8 +11,9 @@ public class Destroy extends InteractableBehaviour implements ContactBehaviour {
 	}	
 	@Override
 	public void onTouch(Entity e) {
-		// TODO Auto-generated method stub
-		this.attached.kill(e);
+		if(this.checkValidEntityClass(e)) {
+			e.removeSelf();
+		}
 	}
 
 }

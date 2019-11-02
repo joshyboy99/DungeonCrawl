@@ -4,5 +4,7 @@ import dungeon.backend.entity.*;
 
 public interface PickUpBehaviour {
 	
-	 void Pickup(Player player);
+	 void onPickup(Entity Entity);
+	 
+	 
 }

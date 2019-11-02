@@ -9,6 +9,7 @@ import java.util.List;
 import dungeon.backend.*;
 import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
+import javafx.beans.property.IntegerProperty;
 
 /**
  * The player entity
@@ -17,11 +18,9 @@ import dungeon.backend.MoveBehaviour.*;
  */
 public class Player extends Entity {
 
-	Dungeon dungeon;
     private int treasureScore;
     private Inventory inventory;
     private List<Observer> observers = new ArrayList<Observer>();
-    
     /**
      * Create a player positioned in square (x,y)
      * @param x
@@ -33,27 +32,74 @@ public class Player extends Entity {
         this.treasureScore = 0;
         this.inventory = new Inventory();
         this.contactBehaviour = new NoContact(this);
-        this.moveBehaviour = new PlayerControl();
+        //this.moveBehaviour = new PlayerControl();
     }
 
+    public void activePickup() {
+    	
+    }
+    
+    public void openInventory() {
+    	
+    }
+    
     public void moveUp() {
-        if (getY() > 0)
-            y().set(getY() - 1);
+        if (getY() > 0) {
+        	this.setMy(-1);
+        	dungeon.scanTile(this, getX(), getY() - 1);
+            y().set(getY() + this.getMy());
+        }
     }
 
     public void moveDown() {
-        if (getY() < dungeon.getHeight() - 1)
-            y().set(getY() + 1);
+        if (getY() < dungeon.getHeight() - 1) {
+        	this.setMy(1);
+        	dungeon.scanTile(this, getX(), getY() + 1);
+        	y().set(getY() + getMy());
+        }
     }
 
     public void moveLeft() {
-        if (getX() > 0)
-            x().set(getX() - 1);
+        if (getX() > 0 ) {
+        	this.setMx(-1);
+        	dungeon.scanTile(this, getX() -1 , getY());
+            x().set(getX() + this.getMx());
+        }
     }
 
     public void moveRight() {
-        if (getX() < dungeon.getWidth() - 1)
-            x().set(getX() + 1);
+        if (getX() < dungeon.getWidth() - 1){
+        	this.setMx(1);
+        	dungeon.scanTile(this, getX() + 1 , getY());
+            x().set(getX() + this.getMx());
+        }
+    }
+    
+    public void move(int dx, int dy) {
+//    	System.out.println("observers: " + observers);
+
+    	int mx = getX() + dx;
+    	int my = getY() + dy;
+    	if (mx < 0 || my < 0 || mx > dungeon.getWidth() - 1 || my > dungeon.getHeight() -1) {
+    		//notifyObservers();
+    		return;
+    	}
+    	
+    	if (dungeon.getEntities() != null) {
+			for (int i = 0; i < dungeon.getEntities().size(); i++) {
+				Entity e = dungeon.getEntities().get(i);
+				if (e == null) continue;
+				if (e.samePosition(mx,my)) {
+					// cannot interact
+//					if (!e.interact(this)) {
+//						//notifyObservers();
+//						return;
+//					}
+				}
+			}
+    	}
+    	this.changeFace();
+    	this.nextMove();
     }
     
     public int getTreasure() {
@@ -67,8 +113,8 @@ public class Player extends Entity {
         this.treasureScore += value;
     }
     
-    public void addItem(Pickup p) {
-    	this.inventory.add(p);
+    public void addItem(Pickup attached) {
+    	this.inventory.add(attached);
     	
     }
     
@@ -76,8 +122,17 @@ public class Player extends Entity {
     	this.inventory.remove(p);
     }
     
+    
+    
     public boolean checkInventory(Pickup p) {
     	return this.inventory.checkForItem(p);
     }
     
+    public Dungeon getDungeon() {
+    	return this.dungeon;
+    }
+    
+    public void useSword() {
+    	
+    }
 }

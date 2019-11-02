@@ -1,16 +1,22 @@
 package dungeon.backend.entity;
 
+import dungeon.backend.Dungeon;
 import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
+import javafx.beans.property.IntegerProperty;
 
 public class Enemy extends Entity {
 	
 
 	private Player player;
+	private Dungeon dungeon;
 	
-	public Enemy(int x, int y, Player player) {
-		super(x, y, new MoveTowards(), new Destroy(this));
-		this.player = player;
+	public Enemy(int x, int y, Dungeon dungeon) {
+		super(x, y);
+		this.player = dungeon.getPlayer();
+		this.contactBehaviour = new Destroy(this);
+		this.moveBehaviour = new MoveTowards(this, this.player, dungeon);
+		this.dungeon = dungeon;
 	}
 	
 	

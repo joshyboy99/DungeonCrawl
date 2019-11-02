@@ -1,18 +1,25 @@
 package dungeon.backend.PickUpBehaviour;
 
+
 import dungeon.backend.InteractableBehaviour;
 import dungeon.backend.entity.*;
 
 public class IncrementGoal extends InteractableBehaviour implements PickUpBehaviour {
 
+	Goal goal;
 	
-	public IncrementGoal (Pickup e) {
-		super(e);
+	public IncrementGoal(Entity attached, Goal goal) {
+		super(attached);
+		this.goal = goal;
 	}
 	
+
 	@Override
-	public void Pickup(Player p) {
+	public void onPickup(Entity entity) {
+		goal.increment();
+		removeFromDungeon();
 		
 	}
+	
 
 }

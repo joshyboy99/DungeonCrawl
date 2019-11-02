@@ -1,37 +1,52 @@
 package dungeon.backend.entity;
 
+import dungeon.backend.Dungeon;
 import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
 import javafx.beans.property.IntegerProperty;
 
 public class Portal extends Entity {
-	private IntegerProperty teleportX;
-	private IntegerProperty teleportY;
-	public Portal(int x, int y) {
+	
+	private int portalID; 
+	private Portal pair;
+	
+	public Portal(int x, int y, Dungeon dungeon,int portalID) {
 		super(x, y);
-		
+
 		this.contactBehaviour = new Transport(this);
-		this.moveBehaviour = new Static();
-		// TODO Auto-generated constructor stub
+		this.moveBehaviour = new Static(this);
+		this.portalID = portalID;
+		this.dungeon = dungeon; 
 	}
-	/**
-	 * @return the teleportX
-	 */
-	public int getTeleportX() {
-		return teleportX.get();
-	}
-	/**
-	 * @return the teleportY
-	 */
-	public int getTeleportY() {
-		return teleportY.get();
+
+	public void addPair(Portal p) {
+		pair = p;
 	}
 	
+	public void removePair() {
+		pair = null;
+	}
 	
+	public Portal getPair() {
+		return this.pair;
+	}
 	
+	public int getportalID() {
+		return portalID;
+	}
+	//will return the pair's portals X coordinates
+	public int getPortX() {
+		Portal PortalPair = dungeon.getGetPortalPair(this, this.portalID);
+		//return this portal if could not be found (so player does not go anywhere)
+		return PortalPair.getX();
+	}
 	
-	
-	
-	
+	//will return the pair's portals Y coordinates
+	public int getPortY() {
+		Portal PortalPair = dungeon.getGetPortalPair(this, this.portalID);
+		//return this portal if could not be found (so player does not go anywhere)
+		return PortalPair.getY();
+	}
+
 
 }

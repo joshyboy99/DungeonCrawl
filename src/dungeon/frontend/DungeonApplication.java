@@ -23,6 +23,7 @@ public class DungeonApplication extends Application {
         Parent root = loader.load();
         Scene scene = new Scene(root);
         root.requestFocus();
+        
         primaryStage.setScene(scene);
         primaryStage.show();
 
