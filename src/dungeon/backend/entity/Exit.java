@@ -12,6 +12,4 @@ public class Exit extends Entity{
 		this.contactBehaviour = new Trigger(this);
 	}
 	
-	
-
 }
