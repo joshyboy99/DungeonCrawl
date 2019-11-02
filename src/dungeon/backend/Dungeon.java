@@ -59,24 +59,16 @@ public class Dungeon implements Observable {
     }
 
     public void addEntity(Entity entity) {
+    	if (entity instanceof Observer) {
+    		addObserver((Observer)entity);
+    	}
+    	
         entities.add(entity);
     }
     
     public List<Entity> getEntities() {
     	return entities;
     }
-    
-//    public void addEntity(Entity entity) {
-//    	if (entity instanceof Observer) {
-//    		registerObserver((Observer)entity);
-//    	}
-//    	if (entity instanceof Door) {
-//    		if (doorNum == 3) return;
-//    		doorNum++;
-//    	}
-//        entities.add(entity);
-//        entity.itExist();
-//    }
     
     //scan tile, invoke contact behavior on entity which touched tile. Will return false if tile cannot be walked over.
     public void scanTile(Entity touched, int x, int y) {
@@ -145,6 +137,10 @@ public class Dungeon implements Observable {
 
     public boolean isFail() {
     	return this.fail;
+    }
+    
+    public List<Entity> getObservers() {
+    	return this.observers;
     }
     
 

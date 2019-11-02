@@ -13,11 +13,12 @@ public class FloorSwitch extends Entity implements Observer {
 	// private List<Observer> Observers;
 	boolean state;
 	
-	public FloorSwitch(int x, int y) {
+	public FloorSwitch(int x, int y, Dungeon dungeon) {
 		super(x, y);
 		this.moveBehaviour = new Static(this);
 		this.contactBehaviour = new Trigger(this);
 		this.state=false; 
+		this.dungeon = dungeon;
 		// Observers = new ArrayList<Observer>();
 	}
 	
