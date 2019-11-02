@@ -2,6 +2,7 @@ package dungeon.backend.entity;
 
 import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
+import dungeon.backend.PickUpBehaviour.NoEffect;
 
 public class Treasure extends Pickup {
 	
@@ -12,6 +13,7 @@ public class Treasure extends Pickup {
 		this.value = val;
 		this.moveBehaviour = new Static(this);
 		this.contactBehaviour =  new PassivePickup(this);
+		this.pickupBehaviour = new NoEffect(this);
 	}
 	
 	public int getValue() {
@@ -21,7 +23,6 @@ public class Treasure extends Pickup {
 	public void setValue(int val) {
 		this.value = val;
 	}
-	
-	
+
 
 }
