@@ -4,10 +4,13 @@
 package dungeon.backend;
 
 import dungeon.backend.entity.*;
+import dungeon.backend.goal.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
+
+import org.json.JSONObject;
 
 /**
  * A dungeon in the interactive dungeon player.
@@ -24,12 +27,14 @@ public class Dungeon {
     private int width, height;
     private List<Entity> entities;
     private Player player;
+    private GoalManager goalManager;
 
     public Dungeon(int width, int height) {
         this.width = width;
         this.height = height;
         this.entities = new ArrayList<>();
         this.player = null;
+        this.goalManager = null;
         
     }
 
@@ -47,6 +52,7 @@ public class Dungeon {
 
     public void setPlayer(Player player) {
         this.player = player;
+        this.goalManager = new GoalManager(this, player);
     }
 
     public void addEntity(Entity entity) {
@@ -106,6 +112,20 @@ public class Dungeon {
     
     public void removeEntity(Entity e) {
     	entities.remove(e);
+    }
+    
+    
+    // set up goals
+    public void setupGoal(JSONObject goalCondition) {
+    	goalManager.setGoal(goalCondition);
+    }
+
+    public Goal getGoal() {
+    	return goalManager.getGoal();
+    }
+
+    public boolean isComplete() {
+    	return goalManager.checkComplete();
     }
     
 }
