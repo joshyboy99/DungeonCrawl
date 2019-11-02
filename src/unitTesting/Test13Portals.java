@@ -25,7 +25,7 @@ class Test13Portals {
 		             */
 		Dungeon dungeon = new Dungeon(5,5);
 		Player player = new Player(dungeon, 2,1);
-		System.out.print("Created 4 portals (2 pairs) and a player instantiated at square 2,1");
+		System.out.print("Created 4 portals (2 pairs) and a player instantiated at square 2,1\n");
         dungeon.addEntity(new Portal(1,1,dungeon, 0)); 
         dungeon.addEntity(new Portal(3,3,dungeon, 0));
         dungeon.addEntity(new Portal(3,1,dungeon, 1));
@@ -40,6 +40,7 @@ class Test13Portals {
         assertTrue(player.y().getValue().intValue() == 1);	
         System.out.print("Moving player into portal 1 through a left movement\n");
         player.moveLeft();
+        System.out.print("New coordinates: (" + player.getX() + "," + player.getY() + ")\n");
         assertTrue(player.x().getValue().intValue() == 3);
         assertTrue(player.y().getValue().intValue() == 3);	
         System.out.print("New coordinates: (" + player.getX() + "," + player.getY() + ")\n");
