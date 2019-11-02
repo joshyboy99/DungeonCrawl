@@ -6,7 +6,8 @@ import dungeon.backend.entity.*;
 
 public class IncrementGoal extends InteractableBehaviour implements ContactBehaviour {
 
-
+	Goal goal;
+	
 	public IncrementGoal(Entity attached) {
 		super(attached);
 		// TODO Auto-generated constructor stub
