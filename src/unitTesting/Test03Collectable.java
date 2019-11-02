@@ -43,40 +43,55 @@ class Test03Collectable {
 
     }
 
-//    @Test
-//    void testPickUpSword() {
-//    	// 5x5 Map player at (0,1)
-//    	// Sword in (0,2) 
-//    	// pick up by going left once 
-//    	// check if on board
-//        Dungeon dungeon = new Dungeon(5,5);
-//        Player player = new Player(dungeon, 0 ,1);
-//        Sword sword = new Sword(0, 2);
-//        Inventory invent = player.getInventory();
-//        
-//        System.out.println("- - TEST PICK UP TREASURE - -");
-//        
-//        System.out.println("- -         PASSED        - -");
-//    }
-//
-//
-//    @Test
-//    void testPickUpKey() {
-//    	// 5x5 Map player at (0,1)
-//    	// Key in (0,2) 
-//    	// pick up by going left once 
-//    	// check if on board
-//        Dungeon dungeon = new Dungeon(5,5);
-//        Player player = new Player(dungeon, 0 ,1);
-//        Key key = new Key(1, 1, 1);
-//        Inventory invent = player.getInventory();
-//        assertTrue(invent.getItems().isEmpty());
-//        player.moveRight();
-//        assertTrue(player.checkInventory(key));
-//        
-//        System.out.println("- -         PASSED        - -");
-//    }
-//
+    @Test
+    void testPickUpSword() {
+    	// 5x5 Map player at (0,1)
+    	// Sword in (0,2) 
+    	// pick up by going left once 
+    	// check if on board
+        Dungeon dungeon = new Dungeon(5,5);
+        Player player = new Player(dungeon, 0 ,1);
+        Sword sword = new Sword(1, 1, dungeon);
+        dungeon.addEntity(sword);
+        Inventory invent = player.getInventory();
+        
+        
+        System.out.println("- -  TEST PICK UP SWORD   - -");
+        assertTrue(invent.getItems().isEmpty());
+        player.moveRight();
+        player.activePickup();
+        assertTrue(invent.checkForItem(sword));   
+        assertFalse(dungeon.checkEntitiesOnDungeon(sword));
+        
+        System.out.println("- -         PASSED        - -");
+    }
+
+
+    @Test
+    void testPickUpKey() {
+    	// 5x5 Map player at (0,1)
+    	// Key in (0,2) 
+    	// pick up by going left once 
+    	// check if on board
+        Dungeon dungeon = new Dungeon(5,5);
+        Player player = new Player(dungeon, 0 ,1);
+        Key key = new Key(1, 1, 1, dungeon);
+        dungeon.addEntity(key);
+        Inventory invent = player.getInventory();
+        
+        System.out.println("- -   TEST PICK UP KEY   - -");
+        assertTrue(invent.getItems().isEmpty());
+
+        player.moveRight();
+        player.activePickup();
+        assertTrue(player.checkInventory(key));
+
+        assertFalse(dungeon.checkEntitiesOnDungeon(key));
+
+        
+        System.out.println("- -         PASSED        - -");
+    }
+
 //    @Test
 //    void testPickUpInvincibilityPotion() {
 //    	// 5x5 Map player at (0,1)
@@ -85,10 +100,18 @@ class Test03Collectable {
 //    	// check if on board
 //        Dungeon dungeon = new Dungeon(5,5);
 //        Player player = new Player(dungeon, 0 ,1);
-//        Potion key = new Potion(0, 2);
+//        Potion potion = new Potion(0, 2, dungeon);
+//        dungeon.addEntity(potion);
 //        Inventory invent = player.getInventory();
 //        
 //        System.out.println("- -  TEST PICK UP POTION  - -");
+//        
+//        player.moveRight();
+//        player.activePickup();
+//        assertTrue(player.checkInventory(potion));
+//
+//        assertFalse(dungeon.checkEntitiesOnDungeon(potion));
+//
 //        
 //        System.out.println("- -         PASSED        - -");
 //    }
