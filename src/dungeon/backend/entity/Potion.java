@@ -20,14 +20,6 @@ public class Potion extends Pickup implements Observer{
 	
 	@Override
 	public void update(Player player) {
-		// TODO Auto-generated method stub
 		
 	}
-
-	@Override
-	public void update(boolean bool) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }
