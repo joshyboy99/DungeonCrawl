@@ -17,7 +17,7 @@ public class PassivePickup extends InteractableBehaviour implements ContactBehav
 	@Override
 	public void onTouch(Entity entity) {
 		if(attached instanceof Pickup) {
-			((Pickup) attached).performPickup(attached);
+			((Pickup) attached).performPickup(entity);
 		}
 	}
 }

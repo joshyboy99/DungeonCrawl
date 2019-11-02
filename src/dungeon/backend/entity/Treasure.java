@@ -12,6 +12,4 @@ public class Treasure extends Pickup {
 		this.contactBehaviour =  new PassivePickup(this);
 		this.pickupBehaviour = new Store(this);
 	}
-	
-	
 }
