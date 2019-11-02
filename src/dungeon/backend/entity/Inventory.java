@@ -40,11 +40,6 @@ public class Inventory {
     public void remove(Pickup item) {
     	items.remove(item);
     }
-<<<<<<< HEAD
-    
-=======
- 
->>>>>>> branch 'Entity_systems' of https://gitlab.cse.unsw.edu.au/COMP2511/19T3/W10B-AJ
     
     public boolean checkForItem(Pickup item) {
     	
