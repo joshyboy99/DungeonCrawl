@@ -1,5 +1,6 @@
 package dungeon.backend.goal;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import dungeon.backend.*;
@@ -33,7 +34,38 @@ public class GoalManager {
 	
 	public Goal createGoal(JSONObject goalCondition) {
 		
-		return null;
+    	Goal newGoal = null;
+    	String type = goalCondition.getString("goal");
+    	
+    	if (type.equals("AND") || type.equals("OR")) {
+    		GoalComposite goals = new GoalComposite(type);
+    		JSONArray subGoals = goalCondition.getJSONArray("subgoals");
+    		for (int i = 0; i < subGoals.length(); i++) {
+    			JSONObject subGoal = subGoals.getJSONObject(i); 
+    			goals.addGoal(this.createGoal(subGoal));
+    		}
+    		newGoal = goals; 
+    	}  else {
+    		switch(type) {
+    		case "enemies":
+    			GoalBase enemyGoal = new GoalEliminateEnemy(dungeon, player);
+    			newGoal = enemyGoal;
+    			break;
+    		case "treasure":
+    			GoalBase treasureGoal = new GoalCollectTreasure(dungeon, player);
+    			newGoal = treasureGoal;
+    			break;
+    		case "exit":
+    			GoalBase exitGoal = new GoalReachExit(dungeon, player);
+    			newGoal = exitGoal;
+    			break;
+    		case "boulders":
+    			GoalBase switchGoal = new GoalCloseSwitch(dungeon, player);
+    			newGoal = switchGoal;
+    			break;
+    		}
+    	}
+    	return newGoal;
 		
 	}
 	
