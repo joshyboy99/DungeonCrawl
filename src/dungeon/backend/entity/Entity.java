@@ -186,7 +186,7 @@ public abstract class Entity {
 		return this.Facing;
 	}
 	
-	public void wasTouched() { 
+	public void wasTouched(Entity entity) { 
 	}
 	
 	public void scanDungeonTile(int x, int y) {

@@ -61,9 +61,9 @@ public class Dungeon implements Observable {
 
     public void addEntity(Entity entity) {
     	if (entity instanceof Observer) {
-    		addObserver((Observer)entity);
+    		System.out.print(entity);
+    		addObserver( (Observer) entity);
     	}
-    	
         entities.add(entity);
     }
     
