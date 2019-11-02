@@ -24,10 +24,4 @@ public class Potion extends Pickup implements Observer{
 		
 	}
 
-	@Override
-	public void update(boolean bool) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }
