@@ -62,5 +62,11 @@ public class FloorSwitch extends Entity implements Observer {
 		
 	}
 
+	@Override
+	public void update(boolean bool) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }
