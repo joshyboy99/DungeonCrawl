@@ -1,4 +1,4 @@
-package dungeon.backend.ContactBehaviour;
+package dungeon.backend.PickUpBehaviour;
 
 import dungeon.backend.InteractableBehaviour;
 import dungeon.backend.PickUpBehaviour.PickUpBehaviour;

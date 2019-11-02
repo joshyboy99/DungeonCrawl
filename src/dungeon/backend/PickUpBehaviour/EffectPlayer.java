@@ -1,13 +1,14 @@
-package dungeon.backend.ContactBehaviour;
+package dungeon.backend.PickUpBehaviour;
 
 
 import dungeon.backend.InteractableBehaviour;
 import dungeon.backend.entity.*;
 
-public class IncrementGoal extends InteractableBehaviour implements ContactBehaviour {
+public class EffectPlayer extends InteractableBehaviour implements ContactBehaviour {
+	
 
 
-	public IncrementGoal(Entity attached) {
+	public EffectPlayer(Entity attached) {
 		super(attached);
 		// TODO Auto-generated constructor stub
 	}

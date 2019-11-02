@@ -11,7 +11,6 @@ public class Boulder extends Entity{
 		this.dungeon = dungeon;
 		this.contactBehaviour= new Moveable(this);
 		this.moveBehaviour = new Static(this);
-		// TODO Auto-generated constructor stub
 	}
 	
 	

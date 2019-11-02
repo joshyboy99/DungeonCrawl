@@ -13,7 +13,7 @@ public class Canpickup extends InteractableBehaviour implements ContactBehaviour
 	
 	@Override
 	public void onTouch(Entity entity) {
-		// TODO Auto-generated method stub
+		attached.pickup();
 		
 	}
 

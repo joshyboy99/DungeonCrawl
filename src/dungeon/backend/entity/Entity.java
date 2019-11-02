@@ -18,7 +18,7 @@ public abstract class Entity {
     private IntegerProperty x, y;
     private IntegerProperty mx, my;
    
-	//private boolean paused;
+	private boolean paused;
     private String Facing;
 
     protected MoveBehaviour moveBehaviour;
@@ -37,7 +37,7 @@ public abstract class Entity {
         this.Facing = "DOWN";
         this.contactBehaviour = contactBehaviour;
         this.moveBehaviour = moveBehaviour;
-        //this.paused = true;
+        this.paused = true;
         this.mx = new SimpleIntegerProperty(0);
         this.my = new SimpleIntegerProperty(0);
     }
@@ -47,7 +47,7 @@ public abstract class Entity {
         this.y = new SimpleIntegerProperty(y);
         this.mx = new SimpleIntegerProperty(0);
         this.my = new SimpleIntegerProperty(0);
-        //this.paused = true;
+        this.paused = true;
 
     }
     
@@ -93,9 +93,9 @@ public abstract class Entity {
         this.x.set(x);
     }
     
-//    public void togglePaused() {
-//    	paused = !paused;
-//    }
+    public void togglePaused() {
+    	paused = !paused;
+    }
     
     public void performMove() {
     	//if(this.paused == false) 

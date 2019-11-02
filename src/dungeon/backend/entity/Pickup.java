@@ -10,11 +10,21 @@ public abstract class Pickup extends Entity {
 	
 	// protected boolean pickedUp;
 	
-	public Pickup(int x, int y) {
+	public Pickup(int x, int y, PickUpBehaviour pickupBehaviour) {
 		super(x,y);
 		this.moveBehaviour = new Static(this);
 		this.contactBehaviour = new Canpickup(this);
-		this.pickupBehaviour = new AddToInventory(this);
+		this.pickupBehaviour = pickupBehaviour;
 	}
+
+	public PickUpBehaviour getPickupBehaviour() {
+		return pickupBehaviour;
+	}
+
+	public void setPickupBehaviour(PickUpBehaviour pickupBehaviour) {
+		this.pickupBehaviour = pickupBehaviour;
+	}
+	
+	
 
 }

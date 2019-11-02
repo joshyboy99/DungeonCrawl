@@ -20,5 +20,4 @@ public class Door extends Entity {
 			this.contactBehaviour = new NoContact(this); 
 		} 
 	}
-
 }
