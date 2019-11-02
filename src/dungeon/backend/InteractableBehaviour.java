@@ -5,6 +5,15 @@ import java.util.List;
 
 import dungeon.backend.entity.*;
 
+
+
+/**
+ * This Abstract class is responsible for the series of behaviours that involves
+ * the interaction between the holder of a behaviour, and another entity. Whether that be
+ * touching another entity or picking it up, this class facilitates those entity-entity ineractions.
+ * @author simon
+ *
+ */
 public abstract class InteractableBehaviour extends Behaviour {
 	
 	protected List<Entity> ValidEntities;

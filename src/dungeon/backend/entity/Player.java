@@ -35,6 +35,14 @@ public class Player extends Entity {
         //this.moveBehaviour = new PlayerControl();
     }
 
+    public void activePickup() {
+    	
+    }
+    
+    public void openInventory() {
+    	
+    }
+    
     public void moveUp() {
         if (getY() > 0) {
         	this.setMy(-1);
@@ -113,6 +121,8 @@ public class Player extends Entity {
     public void removeItem(Pickup p) {
     	this.inventory.remove(p);
     }
+    
+    
     
     public boolean checkInventory(Pickup p) {
     	return this.inventory.checkForItem(p);

@@ -7,6 +7,7 @@ import dungeon.backend.entity.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 /**
  * A dungeon in the interactive dungeon player.
@@ -17,6 +18,7 @@ import java.util.List;
  * @author Robert Clifton-Everest
  *
  */
+
 public class Dungeon {
 
     private int width, height;
@@ -57,11 +59,22 @@ public class Dungeon {
     
     //scan tile, invoke contact behavior on entity which touched tile. Will return false if tile cannot be walked over.
     public void scanTile(Entity touched, int x, int y) {
-    	for(Entity e: entities) {
-    		if(e.getX() == x && e.getY() == y) {
+    	for(Entity e: EntitiesOnTile(x,y)) {
     			e.performTouch(touched);
+		}	
+    }
+    
+    public List<Entity> EntitiesOnTile(int x, int y) {
+    	
+    	List<Entity> entList = new ArrayList<Entity>();
+    	
+		for(Entity e: entities) {
+    		if(e.getX() == x && e.getY() == y) {
+    			entList.add(e);
     		}
     	}
+		
+		return entList;
     }
     
     public Portal getGetPortalPair(Portal portal,int ID) {
