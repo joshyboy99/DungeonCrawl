@@ -5,7 +5,7 @@ import dungeon.backend.InteractableBehaviour;
 import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
 
-public class Enemy extends Entity {
+public class Enemy extends Entity implements Observer{
 	
 
 	private Player player;
@@ -33,6 +33,12 @@ public class Enemy extends Entity {
 		((InteractableBehaviour) contactBehaviour).addEntity(player);
 		
 		this.moveBehaviour = new MoveTowards(this, this.player, dungeon);
+	}
+
+	@Override
+	public void update(Player player) {
+		
+		
 	}
 	
 }

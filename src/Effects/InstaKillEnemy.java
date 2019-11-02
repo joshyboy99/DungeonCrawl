@@ -7,11 +7,10 @@ import dungeon.backend.entity.*;
 
 public class InstaKillEnemy extends Behaviour implements Effect, Observer{
 
-	private int duration;
+	private boolean inEffect;
 	
 	public InstaKillEnemy(Entity attached) {
 		super(attached);
-		this.duration = 15;
 	}
 
 	@Override
@@ -19,11 +18,11 @@ public class InstaKillEnemy extends Behaviour implements Effect, Observer{
 		e.setContactBehaviour(new Destroy(e));
 		e.addValidEntityContact(new Enemy(0,0, null));
 		this.attached = e;
-		
-		//Endtime = Timer.instant().plusSeconds(90);
-		
-		//while(!Timer.instant().equals(Endtime));
-		
+		this.inEffect = true;
+	}
+	
+	public boolean getInEffect() {
+		return inEffect;
 	}
 
 	@Override
@@ -33,12 +32,8 @@ public class InstaKillEnemy extends Behaviour implements Effect, Observer{
 	}
 
 	@Override
-	public void update(Player player) {
-		duration--;
-		if(duration<=0) {
-			endEffect();
-		}
+	public void update(Player player) {	
+		
 	}
 	
-
 }
