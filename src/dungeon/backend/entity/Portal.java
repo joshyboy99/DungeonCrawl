@@ -56,6 +56,11 @@ public class Portal extends Entity {
 		//return this portal if could not be found (so player does not go anywhere)
 		return PortalPair.getY();
 	}
+	
+	public void wasTouched(Entity e) {
+		e.setX(this.getPortX());
+		e.setY(this.getPortY());
+	}
 
 
 }
