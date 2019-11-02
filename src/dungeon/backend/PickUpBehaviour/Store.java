@@ -17,5 +17,4 @@ public class Store extends InteractableBehaviour implements PickUpBehaviour {
 		}
 	}
 
-
 }

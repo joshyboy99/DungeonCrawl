@@ -42,11 +42,9 @@ public class Player extends Entity {
         this.contactBehaviour = new NoContact(this);
         //this.moveBehaviour = new PlayerControl();
     }
-    public void activePickup() {
-    	
-    }
     
-    public void openInventory() {
+    public void activePickup() {
+    	dungeon.EntitiesOnTile(getX(), getY());
     	
     }
     
@@ -129,8 +127,6 @@ public class Player extends Entity {
     public void removeItem(Pickup p) {
     	this.inventory.remove(p);
     }
-    
-    
     
     public boolean checkInventory(Pickup p) {
     	return this.inventory.checkForItem(p);

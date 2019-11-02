@@ -17,5 +17,4 @@ public class Repel extends InteractableBehaviour implements ContactBehaviour {
 		entity.setMx(0);
 		entity.setMy(0);
 	}
-
 }

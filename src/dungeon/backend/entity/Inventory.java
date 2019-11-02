@@ -23,6 +23,7 @@ public class Inventory {
      * @param p a 
      * @return
      */
+    
     public Pickup getItemType(Class<Entity> p) {
     	for (Pickup ie : items) {
 			if(p.getClass().equals(ie.getClass())) {
@@ -40,7 +41,6 @@ public class Inventory {
     	items.remove(item);
     }
     
-    public void 
     
     public boolean checkForItem(Pickup item) {
     	

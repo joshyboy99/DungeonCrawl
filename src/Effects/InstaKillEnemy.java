@@ -1,6 +1,5 @@
 package Effects;
 
-import java.time.*;
 
 import dungeon.backend.*;
 import dungeon.backend.ContactBehaviour.*;
@@ -29,7 +28,8 @@ public class InstaKillEnemy extends Behaviour implements Effect, Observer{
 
 	@Override
 	public void endEffect() {
-		attached.setContactBehaviour(new NoContact(e));
+		attached.setContactBehaviour(new NoContact(attached));
+		this.attached = null;
 	}
 
 	@Override
