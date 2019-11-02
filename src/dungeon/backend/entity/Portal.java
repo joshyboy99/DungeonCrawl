@@ -11,7 +11,7 @@ public class Portal extends Entity {
 	private Portal pair;
 	
 	public Portal(int x, int y, Dungeon dungeon,int portalID) {
-		super(x, y);
+		super(x, y, dungeon);
 		this.contactBehaviour = new Transport(this);
 		//this.contactBehaviour = new Transport(this, x, y);
 		
