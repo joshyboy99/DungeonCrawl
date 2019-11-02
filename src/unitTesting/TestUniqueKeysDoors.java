@@ -53,10 +53,8 @@ class TestUniqueKeysDoors {
         player.moveRight();
         player.moveRight();
         player.moveRight();
-        System.out.println(player.x().getValue().intValue());
-        System.out.println(player.y().getValue().intValue());
-//        assertTrue(player.x().getValue().intValue() == #);
-//        assertTrue(player.y().getValue().intValue() == #);
+        assertTrue(player.x().getValue().intValue() == 4);
+        assertTrue(player.y().getValue().intValue() == 1);
         
         
         System.out.println("- -     TEST PASSED    - -");

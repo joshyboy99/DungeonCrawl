@@ -24,7 +24,7 @@ public class Inventory {
      * @return
      */
     
-    public Pickup getItemType(Class<Entity> p) {
+    public Pickup getItemType(Pickup p) {
     	for (Pickup ie : items) {
 			if(p.getClass().equals(ie.getClass())) {
 					return ie;
@@ -50,6 +50,16 @@ public class Inventory {
     	}
     }
     
+    public int itemCount(Pickup item) {
+    	int counter = 0;
+    	for(Entity e: items) {
+    		if(e.getClass().equals(item.getClass())) {
+    			counter++;
+    		}
+    	}
+    	
+    	return counter;
+    }
     
     
     

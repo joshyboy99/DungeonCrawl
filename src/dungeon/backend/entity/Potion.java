@@ -1,6 +1,5 @@
 package dungeon.backend.entity;
 
-import java.time.*;
 
 import Effects.*;
 import dungeon.backend.Dungeon;
@@ -21,6 +20,8 @@ public class Potion extends Pickup implements Observer{
 	
 	@Override
 	public void update(Player player) {
-		
+		for(Effect e: effects) {
+			e.update(player);
+		}
 	}
 }

@@ -11,7 +11,7 @@ public class Door extends Entity {
 	
 	public Door(int x, int y, int keyID, Dungeon dungeon) {
 		super(x, y, dungeon);
-		this.contactBehaviour = new Repel(this);
+		this.contactBehaviour = new Locked(this);
 		this.moveBehaviour = new Static(this);
 		this.keyID = keyID;
 	}
@@ -25,6 +25,7 @@ public class Door extends Entity {
 	public void wasTouched(Entity entity) {
 		Player p0 = (Player) entity;
 		if(this.keyID == p0.getCurrentKeyID()) {
+			//System.out.println("HERE");
 			//player has required key, open door
 			this.contactBehaviour = new NoContact(this);
 		} //if not, keep locked. 
