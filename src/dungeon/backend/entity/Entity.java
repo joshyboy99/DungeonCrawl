@@ -203,7 +203,7 @@ public abstract class Entity {
 	}
 	
 	public void removeSelf(){
-		System.out.print("size:" + dungeon.getEntities().size() + "\n");
+		//System.out.print("size:" + dungeon.getEntities().size() + "\n");
 		dungeon.removeEntity(this);
 	}
 	
