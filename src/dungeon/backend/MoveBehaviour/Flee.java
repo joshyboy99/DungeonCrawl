@@ -49,13 +49,13 @@ public class Flee extends Behaviour implements MoveBehaviour {
 			//above
 			if(aY < tY) {
 				this.dungeon.scanTile(attached, aX, aY + 1);
-				attached.setMy(aY + 1);
+				attached.setMy(aY - 1);
 			}
 			
 			//below
 			else if(aY > tY) {
 				this.dungeon.scanTile(attached, aX, aY-1);
-				attached.setMy(aY - 1);
+				attached.setMy(aY + 1);
 			}
 		} 
 		

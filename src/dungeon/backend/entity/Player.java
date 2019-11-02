@@ -34,6 +34,7 @@ public class Player extends Entity {
         this.contactBehaviour = new NoContact(this);
         //this.moveBehaviour = new PlayerControl();
     }
+
     public Player() {
     	super();
     }

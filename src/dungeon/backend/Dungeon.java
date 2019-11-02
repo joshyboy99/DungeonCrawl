@@ -76,8 +76,7 @@ public class Dungeon implements Observable {
 //    		if (e.samePosition(x, y)) {
 //    			e.performTouch(touched);
 //    		}
-//    	}	
-    	
+//    	}
     	for (Entity e: EntitiesOnTile(x,y)) {
     		e.performTouch(touched);
     	}

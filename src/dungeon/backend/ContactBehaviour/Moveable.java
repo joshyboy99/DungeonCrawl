@@ -52,6 +52,7 @@ public class Moveable extends InteractableBehaviour implements ContactBehaviour 
 				}
 				attached.setY(attached.getY()+ attached.getMy());
 			} else {
+				
 				//oh no - attached is attempting to go out of bounds, stop entity from moving!!!!!
 				e.setMx(0);
 				e.setMy(0);
