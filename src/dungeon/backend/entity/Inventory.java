@@ -32,9 +32,6 @@ public class Inventory {
     	return null;
     }
     
-    
-    
-    
     public void add(Pickup item) {
     	items.add(item);
     }
