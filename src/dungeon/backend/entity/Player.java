@@ -21,6 +21,7 @@ public class Player extends Entity {
     private int treasureScore;
     private Inventory inventory;
     private List<Observer> observers = new ArrayList<Observer>();
+    
     /**
      * Create a player positioned in square (x,y)
      * @param x
@@ -43,8 +44,31 @@ public class Player extends Entity {
     }
     
     public void activePickup() {
-    	dungeon.EntitiesOnTile(getX(), getY());
-    	
+    	List<Entity> pickList = dungeon.EntitiesOnTile(getX(), getY());
+    	for(Entity e: pickList) {
+    		if(e instanceof Pickup) {
+    			((Pickup) e).performPickup(this);
+    		}
+    	}
+    }
+    
+    public void swapItem(Pickup p) {
+    	List<Entity> pickList = dungeon.EntitiesOnTile(getX(), getY());
+    	for(Entity e: pickList) {
+    		if(e.getClass().equals(p.getClass())) {
+    			((Pickup) e).performPickup(this);
+    			dropItem((Pickup) e);
+    		}
+    	}
+    }
+    
+    public void dropItem(Pickup p){
+    	if(inventory.checkForItem(p)) {
+    		inventory.remove(p);
+    		p.setX(getX());
+    		p.setY(getY());
+    		dungeon.addEntity(p);
+    	}
     }
     
     public void moveUp() {
