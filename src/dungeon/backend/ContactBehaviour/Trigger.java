@@ -23,11 +23,7 @@ public class Trigger extends InteractableBehaviour implements ContactBehaviour {
 	}
 	
 	public boolean changeTriggeredStatus() {
-		if(this.triggered == false) {
-			return this.triggered = true;
-		} else {
-			return this.triggered = false;
-		}
+		return triggered = !triggered;
 	}
 
 

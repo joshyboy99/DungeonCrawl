@@ -3,7 +3,7 @@ package dungeon.backend.entity;
 import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
 
-public class Treasure extends Entity {
+public class Treasure extends Pickup {
 	
 	int value;
 

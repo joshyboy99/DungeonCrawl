@@ -28,6 +28,7 @@ public class Dungeon {
     private List<Entity> entities;
     private Player player;
     private GoalManager goalManager;
+    private boolean fail;
 
     public Dungeon(int width, int height) {
         this.width = width;
@@ -35,6 +36,7 @@ public class Dungeon {
         this.entities = new ArrayList<>();
         this.player = null;
         this.goalManager = null;
+        this.fail = false;
         
     }
 
@@ -78,7 +80,7 @@ public class Dungeon {
     //scan tile, invoke contact behavior on entity which touched tile. Will return false if tile cannot be walked over.
     public void scanTile(Entity touched, int x, int y) {
     	for(Entity e: entities) {
-    			if(e.getX() == x && e.getY() == y) {
+    			if(e.samePosition(x, y)) {
     				e.performTouch(touched);
     			}
 		}	
@@ -89,7 +91,7 @@ public class Dungeon {
     	List<Entity> entList = new ArrayList<Entity>();
     	
 		for(Entity e: entities) {
-    		if(e.getX() == x && e.getY() == y) {
+    		if(e.samePosition(x, y)) {
     			entList.add(e);
     		}
     	}
@@ -136,18 +138,12 @@ public class Dungeon {
     	return goalManager.checkComplete();
     }
     
-    
-    // set up goals
-    public void setupGoal(JSONObject goalCondition) {
-    	goalManager.setGoal(goalCondition);
+    public void failStage() {
+    	this.fail = true;
     }
 
-    public Goal getGoal() {
-    	return goalManager.getGoal();
-    }
-
-    public boolean isComplete() {
-    	return goalManager.checkComplete();
+    public boolean isFail() {
+    	return this.fail;
     }
 }
 

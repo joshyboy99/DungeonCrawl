@@ -41,6 +41,7 @@ public class Inventory {
     }
     
     public boolean checkForItem(Pickup item) {
+    	
     	if(this.items.contains(item)) {
     		return true;
     	} else{

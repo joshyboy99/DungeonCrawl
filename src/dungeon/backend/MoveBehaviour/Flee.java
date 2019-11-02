@@ -4,7 +4,7 @@ import dungeon.backend.Behaviour;
 import dungeon.backend.Dungeon;
 import dungeon.backend.entity.Entity;
 
-class Flee extends Behaviour implements MoveBehaviour {
+public class Flee extends Behaviour implements MoveBehaviour {
 	
 	Entity targetEntity;
 	Dungeon dungeon; 
