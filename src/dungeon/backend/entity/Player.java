@@ -35,12 +35,10 @@ public class Player extends Entity {
         //this.moveBehaviour = new PlayerControl();
     }
 
-
     public Player() {
     	super();
     }
 
-    
     public void activePickup() {
     	List<Entity> pickList = dungeon.EntitiesOnTile(getX(), getY());
     	for(Entity e: pickList) {

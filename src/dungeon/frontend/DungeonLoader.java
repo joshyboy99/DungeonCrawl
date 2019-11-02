@@ -127,21 +127,6 @@ public abstract class DungeonLoader {
         }
         dungeon.addEntity(entity);
     }
-
-    public List<Portal> PortalPairLoader(Dungeon dungeon,int x1, int y1, int x2, int y2) {
-    	List<Portal> portList = new ArrayList<Portal>();
-    	
-    	Portal p1 = new Portal( x1, y1, dungeon, x2, y2);
-    	Portal p2 = new Portal( x2, y2, dungeon, x1, y1);
-    	
-    	p1.addPair(p2);
-    	p2.addPair(p1);
-    	
-    	portList.add(p1);
-    	portList.add(p2);
-    	
-    	return portList;
-    }
     
     
     public abstract void onLoad(Entity player);
