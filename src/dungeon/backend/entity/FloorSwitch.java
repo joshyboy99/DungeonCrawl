@@ -17,7 +17,7 @@ public class FloorSwitch extends Entity implements Observer {
 		super(x, y);
 		this.moveBehaviour = new Static(this);
 		this.contactBehaviour = new Trigger(this);
-		this.state=false; 
+		this.state = false; 
 		// Observers = new ArrayList<Observer>();
 	}
 	
@@ -49,13 +49,18 @@ public class FloorSwitch extends Entity implements Observer {
 
 	@Override
 	public void update(Player player) {
+		
 		Dungeon dungeon = player.getDungeon();
+		
 		for (Entity e: dungeon.getEntities()) {
+			
 			if (e.samePosition(this.getX(), this.getY()) && e instanceof Boulder) {
 				setState(true);
 				return;
 			}
+			
 		}
+		
 		setState(false);
 		return;
 		
