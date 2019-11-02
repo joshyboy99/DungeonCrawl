@@ -160,7 +160,6 @@ public class Dungeon implements Observable {
 
 	@Override
 	public void updateDungeon() {
-		System.out.println("ajskdf - \n");
 		for (Entity e : this.observers) {
 			((Observer)e).update(player);
 		}

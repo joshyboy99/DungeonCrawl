@@ -1,9 +1,9 @@
 package dungeon.backend.entity;
 
-import java.util.ArrayList;
 
 import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
+import dungeon.backend.PickUpBehaviour.Store;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
@@ -19,6 +19,7 @@ public class Sword extends Pickup {
 		super(x, y);
 		this.moveBehaviour = new Static(this);
 		this.contactBehaviour = new ActivePickup(this);
+		this.pickupBehaviour = new Store(this);
 		this.sx = new SimpleIntegerProperty();
 		this.sy = new SimpleIntegerProperty();
 		this.maxSwings = 5;
