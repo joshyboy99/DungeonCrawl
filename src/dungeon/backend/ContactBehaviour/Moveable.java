@@ -56,6 +56,9 @@ public class Moveable extends InteractableBehaviour implements ContactBehaviour 
 				e.setMx(0);
 				e.setMy(0);
 			}
+		} else { //if not in allowed, DONT move ENTITY	 :)
+			e.setMx(0);
+			e.setMy(0);
 		}
    }
 }
