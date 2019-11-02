@@ -9,7 +9,7 @@ import dungeon.backend.MoveBehaviour.*;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 
-public class FloorSwitch extends Entity{
+public class FloorSwitch extends Entity implements Observer {
 	// private List<Observer> Observers;
 	boolean state;
 	
@@ -29,7 +29,7 @@ public class FloorSwitch extends Entity{
 		}
 	}
 	
-/*
+
 	public void setState(boolean state) {
 		this.state = state;
 	}
@@ -45,19 +45,8 @@ public class FloorSwitch extends Entity{
 		
 		else return false;
 	}
-//	
-//	public void changeState(){
-//		if(contactBehaviour.)
-//	}
-*/
-//	@Override
-//	public void notifyObservers() {
-//		for (Observer o : Observers) {
-//			o.update(this.isClosed());
-//		}
-//		
-//	}
-/*
+
+
 	@Override
 	public void update(Player player) {
 		Dungeon dungeon = player.getDungeon();
@@ -72,11 +61,5 @@ public class FloorSwitch extends Entity{
 		
 	}
 
-	@Override
-	public void update(boolean bool) {
-		// TODO Auto-generated method stub
-		
-	}
-*/
 
 }
