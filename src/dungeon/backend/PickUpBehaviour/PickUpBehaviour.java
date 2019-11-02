@@ -4,11 +4,9 @@ import dungeon.backend.entity.*;
 
 public interface PickUpBehaviour {
 	
-	 void onPickup();
+	 void onPickup(Entity Entity);
 	 
 	 void removeFromDungeon();
-	 
-	 void dropEntity(int x, int y);
 	 
 	 
 }

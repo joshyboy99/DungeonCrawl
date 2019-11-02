@@ -113,8 +113,8 @@ public class Player extends Entity {
         this.treasureScore += value;
     }
     
-    public void addItem(Pickup p) {
-    	this.inventory.add(p);
+    public void addItem(Pickup attached) {
+    	this.inventory.add(attached);
     	
     }
     

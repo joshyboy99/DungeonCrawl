@@ -3,7 +3,6 @@ package dungeon.backend.entity;
 import dungeon.backend.Dungeon;
 import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
-import dungeon.backend.PickUpBehaviour.*;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
@@ -107,9 +106,9 @@ public abstract class Entity {
     	this.contactBehaviour.onTouch(e);
     }
     
-    public void performPickup(Entity e) {
-    	((Pickup) e).pickUp();
-    }
+//    public void performPickup(Entity e) {
+//    	((Pickup) e).performPickup();
+//    }
 
 	public MoveBehaviour getMoveBehaviour() {
 		return moveBehaviour;
@@ -183,6 +182,8 @@ public abstract class Entity {
 		this.dungeon.scanTile(this, x, y);
 	}
 	
-
+	public void removeSelf(){
+		dungeon.removeEntity(this);
+	}
 	
 }

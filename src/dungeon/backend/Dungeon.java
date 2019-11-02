@@ -91,4 +91,9 @@ public class Dungeon {
     	}
 		return portal;
     }
+    
+    public void removeEntity(Entity e) {
+    	entities.remove(e);
+    }
+    
 }

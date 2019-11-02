@@ -24,13 +24,11 @@ public abstract class InteractableBehaviour extends Behaviour {
 	}
 	
 	protected boolean checkEntity(Entity e) {
-		
 		for (Entity ie : ValidEntities) {
 			if(e.getClass().equals(ie.getClass())) {
 					return true;
 			}
 		}
-		
 		return false;
 	}
 	
