@@ -141,6 +141,16 @@ public class Player extends Entity {
     }
     
     public void useSword() {
-    	
+    }
+    
+    public int getCurrentKeyID(){
+    	//find key in inventory
+    	for(Pickup p: this.getInventory().getItems()) {
+    		if(p instanceof Key) {
+    			Key k0 = (Key) p;
+    			return k0.getKeyID();
+    		}
+    	}
+    	return -1;
     }
 }
