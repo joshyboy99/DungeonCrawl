@@ -35,6 +35,7 @@ public class Dungeon implements Observable {
         this.width = width;
         this.height = height;
         this.entities = new ArrayList<>();
+        this.observers = new ArrayList<>();
         this.player = null;
         this.goalManager = null;
         this.fail = false;
@@ -67,7 +68,7 @@ public class Dungeon implements Observable {
     }
     
     public List<Entity> getEntities() {
-    	return entities;
+    	return this.entities;
     }
     
     //scan tile, invoke contact behavior on entity which touched tile. Will return false if tile cannot be walked over.
@@ -159,7 +160,8 @@ public class Dungeon implements Observable {
 
 	@Override
 	public void updateDungeon() {
-		for (Entity e : observers) {
+		System.out.println("ajskdf - \n");
+		for (Entity e : this.observers) {
 			((Observer)e).update(player);
 		}
 	}
