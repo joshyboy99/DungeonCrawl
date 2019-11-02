@@ -16,6 +16,10 @@ public abstract class Pickup extends Entity {
 		this.contactBehaviour = contactBehaviour;
 		this.pickupBehaviour = pickupBehaviour;
 	}
+	
+	public Pickup(int x,int y) {
+		super(x,y);
+	}
 
 	public PickUpBehaviour getPickupBehaviour() {
 		return pickupBehaviour;
