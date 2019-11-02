@@ -21,7 +21,7 @@ public class Trigger extends InteractableBehaviour implements ContactBehaviour {
 		this.triggered = false;
 	}
 	
-	@Override
+	//@Override
 	public boolean checkEntity(Entity e) {
 		if(this.ValidEntities.contains(e)) {
 			return true;
