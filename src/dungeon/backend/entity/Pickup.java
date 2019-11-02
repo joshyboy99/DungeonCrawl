@@ -24,7 +24,9 @@ public abstract class Pickup extends Entity {
 	public void setPickupBehaviour(PickUpBehaviour pickupBehaviour) {
 		this.pickupBehaviour = pickupBehaviour;
 	}
-	
-	
+
+	protected void performPickup() {
+		this.pickupBehaviour.onPickup();
+	}
 
 }
