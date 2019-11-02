@@ -82,13 +82,14 @@ class Test13Portals {
         System.out.print("Portal 3: Coordinates (3,1) ID: 1 \n");    
         System.out.print("Portal 4: Coordinates (4,3) ID: 1 \n");   
         Boulder b0 = new Boulder(3,2, dungeon);
+        dungeon.addEntity(b0);
         System.out.print("Created a boulder at: (" + b0.getX() + "," + b0.getY() + ")\n");
         System.out.print("Moving player right into the portal at 4,2! \n");
         player.moveRight();
         System.out.print("New boulder coordinates: (" + b0.getX() + "," + b0.getY() + ")\n");
         System.out.print("New player coordinates: (" + player.getX() + "," + player.getY() + ")\n");
         assertTrue(b0.x().getValue().intValue() == 4);
-        assertTrue(b0.y().getValue().intValue() == 4);	 
+        assertTrue(b0.y().getValue().intValue() == 4);
         System.out.println("- -         PASSED        - -");
 		
 	}

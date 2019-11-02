@@ -34,18 +34,11 @@ public class Player extends Entity {
         this.contactBehaviour = new NoContact(this);
         //this.moveBehaviour = new PlayerControl();
     }
-<<<<<<< HEAD
-    public Player() {
-    	super();
-    }
-
-=======
 
     public Player() {
     	super();
     }
-    
->>>>>>> a2606e82f6be6ed31a5c826979d9674c40adba78
+
     public void activePickup() {
     	List<Entity> pickList = dungeon.EntitiesOnTile(getX(), getY());
     	for(Entity e: pickList) {

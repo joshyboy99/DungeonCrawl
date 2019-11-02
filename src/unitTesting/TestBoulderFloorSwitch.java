@@ -150,6 +150,10 @@ class TestBoulderFloorSwitch {
 		dungeon.updateDungeon();
 		assertEquals(player.getX(), 0);
 		assertEquals(player.getY(), 0);
+		assertEquals(boulder.getX(), 1);
+		assertEquals(boulder.getY(), 0);
+		assertEquals(boulder2.getX(), 2);
+		assertEquals(boulder2.getY(), 0);
     	
     }
 
