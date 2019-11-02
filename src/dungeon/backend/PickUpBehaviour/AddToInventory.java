@@ -11,8 +11,21 @@ public class AddToInventory extends InteractableBehaviour implements PickUpBehav
 	}
 
 	@Override
-	public void onTouch(Player player) {
-		player.addItem((Pickup) this.attached);
+	public void pickup(Player player) {
+		
+		
+	}
+
+	@Override
+	public void removeFromDungeon() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void dropEntity(int x, int y) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
