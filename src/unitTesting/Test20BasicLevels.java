@@ -120,57 +120,109 @@ class Test20BasicLevels{
 //        System.out.println("- -       PASSED      - -");
 //    }
 //
-//	@Test
-//	void testFloorSwitchesSatisfied() {
-//		// create 5x5 puzzle
-//		// set the completion condition of the level to open all floor switch
-//
-//        // add the entities to the level
-//		
-//		// assert win
-//		
-//        System.out.println("- - Test WIN BY SWITCH - -");
-//        
-//        System.out.println("- -       PASSED       - -");
-//
-//	}
-//
-//	@Test
-//	void testFloorSwitchesNotSatisfied() {
-//		// create 5x5 puzzle
-//		// set the completion condition of the level to open all floor switch
-//
-//        // add the entities to the level
-//		
-//		// assert lose
-//		
-//        System.out.println("- - Test LOSE BY SWITCH - -");
-//        
-//        System.out.println("- -        PASSED       - -");
-//
-//	}
-//	
-//    
-//    
-//    @Test
-//    void testCompleteViaExit() {
-//        // The puzzle contains the completion condition 'CompleteViaExit' 
-//        // (i.e. the puzzle can only be completed by the player going through an exit).
-//        // player goes through an exit, the 'CompleteViaExit' completion condition is satisfied
-//        // and the puzzle should be completed
-//
-//        // set the completion condition of the level to CompleteViaExit
-//        
-//        // move the player into an exit
-//        
-//        // checking that the exit has been reached by the player 
-//                
-//        // check that the level has been completed
-//    	
-//        System.out.println("- - Test WIN BY EXIT - -");
-//        
-//        System.out.println("- -      PASSED      - -");
-//    }
+	@Test
+	void testFloorSwitchesSatisfied() {
+		// create 5x5 puzzle
+		// set the completion condition of the level to open all floor switch
+
+        // add the entities to the level
+		
+		// assert win
+		Dungeon dungeon = new Dungeon(10, 10);
+		Player player = new Player(dungeon, 5, 5);
+		dungeon.setPlayer(player);
+		
+        System.out.println("- - Test WIN BY SWITCH - -");
+		
+		JSONObject goal = new JSONObject();
+		goal.put("goal", "boulders");
+		dungeon.setupGoal(goal);
+		
+		Boulder boulder = new Boulder(6,5,dungeon);
+		dungeon.addEntity(boulder);
+		FloorSwitch floor = new FloorSwitch(7,5,dungeon);
+		dungeon.addEntity(floor);
+		
+		assertFalse(dungeon.isComplete());
+
+		player.moveRight();
+
+		dungeon.updateDungeon();
+		assertTrue(dungeon.isComplete());
+        
+        System.out.println("- -       PASSED       - -");
+
+	}
+
+	@Test
+	void testFloorSwitchesNotSatisfied() {
+		// create 5x5 puzzle
+		// set the completion condition of the level to open all floor switch
+
+        // add the entities to the level
+		
+		// assert lose
+		Dungeon dungeon = new Dungeon(10, 10);
+		Player player = new Player(dungeon, 5, 5);
+		dungeon.setPlayer(player);
+		
+		
+        System.out.println("- - Test LOSE BY SWITCH - -");
+        
+		JSONObject goal = new JSONObject();
+		goal.put("goal", "boulders");
+		dungeon.setupGoal(goal);
+		
+		Boulder boulder = new Boulder(6,5,dungeon);
+		dungeon.addEntity(boulder);
+		FloorSwitch floor = new FloorSwitch(7,5,dungeon);
+		dungeon.addEntity(floor);
+		
+		assertFalse(dungeon.isComplete());
+
+		dungeon.updateDungeon();
+		assertFalse(dungeon.isComplete());
+        
+        System.out.println("- -        PASSED       - -");
+
+	}
+	
+    
+    
+    @Test
+    void testCompleteViaExit() {
+        // The puzzle contains the completion condition 'CompleteViaExit' 
+        // (i.e. the puzzle can only be completed by the player going through an exit).
+        // player goes through an exit, the 'CompleteViaExit' completion condition is satisfied
+        // and the puzzle should be completed
+
+        // set the completion condition of the level to CompleteViaExit
+        
+        // move the player into an exit
+        
+        // checking that the exit has been reached by the player 
+                
+        // check that the level has been completed
+		Dungeon dungeon = new Dungeon(3, 3);
+		Player player = new Player(dungeon, 1, 1);
+		dungeon.setPlayer(player);
+		
+        System.out.println("- - Test WIN BY EXIT - -");
+        
+		JSONObject goal = new JSONObject();
+		goal.put("goal", "exit");
+		dungeon.setupGoal(goal);
+		
+		Exit exit = new Exit(2,1,dungeon);
+		dungeon.addEntity(exit);
+		
+		assertFalse(dungeon.isComplete());
+		player.moveRight();
+		dungeon.updateDungeon();
+		assertTrue(dungeon.isComplete());
+        
+        System.out.println("- -      PASSED      - -");
+    }
     
     
 }

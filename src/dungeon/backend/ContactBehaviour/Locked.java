@@ -2,6 +2,7 @@ package dungeon.backend.ContactBehaviour;
 
 import dungeon.backend.InteractableBehaviour;
 import dungeon.backend.entity.Entity;
+import dungeon.backend.entity.Player;
 import dungeon.backend.*;
 
 public class Locked extends InteractableBehaviour implements ContactBehaviour {
