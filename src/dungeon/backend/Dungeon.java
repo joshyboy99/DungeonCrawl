@@ -120,8 +120,6 @@ public class Dungeon {
     			player.removeItem((Pickup) e);
     		}
     	}
-<<<<<<< HEAD
-=======
     }
     
     
@@ -136,7 +134,6 @@ public class Dungeon {
 
     public boolean isComplete() {
     	return goalManager.checkComplete();
->>>>>>> e9ea96dae4af810610475431533efd7aa412b95b
     }
     
     
