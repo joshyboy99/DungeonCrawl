@@ -27,9 +27,24 @@ public class Sword extends Pickup {
 	}
 	
 	public void aim(String facing, int x, int y) {
-		switch facing:
+		switch (facing) {
+		
+			case "UP":
+				sx.set(x);
+				sy.set(y-1);
 			
+			case "DOWN":
+				sx.set(x);
+				sy.set(y+1);
 			
+			case "LEFT":
+				sx.set(x-1);
+				sy.set(y);
+			
+			case "RIGHT":
+				sx.set(x+1);
+				sy.set(y);
+		}	
 	}
 	
 	public void use() {
