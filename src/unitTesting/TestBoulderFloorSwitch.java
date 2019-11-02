@@ -140,20 +140,23 @@ class TestBoulderFloorSwitch {
     	// player @ (0,1), boulder_one @ (0,2), boulder_two @ (0,3)
     	// should not move
 		Dungeon dungeon = new Dungeon(10, 10);
-		Player player = new Player(dungeon, 0, 0);
+		Player player = new Player(dungeon, 2, 5);
 		dungeon.setPlayer(player);
-		Boulder boulder = new Boulder(1, 0, dungeon);
-		Boulder boulder2 = new Boulder(2, 0, dungeon);
+		Boulder boulder = new Boulder(3, 5, dungeon);
+		Boulder boulder2 = new Boulder(4, 5, dungeon);
 		dungeon.addEntity(boulder);
 		dungeon.addEntity(boulder2);
-		player.move(1,  0);
+		player.moveRight();
 		dungeon.updateDungeon();
-		assertEquals(player.getX(), 0);
-		assertEquals(player.getY(), 0);
-		assertEquals(boulder.getX(), 1);
-		assertEquals(boulder.getY(), 0);
-		assertEquals(boulder2.getX(), 2);
-		assertEquals(boulder2.getY(), 0);
+        System.out.print("New boulder1 position: (" + boulder.getX() + "," + boulder.getY() + ")\n");
+        System.out.print("New boulder2 position: (" + boulder2.getX() + "," + boulder2.getY() + ")\n");
+        System.out.print("New player position: (" + player.getX() + "," + player.getY() + ")\n");
+		assertEquals(player.getX(), 2);
+		assertEquals(player.getY(), 5);
+		assertEquals(boulder.getX(), 3);
+		assertEquals(boulder.getY(), 5);
+		assertEquals(boulder2.getX(), 4);
+		assertEquals(boulder2.getY(), 5);
     	
     }
 

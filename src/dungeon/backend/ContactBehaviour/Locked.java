@@ -17,7 +17,7 @@ public class Locked extends InteractableBehaviour implements ContactBehaviour {
 		entity.setMx(0);
 		entity.setMy(0);
 		//see if they have the right stuff, possibly changing the contact behaviour from locked.
-		entity.performTouch(attached);
+		attached.wasTouched(entity);
 	}
 
 }
