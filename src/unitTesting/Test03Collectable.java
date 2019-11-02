@@ -30,6 +30,7 @@ class Test03Collectable {
 
         dungeon.setPlayer(player);
         Treasure treasure = new Treasure( 1, 1);
+        dungeon.addEntity(treasure);
         Inventory invent = player.getInventory();
         
         System.out.println("- - TEST PICK UP TREASURE - -");
