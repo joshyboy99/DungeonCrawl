@@ -22,13 +22,14 @@ import org.json.JSONObject;
  *
  */
 
-public class Dungeon {
+public class Dungeon implements Observable {
 
     private int width, height;
     private List<Entity> entities;
     private Player player;
     private GoalManager goalManager;
     private boolean fail;
+    private List<Entity> observers;
 
     public Dungeon(int width, int height) {
         this.width = width;
@@ -145,6 +146,27 @@ public class Dungeon {
     public boolean isFail() {
     	return this.fail;
     }
+    
+
+	@Override
+	public void addObserver(Observer o) {
+		// TODO Auto-generated method stub
+		observers.add((Entity)o);
+
+	}
+
+	@Override
+	public void removeObserver(Observer o) {
+		// TODO Auto-generated method stub
+		observers.remove((Entity)o);
+	}
+
+	@Override
+	public void updateDungeon() {
+		for (Entity e : observers) {
+			((Observer)e).update(player);
+		}
+	}
 }
 
    
