@@ -29,7 +29,7 @@ public abstract class Entity {
     protected MoveBehaviour moveBehaviour;
     protected ContactBehaviour contactBehaviour;
     protected List<Effect> effects;
-    protected Dungeon dungeon;
+    public Dungeon dungeon;
     
     /**
      * Create an entity positioned in square (x,y)

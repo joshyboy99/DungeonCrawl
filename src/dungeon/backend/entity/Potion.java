@@ -21,16 +21,8 @@ public class Potion extends Pickup implements Observer{
 	
 	@Override
 	public void update(Player player) {
-		Dungeon dungeon = player.dungeon;
 		for(Effect e: effects) {
-			
-			if(e.getInEffect()) {
-				
-				if(e instanceof InstaKillEnemy) {
-					
-				}
-			}
+			e.update(player);
 		}
 	}
-	
 }
