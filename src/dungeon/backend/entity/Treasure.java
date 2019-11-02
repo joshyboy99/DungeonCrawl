@@ -11,7 +11,7 @@ public class Treasure extends Entity {
 		super(x, y);
 		this.value = val;
 		this.moveBehaviour = new Static(this);
-		this.contactBehaviour =  new Canpickup(this);
+		this.contactBehaviour =  new PassivePickup(this);
 	}
 	
 	public int getValue() {
