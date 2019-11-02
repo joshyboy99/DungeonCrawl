@@ -6,10 +6,7 @@ import java.util.ArrayList;
 
 import java.util.List;
 
-import dungeon.backend.*;
 import dungeon.backend.ContactBehaviour.*;
-import dungeon.backend.MoveBehaviour.*;
-import javafx.beans.property.IntegerProperty;
 
 /**
  * The player entity
@@ -48,12 +45,18 @@ public class Player extends Entity {
     	}
     }
     
-    public void swapItem(Pickup p) {
+    public void swapItem() {
     	List<Entity> pickList = dungeon.EntitiesOnTile(getX(), getY());
+    
     	for(Entity e: pickList) {
-    		if(e.getClass().equals(p.getClass())) {
-    			((Pickup) e).performPickup(this);
-    			dropItem((Pickup) e);
+    		if(e instanceof Pickup) {
+    			
+	    		if(inventory.checkForItem((Pickup) e)) {
+	    			
+	    			Pickup p = inventory.getItemType((Pickup) e); 
+	    			dropItem((Pickup) p);
+	    			((Pickup) e).performPickup(this);
+	    		}	
     		}
     	}
     }
