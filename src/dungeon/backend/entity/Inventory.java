@@ -24,7 +24,7 @@ public class Inventory {
      * @return
      */
     
-    public Pickup getItemType(Class<Entity> p) {
+    public Pickup getItemType(Pickup p) {
     	for (Pickup ie : items) {
 			if(p.getClass().equals(ie.getClass())) {
 					return ie;
