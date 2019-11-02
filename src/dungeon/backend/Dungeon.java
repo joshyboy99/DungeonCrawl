@@ -95,5 +95,6 @@ public class Dungeon {
     public void removeEntity(Entity e) {
     	entities.remove(e);
     }
-    
 }
+
+   
