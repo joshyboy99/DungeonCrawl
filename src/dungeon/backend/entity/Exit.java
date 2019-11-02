@@ -17,5 +17,4 @@ public class Exit extends Entity{
 		
 		
 	}
-	
 }
