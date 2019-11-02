@@ -212,12 +212,9 @@ public abstract class Entity {
 		Effect e = effects.get(effects.indexOf(eff));
 		((InteractableBehaviour)e).addEntity(ent);
 	}
-<<<<<<< HEAD
 	
 	public void isComplete(){
 		this.dungeon.isComplete();
 	}
-=======
->>>>>>> e9ea96dae4af810610475431533efd7aa412b95b
 
 }
