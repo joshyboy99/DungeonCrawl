@@ -219,8 +219,9 @@ class Test20BasicLevels{
 		assertFalse(dungeon.isComplete());
 		player.moveRight();
 		dungeon.updateDungeon();
+		
 		assertTrue(dungeon.isComplete());
-        
+		
         System.out.println("- -      PASSED      - -");
     }
     
