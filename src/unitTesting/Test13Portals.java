@@ -56,8 +56,9 @@ class Test13Portals {
         
         System.out.println("- -         PASSED       - -");
 	}
-	
+	@Test 
 	void testBoulderTeleport() {
+		
 		// 5x5 map
 		/* 
 		   x o ] - -
@@ -68,8 +69,26 @@ class Test13Portals {
 		// check position of boulder
 		// check position of player
 		
-        System.out.println("- - TEST TELEPORT BOULDER - -");
-        
+		System.out.print("- - TEST TELEPORT BOULDER - -");
+		Dungeon dungeon = new Dungeon(10,10);
+		Player player = new Player(dungeon, 2,2);
+		System.out.print("Created 4 portals (2 pairs) and a player instantiated at square (" +player.getX() +"," + player.getY() +"\n");
+        dungeon.addEntity(new Portal(4,2,dungeon, 0)); 
+        dungeon.addEntity(new Portal(4,4,dungeon, 0));
+        dungeon.addEntity(new Portal(3,1,dungeon, 1));
+        dungeon.addEntity(new Portal(4,3,dungeon, 1));
+        System.out.print("Portal 1: Coordinates (3,2) ID: 0 \n");  
+        System.out.print("Portal 2: Coordinates (4,4) ID: 0 \n");    
+        System.out.print("Portal 3: Coordinates (3,1) ID: 1 \n");    
+        System.out.print("Portal 4: Coordinates (4,3) ID: 1 \n");   
+        Boulder b0 = new Boulder(3,2, dungeon);
+        System.out.print("Created a boulder at: (" + b0.getX() + "," + b0.getY() + ")\n");
+        System.out.print("Moving player right into the portal at 4,2! \n");
+        player.moveRight();
+        System.out.print("New boulder coordinates: (" + b0.getX() + "," + b0.getY() + ")\n");
+        System.out.print("New player coordinates: (" + player.getX() + "," + player.getY() + ")\n");
+        assertTrue(b0.x().getValue().intValue() == 4);
+        assertTrue(b0.y().getValue().intValue() == 4);	 
         System.out.println("- -         PASSED        - -");
 		
 	}
