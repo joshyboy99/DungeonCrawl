@@ -187,6 +187,9 @@ public abstract class Entity {
 		return this.Facing;
 	}
 	
+	public void wasTouched() { 
+	}
+	
 	public void scanDungeonTile(int x, int y) {
 		this.dungeon.scanTile(this, x, y);
 	}
@@ -208,6 +211,10 @@ public abstract class Entity {
 	public void addValidEntityEffect(Effect eff, Entity ent) {
 		Effect e = effects.get(effects.indexOf(eff));
 		((InteractableBehaviour)e).addEntity(ent);
+	}
+	
+	public void isComplete(){
+		this.dungeon.isComplete();
 	}
 
 }

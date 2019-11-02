@@ -78,7 +78,9 @@ public class Dungeon {
     //scan tile, invoke contact behavior on entity which touched tile. Will return false if tile cannot be walked over.
     public void scanTile(Entity touched, int x, int y) {
     	for(Entity e: entities) {
-    			e.performTouch(touched);
+    			if(e.samePosition(x, y)) {
+    				e.performTouch(touched);
+    			}
 		}	
     }
     
@@ -87,7 +89,7 @@ public class Dungeon {
     	List<Entity> entList = new ArrayList<Entity>();
     	
 		for(Entity e: entities) {
-    		if(e.getX() == x && e.getY() == y) {
+    		if(e.samePosition(x, y)) {
     			entList.add(e);
     		}
     	}
@@ -133,5 +135,6 @@ public class Dungeon {
     public boolean isComplete() {
     	return goalManager.checkComplete();
     }
-    
 }
+
+   
