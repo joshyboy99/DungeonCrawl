@@ -13,7 +13,11 @@ public class Store extends InteractableBehaviour implements PickUpBehaviour {
 	@Override
 	public void onPickup(Entity entity) {
 		if(entity instanceof Player) {
+			if((Player)entity).){
+				
+			}
 			((Player) entity).addItem((Pickup) attached);
+			
 		}
 	}
 

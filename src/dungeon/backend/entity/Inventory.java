@@ -50,6 +50,16 @@ public class Inventory {
     	}
     }
     
+    public int itemCount(Pickup item) {
+    	int counter = 0;
+    	for(Entity e: items) {
+    		if(e.getClass().equals(item.getClass())) {
+    			counter++;
+    		}
+    	}
+    	
+    	return counter;
+    }
     
     
     
