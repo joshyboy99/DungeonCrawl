@@ -31,8 +31,12 @@ public class Potion extends Pickup implements Observer{
 	
 	public boolean potionInEffect() {
 		for(Effect e: effects) {
-			return e.getInEffect();
+			if(e instanceof InstaKillEnemy) {
+				return e.getInEffect();
+			}
 		}
+		
+		
 		return false;
 	}
 	
