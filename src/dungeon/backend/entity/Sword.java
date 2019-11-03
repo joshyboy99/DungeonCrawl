@@ -93,6 +93,8 @@ public class Sword extends Pickup {
 	}
 
 	public void uninventory(){
-		this.dungeon.getPlayer().removeItem(this);
+		Player p = dungeon.getPlayer();
+		Inventory i = p.getInventory();
+		i.remove(this);
 	}
 }
