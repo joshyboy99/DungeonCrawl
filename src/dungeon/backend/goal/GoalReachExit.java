@@ -18,14 +18,14 @@ public class GoalReachExit extends GoalBase {
 		for (Entity e : dungeon.getEntities()) {
 
 			if (e instanceof Exit) {
-				complete = atExit((Exit) e);
+				complete = reachExit((Exit) e);
 				return;
 			}
 		}
 		complete = false;
 	}
 	
-	private boolean atExit(Exit e) {
+	private boolean reachExit(Exit e) {
 		
 		int playerX = player.getX();
 		int playerY = player.getY();
