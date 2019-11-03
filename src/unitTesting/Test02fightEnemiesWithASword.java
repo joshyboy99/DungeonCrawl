@@ -18,21 +18,27 @@ public class Test02fightEnemiesWithASword {
 	public void testAC1and2() {
 		System.out.println("- -               TEST SLAY ENEMY                  - -");
 		Dungeon dungeon = new Dungeon(10,10);
-		Player player = new Player(dungeon, 5,5);
-		System.out.println("Player coordinates: (" + player.getX()+ "," +player.getY() +")");
-		Sword s0 = new Sword(5,5,dungeon);
-		Inventory invent = player.getInventory();
-		player.addItem(s0);
-		System.out.println("Add sword to inventory");
-		assertTrue(invent.checkForItem(s0));  
-		assertFalse(dungeon.checkEntitiesOnDungeon(s0));
-		Enemy e0 = new Enemy(3,5,dungeon);
+		Player player = new Player(dungeon, 8,5);
+		Sword s0 = new Sword(9,5,dungeon);
+		Enemy e0 = new Enemy(4,5, dungeon);
 		dungeon.addEntity(e0);
-		System.out.println("Enemy coordinates: (" + e0.getX()+ "," +e0.getY() +")");
+		dungeon.addEntity(s0);
+		player.moveRight();
+		player.activePickup();
+		
+		Inventory invent = player.getInventory();
+		assertTrue(invent.checkForItem(s0));
+		
 		player.moveLeft();
+		player.moveLeft();
+		player.moveLeft();
+		player.moveLeft();
+		System.out.println("Player coordinates: (" + player.getX()+ "," +player.getY() +")");
 		player.useSword();
-
+		System.out.println("Swing Num: " + s0.swingNum());
+		
 		assertFalse(dungeon.checkEntitiesOnDungeon(e0));
+		
 		System.out.println("- -                     PASSED                     - -");
 		
 	}

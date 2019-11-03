@@ -25,6 +25,7 @@ public class Player extends Entity {
      * @param x
      * @param y
      */
+    
     public Player(Dungeon dungeon, int x, int y) {
         super(x, y, dungeon);
         this.treasureScore = 0;
@@ -111,6 +112,7 @@ public class Player extends Entity {
     public int getTreasure() {
         return this.treasureScore;
     }
+    
     public Inventory getInventory() {
         return this.inventory;
     }
