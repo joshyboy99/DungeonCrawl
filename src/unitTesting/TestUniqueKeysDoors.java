@@ -20,7 +20,7 @@ import org.junit.jupiter.api.Test;
  */
 
 class TestUniqueKeysDoors {
-	
+	//MOVED TO TEST 1.0
     @Test
     void testOnlyOneKeyCanUnlockCorrespondingDoor() {        
     	// 5x5 map
@@ -60,7 +60,7 @@ class TestUniqueKeysDoors {
         System.out.println("- -     TEST PASSED    - -");
         
     }
-    
+    //DONE IN TEST 1.0!
     @Test
     void TestWrongKeyCantUnlockAndOpenDoor() {
         // using the wrong key to try and unlock and open a door 
@@ -72,6 +72,7 @@ class TestUniqueKeysDoors {
         // check that the door is now open
     }
     
+  //DONE IN TEST 1.0!
     @Test
     void TestMultipleDoorsOneGetsUnlockedOtherDoorsRemainLocked() {
         // Multiple doors on the board. A key is used to unlock and open a door

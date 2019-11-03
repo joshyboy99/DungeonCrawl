@@ -46,7 +46,7 @@ class Test03Collectable {
         assertTrue(invent.checkForItem(sword0));  
         assertTrue(player.getX() == 0);
         assertTrue(player.getY() == 2);
-        System.out.println("Move player down again, seeing if next sword is collected");
+        System.out.println("Move player down again, seeing if next sword is collected and old one dropped");
         player.moveDown();
         player.activePickup();
         assertTrue(invent.checkForItem(sword1));  
@@ -55,6 +55,8 @@ class Test03Collectable {
 		System.out.println("Player coordinates: (" + player.getX()+ "," +player.getY() +")");
 		System.out.println("Sword coordinates: (" + sword0.getX()+ "," +sword0.getY() +")");
 		System.out.println("Sword coordinates: (" + sword1.getX()+ "," +sword1.getY() +")");
+        assertTrue(sword0.getX() == 0);
+        assertTrue(sword0.getY() == 3);
         assertTrue(player.getX() == 0);
         assertTrue(player.getY() == 3);
         System.out.println("- -         PASSED        - -");
@@ -91,6 +93,8 @@ class Test03Collectable {
         assertFalse(invent.checkForItem(key1)); 
         assertFalse(dungeon.checkEntitiesOnDungeon(key2));
         assertTrue(invent.checkForItem(key2)); 
+        assertTrue(key1.getX() == 0);
+        assertTrue(key1.getY() == 3);
         System.out.println("- -         PASSED        - -");
 
 	}
@@ -126,8 +130,8 @@ class Test03Collectable {
     	 Potion p1 = new Potion(3, 1, dungeon);
     	 dungeon.addEntity(p0);
     	 dungeon.addEntity(p1);
-    	 System.out.println("- - TEST PICK UP TREASURE - -");
-    	 
+    	 System.out.println("- - TEST PICK UP 2X INVINCIBILITY POTION - -");
+    	 player.moveRight();
     	 System.out.println("- -         PASSED        - -");  
     	 
     }
