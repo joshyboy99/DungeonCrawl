@@ -45,6 +45,7 @@ public class Dungeon implements Observable {
         this.fail = false;
         
     }
+    
 
     /**
      * Getter of the Dungeon's Width
@@ -181,6 +182,7 @@ public class Dungeon implements Observable {
     public boolean checkEntitiesOnDungeon(Entity e) {
     	return this.entities.contains(e);
     }
+
     
     public void setupGoal(JSONObject goalCondition) {
     	goalManager.setGoal(goalCondition);
