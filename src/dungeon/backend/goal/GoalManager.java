@@ -16,6 +16,7 @@ public class GoalManager {
 		this.dungeon = dungeon;
 		this.player = player;
 		this.goal = null;
+		this.ExitGoal = null;
 	}
 	
 	public boolean checkComplete() {
