@@ -58,6 +58,14 @@ public class Sword extends Pickup {
 		return successfulSwings;
 	}
 	
+	public int getSwingX() {
+		return sx.get();
+	}
+	
+	public int getSwinyY() {
+		return sy.get();
+	}
+	
 	public void use() {
 		
 		for(Entity e: this.dungeon.EntitiesOnTile(sx.get(), sy.get()) ) {
