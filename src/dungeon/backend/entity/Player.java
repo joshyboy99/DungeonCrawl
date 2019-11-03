@@ -2,11 +2,11 @@ package dungeon.backend.entity;
 
 
 import dungeon.backend.*;
+import java.util.List;
 import java.util.ArrayList;
 
-import java.util.List;
-
 import dungeon.backend.ContactBehaviour.*;
+import dungeon.backend.MoveBehaviour.PlayerControl;
 
 /**
  * The player entity
@@ -18,7 +18,7 @@ public class Player extends Entity {
 	private String facing; 
     private int treasureScore;
     private Inventory inventory;
-    private List<Observer> observers = new ArrayList<Observer>();
+    // private List<Observer> observers = new ArrayList<Observer>();
     
     /**
      * Create a player positioned in square (x,y)
@@ -30,7 +30,7 @@ public class Player extends Entity {
         this.treasureScore = 0;
         this.inventory = new Inventory();
         this.contactBehaviour = new NoContact(this);
-        //this.moveBehaviour = new PlayerControl();
+        this.moveBehaviour = new PlayerControl(this);
     }
 
     public Player() {
@@ -108,33 +108,6 @@ public class Player extends Entity {
         }
     }
     
-    public void move(int dx, int dy) {
-//    	System.out.println("observers: " + observers);
-
-    	int mx = getX() + dx;
-    	int my = getY() + dy;
-    	if (mx < 0 || my < 0 || mx > dungeon.getWidth() - 1 || my > dungeon.getHeight() -1) {
-    		//notifyObservers();
-    		return;
-    	}
-    	
-    	if (dungeon.getEntities() != null) {
-			for (int i = 0; i < dungeon.getEntities().size(); i++) {
-				Entity e = dungeon.getEntities().get(i);
-				if (e == null) continue;
-				if (e.samePosition(mx,my)) {
-					// cannot interact
-//					if (!e.interact(this)) {
-//						//notifyObservers();
-//						return;
-//					}
-				}
-			}
-    	}
-    	this.changeFace();
-    	this.nextMove();
-    }
-    
     public int getTreasure() {
         return this.treasureScore;
     }
@@ -168,7 +141,7 @@ public class Player extends Entity {
     		if(p instanceof Sword) {
     			return true;
     		}
-    	} 
+    	}
     	return false;
     }
     
@@ -214,4 +187,9 @@ public class Player extends Entity {
 		this.removeItem((Pickup) k1);
 		
 	}
+
+    
+    public String getFacing() {
+    	return facing;
+    }
 }

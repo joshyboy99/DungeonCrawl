@@ -2,8 +2,13 @@ package dungeon.backend.ContactBehaviour;
 
 import dungeon.backend.InteractableBehaviour;
 import dungeon.backend.entity.*;
-import dungeon.backend.*;
 
+/**
+ * This class looks at the contact behaviour when it being
+ * contacted, hence it destroys.
+ * @author JAG
+ *
+ */
 public class Destroy extends InteractableBehaviour implements ContactBehaviour {
 	
 	public Destroy(Entity attached) {

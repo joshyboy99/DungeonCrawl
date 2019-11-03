@@ -4,7 +4,6 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
-import dungeon.backend.*;
 import dungeon.backend.entity.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -44,6 +43,11 @@ public class DungeonControllerLoader extends DungeonLoader {
         playerImage = new Image("/human_new.png");
         wallImage = new Image("/brick_brown_0.png");
         exitImage = new Image("/exit.png");
+        //Sword
+        boulderImage = new Image("/boulder.png");
+        switchImage = new Image("/pressure_plate.png");
+        treasureImage = new Image("/gold_pile.png");
+        
     }
 
     @Override

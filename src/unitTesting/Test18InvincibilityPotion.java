@@ -1,9 +1,9 @@
 package unitTesting;
 
-import dungeon.backend.entity.*;
 import dungeon.backend.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.api.Test;
+import dungeon.backend.entity.*;
+import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test; 
 
 class Test18InvincibilityPotion {
 	/**
@@ -20,16 +20,43 @@ class Test18InvincibilityPotion {
     	
         System.out.println("- - Test POTION TIME - -");
         
+		Dungeon dungeon = new Dungeon(5,5);
+		Player player = new Player(dungeon, 0, 0);
+		dungeon.setPlayer(player);
+		Potion potion = new Potion(1, 0, dungeon);
+		dungeon.addEntity(potion);		
+		
+		Enemy e0 = new Enemy(5,2,dungeon);
+		dungeon.addEntity(e0);
+		
+		player.moveRight();
+
+		player.activePickup();
+
+		
+		assertTrue(potion.potionInEffect());
+
+		assertFalse(dungeon.checkEntitiesOnDungeon(potion));   
+	
+
+		int x = 0;
+		while (x < 16) {
+			dungeon.updateDungeon();
+			x++;
+		}
+
+		assertFalse(potion.potionInEffect());
+ 
         System.out.println("- -      PASSED      - -");
     }
     
-    @Test
-    void testPotionEffect() {
-    	// 5x5 Map
-    	// kill Enemies 
-        System.out.println("- - Test POTION EFFECT - -");
-        
-        System.out.println("- -       PASSED       - -");
-    }
+//    @Test
+//    void testPotionEffect() {
+//    	// 5x5 Map
+//    	// kill Enemies 
+//        System.out.println("- - Test POTION EFFECT - -");
+//        
+//        System.out.println("- -       PASSED       - -");
+//    }
 
 }

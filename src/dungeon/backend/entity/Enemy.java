@@ -5,9 +5,14 @@ import dungeon.backend.InteractableBehaviour;
 import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
 
+/**
+ * The Enemy Entity class
+ * 
+ * @author JAG
+ *
+ */
 public class Enemy extends Entity implements Observer{
 	
-
 	private Player player;
 	private Dungeon dungeon;
 	

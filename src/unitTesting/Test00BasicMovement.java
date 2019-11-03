@@ -2,10 +2,6 @@ package unitTesting;
 
 import dungeon.backend.*;
 import dungeon.backend.entity.*;
-
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 

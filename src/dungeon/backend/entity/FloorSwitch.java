@@ -1,14 +1,16 @@
 package dungeon.backend.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import dungeon.backend.Dungeon;
 import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 
+
+/**
+ * The FloorSwitch Entity Class
+ * 
+ * @author JAG
+ *
+ */
 public class FloorSwitch extends Entity implements Observer {
 	// private List<Observer> Observers;
 	boolean state;
@@ -56,12 +58,9 @@ public class FloorSwitch extends Entity implements Observer {
 			if (e.samePosition(this.getX(), this.getY()) && e instanceof Boulder) {
 				setState(true);
 				return;
-			}
-			
+			}	
 		}
-		
 		setState(false);
 		return;
-		
 	}
 }

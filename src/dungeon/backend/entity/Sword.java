@@ -8,6 +8,11 @@ import dungeon.backend.PickUpBehaviour.Store;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
+/**
+ * The Sword Entity class 
+ * @author JAG
+ *
+ */
 public class Sword extends Pickup {
 	
 	//relative coordinates of next swing
@@ -47,6 +52,18 @@ public class Sword extends Pickup {
 				sx.set(x+1);
 				sy.set(y);
 		}	
+	}
+	
+	public int swingNum() {
+		return successfulSwings;
+	}
+	
+	public int getSwingX() {
+		return sx.get();
+	}
+	
+	public int getSwinyY() {
+		return sy.get();
 	}
 	
 	public void use() {

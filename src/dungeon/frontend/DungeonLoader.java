@@ -1,13 +1,9 @@
 package dungeon.frontend;
 
 import dungeon.backend.entity.*;
-import dungeon.backend.MoveBehaviour.*;
-import dungeon.backend.ContactBehaviour.*;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

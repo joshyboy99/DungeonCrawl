@@ -3,6 +3,13 @@ package dungeon.backend.entity;
 import java.util.ArrayList;
 
 
+/**
+ * The Inventory Class where it's a collection of all
+ * collectables.
+ * 
+ * @author JAG
+ *
+ */
 public class Inventory {
 	
 	// change Pickup -> Entity

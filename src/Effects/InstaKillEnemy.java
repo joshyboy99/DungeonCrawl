@@ -5,6 +5,11 @@ import dungeon.backend.*;
 import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.entity.*;
 
+/**
+ * Instant killing of enemy
+ * @author amyluo
+ *
+ */
 public class InstaKillEnemy extends Behaviour implements Effect, Observer{
 
 	private boolean inEffect;
@@ -14,16 +19,20 @@ public class InstaKillEnemy extends Behaviour implements Effect, Observer{
 	
 	public InstaKillEnemy(Entity attached) {
 		super(attached);
+		inEffect = false;
+		this.counter = 15;
+		this.maxDuration = 15;
 	}
 
 	@Override
 	public void effect(Entity e) {
 		e.setContactBehaviour(new Destroy(e));
-		e.addValidEntityContact(new Enemy(0,0, null));
+		e.addValidEntityContact(new Enemy(0,0, e.dungeon));
+		
 		this.attached = e;
+		e.addEffect(this);
+		
 		this.inEffect = true;
-		this.counter = 15;
-		this.maxDuration = 15;
 	}
 	
 	public boolean getInEffect() {
@@ -34,7 +43,9 @@ public class InstaKillEnemy extends Behaviour implements Effect, Observer{
 	public void endEffect() {
 		inEffect = false;
 		attached.setContactBehaviour(new NoContact(attached));
+		//this.attached.removeEffect(this);
 		this.attached = null;
+		
 	}
 
 	@Override
@@ -60,7 +71,6 @@ public class InstaKillEnemy extends Behaviour implements Effect, Observer{
 					}
 				}
 			}
-			
 			counter--;
 		}
 	}

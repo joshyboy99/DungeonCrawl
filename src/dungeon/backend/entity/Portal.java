@@ -3,8 +3,12 @@ package dungeon.backend.entity;
 import dungeon.backend.Dungeon;
 import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
-import javafx.beans.property.IntegerProperty;
 
+/**
+ * The portal Entity class
+ * @author JAG
+ *
+ */
 public class Portal extends Entity {
 	
 	private int portalID; 
@@ -12,9 +16,7 @@ public class Portal extends Entity {
 	
 	public Portal(int x, int y, Dungeon dungeon,int portalID) {
 		super(x, y, dungeon);
-		this.contactBehaviour = new Transport(this);
-		//this.contactBehaviour = new Transport(this, x, y);
-		
+		this.contactBehaviour = new Transport(this);		
 		this.moveBehaviour = new Static(this);
 		this.portalID = portalID;
 		this.dungeon = dungeon; 

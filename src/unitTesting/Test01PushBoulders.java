@@ -13,6 +13,7 @@ public class Test01PushBoulders {
 	//Player can move the boulder only if they're in the adjacent square.
 	@Test
 	public void testAC1() {
+		System.out.println("- - TEST RANDOM BOULDER TO ADJCENT SQUARE - -");
 		Dungeon dungeon = new Dungeon(5,5);
 		Player player = new Player(dungeon, 1,2);
 		System.out.print("Created a boulder (3,2) and a player instantiated at square 1,2\n");
@@ -24,11 +25,13 @@ public class Test01PushBoulders {
         assertTrue(b1.getY() == 2);
         assertTrue(player.getX() == 2);
         assertTrue(player.getY() == 2);
+        System.out.println("- -               PASSED                  - -");
 	}
 	//Boulder will only move in the direction the player is pushing.
 	// For every square the player moves in the direction that it is pushed, the boulder will move only one square.
 	@Test 
 	public void testAC2and3() {
+		System.out.println("- -     MOVE IN DIRECTION PLAYER IS PUSHING   - -");
 		Dungeon dungeon = new Dungeon(5,5);
 		Player player = new Player(dungeon, 2,2);
 		System.out.print("Created a boulder (3,2) and a player instantiated at square 2,2\n");
@@ -134,11 +137,12 @@ public class Test01PushBoulders {
         assertTrue(player.getY() == 2);
         System.out.print("New boulder position: (" + b1.getX() + "," + b1.getY() + ")\n");
         System.out.print("New player position: (" + player.getX() + "," + player.getY() + ")\n");
-        
+        System.out.println("- -               PASSED                  - -");
     }
 	//  Player can only move one boulder at a time.
 	@Test 
 	public void testAC4() {
+		System.out.println("- - TEST MOVE ONE BOULDER AT A TIME - -");
 		Dungeon dungeon = new Dungeon(10, 10);
 		Player player = new Player(dungeon, 2, 5);
 		dungeon.setPlayer(player);
@@ -157,5 +161,7 @@ public class Test01PushBoulders {
 		assertEquals(boulder.getY(), 5);
 		assertEquals(boulder2.getX(), 4);
 		assertEquals(boulder2.getY(), 5);
+		System.out.println("- -               PASSED                  - -");
+		
 	}
 }

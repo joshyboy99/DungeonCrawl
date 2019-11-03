@@ -5,6 +5,12 @@ import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
 
 
+/**
+ * The Door Entity Class
+ * 
+ * @author JAG
+ *
+ */
 public class Door extends Entity {
 		private int keyID; 
 	

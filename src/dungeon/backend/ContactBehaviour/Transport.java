@@ -3,6 +3,12 @@ package dungeon.backend.ContactBehaviour;
 import dungeon.backend.InteractableBehaviour;
 import dungeon.backend.entity.*;
 
+/**
+ * This class looks at the contact behaviour when it being
+ * contacted, hence it has it Transport upon contact
+ * @author JAG
+ *
+ */
 public class Transport extends InteractableBehaviour implements ContactBehaviour {
 	
 	public Transport(Entity attached) {
@@ -25,7 +31,7 @@ public class Transport extends InteractableBehaviour implements ContactBehaviour
 	}
 }
 
-/*PROBLEM:
+/* PROBLEM:
  * NOT EXTENDABLE - TO FIX SIMPLY MAKE METHOD IN ENTITY THAT IS ONLY USED FOR THINGS THAT TELEPORT YOU. WILL FIX TOMORROW.
  */
 

@@ -5,6 +5,12 @@ package dungeon.backend.ContactBehaviour;
 import dungeon.backend.InteractableBehaviour;
 import dungeon.backend.entity.*;
 
+/**
+ * This class looks at the contact behaviour when it being
+ * contacted, hence it has it repels when walked over
+ * @author JAG
+ *
+ */
 public class Repel extends InteractableBehaviour implements ContactBehaviour {
 	
 	

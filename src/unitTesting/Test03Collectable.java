@@ -1,17 +1,9 @@
 package unitTesting;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import org.junit.jupiter.api.Test;
-import java.util.ArrayList;
- 
-
-import dungeon.backend.entity.*;
 import dungeon.backend.*;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
+import dungeon.backend.entity.*;
+import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test; 
 
 /*
  * US0.3 - As a player I want to be able to collect items so that
@@ -20,12 +12,12 @@ import javafx.beans.property.SimpleIntegerProperty;
 
 class Test03Collectable {
 
-    //The player can only hold none or one sword. While the player already has a sword, another sword cannot be picked up.
+    // The player can only hold none or one sword. While the player already has a sword, another sword cannot be picked up.
     @Test
     void testAC3() {
     	// 5x5 Map player at (0,1)
     	// Sword in (0,2) 
-    	// pick up by going left once 
+    	// pick up by going down once 
     	// check if on board
         Dungeon dungeon = new Dungeon(5,5);
         Player player = new Player(dungeon, 0 ,1);
@@ -66,7 +58,7 @@ class Test03Collectable {
 	void testAC4() {
     	// 5x5 Map player at (0,1)
     	// key_one in (0,2), key_two in (0,3)
-    	// pick up by going left
+    	// pick up by going down
 		// check if on board of key_one
         Dungeon dungeon = new Dungeon(5,5);
         Player player = new Player(dungeon, 0 ,1);
@@ -101,8 +93,8 @@ class Test03Collectable {
 	//The player can pick up treasures that are on the map.	
     @Test
     void testAC5() {
-    	// 5x5 Map player at (0,1)
-    	// Treasure in (0,2) 
+    	// 5x5 Map player at (1,1)
+    	// Treasure in (2,1) 
     	// pick up by going left once 
     	// check if on board
         Dungeon dungeon = new Dungeon(5,5);
@@ -122,6 +114,7 @@ class Test03Collectable {
         System.out.println("- -         PASSED        - -");   
     }
     //The player can pick up invincibility potion, While the potion is active,another invincibility potion cannot be picked up.
+	@Test
     void testAC6() {
     	 Dungeon dungeon = new Dungeon(5,5);
     	 Player player = new Player(dungeon, 1 ,1);
@@ -132,6 +125,19 @@ class Test03Collectable {
     	 dungeon.addEntity(p1);
     	 System.out.println("- - TEST PICK UP 2X INVINCIBILITY POTION - -");
     	 player.moveRight();
+         Inventory invent = player.getInventory();
+
+    	 System.out.println("- - TEST PICK UP POTION - -");
+    	 assertTrue(invent.getItems().isEmpty());
+         player.moveRight(); 
+         player.activePickup();
+         assertFalse(dungeon.checkEntitiesOnDungeon(p0));   
+         dungeon.updateDungeon();
+         player.moveRight(); 
+         player.activePickup();
+         assertFalse(dungeon.checkEntitiesOnDungeon(p1));   
+    
+   
     	 System.out.println("- -         PASSED        - -");  
     	 
     }

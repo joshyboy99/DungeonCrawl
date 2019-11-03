@@ -1,7 +1,6 @@
 package dungeon.frontend;
 import java.io.IOException;
 
-import dungeon.backend.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,7 +13,7 @@ public class DungeonApplication extends Application {
     public void start(Stage primaryStage) throws IOException {
         primaryStage.setTitle("Dungeon");
 
-        DungeonControllerLoader dungeonLoader = new DungeonControllerLoader("Advanced.json");
+        DungeonControllerLoader dungeonLoader = new DungeonControllerLoader("boulders.json");
 
         DungeonController controller = dungeonLoader.loadController();
 

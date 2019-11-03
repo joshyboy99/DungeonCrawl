@@ -3,6 +3,11 @@ package dungeon.backend.goal;
 import dungeon.backend.*;
 import dungeon.backend.entity.*;
 
+/**
+ * The Goal that make sure it has reached the EXIT
+ * @author JAG
+ *
+ */
 public class GoalReachExit extends GoalBase {
 	
 	public GoalReachExit(Dungeon dungeon, Player player) {
@@ -21,13 +26,11 @@ public class GoalReachExit extends GoalBase {
 	}
 	
 	private boolean atExit(Exit e) {
-		int x = e.getX();
-		int y = e.getY();
 		
 		int playerX = player.getX();
 		int playerY = player.getY();
 		
-		if (x == playerX && y == playerY) {
+		if (e.samePosition(playerX, playerY)) {
 			return true;
 		}
 		return false;
