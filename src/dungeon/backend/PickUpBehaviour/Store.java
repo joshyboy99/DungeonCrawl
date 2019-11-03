@@ -4,6 +4,11 @@ import dungeon.backend.InteractableBehaviour;
 import dungeon.backend.PickUpBehaviour.PickUpBehaviour;
 import dungeon.backend.entity.*;
 
+/**
+ * Stored upon pick up
+ * @author JAG
+ *
+ */
 public class Store extends InteractableBehaviour implements PickUpBehaviour { 
 
 	public Store(Entity attached) {
