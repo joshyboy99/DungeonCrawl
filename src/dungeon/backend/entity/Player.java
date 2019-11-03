@@ -170,4 +170,8 @@ public class Player extends Entity {
     	}
     	return -1;
     }
+    
+    public String getFacing() {
+    	return facing;
+    }
 }
