@@ -123,9 +123,6 @@ public abstract class Entity {
     	this.contactBehaviour.onTouch(e);
     }
     
-//    public void performPickup(Entity e) {
-//    	((Pickup) e).performPickup();
-//    }
 
 	public MoveBehaviour getMoveBehaviour() {
 		return moveBehaviour;
@@ -143,9 +140,6 @@ public abstract class Entity {
 		this.contactBehaviour = contactBehaviour;
 	}
 	
-//	public String getContactBehaviourString() {
-//		return contactBehaviour.getClass().getSimpleName();
-//	}
     
 	public int getMx() {
 		return this.mx.get();
@@ -207,8 +201,6 @@ public abstract class Entity {
 		dungeon.removeEntity(this);
 	}
 	
-	
-
 	public void affect(Entity entity) {
 
 	};
@@ -241,4 +233,5 @@ public abstract class Entity {
 			}
 		}
 	}
+	
 }

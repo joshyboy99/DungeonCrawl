@@ -68,7 +68,7 @@ public class Sword extends Pickup {
 	
 	public void use() {
 		
-		for(Entity e: this.dungeon.EntitiesOnTile(sx.get(), sy.get()) ) {
+		for(Entity e: this.dungeon.EntitiesOnTile(this.sx.get(), this..get()) ) {
 			
 			if(e instanceof Enemy) {
 				
@@ -78,7 +78,6 @@ public class Sword extends Pickup {
 				if(successfulSwings == maxSwings) {
 					this.removeSelf();
 				}
-				
 			}
 		}
 	}
