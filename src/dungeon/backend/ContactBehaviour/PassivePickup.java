@@ -4,8 +4,10 @@ import dungeon.backend.entity.*;
 import dungeon.backend.*;
 
 /**
- * this class is for items that are always pickup up automatically when walked over by an entity. 
- * @author simon
+ * This class looks at the contact behaviour when it being
+ * contacted, hence it has it can be pickup up automatically 
+ * when walked over by an entity. 
+ * @author JAG
  *
  */
 public class PassivePickup extends InteractableBehaviour implements ContactBehaviour {

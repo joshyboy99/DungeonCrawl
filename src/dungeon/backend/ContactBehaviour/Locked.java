@@ -5,6 +5,12 @@ import dungeon.backend.entity.Entity;
 import dungeon.backend.entity.Player;
 import dungeon.backend.*;
 
+/**
+ * This class looks at the contact behaviour when it being
+ * contacted, hence it locked.
+ * @author JAG
+ *
+ */
 public class Locked extends InteractableBehaviour implements ContactBehaviour {
 
 	public Locked(Entity attached) {
