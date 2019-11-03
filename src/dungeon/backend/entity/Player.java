@@ -141,7 +141,7 @@ public class Player extends Entity {
     		if(p instanceof Sword) {
     			return true;
     		}
-    	} 
+    	}
     	return false;
     }
     

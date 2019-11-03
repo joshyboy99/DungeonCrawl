@@ -54,6 +54,10 @@ public class Sword extends Pickup {
 		}	
 	}
 	
+	public int swingNum() {
+		return successfulSwings;
+	}
+	
 	public void use() {
 		
 		for(Entity e: this.dungeon.EntitiesOnTile(sx.get(), sy.get()) ) {
