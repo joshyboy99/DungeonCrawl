@@ -27,7 +27,7 @@ public class Enemy extends Entity implements Observer{
 	}
 	
 	public void Flee() {
-		this.moveBehaviour = new Flee(this, player, dungeon);
+		this.moveBehaviour = new Flee(this, this.player, this.dungeon);
 		this.contactBehaviour = new NoContact(this);
 	}
 	

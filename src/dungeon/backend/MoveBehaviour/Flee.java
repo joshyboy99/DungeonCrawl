@@ -24,63 +24,69 @@ public class Flee extends Behaviour implements MoveBehaviour {
 		int aY = attached.getY();
 		int tX = targetEntity.getX();
 		int tY = targetEntity.getY();
+
 		
 		//if attached is to the left of targetEntity
 		if(aX > tX) {
-			
-			this.dungeon.scanTile(attached, aX - 1, aY);
-			
-			attached.setMx(aX - 1);
+			attached.setMx(1);
+			this.dungeon.scanTile(attached, aX + 1, aY);
+			attached.setX(aX + attached.getMx());
 			
 			//if enemy is above targetEntity 
 			if (aY < tY == true) {
-				attached.setMy(aY + 1);
+				attached.setMy(-1);
+				this.dungeon.scanTile(attached, aX, aY -1);
+				attached.setY(aY + attached.getMy());
 			}
 			
 			//below
 			else if (aY > tY == true) {
-				attached.setMy(aY - 1);
+				attached.setMy(1);
+				this.dungeon.scanTile(attached, aX, aY + 1);
+				attached.setY(aY + attached.getMy());
 			}
 			
 		} 
 		
 		//if attached is to the right of targetEntity
-		else if(aX < tY){
-			
-			this.dungeon.scanTile(attached, aX + 1, aY);
-			
-			attached.setMx(aX + 1);
+		else if(aX < tX){
+			attached.setMx(-1);
+			this.dungeon.scanTile(attached, aX - 1, aY);
+			attached.setX(aX + attached.getMx());
 			
 			//above
 			if(aY < tY) {
-				this.dungeon.scanTile(attached, aX, aY + 1);
-				attached.setMy(aY - 1);
+				attached.setMy(-1);
+				this.dungeon.scanTile(attached, aX, aY -1);
+				attached.setY(aY + attached.getMy());
 			}
 			
 			//below
 			else if(aY > tY) {
-				this.dungeon.scanTile(attached, aX, aY-1);
-				attached.setMy(aY + 1);
+				attached.setMy(1);
+				this.dungeon.scanTile(attached, aX, aY +1);
+				attached.setY(aY + attached.getMy());
 			}
 		} 
 		
 		////if targetEntity and attached inline on x axis 
-		else if(aX == tY) {
+		else if(aX == tX) {
 			
 			if(aY < tY) {
-				this.dungeon.scanTile(attached, aX, aY+1);
-				attached.setMx(aY - 1);
+				attached.setMy(-1);
+				this.dungeon.scanTile(attached, aX, aY -1);
+				attached.setY(aY + attached.getMy());
 			}
 			
 			//below
 			else if(aY > tY) {
-				this.dungeon.scanTile(attached, aX, aY-1);
-				attached.setMx(aY + 1);
+				attached.setMy(1);
+				this.dungeon.scanTile(attached, aX, aY + 1);
+				attached.setY(aY + attached.getMy());
 			}
 			
 		}
-		
-		attached.nextMove();
+	
 		
 	}
 	
