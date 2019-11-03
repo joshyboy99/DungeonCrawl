@@ -56,6 +56,7 @@ public class Test02fightEnemiesWithASword {
 		System.out.println("- -            TEST SLAY EVERY DIRECTION           - -");
 		Dungeon dungeon = new Dungeon(5,5);
 		Player player = new Player(dungeon, 2,2);
+		dungeon.setPlayer(player);
 		Sword s0 = new Sword(2,1,dungeon);
 		dungeon.addEntity(s0);
 		Enemy e0 = new Enemy(2,0, dungeon);
@@ -104,9 +105,8 @@ public class Test02fightEnemiesWithASword {
 		System.out.println("Swing Num: " + s0.swingNum());
 		assertFalse(dungeon.checkEntitiesOnDungeon(e4));
 		
-		// assertFalse(dungeon.checkEntitiesOnDungeon(s0));
 		assertFalse(invent.checkForItem(s0));
-		System.out.println("Player coordinates: (" + player.getX()+ "," +player.getY() +")");
+		System.out.println("No more Sword");
 		
 		System.out.println("- -                     PASSED                     - -");
 

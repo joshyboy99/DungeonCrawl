@@ -43,7 +43,9 @@ public class MoveTowards extends Behaviour implements MoveBehaviour {
 			
 			//below
 			else if (aY > tY == true) {
-				attached.setMy(aY + 1);
+				attached.setMy(-1);
+				this.dungeon.scanTile(attached, aX, aY -1);
+				attached.setY(aY + attached.getMy());
 			}
 			
 		} 
