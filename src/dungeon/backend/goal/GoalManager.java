@@ -6,6 +6,11 @@ import org.json.JSONObject;
 import dungeon.backend.*;
 import dungeon.backend.entity.*;
 
+/**
+ * A Goal Manager, responsible to create goals, 
+ * @author JAG
+ *
+ */
 public class GoalManager {
 	private Dungeon dungeon;
 	private Player player;
@@ -39,10 +44,10 @@ public class GoalManager {
     	
     	if (type.equals("AND") || type.equals("OR")) {
     		GoalComposite goals = new GoalComposite(type);
-    		JSONArray subGoals = goalCondition.getJSONArray("subgoals");
-    		for (int i = 0; i < subGoals.length(); i++) {
-    			JSONObject subGoal = subGoals.getJSONObject(i); 
-    			goals.addGoal(this.createGoal(subGoal));
+    		JSONArray s = goalCondition.getJSONArray("subgoals");
+    		for (int i = 0; i < s.length(); i++) {
+    			JSONObject sg = s.getJSONObject(i); 
+    			goals.addGoal(this.createGoal(sg));
     		}
     		newGoal = goals; 
     	}  else {
