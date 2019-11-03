@@ -2,8 +2,6 @@ package dungeon.backend.entity;
 
 import dungeon.backend.PickUpBehaviour.*;
 import dungeon.backend.Dungeon;
-import dungeon.backend.ContactBehaviour.*;
-import dungeon.backend.MoveBehaviour.*;
 
 /** 
  * Pick up Abstract class, looks at all

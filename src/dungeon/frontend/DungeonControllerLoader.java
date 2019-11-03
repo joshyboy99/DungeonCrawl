@@ -4,7 +4,6 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
-import dungeon.backend.*;
 import dungeon.backend.entity.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;

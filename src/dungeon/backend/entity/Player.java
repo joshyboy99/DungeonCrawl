@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dungeon.backend.ContactBehaviour.*;
+import dungeon.backend.MoveBehaviour.PlayerControl;
 
 /**
  * The player entity
@@ -30,7 +31,7 @@ public class Player extends Entity {
         this.treasureScore = 0;
         this.inventory = new Inventory();
         this.contactBehaviour = new NoContact(this);
-        //this.moveBehaviour = new PlayerControl();
+        this.moveBehaviour = new PlayerControl(this);
     }
 
     public Player() {
@@ -106,33 +107,6 @@ public class Player extends Entity {
         	dungeon.scanTile(this, getX() + 1 , getY());
             x().set(getX() + this.getMx());
         }
-    }
-    
-    public void move(int dx, int dy) {
-//    	System.out.println("observers: " + observers);
-
-    	int mx = getX() + dx;
-    	int my = getY() + dy;
-    	if (mx < 0 || my < 0 || mx > dungeon.getWidth() - 1 || my > dungeon.getHeight() -1) {
-    		//notifyObservers();
-    		return;
-    	}
-    	
-    	if (dungeon.getEntities() != null) {
-			for (int i = 0; i < dungeon.getEntities().size(); i++) {
-				Entity e = dungeon.getEntities().get(i);
-				if (e == null) continue;
-				if (e.samePosition(mx,my)) {
-					// cannot interact
-//					if (!e.interact(this)) {
-//						//notifyObservers();
-//						return;
-//					}
-				}
-			}
-    	}
-    	this.changeFace();
-    	this.nextMove();
     }
     
     public int getTreasure() {

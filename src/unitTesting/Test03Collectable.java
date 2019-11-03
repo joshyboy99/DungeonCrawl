@@ -1,17 +1,9 @@
 package unitTesting;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import org.junit.jupiter.api.Test;
-import java.util.ArrayList;
- 
-
-import dungeon.backend.entity.*;
 import dungeon.backend.*;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
+import dungeon.backend.entity.*;
+import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test; 
 
 /*
  * US0.3 - As a player I want to be able to collect items so that

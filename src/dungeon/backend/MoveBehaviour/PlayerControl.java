@@ -10,7 +10,7 @@ import dungeon.backend.entity.Entity;
  */
 public class PlayerControl extends Behaviour implements MoveBehaviour {
 
-	protected PlayerControl(Entity attached) {
+	public PlayerControl(Entity attached) {
 		super(attached);
 	}
 
