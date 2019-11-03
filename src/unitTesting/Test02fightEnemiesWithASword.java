@@ -16,6 +16,7 @@ public class Test02fightEnemiesWithASword {
 	//If player is in the square adjacent to an enemy and makes a successful attack, the enemy entity will vanish.
 	@Test
 	public void testAC1and2() {
+		System.out.println("- -               TEST SLAY ENEMY                  - -");
 		Dungeon dungeon = new Dungeon(10,10);
 		Player player = new Player(dungeon, 5,5);
 		System.out.println("Player coordinates: (" + player.getX()+ "," +player.getY() +")");
@@ -30,6 +31,7 @@ public class Test02fightEnemiesWithASword {
 		player.moveLeft();
 		player.useSword();
 		assertFalse(dungeon.checkEntitiesOnDungeon(e0));
+		System.out.println("- -                     PASSED                     - -");
 		
 	}
 

@@ -20,16 +20,32 @@ class Test18InvincibilityPotion {
     	
         System.out.println("- - Test POTION TIME - -");
         
+		Dungeon dungeon = new Dungeon(5,5);
+		Player player = new Player(dungeon, 0, 0);
+		dungeon.setPlayer(player);
+		Potion potion = new Potion(1, 0, dungeon);
+		dungeon.addEntity(potion);		
+		player.moveRight();
+		player.activePickup();
+		
+		assertFalse(potion.potionInEffect());
+		assertFalse(dungeon.checkEntitiesOnDungeon(potion));   
+	
+		dungeon.updateDungeon();
+		assertTrue(potion.potionInEffect());
+
+
+        
         System.out.println("- -      PASSED      - -");
     }
     
-    @Test
-    void testPotionEffect() {
-    	// 5x5 Map
-    	// kill Enemies 
-        System.out.println("- - Test POTION EFFECT - -");
-        
-        System.out.println("- -       PASSED       - -");
-    }
+//    @Test
+//    void testPotionEffect() {
+//    	// 5x5 Map
+//    	// kill Enemies 
+//        System.out.println("- - Test POTION EFFECT - -");
+//        
+//        System.out.println("- -       PASSED       - -");
+//    }
 
 }
