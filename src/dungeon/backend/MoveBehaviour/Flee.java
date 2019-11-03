@@ -4,6 +4,11 @@ import dungeon.backend.Behaviour;
 import dungeon.backend.Dungeon;
 import dungeon.backend.entity.Entity;
 
+/**
+ * Behaviour when Player has Potion
+ * @author JAG
+ *
+ */
 public class Flee extends Behaviour implements MoveBehaviour {
 	
 	Entity targetEntity;

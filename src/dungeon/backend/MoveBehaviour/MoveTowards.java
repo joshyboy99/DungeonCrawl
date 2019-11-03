@@ -4,6 +4,11 @@ import dungeon.backend.Behaviour;
 import dungeon.backend.Dungeon;
 import dungeon.backend.entity.Entity;
 
+/**
+ * Normal walking towards
+ * @author JAG
+ *
+ */
 public class MoveTowards extends Behaviour implements MoveBehaviour {
 	
 	Entity targetEntity;

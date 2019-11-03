@@ -3,6 +3,11 @@ package dungeon.backend.MoveBehaviour;
 import dungeon.backend.Behaviour;
 import dungeon.backend.entity.Entity;
 
+/**
+ * Behaviour if player's control
+ * @author JAG
+ *
+ */
 public class PlayerControl extends Behaviour implements MoveBehaviour {
 
 	protected PlayerControl(Entity attached) {
