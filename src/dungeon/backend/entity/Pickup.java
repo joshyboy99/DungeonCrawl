@@ -2,9 +2,14 @@ package dungeon.backend.entity;
 
 import dungeon.backend.PickUpBehaviour.*;
 import dungeon.backend.Dungeon;
-import dungeon.backend.ContactBehaviour.*;
-import dungeon.backend.MoveBehaviour.*;
 
+/** 
+ * Pick up Abstract class, looks at all
+ * Entity that is allowed to be Picked up 
+ *
+ * @author JAG
+ *
+ */
 public abstract class Pickup extends Entity {
 	
 	protected PickUpBehaviour pickupBehaviour;

@@ -4,6 +4,12 @@ import dungeon.backend.*;
 import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
 
+/**
+ * The Exit Entity Class
+ * 
+ * @author JAG
+ *
+ */
 public class Exit extends Entity{
 
 	public Exit(int x, int y, Dungeon dungeon) {

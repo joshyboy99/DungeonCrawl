@@ -5,6 +5,11 @@ import dungeon.backend.*;
 import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.entity.*;
 
+/**
+ * Instant killing of enemy
+ * @author amyluo
+ *
+ */
 public class InstaKillEnemy extends Behaviour implements Effect, Observer{
 
 	private boolean inEffect;

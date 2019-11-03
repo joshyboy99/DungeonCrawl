@@ -3,6 +3,11 @@ package dungeon.backend.goal;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Composite type of all Goal composite
+ * @author JAG
+ *
+ */
 public class GoalComposite implements Goal {
 	
 	private GoalCompositeType type;

@@ -3,6 +3,11 @@ package dungeon.backend.goal;
 import dungeon.backend.*;
 import dungeon.backend.entity.*;
 
+/**
+ * The Goal that make sure all the switches has been triggered
+ * @author JAG
+ *
+ */
 public class GoalCloseSwitch extends GoalBase{
 	
 	public GoalCloseSwitch(Dungeon dungeon, Player player) {

@@ -4,6 +4,12 @@ import dungeon.backend.*;
 import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.PickUpBehaviour.Store;
 
+/**
+ * The Key entity class 
+ * 
+ * @author JAG
+ *
+ */
 public class Key extends Pickup {
 	private int keyID; 	
 		

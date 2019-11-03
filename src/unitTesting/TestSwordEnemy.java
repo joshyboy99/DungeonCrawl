@@ -1,9 +1,9 @@
 package unitTesting;
 
-import dungeon.backend.entity.*;
 import dungeon.backend.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.api.Test;
+import dungeon.backend.entity.*;
+import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test; 
 
 /*
  * Combination of :

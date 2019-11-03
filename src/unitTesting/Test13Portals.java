@@ -1,11 +1,10 @@
 package unitTesting;
 
-import dungeon.backend.entity.*;
 import dungeon.backend.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import dungeon.backend.entity.*;
+import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test; 
 
-import org.junit.jupiter.api.Test;
 
 /*
  * US1.3 - As a player I want to have portals so I can be teleported.

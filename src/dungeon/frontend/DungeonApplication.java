@@ -1,7 +1,6 @@
 package dungeon.frontend;
 import java.io.IOException;
 
-import dungeon.backend.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

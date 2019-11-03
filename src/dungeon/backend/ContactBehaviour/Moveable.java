@@ -2,8 +2,13 @@ package dungeon.backend.ContactBehaviour;
 
 import dungeon.backend.InteractableBehaviour;
 import dungeon.backend.entity.*;
-import dungeon.backend.*;
 
+/**
+ * This class looks at the contact behaviour when it being
+ * contacted, hence it is movable, it can be rolled over over upon contact.
+ * @author JAG
+ *
+ */
 public class Moveable extends InteractableBehaviour implements ContactBehaviour {
  
 	public Moveable(Entity attached) { 
