@@ -131,7 +131,6 @@ class Test03Collectable {
     	 assertTrue(invent.getItems().isEmpty());
          player.moveRight(); 
          player.activePickup();
-         assertFalse(dungeon.checkEntitiesOnDungeon(p0));   
          dungeon.updateDungeon();
          player.moveRight(); 
          player.activePickup();
