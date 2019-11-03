@@ -19,7 +19,6 @@ public class Enemy extends Entity implements Observer{
 	public Enemy(int x, int y, Dungeon dungeon) {
 		super(x, y, dungeon);
 		this.player = dungeon.getPlayer();
-		
 		this.contactBehaviour = new Destroy(this);
 		((InteractableBehaviour) contactBehaviour).addEntity(player);
 		
