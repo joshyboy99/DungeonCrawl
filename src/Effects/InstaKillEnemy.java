@@ -40,7 +40,7 @@ public class InstaKillEnemy extends Behaviour implements Effect, Observer{
 	public void endEffect() {
 		inEffect = false;
 		attached.setContactBehaviour(new NoContact(attached));
-		this.attached.
+		this.attached.removeEffect(this);
 		this.attached = null;
 		
 	}

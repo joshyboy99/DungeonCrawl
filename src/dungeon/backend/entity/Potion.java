@@ -22,11 +22,17 @@ public class Potion extends Pickup implements Observer{
 		this.effects.add(new InstaKillEnemy(this));
 	}
 	
-	
 	@Override
 	public void update(Player player) {
 		for(Effect e: effects) {
 			e.update(player);
 		}
+	}
+	
+	public boolean potionInEffect() {
+		for(Effect e: effects) {
+			return e.getInEffect();
+		}
+		return false;
 	}
 }
