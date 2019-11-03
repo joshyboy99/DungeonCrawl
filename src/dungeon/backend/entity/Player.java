@@ -2,9 +2,8 @@ package dungeon.backend.entity;
 
 
 import dungeon.backend.*;
-import java.util.ArrayList;
-
 import java.util.List;
+import java.util.ArrayList;
 
 import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.PlayerControl;
@@ -19,7 +18,7 @@ public class Player extends Entity {
 	private String facing; 
     private int treasureScore;
     private Inventory inventory;
-    private List<Observer> observers = new ArrayList<Observer>();
+    // private List<Observer> observers = new ArrayList<Observer>();
     
     /**
      * Create a player positioned in square (x,y)
