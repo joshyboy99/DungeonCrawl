@@ -29,6 +29,7 @@ public class Dungeon implements Observable {
     private boolean fail;
     private Player player;
     private GoalManager goalManager;
+    private static int doors;
 
     /**
      * A constructor for the Dungeon Class. 
@@ -43,6 +44,7 @@ public class Dungeon implements Observable {
         this.player = null;
         this.goalManager = null;
         this.fail = false;
+        this.doors = 0;
         
     }
     
@@ -91,6 +93,10 @@ public class Dungeon implements Observable {
     public void addEntity(Entity entity) {
     	if (entity instanceof Observer) {
     		addObserver( (Observer) entity);
+    	}
+    	if (entity instanceof Door) {
+    		if (doors == 3) return;
+    		doors++;
     	}
         entities.add(entity);
     }
