@@ -27,9 +27,11 @@ public class Test02fightEnemiesWithASword {
 		assertTrue(invent.checkForItem(s0));  
 		assertFalse(dungeon.checkEntitiesOnDungeon(s0));
 		Enemy e0 = new Enemy(3,5,dungeon);
+		dungeon.addEntity(e0);
 		System.out.println("Enemy coordinates: (" + e0.getX()+ "," +e0.getY() +")");
 		player.moveLeft();
 		player.useSword();
+
 		assertFalse(dungeon.checkEntitiesOnDungeon(e0));
 		System.out.println("- -                     PASSED                     - -");
 		

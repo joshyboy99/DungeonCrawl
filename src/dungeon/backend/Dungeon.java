@@ -51,7 +51,7 @@ public class Dungeon implements Observable {
      * @return The Width of the Dungeon
      */
     public int getWidth() {
-        return width;
+        return this.width;
     }
 
     /**
@@ -59,7 +59,7 @@ public class Dungeon implements Observable {
      * @return The Height of the Dungeon
      */
     public int getHeight() {
-        return height;
+        return this.height;
     }
 
     /**
@@ -67,7 +67,7 @@ public class Dungeon implements Observable {
      * @return The Player that Belong in the Dungeon
      */
     public Player getPlayer() {
-        return player;
+        return this.player;
     }
 
     /**

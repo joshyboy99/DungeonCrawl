@@ -25,17 +25,28 @@ class Test18InvincibilityPotion {
 		dungeon.setPlayer(player);
 		Potion potion = new Potion(1, 0, dungeon);
 		dungeon.addEntity(potion);		
-		player.moveRight();
-		player.activePickup();
 		
-		assertFalse(potion.potionInEffect());
-		assertFalse(dungeon.checkEntitiesOnDungeon(potion));   
-	
-		dungeon.updateDungeon();
+		Enemy e0 = new Enemy(5,2,dungeon);
+		dungeon.addEntity(e0);
+		
+		player.moveRight();
+
+		player.activePickup();
+
+		
 		assertTrue(potion.potionInEffect());
 
+		assertFalse(dungeon.checkEntitiesOnDungeon(potion));   
+	
 
-        
+		int x = 0;
+		while (x < 16) {
+			dungeon.updateDungeon();
+			x++;
+		}
+
+		assertFalse(potion.potionInEffect());
+ 
         System.out.println("- -      PASSED      - -");
     }
     
