@@ -58,12 +58,9 @@ public class FloorSwitch extends Entity implements Observer {
 			if (e.samePosition(this.getX(), this.getY()) && e instanceof Boulder) {
 				setState(true);
 				return;
-			}
-			
+			}	
 		}
-		
 		setState(false);
 		return;
-		
 	}
 }
