@@ -18,8 +18,8 @@ public class GoalCollectTreasure extends GoalBase {
 				return;
 			}
 		}
-		
 		this.complete = true;
 	}
+	
 
 }

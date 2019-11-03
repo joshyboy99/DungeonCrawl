@@ -16,13 +16,21 @@ public class Store extends InteractableBehaviour implements PickUpBehaviour {
 			Inventory i = ((Player)entity).getInventory();			
 			
 			if(attached instanceof Sword) {
-				if(i.itemCount((Pickup)attached) == 5) {
+				if(i.itemCount((Pickup)attached) == 1) {
+					Sword currSword = i.getSword();
+					entity.getDungeon().addEntity(currSword);
+					i.remove(currSword);
+					((Player) entity).addItem((Pickup) attached);
 					return;
 				}
 			}
 			
 			if(attached instanceof Key) {
 				if(i.itemCount((Pickup)attached) == 1) {
+					Key currKey = i.getKey();
+					entity.getDungeon().addEntity(currKey);
+					i.remove(currKey);
+					((Player) entity).addItem((Pickup) attached);
 					return;
 				}
 			}

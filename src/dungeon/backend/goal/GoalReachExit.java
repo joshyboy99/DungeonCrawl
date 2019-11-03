@@ -11,6 +11,7 @@ public class GoalReachExit extends GoalBase {
 
 	public void checkComplete() {
 		for (Entity e : dungeon.getEntities()) {
+
 			if (e instanceof Exit) {
 				complete = atExit((Exit) e);
 				return;
