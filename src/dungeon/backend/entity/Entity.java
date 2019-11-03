@@ -233,4 +233,12 @@ public abstract class Entity {
 	public List<Effect> getEffects() {
 		return this.effects;
 	}
+	
+	public void removeEffect(Effect e) {
+		for(Effect eff: effects) {
+			if(e.getClass().equals(eff.getClass())) {
+				effects.remove(eff);
+			}
+		}
+	}
 }
