@@ -1,5 +1,6 @@
 package unitTesting;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.Test;
@@ -65,17 +66,20 @@ public class Test14Enemies {
 	@Test
 	//If the enemy touched the player, the level is reset and the player must start again..
 	public void testAC2(){
-		Dungeon dungeon = new Dungeon(10,10);
-		Player player = new Player(dungeon, 3,1);
+		System.out.println("- -          TEST FAIL           - -");
+		Dungeon dungeon = new Dungeon(5,5);
+		Player player = new Player(dungeon, 1,1);
 		dungeon.setPlayer(player);
-		Enemy e0 = new Enemy(4, 1,dungeon);
+		
+		Enemy e0 = new Enemy(0,1, dungeon);
 		dungeon.addEntity(e0);
-		System.out.println("-- TESTING ENEMY TOUCHING --  ");  
-		e0.performMove();
-		assertTrue(e0.x().getValue().intValue() == 3);
-		assertTrue(e0.y().getValue().intValue() == 2);
+		
+		player.moveRight();
 
-		System.out.println("-- TESTING ENEMY TOUCHING --  ");  
+		assertFalse(dungeon.checkEntitiesOnDungeon(player));
+		assertFalse(dungeon.isComplete());
+		
+		System.out.println("- -          TEST PASS           - -");;  
 		
 	}
 	
