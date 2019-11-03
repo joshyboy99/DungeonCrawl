@@ -28,7 +28,7 @@ public class Potion extends Pickup implements Observer{
 			e.update(player);
 		}
 	}
-	
+
 	public boolean potionInEffect() {
 		for(Effect e: effects) {
 			if(e instanceof InstaKillEnemy) {
@@ -43,6 +43,5 @@ public class Potion extends Pickup implements Observer{
 		for(Effect e: effects) {
 			e.effect(entity);
 		}
-		
 	}
 }

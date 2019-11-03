@@ -37,9 +37,9 @@ public abstract class Entity {
      * @param y
      */
     public Entity(int x, int y, MoveBehaviour moveBehaviour, ContactBehaviour contactBehaviour) {
-        this.x = new SimpleIntegerProperty(x);
-        this.y = new SimpleIntegerProperty(y);
         
+    	this.x = new SimpleIntegerProperty(x);
+        this.y = new SimpleIntegerProperty(y);  
         this.Facing = "DOWN";
         this.contactBehaviour = contactBehaviour;
         this.moveBehaviour = moveBehaviour;
@@ -202,7 +202,6 @@ public abstract class Entity {
 	}
 	
 	public void affect(Entity entity) {
-
 	};
 	
 	public void addValidEntityContact(Entity e) {
@@ -233,5 +232,4 @@ public abstract class Entity {
 			}
 		}
 	}
-	
 }
