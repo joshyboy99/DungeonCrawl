@@ -6,10 +6,11 @@ import dungeon.backend.*;
 
 public class Moveable extends InteractableBehaviour implements ContactBehaviour {
  
-	public Moveable(Entity attached) {
+	public Moveable(Entity attached) { 
 		super(attached);
 		this.ValidEntities.add(new Player());
 	}
+	
 	@Override
 	public void onTouch(Entity e) {
 		if(checkValidEntityClass(e)) {
