@@ -27,7 +27,7 @@ public class InstaKillEnemy extends Behaviour implements Effect, Observer{
 	@Override
 	public void effect(Entity e) {
 		e.setContactBehaviour(new Destroy(e));
-		e.addValidEntityContact(new Enemy(0,0, null));
+		e.addValidEntityContact(new Enemy(0,0, e.dungeon));
 		
 		this.attached = e;
 		e.addEffect(this);
