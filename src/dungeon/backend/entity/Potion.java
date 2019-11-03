@@ -35,4 +35,12 @@ public class Potion extends Pickup implements Observer{
 		}
 		return false;
 	}
+	
+	@Override
+	public void affect(Entity entity) {
+		for(Effect e: effects) {
+			e.effect(entity);
+		}
+		
+	}
 }

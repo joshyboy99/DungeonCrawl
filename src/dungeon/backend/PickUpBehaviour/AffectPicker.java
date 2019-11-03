@@ -18,7 +18,5 @@ public class AffectPicker extends InteractableBehaviour implements PickUpBehavio
 	public void onPickup(Entity entity) {
 		attached.affect(entity);
 	}
-
-
 	
 }
