@@ -35,8 +35,6 @@ public class Potion extends Pickup implements Observer{
 				return e.getInEffect();
 			}
 		}
-		
-		
 		return false;
 	}
 	
