@@ -31,8 +31,8 @@ public class Door extends Entity {
 	public void wasTouched(Entity entity) {
 		Player p0 = (Player) entity;
 		if(this.keyID == p0.getCurrentKeyID()) {
-			//System.out.println("HERE");
-			//player has required key, open door
+			//player has required key, open door and delete key
+		    p0.destroyKey(p0.getCurrentKeyID());
 			this.contactBehaviour = new NoContact(this);
 		} //if not, keep locked. 
 		

@@ -25,6 +25,7 @@ public class Player extends Entity {
      * @param x
      * @param y
      */
+    
     public Player(Dungeon dungeon, int x, int y) {
         super(x, y, dungeon);
         this.treasureScore = 0;
@@ -111,6 +112,7 @@ public class Player extends Entity {
     public int getTreasure() {
         return this.treasureScore;
     }
+    
     public Inventory getInventory() {
         return this.inventory;
     }
@@ -170,6 +172,24 @@ public class Player extends Entity {
     	}
     	return -1;
     }
+
+    /**
+     * Removes key from player
+     * @param door
+     */
+	public void destroyKey(int keyID) {
+		Key k1 =null;
+		for(Pickup p : this.getInventory().getItems()) {
+			if(p instanceof Key) {
+				Key k0 = (Key) p;
+				if( k0.getKeyID() == keyID)
+					k1 = k0;
+			}
+		}
+		this.removeItem((Pickup) k1);
+		
+	}
+
     
     public String getFacing() {
     	return facing;

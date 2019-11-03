@@ -1,4 +1,4 @@
-package dungeon.backend.goal;
+	package dungeon.backend.goal;
 import dungeon.backend.entity.*;
 import dungeon.backend.*;
 
