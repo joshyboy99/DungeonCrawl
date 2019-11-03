@@ -26,8 +26,8 @@ public class Sword extends Pickup {
 		this.moveBehaviour = new Static(this);
 		this.contactBehaviour = new ActivePickup(this);
 		this.pickupBehaviour = new Store(this);
-		this.sx = new SimpleIntegerProperty();
-		this.sy = new SimpleIntegerProperty();
+		this.sx = new SimpleIntegerProperty(0);
+		this.sy = new SimpleIntegerProperty(0);
 		this.maxSwings = 5;
 		this.successfulSwings = 0;
 		
@@ -39,18 +39,23 @@ public class Sword extends Pickup {
 			case "UP":
 				sx.set(x);
 				sy.set(y-1);
+				break;
 			
 			case "DOWN":
 				sx.set(x);
 				sy.set(y+1);
+				break;
 			
 			case "LEFT":
-				sx.set(x-1);
-				sy.set(y);
+				this.sx.set(x-1);
+				this.sy.set(y);
+				break;
 			
 			case "RIGHT":
 				sx.set(x+1);
 				sy.set(y);
+				
+				break;
 		}	
 	}
 	
@@ -67,8 +72,8 @@ public class Sword extends Pickup {
 	}
 	
 	public void use() {
-		
-		for(Entity e: this.dungeon.EntitiesOnTile(sx.get(), sy.get()) ) {
+
+		for(Entity e: this.dungeon.EntitiesOnTile(this.sx.get(), this.sy.get()) ) {
 			
 			if(e instanceof Enemy) {
 				
@@ -84,8 +89,10 @@ public class Sword extends Pickup {
 	}
 	
 	public void Swing(String facing, int x, int y) {
-		aim(facing, x, y);
-		use();
+		
+		this.aim(facing, x, y);
+
+		this.use();
 	}
 
 }
