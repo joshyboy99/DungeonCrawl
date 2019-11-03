@@ -5,6 +5,11 @@ import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
 import dungeon.backend.PickUpBehaviour.Store;
 
+/**
+ * The Treasure Entity class 
+ * @author JAG
+ *
+ */
 public class Treasure extends Pickup {
 
 	public Treasure(int x, int y, Dungeon dungeon) {

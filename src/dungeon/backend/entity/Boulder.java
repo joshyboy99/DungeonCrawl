@@ -4,6 +4,11 @@ import dungeon.backend.Dungeon;
 import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
 
+/**
+ * The boulder Entity Class
+ * @author JAG
+ *
+ */
 public class Boulder extends Entity{
 
 	public Boulder(int x, int y, Dungeon dungeon) {

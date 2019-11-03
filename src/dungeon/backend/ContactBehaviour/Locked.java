@@ -3,7 +3,6 @@ package dungeon.backend.ContactBehaviour;
 import dungeon.backend.InteractableBehaviour;
 import dungeon.backend.entity.Entity;
 import dungeon.backend.entity.Player;
-import dungeon.backend.*;
 
 /**
  * This class looks at the contact behaviour when it being

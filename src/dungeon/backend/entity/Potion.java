@@ -7,6 +7,11 @@ import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
 import dungeon.backend.PickUpBehaviour.*;
 
+/**
+ * The Potion entity class 
+ * @author JAG
+ *
+ */
 public class Potion extends Pickup implements Observer{
 	
 	public Potion(int x, int y, Dungeon dungeon) {
