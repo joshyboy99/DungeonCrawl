@@ -79,6 +79,7 @@ public class Sword extends Pickup {
 				
 				if(successfulSwings == maxSwings) {
 					this.removeSelf();
+					uninventory();
 				}
 			}
 		}
@@ -91,4 +92,7 @@ public class Sword extends Pickup {
 		this.use();
 	}
 
+	public void uninventory(){
+		this.dungeon.getPlayer().removeItem(this);
+	}
 }
