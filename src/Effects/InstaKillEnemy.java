@@ -21,6 +21,7 @@ public class InstaKillEnemy extends Behaviour implements Effect, Observer{
 		e.setContactBehaviour(new Destroy(e));
 		e.addValidEntityContact(new Enemy(0,0, null));
 		this.attached = e;
+		e.addEffect(this);
 		this.inEffect = true;
 		this.counter = 15;
 		this.maxDuration = 15;
