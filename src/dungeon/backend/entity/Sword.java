@@ -1,7 +1,7 @@
 package dungeon.backend.entity;
 
 
-import dungeon.backend.Dungeon;
+import dungeon.backend.*;
 import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
 import dungeon.backend.PickUpBehaviour.Store;
@@ -54,7 +54,6 @@ public class Sword extends Pickup {
 			case "RIGHT":
 				sx.set(x+1);
 				sy.set(y);
-				
 				break;
 		}	
 	}
@@ -67,7 +66,7 @@ public class Sword extends Pickup {
 		return sx.get();
 	}
 	
-	public int getSwinyY() {
+	public int getSwingY() {
 		return sy.get();
 	}
 	
@@ -80,6 +79,7 @@ public class Sword extends Pickup {
 				
 				if(successfulSwings == maxSwings) {
 					this.removeSelf();
+					uninventory();
 				}
 			}
 		}
@@ -92,4 +92,9 @@ public class Sword extends Pickup {
 		this.use();
 	}
 
+	public void uninventory(){
+		Player p = dungeon.getPlayer();
+		Inventory i = p.getInventory();
+		i.remove(this);
+	}
 }
