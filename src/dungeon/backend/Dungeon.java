@@ -199,10 +199,6 @@ public class Dungeon implements Observable {
     }
 
     public boolean isComplete() {
-    	if (!this.checkEntitiesOnDungeon(player)) {
-    		this.failStage();
-    		return false;
-    	}
     	return goalManager.checkComplete();
     }
     
