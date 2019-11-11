@@ -26,15 +26,25 @@ public class Enemy extends Entity implements Observer{
 		
 	}
 	
+	/**
+	 * Constructor for addition to valid entity list. 
+	 */
 	public Enemy() {
 		super();
 	}
+	
+	/**
+	 * Will change enemy's movement behavior to flee. Called after player has collected a potion. 
+	 */
 
 	public void Flee() {
 		this.moveBehaviour = new Flee(this, this.player, this.dungeon);
 		this.contactBehaviour = new NoContact(this);
 	}
 	
+	/**
+	 * Will change enemy's movement behavior to MoveTowards. Called after player's potion has expired. 
+	 */
 	public void Hunt() {
 		
 		this.contactBehaviour = new Destroy(this);
@@ -43,6 +53,9 @@ public class Enemy extends Entity implements Observer{
 		this.moveBehaviour = new MoveTowards(this, this.player, dungeon);
 	}
 
+	/**
+	 * Observes any changes to dungeon
+	 */
 	@Override
 	public void update(Player player) {
 		
