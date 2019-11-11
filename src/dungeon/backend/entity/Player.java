@@ -3,7 +3,6 @@ package dungeon.backend.entity;
 
 import dungeon.backend.*;
 import java.util.List;
-import java.util.ArrayList;
 
 import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.PlayerControl;
