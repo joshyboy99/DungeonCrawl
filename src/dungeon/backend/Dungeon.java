@@ -12,23 +12,52 @@ import java.util.List;
 import org.json.JSONObject;
 
 /**
- * A dungeon in the interactive dungeon player.
- *
- * A dungeon can contain many entities, each occupy a square. More than one
- * entity can occupy the same square.
+ * The Dungeon is the world in which all the entities exist.
+ * It is described by a set of 2D coordinates and a list of 
+ * entities that can be at these coordinates. 
  *
  * @author JAG
  *
  */
 
 public class Dungeon implements Observable {
-
+	
+	/**
+	 * The maximum x and y values of this dungeon's coordinate system.
+	 */
     private int width, height;
+    
+    /**
+     * The list of entity objects contained within this dungeon
+     */
     private List<Entity> entities;
+    
+    /**
+     * The list of objects this dungeon is observing.
+     */
     private List<Entity> observers;
+    
+    /**
+     * A state of the dungeon describing whether or not the player 
+     * has triggered a fail condition.
+     */
     private boolean fail;
+    
+    /**
+     * The player entity who inhabits this dungeon, generally controlled by a user.
+     */
     private Player player;
+    
+    /**
+     * The Set of methods responsible for monitoring and allocating the goals of this
+     * dungeon to be completed by the player.
+     */
     private GoalManager goalManager;
+    
+    /**
+     * Describes the number of doors that have been unlocked within this dungeon,
+     * which can be used as a goal-condition.
+     */
     private static int doors;
 
     /**
@@ -44,10 +73,9 @@ public class Dungeon implements Observable {
         this.player = null;
         this.goalManager = null;
         this.fail = false;
-        this.doors = 0;
+        Dungeon.doors = 0;
         
     }
-    
 
     /**
      * Getter of the Dungeon's Width
@@ -75,7 +103,7 @@ public class Dungeon implements Observable {
 
     /**
      * Setter of the Player in Dungeon. 
-     * It instantiate the goalManager, making sure that this goal is 
+     * It instantiates the goalManager, making sure that this goal is 
      * for this particular player. 
      * @param player Setting the Player in belongs in Dungeon. 
      */
@@ -88,16 +116,23 @@ public class Dungeon implements Observable {
      * While importing Entity, it checks if it's an observer,
      * so it gets added into the list. Then subsequently into 
      * the own entities' list.
-     * @param entity
+     * @param entity the entity to be added to the dungeon.
      */
     public void addEntity(Entity entity) {
+    	
     	if (entity instanceof Observer) {
     		addObserver( (Observer) entity);
     	}
+    	
     	if (entity instanceof Door) {
-    		if (doors == 3) return;
-    		doors++;
+    		if(doors < 3) {
+    			doors++;
+    		}
+    		else {
+    			return;
+    		}
     	}
+    	
         entities.add(entity);
     }
     
@@ -112,17 +147,16 @@ public class Dungeon implements Observable {
     /**
      * Scan tile, invoke contact behavior on entity which touched tile. 
      *  
-     * @param touched The entity that touches 
-     * @param x The x coordinate of where the interact entity
-     * @param y The y coordinate of where the interact entity
+     * @param touched The entity that touches this space.
+     * @param x The x coordinate of where the interaction occurs.
+     * @param y The y coordinate of where the interaction occurs.
      */
     public void scanTile(Entity touched, int x, int y) {
-
     	for (Entity e: EntitiesOnTile(x,y)) {
     		e.performTouch(touched);
     	}
-
     }
+ 
     
     /**
      * The list of entities on that particular tile. 
