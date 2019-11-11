@@ -163,8 +163,8 @@ public abstract class Entity {
 	}
 	
 	public void nextMove() {
-		this.x = mx;
-		this.y = my;
+		this.x.set(x.get() + mx.get());
+		this.y.set(y.get() + my.get());
 		this.changeFace();
 		this.setMx(0);
 		this.setMy(0);
@@ -232,4 +232,10 @@ public abstract class Entity {
 			}
 		}
 	}
+	
+	public void resetNextMove() {
+		this.setMx(0);
+		this.setMy(0);
+	}
+	
 }
