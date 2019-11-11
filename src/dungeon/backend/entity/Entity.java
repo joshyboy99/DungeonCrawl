@@ -197,8 +197,11 @@ public abstract class Entity {
 	}
 	
 	public void removeSelf(){
-		//System.out.print("size:" + dungeon.getEntities().size() + "\n");
-		dungeon.removeEntity(this);
+		if(dungeon.checkEntitiesOnDungeon(this)) {
+			//System.out.print("size:" + dungeon.getEntities().size() + "\n");
+			dungeon.removeEntity(this);
+		}
+		
 	}
 	
 	public void affect(Entity entity) {
