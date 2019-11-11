@@ -11,6 +11,7 @@ import dungeon.backend.entity.Entity;
  */
 public class Flee extends Behaviour implements MoveBehaviour {
 	
+	
 	Entity targetEntity;
 	Dungeon dungeon; 
 	public Flee(Entity attached, Entity targetEntity, Dungeon dungeon) {
@@ -18,6 +19,10 @@ public class Flee extends Behaviour implements MoveBehaviour {
 		this.targetEntity = targetEntity;
 		this.dungeon = dungeon;
 	}
+	/**
+	 * The move behavior of flee is that of running away from the target entity. It is like the inverse of
+	 * move towards. Used for enemies when player is under the influence of the potion. 
+	 */
 	@Override
 	public void move() {
 		int aX = attached.getX();
