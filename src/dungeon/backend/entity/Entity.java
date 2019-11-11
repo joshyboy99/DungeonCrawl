@@ -12,32 +12,49 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
 /**
- * An entity in the dungeon.
- * @author Robert Clifton-Everest
+ * The Entity abstract class which dictates the shared attributes and behaviors
+ * of all entities within the dungeon. 
+ * @author JAG
  *
  */
 public abstract class Entity {
 
-    // IntegerProperty is used so that changes to the entities position can be
-    // externally observed.
+	/**
+	* properties x and y pertain to the entity's
+	* current position in the dungeon, while mx and my
+	* dictate the trajectory of the Entity, describing where
+	* it's next location will be relative to where it is.
+	 */
     private IntegerProperty x, y;
     private IntegerProperty mx, my;
    
+    //Dictates whether or not the entity is in the paused state
+    //as directed by the game. 
 	private boolean paused;
+	
+	//describes the direction the entity is facing.
     private String Facing;
 
+    //An interchangeable behavior dictating how the entity moves around the dungeon
     protected MoveBehaviour moveBehaviour;
+    
+    //An interchangeable behavior dictating what happens when the entity is touched. 
     protected ContactBehaviour contactBehaviour;
+    
+    //A list of behaviors that may act on an entity when the Affect method is called.
     protected List<Effect> effects;
+    
+    //The world in which the entity resides. 
     public Dungeon dungeon;
     
-    /**
-     * Create an entity positioned in square (x,y)
-     * @param x
-     * @param y
-     */
+   /**
+    * Complex constructor for entity in the case that any of its behaviors
+    * may be different from those usually assigned in the constructor of
+    * its children.
+    * @param x Starting x coordinate 
+    * @param y Starting y coordinate
+    */
     public Entity(int x, int y, MoveBehaviour moveBehaviour, ContactBehaviour contactBehaviour) {
-        
     	this.x = new SimpleIntegerProperty(x);
         this.y = new SimpleIntegerProperty(y);  
         this.Facing = "DOWN";
@@ -49,6 +66,12 @@ public abstract class Entity {
         this.effects = new ArrayList<Effect>();
     }
     
+    /**
+     * Standard Constructor for Entity. 
+     * @param x Starting x coordinate 
+     * @param y Starting y coordinate
+     * @param dungeon the world the entity will inhabit
+     */
     public Entity(int x, int y, Dungeon dungeon) {
     	this.dungeon = dungeon;
         this.x = new SimpleIntegerProperty(x);

@@ -6,7 +6,11 @@ import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
 
 /**
- * The Enemy Entity class
+ * The Entity - Enemy, is an antagonist to the player entity
+ * and will normally follow and destroy the player on contact.
+ * The enemy can be destroyed with the swing of a sword, or by
+ * contacting the player while the InstaKillEnemy effect is active
+ * on that player. 
  * 
  * @author JAG
  *
@@ -23,11 +27,10 @@ public class Enemy extends Entity implements Observer{
 		((InteractableBehaviour) contactBehaviour).addEntity(player);
 		this.dungeon = dungeon; 
 		this.moveBehaviour = new MoveTowards(this, this.player, dungeon);
-		
 	}
 	
 	/**
-	 * Constructor for addition to valid entity list. 
+	 * Constructor for addition to valid entity list, and testing purposes.
 	 */
 	public Enemy() {
 		super();
@@ -36,7 +39,6 @@ public class Enemy extends Entity implements Observer{
 	/**
 	 * Will change enemy's movement behavior to flee. Called after player has collected a potion. 
 	 */
-
 	public void Flee() {
 		this.moveBehaviour = new Flee(this, this.player, this.dungeon);
 		this.contactBehaviour = new NoContact(this);

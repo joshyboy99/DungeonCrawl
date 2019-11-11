@@ -6,7 +6,8 @@ import dungeon.backend.MoveBehaviour.*;
 
 
 /**
- * The Door Entity Class
+ * The Entity - Door, is an inanimate obstacle that can be unlocked by a single 
+ * valid key to turn it into an open path that can be walked through. 
  * 
  * @author JAG
  *
@@ -22,12 +23,24 @@ public class Door extends Entity {
 		this.keyID = keyID;
 	}
 	
+	/**
+	 * This method checks if the current key is the one which can
+	 * unlock this door. If the key is correct, the door changes
+	 * Behavior to be 'unlocked'.
+	 * @param key the key entity that is being tested. 
+	 */
 	public void checkKey(Key key) {
+		
 		if(key.getKeyID() == this.keyID) {
 			this.contactBehaviour = new NoContact(this); 
 		} 
+		
 	}
 	
+	/**
+	 * The wasTouched of the door, will ensure that the 
+	 * 
+	 */
 	public void wasTouched(Entity entity) {
 		Player p0 = (Player) entity;
 		if(this.keyID == p0.getCurrentKeyID()) {

@@ -5,7 +5,8 @@ import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
 
 /**
- * The boulder Entity Class
+ * The Entity - Bolder, is an inanimate rock that can be moved by other 
+ * valid entities to either clear paths, or trigger floor-switches. 
  * @author JAG
  *
  */
