@@ -38,6 +38,7 @@ public class Portal extends Entity {
 	public int getportalID() {
 		return portalID;
 	}
+	
 	//will return the pair's portals X coordinates
 	public int getPortX() {
 		Portal PortalPair = dungeon.getGetPortalPair(this, this.portalID);
