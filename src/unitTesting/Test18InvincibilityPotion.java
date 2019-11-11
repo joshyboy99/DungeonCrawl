@@ -30,6 +30,7 @@ class Test18InvincibilityPotion {
  		player.moveRight();
  		player.activePickup();
  		assertTrue(potion.potionInEffect());
+ 		dungeon.updateDungeon();
  		e0.performMove();
  		System.out.println("enemy " + e0.getX() + " "+ e0.getY());
  		System.out.println("p " + player.getX() + " "+ player.getY());
