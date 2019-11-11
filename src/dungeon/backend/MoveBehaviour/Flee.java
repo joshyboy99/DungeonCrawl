@@ -33,14 +33,14 @@ public class Flee extends Behaviour implements MoveBehaviour {
 			attached.setX(aX + attached.getMx());
 			
 			//if enemy is above targetEntity 
-			if (aY < tY == true) {
+			if (aY < tY) {
 				attached.setMy(-1);
 				this.dungeon.scanTile(attached, aX, aY -1);
 				attached.setY(aY + attached.getMy());
 			}
 			
 			//below
-			else if (aY > tY == true) {
+			else if (aY > tY) {
 				attached.setMy(1);
 				this.dungeon.scanTile(attached, aX, aY + 1);
 				attached.setY(aY + attached.getMy());

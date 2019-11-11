@@ -30,7 +30,7 @@ public class Player extends Entity {
         super(x, y, dungeon);
         this.treasureScore = 0;
         this.inventory = new Inventory();
-        this.contactBehaviour = new NoContact(this);
+        this.contactBehaviour = new Die(this);
         this.moveBehaviour = new PlayerControl(this);
     }
 
