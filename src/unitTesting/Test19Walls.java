@@ -2,7 +2,9 @@ package unitTesting;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+//import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 
 import dungeon.backend.Dungeon;
 import dungeon.backend.entity.Enemy;
@@ -76,8 +78,8 @@ public class Test19Walls {
     void testAC5() {  
 	    Dungeon dungeon = new Dungeon(10,10);
 	    Player player = new Player(dungeon, 3,1);
-	    Enemy e0 = new Enemy(1,1, dungeon);
 	    dungeon.setPlayer(player);
+	    Enemy e0 = new Enemy(1,1, dungeon);
 	    dungeon.addEntity(new Wall(0,1,dungeon));
 	    dungeon.addEntity(new Wall(1,2,dungeon));
 	    dungeon.addEntity(new Wall(2,1,dungeon));
