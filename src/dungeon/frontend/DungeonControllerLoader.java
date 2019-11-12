@@ -2,6 +2,7 @@ package dungeon.frontend;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import dungeon.backend.entity.*;
@@ -35,18 +36,29 @@ public class DungeonControllerLoader extends DungeonLoader {
     private Image closedDoorImage;
     private Image openedDoorImage;
     private Image keyImage;
+    
+    private HashMap<Entity, ImageView> map;
 
     public DungeonControllerLoader(String filename)
             throws FileNotFoundException {
         super(filename);
+        
+        this.map = new HashMap<Entity, ImageView>();
+        
         entities = new ArrayList<>();
         playerImage = new Image("/human_new.png");
         wallImage = new Image("/brick_brown_0.png");
         exitImage = new Image("/exit.png");
-        //Sword
+        swordImage = new Image("/greatsword_1_new.png");
         boulderImage = new Image("/boulder.png");
         switchImage = new Image("/pressure_plate.png");
+        // Maybe this can be changed
+        enemyImage = new Image("/gnome.png");
+        potionImage = new Image("/brilliant_blue_new.png");  
         treasureImage = new Image("/gold_pile.png");
+        closedDoorImage = new Image("/closed_door.png");
+        openedDoorImage = new Image("/open_door.png");
+        keyImage = new Image("/key.png");
         
     }
 
@@ -119,6 +131,8 @@ public class DungeonControllerLoader extends DungeonLoader {
     private void addEntity(Entity entity, ImageView view) {
         trackPosition(entity, view);
         entities.add(view);
+        
+        this.map.put(entity, view);
     }
 
     /**
@@ -157,7 +171,9 @@ public class DungeonControllerLoader extends DungeonLoader {
      * @throws FileNotFoundException
      */
     public DungeonController loadController() throws FileNotFoundException {
-        return new DungeonController(load(), entities);
+    	DungeonController controller = new DungeonController(load(), entities);
+    	controller.getMap(this.map);
+        return controller;
     }
 
 

@@ -37,7 +37,7 @@ public class DungeonSelectScreen {
 		this.stage = stage;
 		this.title = "Level Selection";
 		this.controller = new DungeonSelectController(stage, this);
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("someformof.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("SelectStage.fxml"));
 		loader.setController(controller);
 		
 		Parent root = loader.load();

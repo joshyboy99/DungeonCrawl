@@ -22,7 +22,9 @@ public class DungeonScreen {
     	this.title = "Dungeon Screen";
     	this.stageName = name; 
     
-    	DungeonControllerLoader dungeonLoader = new DungeonControllerLoader(stageName);  	
+    	DungeonControllerLoader dungeonLoader = new DungeonControllerLoader(stageName);
+    	this.controller = dungeonLoader.loadController();
+    	
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("DungeonView.fxml"));
     	loader.setController(controller);
     	Parent root = loader.load();
