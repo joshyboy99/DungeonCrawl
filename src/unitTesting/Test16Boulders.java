@@ -113,6 +113,7 @@ public class Test16Boulders {
         System.out.print(" --- TEST PASSED --- \n");
 	}
 	
+	@Test
 	//Boulders will only move one square at a time
 	public void testAC3(){
 		Dungeon dungeon = new Dungeon(10,10);

@@ -41,14 +41,14 @@ public class Portal extends Entity {
 	
 	//will return the pair's portals X coordinates
 	public int getPortX() {
-		Portal PortalPair = dungeon.getGetPortalPair(this, this.portalID);
+		Portal PortalPair = dungeon.getPortalPair(this);
 		//return this portal if could not be found (so player does not go anywhere)
 		return PortalPair.getX();
 	}
 	
 	//will return the pair's portals Y coordinates
 	public int getPortY() {
-		Portal PortalPair = dungeon.getGetPortalPair(this, this.portalID);
+		Portal PortalPair = dungeon.getPortalPair(this);
 		//return this portal if could not be found (so player does not go anywhere)
 		return PortalPair.getY();
 	}
