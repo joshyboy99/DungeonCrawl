@@ -21,10 +21,12 @@ import dungeon.backend.*;
  *
  */
 public abstract class DungeonLoader {
-
+	
+	private String filename;
     private JSONObject json;
 
     public DungeonLoader(String filename) throws FileNotFoundException {
+    	this.filename = filename;
         json = new JSONObject(new JSONTokener(new FileReader("dungeons/" + filename)));
     }
 
@@ -43,6 +45,10 @@ public abstract class DungeonLoader {
         for (int i = 0; i < jsonEntities.length(); i++) {
             loadEntity(dungeon, jsonEntities.getJSONObject(i));
         }
+        
+        JSONObject goalCondition = json.getJSONObject("goal-condition");
+        dungeon.setupGoal(goalCondition);
+        
         return dungeon;
     }
 

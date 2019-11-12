@@ -149,9 +149,10 @@ public class DungeonController {
         default:
             break;
         }
+        
+        dungeon.updateDungeon();
                 
         if (dungeon.isComplete()) {
-        	System.out.println("here");
         	endScreen.start(true);
         }
         if (dungeon.isFail()) {
