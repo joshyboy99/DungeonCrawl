@@ -119,7 +119,10 @@ public class Test16Boulders {
 		Dungeon dungeon = new Dungeon(10,10);
 		Player player = new Player(dungeon, 1,5);
 		Boulder b0 = new Boulder(2,5, dungeon);
+		dungeon.addEntity(b0);
+		dungeon.setPlayer(player);
 		player.moveRight();
+		System.out.print(b0.getX());
         assertTrue(b0.getX() == 3);
         assertTrue(b0.getY() == 5);
         assertTrue(player.getX() == 2);
