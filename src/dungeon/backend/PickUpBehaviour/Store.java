@@ -5,7 +5,8 @@ import dungeon.backend.PickUpBehaviour.PickUpBehaviour;
 import dungeon.backend.entity.*;
 
 /**
- * Stored upon pick up
+ * This PickupBehaviour is appropriate whenever an pickup
+ * is intented to be added to an inventory.
  * @author JAG
  *
  */
