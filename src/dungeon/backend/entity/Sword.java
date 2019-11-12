@@ -9,16 +9,28 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
 /**
- * The Sword Entity class 
+ * The Pickup - Sword, is an inanimate passive pickup that can be swung
+ * to kill other entities in the dungeon. 
  * @author JAG
  *
  */
 public class Sword extends Pickup {
 	
-	//relative coordinates of next swing
+	/**
+	 * Relative coordinates of next swing
+	 */
 	private IntegerProperty sx,sy;
 	
+	/**
+	 * The number of swings that destroyed another
+	 * entity.
+	 */
 	private int successfulSwings;
+	
+	/**
+	 * The maximum number of successful swings this sword
+	 * can perform before removing itself from play.
+	 */
 	private int maxSwings;
 	
 	public Sword(int x, int y, Dungeon dungeon) {
@@ -33,6 +45,12 @@ public class Sword extends Pickup {
 		
 	}
 	
+	/**
+	 * Directs the sword correctly for the next attack.
+	 * @param facing the direction the holder entity is facing
+	 * @param x current location of the holder entity
+	 * @param y current location of the holder entity
+	 */
 	public void aim(String facing, int x, int y) {
 		switch (facing) {
 		
@@ -70,6 +88,10 @@ public class Sword extends Pickup {
 		return sy.get();
 	}
 	
+	/**
+	 * This Method swings the sword and removes enemies that are in
+	 * the square the sword is aimed at. 
+	 */
 	public void use() {
 		for(Entity e: this.dungeon.EntitiesOnTile(this.sx.get(), this.sy.get()) ) {
 			if(e instanceof Enemy) {
@@ -85,13 +107,22 @@ public class Sword extends Pickup {
 		}
 	}
 	
+	/**
+	 * Manager method that both aims and uses the sword
+	 * @param facing the direction the holder entity is facing
+	 * @param x current location of the holder entity
+	 * @param y current location of the holder entity
+	 */
 	public void Swing(String facing, int x, int y) {
 		
 		this.aim(facing, x, y);
 
 		this.use();
 	}
-
+	
+	/**
+	 * Removes this sword from the inventory of the player. 
+	 */
 	public void uninventory(){
 		Player p = dungeon.getPlayer();
 		Inventory i = p.getInventory();

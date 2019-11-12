@@ -5,7 +5,8 @@ import dungeon.backend.Dungeon;
 import dungeon.backend.entity.Entity;
 
 /**
- * Behaviour when Player has Potion
+ * This MoveBehaviour Instructs the attached entity
+ * to move away from a target entity.
  * @author JAG
  *
  */

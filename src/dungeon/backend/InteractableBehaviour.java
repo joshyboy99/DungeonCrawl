@@ -16,6 +16,10 @@ import dungeon.backend.entity.*;
  */
 public abstract class InteractableBehaviour extends Behaviour {
 	
+	/**
+	 * A list of entity classes that this behavior will perform its 
+	 * interactions with. 
+	 */
 	protected List<Entity> ValidEntities;
 	
 	public InteractableBehaviour(Entity attached) {
@@ -23,6 +27,11 @@ public abstract class InteractableBehaviour extends Behaviour {
 		this.ValidEntities = new ArrayList<Entity>();
 	}
 	
+	/**
+	 * This method checks if an incoming entity is valid to be interacted with
+	 * @param e the incoming entity
+	 * @return true if the entity is valid for interaction, false otherwise. 
+	 */
 	protected boolean checkValidEntityClass(Entity e) {
 		for (Entity ie : ValidEntities) {
 			if(e.getClass().equals(ie.getClass())) {
