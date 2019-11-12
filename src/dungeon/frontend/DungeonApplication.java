@@ -12,24 +12,10 @@ public class DungeonApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
     	
-//    	DungeonSelectScreen dungeonLevels = new DungeonSelectScreen(primaryStage);
-//    	
-//    	dungeonLevels.start();
+    	DungeonSelectScreen dungeonLevels = new DungeonSelectScreen(primaryStage);
+    	
+    	dungeonLevels.start();
 
-        primaryStage.setTitle("Dungeon");
-
-        DungeonControllerLoader dungeonLoader = new DungeonControllerLoader("advanced.json");
-
-        DungeonController controller = dungeonLoader.loadController();
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("DungeonView.fxml"));
-        loader.setController(controller);
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        root.requestFocus();
-        
-        primaryStage.setScene(scene);
-        primaryStage.show();
 
     }
 
