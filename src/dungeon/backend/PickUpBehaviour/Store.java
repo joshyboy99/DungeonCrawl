@@ -6,7 +6,7 @@ import dungeon.backend.entity.*;
 
 /**
  * This PickupBehaviour is appropriate whenever an pickup
- * is intented to be added to an inventory.
+ * is intended to be added to an inventory.
  * @author JAG
  *
  */
@@ -23,26 +23,24 @@ public class Store extends InteractableBehaviour implements PickUpBehaviour {
 			
 			if(attached instanceof Sword) {
 				if(i.itemCount((Pickup)attached) == 1) {
+					
 					//remove current sword from inventory, adjusting coordinates to current spot. add new key to inventory
 					Sword currSword = i.getSword();
-					currSword.setX(entity.getX());
-					currSword.setY(entity.getY());
-					entity.getDungeon().addEntity(currSword);
-					i.remove(currSword);
+					((Player) entity).dropItem(currSword);
 					((Player) entity).addItem((Pickup) attached);
+					
 					return;
 				}
 			}
 			
 			if(attached instanceof Key) {
 				if(i.itemCount((Pickup)attached) == 1) {
+					
 					//remove current key from inventory, adjusting coordinates to current spot. add new key to inventory
 					Key currKey = i.getKey();
-					currKey.setX(entity.getX());
-					currKey.setY(entity.getY());
-					entity.getDungeon().addEntity(currKey);
-					i.remove(currKey);
+					((Player) entity).dropItem(currKey);
 					((Player) entity).addItem((Pickup) attached);
+					
 					return;
 				}
 			}
