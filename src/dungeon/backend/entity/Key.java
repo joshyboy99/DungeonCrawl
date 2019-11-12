@@ -5,7 +5,9 @@ import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.PickUpBehaviour.Store;
 
 /**
- * The Key entity class 
+ * The Pickup - Key, is an inanimate active pickup that is used to unlock doors.
+ * Each key has a unique keyID and a player can only hold a single key at any 
+ * one time.  
  * 
  * @author JAG
  *

@@ -5,7 +5,9 @@ import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
 
 /**
- * The Wall Entity class
+ * The Entity - wall, is an inanimate object that
+ * denies the movement of all moving
+ * entities attempting to come into its location. 
  * @author amyluo
  *
  */

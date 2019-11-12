@@ -324,8 +324,12 @@ public abstract class Entity {
 	 * directions this entity is facing. 
 	 * @return
 	 */
-	protected String getFacing() {
+	public String getFacing() {
 		return this.Facing;
+	}
+	
+	public void setFacing(String f) {
+		this.Facing = f;
 	}
 	
 	/**

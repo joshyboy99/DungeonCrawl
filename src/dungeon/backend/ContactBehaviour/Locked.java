@@ -12,7 +12,6 @@ import dungeon.backend.entity.Player;
  * this behavior will consult the attached entity's wasTouched behavior
  * to account for the case where this behavior may change. 
  * 
- * In 
  * @author JAG
  *
  */

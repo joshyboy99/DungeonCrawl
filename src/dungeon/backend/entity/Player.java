@@ -2,32 +2,37 @@ package dungeon.backend.entity;
 
 
 import dungeon.backend.*;
+
 import java.util.List;
 
 import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.PlayerControl;
 
 /**
- * The player entity
- * @author Robert Clifton-Everest
+ * The Entity - Player, is a user controlled entity which inhabits the dungeon. 
+ * the player can complete goals, unlock doors, and perform many other unique tasks
+ * within the dungeon, and many other entities depend on it.
+ * Always ensure that the dungeon contains a player before adding other entities. 
+ * 
+ * @author JAG
  *
  */
 public class Player extends Entity {
-
-	private String facing; 
-    private int treasureScore;
+	
+	/**
+	 * Contains a list of pickup entities
+	 * contained within the player. 
+	 */
     private Inventory inventory;
-    // private List<Observer> observers = new ArrayList<Observer>();
     
     /**
      * Create a player positioned in square (x,y)
      * @param x
      * @param y
      */
-    
     public Player(Dungeon dungeon, int x, int y) {
         super(x, y, dungeon);
-        this.treasureScore = 0;
+        //this.treasureScore = 0;
         this.inventory = new Inventory();
         this.contactBehaviour = new Die(this);
         this.moveBehaviour = new PlayerControl(this);
@@ -37,6 +42,11 @@ public class Player extends Entity {
     	super();
     }
 
+    /**
+     * This method performs the action required
+     * to pick up an entity with the ActivePickup
+     * Behavior.
+     */
     public void activePickup() {
     	List<Entity> pickList = dungeon.EntitiesOnTile(getX(), getY());
     	for(Entity e: pickList) {
@@ -46,6 +56,11 @@ public class Player extends Entity {
     	}
     }
     
+    /**
+     * This Method allows the player to switch an item from its inventory
+     * with one in the dungeon. This is useful when the item limit for the
+     * player has been reached.
+     */
     public void swapItem() {
     	List<Entity> pickList = dungeon.EntitiesOnTile(getX(), getY());
     
@@ -62,6 +77,11 @@ public class Player extends Entity {
     	}
     }
     
+    /**
+     * This Method is used to return an item from the inventory, to the
+     * dungeon at the current location.
+     * @param p the item to be dropped.
+     */
     public void dropItem(Pickup p){
     	if(inventory.checkForItem(p)) {
     		inventory.remove(p);
@@ -71,54 +91,63 @@ public class Player extends Entity {
     	}
     }
     
+    /**
+     * Increments the player's y coordinate by one,
+     * moving them up. 
+     */
     public void moveUp() {
-    	this.facing = "UP";
+    	this.setFacing("UP");
         if (getY() > 0) {
         	this.setMy(-1);
         	dungeon.scanTile(this, getX(), getY() - 1);
             y().set(getY() + this.getMy());
         }
     }
-
+    
+    /**
+     * Decrements the player's y coordinate by one,
+     * moving them down.
+     */
     public void moveDown() {
-    	this.facing = "DOWN";
+    	this.setFacing("DOWN");
         if (getY() < dungeon.getHeight() - 1) {
         	this.setMy(1);
         	dungeon.scanTile(this, getX(), getY() + 1);
         	y().set(getY() + getMy());
         }
-        
     }
 
+    /**
+     * Decrements the player's x coordinate by one,
+     * moving them left. 
+     */
     public void moveLeft() {
-    	this.facing = "LEFT";
+    	this.setFacing("LEFT");
         if (getX() > 0 ) {
         	this.setMx(-1);
         	dungeon.scanTile(this, getX() -1 , getY());
             x().set(getX() + this.getMx());
         }
     }
-
+    
+    /**
+     * Increments the player's x coordinate by one,
+     * moving them right. 
+     */
     public void moveRight() {
-    	this.facing = "RIGHT";
+    	this.setFacing("RIGHT");
         if (getX() < dungeon.getWidth() - 1){
         	this.setMx(1);
         	dungeon.scanTile(this, getX() + 1 , getY());
             x().set(getX() + this.getMx());
         }
     }
-    
-    public int getTreasure() {
-        return this.treasureScore;
-    }
+ 
     
     public Inventory getInventory() {
         return this.inventory;
     }
     
-    public void addTreasure(int value) {
-        this.treasureScore += value;
-    }
     
     public void addItem(Pickup attached) {
     	this.inventory.add(attached);
@@ -137,6 +166,11 @@ public class Player extends Entity {
     	return this.dungeon;
     }
     
+    /**
+     * Checks if the Player has a sword.
+     * @return true if the player has a sword,
+     * false otherwise. 
+     */
     public boolean hasSword() {
     	for(Pickup p: this.getInventory().getItems()) {
     		if(p instanceof Sword) {
@@ -146,6 +180,11 @@ public class Player extends Entity {
     	return false;
     }
     
+    /**
+     * Returns the first instance of sword in the player's
+     * inventory
+     * @return the first sword in the inventory.
+     */
     public Sword getSword() {
     	for(Pickup p: this.getInventory().getItems()) {
     		if(p instanceof Sword) {
@@ -155,12 +194,19 @@ public class Player extends Entity {
     	return null; 
     }
     
+    /**
+     * Calls the sword swing method on sword.
+     */
     public void useSword() {
     	if(this.hasSword()) {
-    		this.getSword().Swing(this.facing, this.getX(), this.getY());
+    		this.getSword().Swing(this.getFacing(), this.getX(), this.getY());
     	} 
     }
     
+    /**
+     * Returns the keyID of the key currently possessed by the player
+     * @return the KeyID of the key the player possesses.
+     */
     public int getCurrentKeyID(){
     	//find key in inventory
     	for(Pickup p: this.getInventory().getItems()) {
@@ -173,11 +219,12 @@ public class Player extends Entity {
     }
 
     /**
-     * Removes key from player
-     * @param door
+     * Removes key from player.
+     * @param keyID the ID of the key to be destroyed. 
      */
 	public void destroyKey(int keyID) {
-		Key k1 =null;
+	
+		Key k1 = null;
 		for(Pickup p : this.getInventory().getItems()) {
 			if(p instanceof Key) {
 				Key k0 = (Key) p;
@@ -186,11 +233,6 @@ public class Player extends Entity {
 			}
 		}
 		this.removeItem((Pickup) k1);
-		
 	}
-
-    
-    public String getFacing() {
-    	return facing;
-    }
+	
 }

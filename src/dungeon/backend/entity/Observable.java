@@ -1,9 +1,7 @@
 package dungeon.backend.entity;
 
 /** 
- * The observable class, where it is is being
- * observed
- * 
+ * This Observable interface is for objects to be observed. 
  * @author JAG
  *
  */

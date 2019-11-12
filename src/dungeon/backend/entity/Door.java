@@ -29,26 +29,32 @@ public class Door extends Entity {
 	 * Behavior to be 'unlocked'.
 	 * @param key the key entity that is being tested. 
 	 */
-	public void checkKey(Key key) {
+	public boolean checkKey(int keyID) {
 		
-		if(key.getKeyID() == this.keyID) {
-			this.contactBehaviour = new NoContact(this); 
-		} 
+		if(keyID == this.keyID) return true;
+		
+		else return false;
 		
 	}
 	
 	/**
-	 * The wasTouched of the door, will ensure that the 
-	 * 
+	 * Checks if entity is a player, and if so checks the current key that player holds.
+	 * If they keyIDs match, then the key is destroyed and the door opens, otherwise 
+	 * the player is incoming entity is rejected.
 	 */
 	public void wasTouched(Entity entity) {
-		Player p0 = (Player) entity;
-		if(this.keyID == p0.getCurrentKeyID()) {
-			//player has required key, open door and delete key
-		    p0.destroyKey(p0.getCurrentKeyID());
-			this.contactBehaviour = new NoContact(this);
-		} //if not, keep locked. 
 		
+		if(entity instanceof Player) {
+			
+			Player p0 = (Player) entity;
+			
+			if(checkKey(p0.getCurrentKeyID())) {
+				
+			    p0.destroyKey(p0.getCurrentKeyID());
+				this.contactBehaviour = new NoContact(this);
+				
+			} 
+		}
 	}
 	
 }
