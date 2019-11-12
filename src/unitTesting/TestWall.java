@@ -1,11 +1,9 @@
 package unitTesting;
 
-import dungeon.backend.entity.*;
 import dungeon.backend.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import org.junit.jupiter.api.Test;
+import dungeon.backend.entity.*;
+import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test; 
 
 
 class TestWall {
@@ -18,10 +16,10 @@ class TestWall {
 		
         Dungeon dungeon = new Dungeon(3,3);
         Player player = new Player(dungeon, 1,1);
-        dungeon.addEntity(new Wall(0,1));
-        dungeon.addEntity(new Wall(1,2));
-        dungeon.addEntity(new Wall(2,1));
-        dungeon.addEntity(new Wall(1,0));
+        dungeon.addEntity(new Wall(0,1,dungeon));
+        dungeon.addEntity(new Wall(1,2,dungeon));
+        dungeon.addEntity(new Wall(2,1,dungeon));
+        dungeon.addEntity(new Wall(1,0,dungeon));
         
         System.out.println("- - TEST TRAPPED WITH WALL - -");
         

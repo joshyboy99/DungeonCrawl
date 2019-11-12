@@ -2,7 +2,14 @@ package dungeon.backend.PickUpBehaviour;
 
 import dungeon.backend.entity.*;
 
+/**
+ * The pick up behaviour 
+ * @author JAG
+ *
+ */
 public interface PickUpBehaviour {
 	
-	 void Pickup(Player player);
+	 void onPickup(Entity Entity);
+	 
+	 
 }

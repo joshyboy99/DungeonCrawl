@@ -1,8 +1,6 @@
 package dungeon.frontend;
 
 import dungeon.backend.entity.*;
-import dungeon.backend.MoveBehaviour.*;
-import dungeon.backend.ContactBehaviour.*;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -63,68 +61,70 @@ public abstract class DungeonLoader {
             entity = player;
             break;
         case "wall":
-            Wall wall = new Wall(x, y);
+            Wall wall = new Wall(x, y, dungeon);
             onLoad(wall);
             entity = wall;
             break;
         case "exit":
-        	Exit exit = new Exit(x, y);
+        	Exit exit = new Exit(x, y, dungeon);
         	onLoad(exit);
         	entity = exit;
         	break;
+        
         case "sword":
-        	Sword sword = new Sword(x, y);
+        	Sword sword = new Sword(x, y, dungeon);
         	onLoad(sword);
         	entity = sword;
         	break;
 
         case "boulder":
-        	Boulder boulder = new Boulder(x, y);
+        	Boulder boulder = new Boulder(x, y, dungeon);
         	onLoad(boulder);
         	entity = boulder;
         	break;
 
         case "switch":
-        	FloorSwitch floorSwitch = new FloorSwitch(x, y);
+        	FloorSwitch floorSwitch = new FloorSwitch(x, y, dungeon);
         	onLoad(floorSwitch);
         	entity = floorSwitch;
         	break;
 
-//        case "enemy":
-//        	Enemy enemy = new Enemy(player, x, y);
-//        	onLoad(enemy);
-//        	entity = enemy;
-//        	break;
+        case "enemy":
+        	Enemy enemy = new Enemy(x, y, dungeon);
+        	onLoad(enemy);
+        	entity = enemy;
+        	break;
 
         case "invincibility":
-        	Potion potion = new Potion(x, y);
+        	Potion potion = new Potion(x, y, dungeon);
         	onLoad(potion);
         	entity = potion;
         	break;
 
         case "treasure":
-        	Treasure treasure = new Treasure(x, y, 1);
+        	Treasure treasure = new Treasure(x, y, dungeon);
         	onLoad(treasure);
         	entity = treasure;
         	break;
 
         case "door":
         	int id = json.getInt("id");
-        	Door door = new Door(x, y, id);
+        	Door door = new Door(x, y, id, dungeon);
         	onLoad(door);
         	entity = door;
         	break;
 
         case "key":
         	id = json.getInt("id");
-        	Key key = new Key(x, y, id);
+        	Key key = new Key(x, y, id, dungeon);
         	onLoad(key);
         	entity = key;
         	break;
         }
         dungeon.addEntity(entity);
     }
-
+    
+    
     public abstract void onLoad(Entity player);
 
     public abstract void onLoad(Wall wall);
@@ -137,7 +137,7 @@ public abstract class DungeonLoader {
 
     public abstract void onLoad(FloorSwitch floorSwitch);
 
-//    public abstract void onLoad(Enemy enemy);
+    public abstract void onLoad(Enemy enemy);
 
     public abstract void onLoad(Potion potion);
 

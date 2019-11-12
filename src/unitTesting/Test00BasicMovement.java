@@ -2,10 +2,6 @@ package unitTesting;
 
 import dungeon.backend.*;
 import dungeon.backend.entity.*;
-
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
@@ -104,7 +100,77 @@ class Test00BasicMovement {
     	// 5x5 Map,  spawn at center of map
     	// 3 TIMES UP, DOWN, LEFT , RIGHT , STATIONARY
     	// check position every time
-
+    	
+        Dungeon dungeon = new Dungeon(10,10);
+        Player player = new Player(dungeon, 4 ,4);
+        
+        System.out.println("- - TEST SINGLE MOVEMENT - -");
+        
+        player.moveRight();
+        assertTrue(player.x().getValue().intValue() == 5);
+        assertTrue(player.y().getValue().intValue() == 4);
+        
+        System.out.println("Move RIGHT working");
+        player.moveRight();
+        assertTrue(player.x().getValue().intValue() == 6);
+        assertTrue(player.y().getValue().intValue() == 4);
+        
+        System.out.println("Move RIGHT working");
+        player.moveRight();
+        assertTrue(player.x().getValue().intValue() == 7);
+        assertTrue(player.y().getValue().intValue() == 4);
+        
+        System.out.println("Move RIGHT working");
+        
+        player.moveLeft();
+        assertTrue(player.x().getValue().intValue() == 6);
+        assertTrue(player.y().getValue().intValue() == 4);
+        
+        System.out.println("Move LEFT working");
+        player.moveLeft();
+        assertTrue(player.x().getValue().intValue() == 5);
+        assertTrue(player.y().getValue().intValue() == 4);
+        
+        System.out.println("Move LEFT working");
+        player.moveLeft();
+        assertTrue(player.x().getValue().intValue() == 4);
+        assertTrue(player.y().getValue().intValue() == 4);
+        
+        System.out.println("Move LEFT working");
+        
+        
+        player.moveUp();
+        
+        assertTrue(player.x().getValue().intValue() == 4);
+        assertTrue(player.y().getValue().intValue() == 3);
+        
+        System.out.println("Move UP working");
+        player.moveUp();
+        assertTrue(player.x().getValue().intValue() == 4);
+        assertTrue(player.y().getValue().intValue() == 2);
+        
+        System.out.println("Move UP working");
+        player.moveUp();
+        assertTrue(player.x().getValue().intValue() == 4);
+        assertTrue(player.y().getValue().intValue() == 1);
+        
+        System.out.println("Move UP working");
+        
+        player.moveDown();
+        assertTrue(player.x().getValue().intValue() == 4);
+        assertTrue(player.y().getValue().intValue() == 2);
+        
+        System.out.println("Move DOWN working");
+        player.moveDown();
+        assertTrue(player.x().getValue().intValue() == 4);
+        assertTrue(player.y().getValue().intValue() == 3);
+        
+        System.out.println("Move DOWN working");
+        player.moveDown();
+        assertTrue(player.x().getValue().intValue() == 4);
+        assertTrue(player.y().getValue().intValue() == 4);
+        
+        System.out.println("Move DOWN working");
         
     }
 

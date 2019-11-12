@@ -1,19 +1,23 @@
 package dungeon.backend.entity;
 
+import dungeon.backend.*;
 import dungeon.backend.ContactBehaviour.*;
-import dungeon.backend.MoveBehaviour.*;
-import dungeon.backend.PickUpBehaviour.*;
+import dungeon.backend.PickUpBehaviour.Store;
 
+/**
+ * The Key entity class 
+ * 
+ * @author JAG
+ *
+ */
 public class Key extends Pickup {
 	private int keyID; 	
-	
-	public Key(int x, int y, int keyID) {
-		super(x, y);
-		this.contactBehaviour= new Canpickup(this);
-		this.moveBehaviour= new Static(this);
-		this.pickupBehaviour= new AddToInventory(this);
+		
+	public Key(int x, int y, int keyID, Dungeon dungeon) {
+		super(x, y, dungeon);
 		this.keyID = keyID;
-		// TODO Auto-generated constructor stub
+		this.contactBehaviour = new ActivePickup(this);
+		this.pickupBehaviour = new Store(this);
 	}
 
 	/**
@@ -22,9 +26,6 @@ public class Key extends Pickup {
 	public int getKeyID() {
 		return keyID;
 	}
-	
-	//TO DO:
-	//CHANGE PICKUPBEHAVIOUR WHEN PLAYER HAS KEY 
 
 	
 }
