@@ -4,8 +4,8 @@ import dungeon.backend.InteractableBehaviour;
 import dungeon.backend.entity.*;
 
 /**
- * This class looks at the contact behaviour when it being
- * contacted, hence it is movable, it can be rolled over over upon contact.
+ * This Behavior is part of the group that extends Contact Behavior 
+ * and is useful for instances of Entity that can be moved by other entities. 
  * @author JAG
  *
  */
@@ -16,64 +16,88 @@ public class Moveable extends InteractableBehaviour implements ContactBehaviour 
 		this.ValidEntities.add(new Player());
 	}
 	
+	/**
+	 * this override of onTouch allows the incoming entity to move the attached entity in the same direction
+	 * as itself. 
+	 */
 	@Override
 	public void onTouch(Entity e) {
+		
 		if(checkValidEntityClass(e)) {
-			int entityPositionX= e.getX();
-			int entityPositionY = e.getY();
-			//if to left of obj
-			if(attached.getX() - entityPositionX == 1 && attached.getX() < attached.getDungeonWidth() - 1) {
-				attached.setMx(1);
-				attached.scanDungeonTile(attached.getX() + 1, attached.getY());
-				//if attached has failed to move, then obviously entity cannot either!
-				if(attached.getMx() == 0) {
-					e.setMx(0);
-				}
-				attached.setX(attached.getX()+ attached.getMx());
-			}  //if bottom of obj
-			else if(attached.getY() - entityPositionY == -1 && attached.getY() > 0) {
-				attached.setMy(-1);
-				attached.scanDungeonTile(attached.getX(), attached.getY() - 1);
-				//if attached has failed to move, then obviously entity cannot either!
-				if(attached.getMy() == 0) {
-					e.setMy(0);
-				}
-				attached.setY(attached.getY()+ attached.getMy());
-			} //if to the right of obj
-			else if(attached.getX() - entityPositionX == -1 && attached.getX() > 0) {
-				attached.setMx(-1);
-				attached.scanDungeonTile(attached.getX() - 1, attached.getY());
-				//if attached has failed to move, then obviously entity cannot either!
-				if(attached.getMx() == 0) {
-					e.setMx(0);
-				}
-				attached.setX(attached.getX()+ attached.getMx());
-			} else if(attached.getY() - entityPositionY == 1 && attached.getY() < attached.getDungeonHeight() - 1){ //if up top of obj 
-				attached.setMy(1);
-				attached.scanDungeonTile(attached.getX(), attached.getY() + 1);
-				//if attached has failed to move, then obviously entity cannot either!
-				if(attached.getMy() == 0) {
-					e.setMy(0);
-				}
-				attached.setY(attached.getY()+ attached.getMy());
-			} else {
+			
+			//Get relevant values for comparisons.
+			int eX = e.getX();
+			int eY = e.getY();
+			int aX = attached.getX();
+			int aY = attached.getY();
+			attached.resetNextMove();
+			
+			//If the incoming entity is to the left of the attached entity. 
+			if( (aX - eX == 1) && (aX < (attached.getDungeonWidth() - 1)) ) {
 				
-				//oh no - attached is attempting to go out of bounds, stop entity from moving!!!!!
-				e.setMx(0);
-				e.setMy(0);
+				//Set the attached entity's next move to be left by one and scan that tile to
+				//ensure that the move is valid.
+				attached.setMx(1);
+				attached.scanDungeonTile(aX + 1, aY);
+				
+				//If the attached entity's move has been denied, then pass this on 
+				//to the incoming entity.
+				if(attached.getMx() == 0) {
+					e.setMx(0);
+				}
+				
+				//Increment the current location by the value of the nextMove variables.
+				attached.nextMove();
+			}  
+
+			//If the incoming entity is above of the attached entity.
+			else if(aY - eY == -1 && aY > 0) {
+				attached.setMy(-1);
+				attached.scanDungeonTile(aX, aY - 1);
+				
+				if(attached.getMy() == 0) {
+					e.setMy(0);
+				}
+				
+				attached.nextMove();
 			}
-		} else { //if not in allowed, DONT move ENTITY	 :)
-			e.setMx(0);
-			e.setMy(0);
+
+			//If the incoming entity is to the right of the attached entity. 
+			else if( (aX - eX == -1) && (aX > 0) ) {
+				attached.setMx(-1);
+				attached.scanDungeonTile(aX - 1, aY);
+				
+				if(attached.getMx() == 0) {
+					e.setMx(0);
+				}
+				
+				attached.nextMove();
+			} 
+			
+			//If the incoming entity is below the attached entity.
+			else if( (aY - eY == 1) && (aY < attached.getDungeonHeight() - 1) ){
+				attached.setMy(1);
+				attached.scanDungeonTile(aX, aY + 1);
+				
+				if(attached.getMy() == 0) {
+					e.setMy(0);
+				}
+				
+				attached.nextMove();
+			} 
+			
+			//If the incoming entity is attempting to push the attached out of bounds
+			//this will reset their movement to 0
+			else {
+				e.resetNextMove();
+			}
+			
+		} 
+		
+		
+		//If the incoming entity is not on the valid entities list then it's move is rejected.
+		else { 
+			e.resetNextMove();
 		}
    }
 }
-
-/* KNOWN ISSUES:
- * -BOULDER USES SCAN TILE, SO WILL INTERACT WITH ENTITIES JUST LIKE PLAYER. THIS IS INTENDED BEHAVIOUR (MUST SCAN FOR WALLS AND SWITCHES) 
- * AND THE SOLUTION IS ADDING ALLOWED ENTITIES TO EACH CONTACT BEHAVIOUR!!!!
- * 
- * -NOTHING ELSE THIS IS PERFECT (lol)
- */
-
-

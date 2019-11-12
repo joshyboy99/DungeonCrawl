@@ -1,8 +1,8 @@
 package dungeon.backend.entity;
 
 /**
- * The Observer class, which looks at when it is
- * being Observed.
+ * The Observer Interface which is for objects being updated by
+ * obervables. 
  * 
  * @author JAG
  *

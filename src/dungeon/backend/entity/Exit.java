@@ -5,7 +5,9 @@ import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
 
 /**
- * The Exit Entity Class
+ * The Entity - Exit, is an inanimate entity that can be walked through.
+ * If all previous goals of the dungeon have been completed, walking through
+ * this entity will complete the dungeon. 
  * 
  * @author JAG
  *

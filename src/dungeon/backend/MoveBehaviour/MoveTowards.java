@@ -5,7 +5,8 @@ import dungeon.backend.Dungeon;
 import dungeon.backend.entity.Entity;
 
 /**
- * Normal walking towards
+ * This move behavior is appropriate for entities
+ * that need to move towards a particular entity.
  * @author JAG
  *
  */

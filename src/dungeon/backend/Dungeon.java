@@ -12,23 +12,52 @@ import java.util.List;
 import org.json.JSONObject;
 
 /**
- * A dungeon in the interactive dungeon player.
- *
- * A dungeon can contain many entities, each occupy a square. More than one
- * entity can occupy the same square.
+ * The Dungeon is the world in which all the entities exist.
+ * It is described by a set of 2D coordinates and a list of 
+ * entities that can be at these coordinates. 
  *
  * @author JAG
  *
  */
 
 public class Dungeon implements Observable {
-
+	
+	/**
+	 * The maximum x and y values of this dungeon's coordinate system.
+	 */
     private int width, height;
+    
+    /**
+     * The list of entity objects contained within this dungeon
+     */
     private List<Entity> entities;
+    
+    /**
+     * The list of objects this dungeon is observing.
+     */
     private List<Entity> observers;
+    
+    /**
+     * A state of the dungeon describing whether or not the player 
+     * has triggered a fail condition.
+     */
     private boolean fail;
+    
+    /**
+     * The player entity who inhabits this dungeon, generally controlled by a user.
+     */
     private Player player;
+    
+    /**
+     * The Set of methods responsible for monitoring and allocating the goals of this
+     * dungeon to be completed by the player.
+     */
     private GoalManager goalManager;
+    
+    /**
+     * Describes the number of doors that have been unlocked within this dungeon,
+     * which can be used as a goal-condition.
+     */
     private static int doors;
 
     /**
@@ -44,10 +73,9 @@ public class Dungeon implements Observable {
         this.player = null;
         this.goalManager = null;
         this.fail = false;
-        this.doors = 0;
+        Dungeon.doors = 0;
         
     }
-    
 
     /**
      * Getter of the Dungeon's Width
@@ -74,8 +102,9 @@ public class Dungeon implements Observable {
     }
 
     /**
-     * Setter of the Player in Dungeon. 
-     * It instantiate the goalManager, making sure that this goal is 
+     * This Method sets the player of the dungeon to be one that
+	 * is entered as a variable.
+     * It instantiates the goalManager, making sure that this goal is 
      * for this particular player. 
      * @param player Setting the Player in belongs in Dungeon. 
      */
@@ -85,51 +114,61 @@ public class Dungeon implements Observable {
     }
 
     /**
-     * While importing Entity, it checks if it's an observer,
-     * so it gets added into the list. Then subsequently into 
-     * the own entities' list.
-     * @param entity
+     * This method adds a new entity to the dungeon. 
+     * While importing the Entity, it checks if it's an observer and 
+     * if so it gets added into the list of entities
+     * and observers. 
+     * It also checks if the entity is a door, that it is within
+     * the maximum allowable number of doors. 
+     * @param entity the entity to be added to the dungeon.
      */
     public void addEntity(Entity entity) {
+    	
     	if (entity instanceof Observer) {
     		addObserver( (Observer) entity);
     	}
+    	
     	if (entity instanceof Door) {
-    		if (doors == 3) return;
-    		doors++;
+    		if(doors < 3) {
+    			doors++;
+    		}
+    		else {
+    			return;
+    		}
     	}
+    	
         entities.add(entity);
     }
     
     /**
-     * Getter of entities of the Dungeon
-     * @return Dungeon's entities.
+     * Returns a list of Entity objects stored in Dungeon
+     * @return the list of entities in this dungeon
      */
     public List<Entity> getEntities() {
     	return this.entities;
     }
     
     /**
-     * Scan tile, invoke contact behavior on entity which touched tile. 
+     * Scan Tile invokes the contactBehaviour of all entities of a given
+     * tile.
      *  
-     * @param touched The entity that touches 
-     * @param x The x coordinate of where the interact entity
-     * @param y The y coordinate of where the interact entity
+     * @param toucher The entity that touches this space.
+     * @param x The x coordinate of where the interaction occurs.
+     * @param y The y coordinate of where the interaction occurs.
      */
-    public void scanTile(Entity touched, int x, int y) {
-
+    public void scanTile(Entity toucher, int x, int y) {
     	for (Entity e: EntitiesOnTile(x,y)) {
-    		e.performTouch(touched);
+    		e.performTouch(toucher);
     	}
-
     }
+ 
     
     /**
-     * The list of entities on that particular tile. 
+     * Returns a list of entities at a given coordinate.  
      * 
      * @param x The x coordinate of that tile
      * @param y The y coordinate of that tile
-     * @return List of the entities
+     * @return List of the entity objects at the specified location
      */
     public List<Entity> EntitiesOnTile(int x, int y) {
     	
@@ -145,75 +184,89 @@ public class Dungeon implements Observable {
     }
     
     /**
-     * Finds the other portal with the same ID within the same 
-     * Dungeon 
-     * @param portal Initial portal 
-     * @param ID Initial ID of initial portal
-     * @return Portal of the new Portal
+     * Finds the corresponding portal with the same ID within the same 
+     * Dungeon. Searches the entity list for portals and compares each 
+     * portal id with that of the known portal. 
+     * @param portal the known portal 
+     * @param ID the Portal-ID of known portal
+     * @return Portal the found Portal
      */
-    public Portal getGetPortalPair(Portal portal,int ID) {
+    public Portal getPortalPair(Portal portal) {
+    	
     	for(Entity entity : this.entities) {
-    		//first, find entities which are portals
+    		
     		if(entity instanceof Portal) {
-    			//force entity to act as portal
     			Portal p = (Portal) entity;
-    			//check if same ID, and also is not same portal being passed thru
-    			if(p.getportalID() == ID && portal.equals(p) == false) {
+    			if(p.getportalID() == portal.getportalID() && portal.equals(p) == false) {
     				return p;
     			}
     		}
+    		
     	}
+    	
 		return portal;
     }
     
     /**
-     * Remove the entity within dungeon
+     * This Method removes a target entity from the dungeon
      * @param e The entity ready to be removed
      */
     public void removeEntity(Entity e) {
-    	
-//	    	if(e instanceof Pickup) {
-//	    		if(player.checkInventory((Pickup) e)) {
-//	    			player.removeItem((Pickup) e);
-//	    		}
-//	    	}
     	entities.remove(e);
     }
     
     /**
      * Checks if the Entity is still in Dungeon 
-     * @param e
-     * @return
+     * @param e the entity to be searched for
+     * @return true if the entity is found, false otherwise
      */
     public boolean checkEntitiesOnDungeon(Entity e) {
     	return this.entities.contains(e);
     }
 
-    
+    /**
+     * sets a new goal for the goal manager
+     * @param goalCondition the new goal condition as JSON
+     */
     public void setupGoal(JSONObject goalCondition) {
     	goalManager.setGoal(goalCondition);
     }
 
+    /**
+     * Returns the composite goal from goal manager
+     * @return the composite goal object from goal manger. 
+     */
     public Goal getGoal() {
     	return goalManager.getGoal();
     }
-
+    
+    /**
+     * Checks if all dungeon goals have been completed.
+     * @return true if the dungeon goals are complete, false otherwise.
+     */
     public boolean isComplete() {
-    	if (!this.checkEntitiesOnDungeon(player)) {
-    		this.failStage();
-    		return false;
-    	}
     	return goalManager.checkComplete();
     }
     
+    /**
+     * Sets the status of this dungeon to failed. 
+     */
     public void failStage() {
     	this.fail = true;
     }
 
+    /**
+     * Used to check if the dungeon has been failed.
+     * @return true if the dungeon has failed, false otherwise. 
+     */
     public boolean isFail() {
     	return this.fail;
     }
     
+    /**
+     * Used to get the list of observer entities in this class. 
+     * @return
+     */
     public List<Entity> getObservers() {
     	return this.observers;
     }

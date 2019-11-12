@@ -4,7 +4,8 @@ import dungeon.backend.InteractableBehaviour;
 import dungeon.backend.entity.*;
 
 /**
- * The effect when if it affects a certain entity
+ * The Pickup Behavior AffectPicker is appropriate whenn the
+ * pickup casts some sort of effect on the entity which picked it up. 
  * @author JAG
  *
  */

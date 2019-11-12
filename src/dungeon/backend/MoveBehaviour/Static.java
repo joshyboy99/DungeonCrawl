@@ -4,7 +4,8 @@ import dungeon.backend.Behaviour;
 import dungeon.backend.entity.Entity;
 
 /**
- * The motion of not not moving
+ * This Movement behaviour is appropriate for entities that
+ * do not move. 
  * @author JAG
  *
  */

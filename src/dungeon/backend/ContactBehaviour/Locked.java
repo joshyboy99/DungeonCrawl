@@ -5,8 +5,13 @@ import dungeon.backend.entity.Entity;
 import dungeon.backend.entity.Player;
 
 /**
- * This class looks at the contact behaviour when it being
- * contacted, hence it is locked.
+ * This class is part of the group that Extends ContactBehaviour.
+ * When an entity possessing this behavior makes contact with most entities,
+ * it will act like a wall, and deny their movement into it's square. 
+ * 
+ * this behavior will consult the attached entity's wasTouched behavior
+ * to account for the case where this behavior may change. 
+ * 
  * @author JAG
  *
  */
@@ -17,21 +22,24 @@ public class Locked extends InteractableBehaviour implements ContactBehaviour {
 		this.ValidEntities.add(new Player());
 	}	
 	
+	
+	/**
+	 *This overridden onTouch method resets the incoming entity's 'next position'
+	 *to zero, preventing it's movement. It also calls the attached entity's wasTouched method
+	 *for the case that this behavior may be changed as a result of the contact. 
+	 */
 	@Override
 	public void onTouch(Entity entity) {
+		
 		if(checkValidEntityClass(entity)) {
 			
-		// player cannot go through door if locked!!!!
+		// resets incoming entity next-position
 		entity.setMx(0);
 		entity.setMy(0);
-		// see if they have the right stuff, possibly changing the contact behaviour from locked.
+		
+		// calls attached entity's 'wasTouched' and passes in incoming entity. 
 		attached.wasTouched(entity);
-		
-		} else {
-			entity.setMx(0);
-			entity.setMy(0);
-		}
-		
-	}
+		} 
 
+	}
 }

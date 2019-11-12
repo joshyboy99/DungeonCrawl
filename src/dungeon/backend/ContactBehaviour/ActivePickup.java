@@ -16,9 +16,13 @@ public class ActivePickup extends InteractableBehaviour implements ContactBehavi
 		super(attached);
 	}
 
-	
+	/**
+	 * The on touch method is empty as this entity will only be picked interacted with voluntarily 
+	 * however it is still a contact behaviour. 
+	 */
 	@Override
 	public void onTouch(Entity entity) {
+		
 	}
 	
 	/**

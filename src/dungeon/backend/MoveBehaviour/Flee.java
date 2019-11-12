@@ -5,11 +5,13 @@ import dungeon.backend.Dungeon;
 import dungeon.backend.entity.Entity;
 
 /**
- * Behaviour when Player has Potion
+ * This MoveBehaviour Instructs the attached entity
+ * to move away from a target entity.
  * @author JAG
  *
  */
 public class Flee extends Behaviour implements MoveBehaviour {
+	
 	
 	Entity targetEntity;
 	Dungeon dungeon; 
@@ -18,6 +20,10 @@ public class Flee extends Behaviour implements MoveBehaviour {
 		this.targetEntity = targetEntity;
 		this.dungeon = dungeon;
 	}
+	/**
+	 * The move behavior of flee is that of running away from the target entity. It is like the inverse of
+	 * move towards. Used for enemies when player is under the influence of the potion. 
+	 */
 	@Override
 	public void move() {
 		int aX = attached.getX();
@@ -33,14 +39,14 @@ public class Flee extends Behaviour implements MoveBehaviour {
 			attached.setX(aX + attached.getMx());
 			
 			//if enemy is above targetEntity 
-			if (aY < tY == true) {
+			if (aY < tY) {
 				attached.setMy(-1);
 				this.dungeon.scanTile(attached, aX, aY -1);
 				attached.setY(aY + attached.getMy());
 			}
 			
 			//below
-			else if (aY > tY == true) {
+			else if (aY > tY) {
 				attached.setMy(1);
 				this.dungeon.scanTile(attached, aX, aY + 1);
 				attached.setY(aY + attached.getMy());

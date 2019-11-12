@@ -6,8 +6,9 @@ import dungeon.backend.MoveBehaviour.*;
 import dungeon.backend.PickUpBehaviour.Store;
 
 /**
- * The Treasure Entity class 
- * @author JAG
+ * The Pickup - Treasure, is an inanimate passive pickup that contributes
+ * to a possible goal for the dungeon.
+ *  @author JAG
  *
  */
 public class Treasure extends Pickup {

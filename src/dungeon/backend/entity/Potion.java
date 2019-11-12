@@ -8,7 +8,8 @@ import dungeon.backend.MoveBehaviour.*;
 import dungeon.backend.PickUpBehaviour.*;
 
 /**
- * The Potion entity class 
+ * The Pickup - Potion, is an inanimate passive pickup that performs an effect
+ * on the entity that picks it up. 
  * @author JAG
  *
  */
@@ -28,7 +29,12 @@ public class Potion extends Pickup implements Observer{
 			e.update(player);
 		}
 	}
-
+	
+	/**
+	 * Checks if the potion's effects are still
+	 * active.
+	 * @return true if the effects are still active, false otherwise.
+	 */
 	public boolean potionInEffect() {
 		for(Effect e: effects) {
 			if(e instanceof InstaKillEnemy) {

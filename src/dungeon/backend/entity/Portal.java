@@ -5,14 +5,15 @@ import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
 
 /**
- * The portal Entity class
+ * The Entity - Portal, is an inanimate entity that either transports
+ * valid entities to a corresponding portal elsewhere in the dungeon
+ * or acts like an impassable object. 
  * @author JAG
  *
  */
 public class Portal extends Entity {
 	
 	private int portalID; 
-	private Portal pair;
 	
 	public Portal(int x, int y, Dungeon dungeon,int portalID) {
 		super(x, y, dungeon);
@@ -21,37 +22,32 @@ public class Portal extends Entity {
 		this.portalID = portalID;
 		this.dungeon = dungeon; 
 	}
-
-	
-	public void addPair(Portal p) {
-		pair = p;
-	}
-	
-	public void removePair() {
-		pair = null;
-	}
-	
-	public Portal getPair() {
-		return this.pair;
-	}
 	
 	public int getportalID() {
 		return portalID;
 	}
-	//will return the pair's portals X coordinates
+	
+	/**
+	 * Returns the X coordinate of the paired portal.
+	 * @return the x coordinate of the paired portal as an int.
+	 */
 	public int getPortX() {
-		Portal PortalPair = dungeon.getGetPortalPair(this, this.portalID);
-		//return this portal if could not be found (so player does not go anywhere)
+		Portal PortalPair = dungeon.getPortalPair(this);
 		return PortalPair.getX();
 	}
 	
-	//will return the pair's portals Y coordinates
+	/**
+	 * Returns the Y coordinate of the paired portal.
+	 * @return the y coordinate of the paired portal as an int.
+	 */
 	public int getPortY() {
-		Portal PortalPair = dungeon.getGetPortalPair(this, this.portalID);
-		//return this portal if could not be found (so player does not go anywhere)
+		Portal PortalPair = dungeon.getPortalPair(this);
 		return PortalPair.getY();
 	}
 	
+	/**
+	 * Transports the valid to the paired portal's location. 
+	 */
 	public void wasTouched(Entity e) {
 		e.setX(this.getPortX());
 		e.setY(this.getPortY());
