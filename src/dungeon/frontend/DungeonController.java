@@ -57,21 +57,20 @@ public class DungeonController {
         this.entities = dungeon.getInitialEntities();
         this.initialEntities = new ArrayList<>(initialEntities);
         this.map = new HashMap<Entity, ImageView>();
-        this.timeline = new Timeline(new KeyFrame(Duration.millis(500), d -> this.controllerUpdate()));
+        this.timeline = new Timeline(new KeyFrame(Duration.millis(800), d -> this.controllerUpdate()));
+        timeline.setCycleCount(Animation.INDEFINITE);
+		timeline.play();
     }
     
     public void controllerUpdate() {
-    	dungeon.updateDungeon();
-    	refreshDungeonImage();
-
-    	if (dungeon.isComplete()) {
-        	this.timeline.stop();
-        	endScreen.start(true);
-        }
     	
-        if (dungeon.isFail()) {
-        	endScreen.start(false);
-        }
+    	for (Entity e : this.entities) {
+    		
+    		// here
+    		if (e instanceof Enemy) {
+    			e.performMove();
+    		}
+    	}
     	
     }
     
@@ -85,9 +84,9 @@ public class DungeonController {
     	for (Entity e : this.entities) {
     		
     		// here
-    		if (e instanceof Enemy) {
-    			e.performMove();
-    		}
+//    		if (e instanceof Enemy) {
+//    			e.performMove();
+//    		}
     		
     		if (e instanceof Door) {
     			refreshDoor((Door) e);
