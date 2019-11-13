@@ -71,14 +71,14 @@ public class MoveTowards extends Behaviour implements MoveBehaviour {
 		////if targetEntity and attached inline on x axis 
 		else if(attached.getX() == targetEntity.getX()) {
 			
-			if(attached.getY() < tY && attached.getMy() == 0) {
+			if(attached.getY() < targetEntity.getY() && attached.getMy() == 0) {
 				attached.setMy(1);
 				this.dungeon.scanTile(attached, attached.getX(), attached.getY() +1);
 				attached.setY(attached.getY() + attached.getMy());
 			}
 			
 			//below
-			else if(attached.getY() > tY  && attached.getMy() == 0) {
+			else if(attached.getY() > targetEntity.getY()  && attached.getMy() == 0) {
 				attached.setMy(-1);
 				this.dungeon.scanTile(attached, attached.getX(), attached.getY() -1);
 				attached.setY(attached.getY() + attached.getMy());
