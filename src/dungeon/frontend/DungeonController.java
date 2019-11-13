@@ -57,7 +57,7 @@ public class DungeonController {
         this.entities = dungeon.getInitialEntities();
         this.initialEntities = new ArrayList<>(initialEntities);
         this.map = new HashMap<Entity, ImageView>();
-        this.timeline = new Timeline(new KeyFrame(Duration.millis(700), d -> this.controllerUpdate()));
+        this.timeline = new Timeline(new KeyFrame(Duration.millis(800), d -> this.controllerUpdate()));
         timeline.setCycleCount(Animation.INDEFINITE);
 		timeline.play();
     }
@@ -71,7 +71,7 @@ public class DungeonController {
         }
     	else if (dungeon.isFail()) {
     		endScreen.start(true);
-    		this.timeline.stop();
+    		
     	}
     	for (Entity e : this.entities) {
     		

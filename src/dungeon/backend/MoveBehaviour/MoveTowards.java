@@ -22,70 +22,66 @@ public class MoveTowards extends Behaviour implements MoveBehaviour {
 	
 	@Override
 	public void move() {
-		
-		int aX = attached.getX();
-		int aY = attached.getY();
-		int tX = targetEntity.getX();
-		int tY = targetEntity.getY();
 
-		
+		attached.setMx(0);
+		attached.setMy(0);
 		//if attached is to the left of targetEntity
-		if(aX > tX) {
+		if(attached.getX() > targetEntity.getX()) {
 			attached.setMx(-1);
-			this.dungeon.scanTile(attached, aX - 1, aY);
-			attached.setX(aX + attached.getMx());
+			this.dungeon.scanTile(attached, attached.getX() - 1, attached.getY());
+			attached.setX(attached.getX() + attached.getMx());
 			
 			//if enemy is above targetEntity 
-			if (aY < tY == true) {
+			if (attached.getY() < targetEntity.getY() == true) {
 				attached.setMy(1);
-				this.dungeon.scanTile(attached, aX, aY +1);
-				attached.setY(aY + attached.getMy());
+				this.dungeon.scanTile(attached, attached.getX(), attached.getY() +1);
+				attached.setY(attached.getY() + attached.getMy());
 			}
 			
 			//below
-			else if (aY > tY == true) {
+			else if (attached.getY() > targetEntity.getY() == true) {
 				attached.setMy(-1);
-				this.dungeon.scanTile(attached, aX, aY -1);
-				attached.setY(aY + attached.getMy());
+				this.dungeon.scanTile(attached, attached.getX() , attached.getY() -1);
+				attached.setY(attached.getY() + attached.getMy());
 			}
 			
 		} 
 		
 		//if attached is to the right of targetEntity
-		else if(aX < tX){
+		else if(attached.getX() < targetEntity.getX() && attached.getMx() == 0){
 			attached.setMx(1);
-			this.dungeon.scanTile(attached, aX + 1, aY);
-			attached.setX(aX + attached.getMx());
+			this.dungeon.scanTile(attached, attached.getX() + 1, attached.getY());
+			attached.setX(attached.getX() + attached.getMx());
 			
 			//above
-			if(aY < tY) {
+			if(attached.getY() < targetEntity.getY()) {
 				attached.setMy(1);
-				this.dungeon.scanTile(attached, aX, aY +1);
-				attached.setY(aY + attached.getMy());
+				this.dungeon.scanTile(attached, attached.getX(), attached.getY() +1);
+				attached.setY(attached.getY() + attached.getMy());
 			}
 			
 			//below
-			else if(aY > tY) {
+			else if(attached.getY() > targetEntity.getY()) {
 				attached.setMy(-1);
-				this.dungeon.scanTile(attached, aX, aY -1);
-				attached.setY(aY + attached.getMy());
+				this.dungeon.scanTile(attached, attached.getX(), attached.getY() -1);
+				attached.setY(attached.getY() + attached.getMy());
 			}
 		} 
 		
 		////if targetEntity and attached inline on x axis 
-		else if(aX == tX) {
+		else if(attached.getX() == targetEntity.getX()) {
 			
-			if(aY < tY) {
+			if(attached.getY() < tY && attached.getMy() == 0) {
 				attached.setMy(1);
-				this.dungeon.scanTile(attached, aX, aY +1);
-				attached.setY(aY + attached.getMy());
+				this.dungeon.scanTile(attached, attached.getX(), attached.getY() +1);
+				attached.setY(attached.getY() + attached.getMy());
 			}
 			
 			//below
-			else if(aY > tY) {
+			else if(attached.getY() > tY  && attached.getMy() == 0) {
 				attached.setMy(-1);
-				this.dungeon.scanTile(attached, aX, aY -1);
-				attached.setY(aY + attached.getMy());
+				this.dungeon.scanTile(attached, attached.getX(), attached.getY() -1);
+				attached.setY(attached.getY() + attached.getMy());
 			}
 			
 		}
