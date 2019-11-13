@@ -128,6 +128,7 @@ public abstract class DungeonLoader {
         	break;
         }
         dungeon.addEntity(entity);
+        dungeon.addInitialEntity(entity);
     }
     
     

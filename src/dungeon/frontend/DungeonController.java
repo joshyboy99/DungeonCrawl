@@ -54,7 +54,7 @@ public class DungeonController {
     public DungeonController(Dungeon dungeon, List<ImageView> initialEntities) {
         this.dungeon = dungeon;
         this.player = dungeon.getPlayer();
-        this.entities = dungeon.getEntities();
+        this.entities = dungeon.getInitialEntities();
         this.initialEntities = new ArrayList<>(initialEntities);
         this.map = new HashMap<Entity, ImageView>();
         this.timeline = new Timeline(new KeyFrame(Duration.millis(500), d -> this.controllerUpdate()));
@@ -83,7 +83,7 @@ public class DungeonController {
     public void refreshEntityImage() {
     	
     	int counter = 0;
-    	for (Entity e : this.entities) {
+    	for (Entity e : entities) {
     		
     		//exist entity
 //    		if (e instanceof Door) {

@@ -28,6 +28,14 @@ public class Dungeon implements Observable {
     private int width, height;
     
     /**
+     * A list containing all entities that have ever
+     * been loaded to the current dungeon. 
+     */
+    private List<Entity> initialEntities;
+    
+    
+
+	/**
      * The list of entity objects contained within this dungeon
      */
     private List<Entity> entities;
@@ -70,6 +78,7 @@ public class Dungeon implements Observable {
         this.height = height;
         this.entities = new ArrayList<>();
         this.observers = new ArrayList<>();
+        this.initialEntities = new ArrayList<>();
         this.player = null;
         this.goalManager = null;
         this.fail = false;
@@ -288,6 +297,18 @@ public class Dungeon implements Observable {
 		for (Entity e : this.observers) {
 			((Observer)e).update(player);
 		}
+	}
+	
+	public void addInitialEntity(Entity e) {
+		this.initialEntities.add(e);
+	}
+	
+	public List<Entity> getInitialEntities() {
+		return initialEntities;
+	}
+
+	public void setInitialEntities(List<Entity> initialEntities) {
+		this.initialEntities = initialEntities;
 	}
 }
 
