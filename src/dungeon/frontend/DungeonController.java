@@ -84,6 +84,11 @@ public class DungeonController {
     	
     	for (Entity e : this.entities) {
     		
+    		// here
+    		if (e instanceof Enemy) {
+    			e.performMove();
+    		}
+    		
     		if (e instanceof Door) {
     			refreshDoor((Door) e);
     			continue;
