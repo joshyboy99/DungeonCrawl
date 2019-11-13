@@ -337,7 +337,7 @@ public abstract class Entity {
 	 * entity moving onto their square.
 	 * @param entity
 	 */
-	public void wasTouched(Entity entity) { 
+	public void wasTouched(Entity entity) {
 	}
 	
 	/**

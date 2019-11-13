@@ -103,6 +103,18 @@
       "type": "player"
     },
     {
+      "x": 2,
+      "y": 1,
+      "id": 1,
+      "type": "key"
+    },
+    {
+      "x": 5,
+      "y": 1,
+      "id": 1,
+      "type": "door"
+    },
+    {
       "x": 6,
       "y": 1,
       "type": "sword"

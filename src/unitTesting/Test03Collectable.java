@@ -90,58 +90,58 @@ class Test03Collectable {
 //        System.out.println("- -         PASSED        - -");
 //
 //	}
-	//The player can pick up treasures that are on the map.	
-    @Test
-    void testAC5() {
-    	// 5x5 Map player at (1,1)
-    	// Treasure in (2,1) 
-    	// pick up by going left once 
-    	// check if on board
-        Dungeon dungeon = new Dungeon(5,5);
-
-        Player player = new Player(dungeon, 1 ,1);
-
-        dungeon.setPlayer(player);
-        Treasure treasure = new Treasure(1, 2, dungeon);
-        dungeon.addEntity(treasure);
-        Inventory invent = player.getInventory();
-        
-        System.out.println("- - TEST PICK UP TREASURE - -");
-        assertTrue(invent.getItems().isEmpty());
-        assertTrue(dungeon.checkEntitiesOnDungeon(treasure));
-        player.moveDown();     
-        assertFalse(dungeon.checkEntitiesOnDungeon(treasure));
-        assertTrue(player.checkInventory(treasure));
-        assertTrue(invent.checkForItem(treasure));        
-        System.out.println("- -         PASSED        - -");   
-    }
-    //The player can pick up invincibility potion, While the potion is active,another invincibility potion cannot be picked up.
-//	@Test
-//    void testAC6() {
-//    	 Dungeon dungeon = new Dungeon(5,5);
-//    	 Player player = new Player(dungeon, 1 ,1);
-//    	 dungeon.setPlayer(player);
-//    	 Potion p0 = new Potion(2, 1, dungeon);
-//    	 Potion p1 = new Potion(3, 1, dungeon);
-//    	 dungeon.addEntity(p0);
-//    	 dungeon.addEntity(p1);
-//    	 System.out.println("- - TEST PICK UP 2X INVINCIBILITY POTION - -");
-//    	 player.moveRight();
-//         Inventory invent = player.getInventory();
+//	//The player can pick up treasures that are on the map.	
+//    @Test
+//    void testAC5() {
+//    	// 5x5 Map player at (1,1)
+//    	// Treasure in (2,1) 
+//    	// pick up by going left once 
+//    	// check if on board
+//        Dungeon dungeon = new Dungeon(5,5);
 //
-//    	 System.out.println("- - TEST PICK UP POTION - -");
-//    	 assertTrue(invent.getItems().isEmpty());
-//         player.moveRight(); 
-//         player.activePickup();
-//         dungeon.updateDungeon();
-//         player.moveRight(); 
-//         player.activePickup();
-//         assertFalse(dungeon.checkEntitiesOnDungeon(p1));   
-//    
-//   
-//    	 System.out.println("- -         PASSED        - -");  
-//    	 
+//        Player player = new Player(dungeon, 1 ,1);
+//
+//        dungeon.setPlayer(player);
+//        Treasure treasure = new Treasure(1, 2, dungeon);
+//        dungeon.addEntity(treasure);
+//        Inventory invent = player.getInventory();
+//        
+//        System.out.println("- - TEST PICK UP TREASURE - -");
+//        assertTrue(invent.getItems().isEmpty());
+//        assertTrue(dungeon.checkEntitiesOnDungeon(treasure));
+//        player.moveDown();     
+//        assertFalse(dungeon.checkEntitiesOnDungeon(treasure));
+//        assertTrue(player.checkInventory(treasure));
+//        assertTrue(invent.checkForItem(treasure));        
+//        System.out.println("- -         PASSED        - -");   
 //    }
+    //The player can pick up invincibility potion, While the potion is active,another invincibility potion cannot be picked up.
+	@Test
+    void testAC6() {
+    	 Dungeon dungeon = new Dungeon(5,5);
+    	 Player player = new Player(dungeon, 1 ,1);
+    	 dungeon.setPlayer(player);
+    	 Potion p0 = new Potion(2, 1, dungeon);
+    	 Potion p1 = new Potion(3, 1, dungeon);
+    	 dungeon.addEntity(p0);
+    	 dungeon.addEntity(p1);
+    	 System.out.println("- - TEST PICK UP 2X INVINCIBILITY POTION - -");
+    	 player.moveRight();
+         Inventory invent = player.getInventory();
+
+    	 System.out.println("- - TEST PICK UP POTION - -");
+    	 assertTrue(invent.getItems().isEmpty());
+         player.moveRight(); 
+         player.activePickup();
+         dungeon.updateDungeon();
+         player.moveRight(); 
+         player.activePickup();
+         assertFalse(dungeon.checkEntitiesOnDungeon(p1));   
+    
+   
+    	 System.out.println("- -         PASSED        - -");  
+    	 
+    }
 }
     
 //

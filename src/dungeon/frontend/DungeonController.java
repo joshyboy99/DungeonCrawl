@@ -82,30 +82,30 @@ public class DungeonController {
     
     public void refreshEntityImage() {
     	
-    	int counter = 0;
-    	for (Entity e : entities) {
+    	for (Entity e : this.entities) {
     		
-    		//exist entity
-//    		if (e instanceof Door) {
-//    			refreshDoor((Door) e);
-//    		}
-    		
-    		if (e instanceof Pickup) {
-    			// e instanceof Pickup
-    			
-    			System.out.println("Seperator" + counter);
-    			Pickup p = (Pickup) e;
-    			
-    			System.out.println(dungeon.checkEntitiesOnDungeon(e));
-    			
-	    		if (player.checkInventory(p)) {
-	    			System.out.println("asdkfjalksfdjl");
-					this.entities.remove(e);
-					clearImage(e);
-					continue;
-				}
-	    	counter ++;
+    		if (e instanceof Door) {
+    			refreshDoor((Door) e);
+    			continue;
     		}
+    		
+    		if (!dungeon.checkEntitiesOnDungeon(e)) {
+				clearImage(e);
+				continue;
+			}
+    		  		
+    	}
+    }
+    
+    public void refreshDoor(Door d) {
+    	
+    	for (Pickup e : player.getInventory().getItems()) {
+    		Key k = (Key) e;
+	    	if (d.checkKey(k.getKeyID())) {
+	    		ImageView doorImage = map.get(d);
+	    		Image openDoor = new Image("/open_door.png");
+	    		doorImage.setImage(openDoor);
+	    	}
     	}
     }
     
@@ -146,20 +146,26 @@ public class DungeonController {
         case RIGHT:
             player.moveRight();
             break;
+        case A:
+        	player.activePickup();
+        	break;        	
+        case S:
+        	System.out.println("yo");
+        	player.useSword();
+        	break;	
         default:
             break;
         }
-        
         dungeon.updateDungeon();
-                
+        
         if (dungeon.isComplete()) {
         	endScreen.start(true);
         }
         if (dungeon.isFail()) {
         	endScreen.start(false);
         }
-        
         refreshDungeonImage();
+        
     }
     
     public void setDungeonScreen(DungeonScreen dungeonScreen) {
