@@ -63,7 +63,7 @@ public class DungeonController {
     public void controllerUpdate() {
     	dungeon.updateDungeon();
     	refreshDungeonImage();
-
+    	
     	if (dungeon.isComplete()) {
         	this.timeline.stop();
         	endScreen.start(true);
