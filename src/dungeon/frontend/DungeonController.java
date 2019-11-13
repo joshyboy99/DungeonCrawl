@@ -64,6 +64,8 @@ public class DungeonController {
     
     public void controllerUpdate() {
     	
+    	dungeon.updateDungeon();
+    	
     	for (Entity e : this.entities) {
     		
     		// here
