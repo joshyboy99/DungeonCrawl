@@ -2,6 +2,7 @@ package dungeon.backend.entity;
 
 import dungeon.backend.*;
 import dungeon.backend.ContactBehaviour.*;
+import dungeon.backend.MoveBehaviour.Static;
 import dungeon.backend.PickUpBehaviour.Store;
 
 /**
@@ -20,6 +21,7 @@ public class Key extends Pickup {
 		this.keyID = keyID;
 		this.contactBehaviour = new ActivePickup(this);
 		this.pickupBehaviour = new Store(this);
+		this.moveBehaviour = new Static(this);
 	}
 
 	/**

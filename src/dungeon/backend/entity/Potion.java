@@ -30,6 +30,8 @@ public class Potion extends Pickup implements Observer{
 		}
 	}
 	
+	
+	
 	/**
 	 * Checks if the potion's effects are still
 	 * active.
