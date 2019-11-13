@@ -301,9 +301,6 @@ public class Dungeon implements Observable {
 		for (Entity e : this.observers) {
 			((Observer)e).update(player);
 		}
-		for (Entity e : this.entities) {
-			e.performMove();
-		}
 	}
 	
 	public void addInitialEntity(Entity e) {
