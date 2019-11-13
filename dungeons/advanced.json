@@ -104,6 +104,11 @@
       "type": "key"
     },
     {
+      "x": 1,
+      "y": 1,
+      "type": "player"
+    },
+    {
       "x": 5,
       "y": 1,
       "id": 1,
@@ -620,12 +625,7 @@
       "x": 17,
       "y": 15,
       "type": "wall"
-    },
-    {
-      "x": 1,
-      "y": 1,
-      "type": "player"
-    },
+    }
   ],
   "goal-condition": {
     "goal": "AND",
