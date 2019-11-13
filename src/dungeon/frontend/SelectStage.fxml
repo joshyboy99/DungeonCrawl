@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="406.0" fitWidth="571.0" layoutX="-54.0" layoutY="-3.0">
          <image>
-            <Image url="@../../../images/frontpage.png" />
+            <Image url="@../../../images/dungeonRoom.gif" />
          </image>
       </ImageView>
       <Button fx:id="boulder" layoutX="193.0" layoutY="264.0" mnemonicParsing="false" onAction="#BoulderStage" prefHeight="27.0" prefWidth="102.0" text="Boulder">

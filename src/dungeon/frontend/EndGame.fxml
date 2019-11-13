@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="406.0" fitWidth="614.0" layoutX="-6.0">
          <image>
-            <Image url="@../../../images/ending.png" />
+            <Image url="@../../../images/dungeon2.gif" />
          </image>
       </ImageView>
       <Button fx:id="selectButton" layoutX="151.0" layoutY="230.0" mnemonicParsing="false" onAction="#handleSelect" prefHeight="27.0" prefWidth="124.0" text="select stage" />
