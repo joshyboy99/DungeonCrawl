@@ -294,6 +294,10 @@ public class Dungeon implements Observable {
 
 	@Override
 	public void updateDungeon() {
+		if (!this.checkEntitiesOnDungeon(player)) {
+			this.failStage();
+			return;
+		}
 		for (Entity e : this.observers) {
 			((Observer)e).update(player);
 		}

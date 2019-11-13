@@ -14,6 +14,7 @@ import dungeon.backend.MoveBehaviour.*;
  */
 public class Door extends Entity {
 		private int keyID; 
+		private boolean opened;
 	
 	
 	public Door(int x, int y, int keyID, Dungeon dungeon) {
@@ -21,6 +22,7 @@ public class Door extends Entity {
 		this.contactBehaviour = new Locked(this);
 		this.moveBehaviour = new Static(this);
 		this.keyID = keyID;
+		this.opened = false;
 	}
 	
 	/**
@@ -35,6 +37,14 @@ public class Door extends Entity {
 		
 		else return false;
 		
+	}
+	/**
+	 * Check if door's state is open or not (It should only be opened
+	 * once it has changed its contact behaviour
+	 * @return this.opened
+	 */
+	public boolean isOpened() {
+		return this.opened;
 	}
 	
 	/**
@@ -52,6 +62,7 @@ public class Door extends Entity {
 				
 			    p0.destroyKey(p0.getCurrentKeyID());
 				this.contactBehaviour = new NoContact(this);
+				this.opened = true;
 				
 			} 
 		}

@@ -99,14 +99,12 @@ public class DungeonController {
     
     public void refreshDoor(Door d) {
     	
-    	for (Pickup e : player.getInventory().getItems()) {
-    		Key k = (Key) e;
-	    	if (d.checkKey(k.getKeyID())) {
-	    		ImageView doorImage = map.get(d);
-	    		Image openDoor = new Image("/open_door.png");
-	    		doorImage.setImage(openDoor);
-	    	}
-    	}
+	   if (d.isOpened()) {
+	    	ImageView doorImage = map.get(d);
+	    	Image openDoor = new Image("/open_door.png");
+	    	doorImage.setImage(openDoor);
+		}
+
     }
     
     public void clearImage(Entity e) {
@@ -150,7 +148,6 @@ public class DungeonController {
         	player.activePickup();
         	break;        	
         case S:
-        	System.out.println("yo");
         	player.useSword();
         	break;	
         default:
