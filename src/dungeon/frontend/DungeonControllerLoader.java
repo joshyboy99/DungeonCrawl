@@ -36,6 +36,7 @@ public class DungeonControllerLoader extends DungeonLoader {
     private Image closedDoorImage;
     private Image openedDoorImage;
     private Image keyImage;
+    private Image portalImage;
     
     private HashMap<Entity, ImageView> map;
 
@@ -49,7 +50,7 @@ public class DungeonControllerLoader extends DungeonLoader {
         playerImage = new Image("/human_new.png");
         wallImage = new Image("/brick_brown_0.png");
         exitImage = new Image("/exit.png");
-        swordImage = new Image("/greatsword_1_new.png");
+        swordImage = new Image("/sword.gif");
         boulderImage = new Image("/boulder.png");
         switchImage = new Image("/pressure_plate.png");
         // Maybe this can be changed
@@ -59,6 +60,7 @@ public class DungeonControllerLoader extends DungeonLoader {
         closedDoorImage = new Image("/closed_door.png");
         openedDoorImage = new Image("/open_door.png");
         keyImage = new Image("/key.png");
+        portalImage = new Image("/portal.gif");
         
     }
 
@@ -126,6 +128,12 @@ public class DungeonControllerLoader extends DungeonLoader {
     public void onLoad(Key key) {
     	ImageView view = new ImageView(keyImage);
     	addEntity(key, view);
+    }
+    
+    @Override
+    public void onLoad(Portal portal) {
+    	ImageView view = new ImageView(portalImage);
+    	addEntity(portal, view);
     }
 
     private void addEntity(Entity entity, ImageView view) {
