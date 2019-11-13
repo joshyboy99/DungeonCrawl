@@ -99,6 +99,13 @@ public class DungeonController {
 				clearImage(e);
 				continue;
 			}
+    		//anything that can get removed but readded later
+    		if(dungeon.checkEntitiesOnDungeon(e) && map.get(e).getImage() == null) {
+    			//sword
+    			if(e instanceof Sword) {
+    				refreshSword((Sword) e);
+    			}
+    		}
     		  		
     	}
     }
@@ -113,11 +120,20 @@ public class DungeonController {
 
     }
     
+    public void refreshSword(Sword s) {
+    	ImageView swordImage = map.get(s);
+    	Image newSword = new Image("sword.gif");
+    	swordImage.setImage(newSword);
+    }
+    
+    
     public void clearImage(Entity e) {
     	ImageView imageView = map.get(e);
     	// Image ground = new Image("/dirt_0_new.png");
     	imageView.setImage(null);
     }
+    
+    
 
     @FXML
     public void initialize() {
