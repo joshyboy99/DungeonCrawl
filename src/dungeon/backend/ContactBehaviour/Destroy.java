@@ -15,6 +15,7 @@ public class Destroy extends InteractableBehaviour implements ContactBehaviour {
 	
 	public Destroy(Entity attached) {
 		super(attached);
+		this.ValidEntities.add(new Enemy());
 	}	
 	
 	/**
