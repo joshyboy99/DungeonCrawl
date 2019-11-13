@@ -63,6 +63,7 @@ public class DungeonController {
     }
     
     public void controllerUpdate() {
+    	
     	dungeon.updateDungeon();
     	refreshDungeonImage();
     	if (dungeon.isComplete()) {
@@ -73,6 +74,7 @@ public class DungeonController {
     		endScreen.start(true);
     		
     	}
+
     	for (Entity e : this.entities) {
     		
     		// here
