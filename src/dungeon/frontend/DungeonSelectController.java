@@ -35,8 +35,10 @@ public class DungeonSelectController {
 		String name = "boulders.json";
 		DungeonScreen dungeonScreen = new DungeonScreen(this.stage, name);
 		
+		
 		DungeonEndScreen endGameScreen = new DungeonEndScreen(this.stage);
 		dungeonScreen.getController().setEndGameScreen(endGameScreen);
+		dungeonScreen.getController().setDungeonSelectScreen(this.screen);
     	endGameScreen.getController().setDungeonScreen(dungeonScreen);
     	endGameScreen.getController().setStageSelectScreen(this.screen);
 		
@@ -51,6 +53,7 @@ public class DungeonSelectController {
 		
 		DungeonEndScreen endGameScreen = new DungeonEndScreen(this.stage);
 		dungeonScreen.getController().setEndGameScreen(endGameScreen);
+		dungeonScreen.getController().setDungeonSelectScreen(this.screen);
     	endGameScreen.getController().setDungeonScreen(dungeonScreen);
     	endGameScreen.getController().setStageSelectScreen(this.screen);
 		
@@ -64,6 +67,7 @@ public class DungeonSelectController {
 		
 		DungeonEndScreen endGameScreen = new DungeonEndScreen(this.stage);
 		dungeonScreen.getController().setEndGameScreen(endGameScreen);
+		dungeonScreen.getController().setDungeonSelectScreen(this.screen);
     	endGameScreen.getController().setDungeonScreen(dungeonScreen);
     	endGameScreen.getController().setStageSelectScreen(this.screen);
     	

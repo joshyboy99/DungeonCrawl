@@ -4,9 +4,12 @@ import dungeon.backend.entity.*;
 
 import static org.junit.Assert.assertTrue;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import javafx.scene.input.MouseEvent;
 
 import dungeon.backend.*;
 import javafx.fxml.FXML;
@@ -18,6 +21,7 @@ import javafx.scene.layout.GridPane;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.event.EventHandler;
 import javafx.util.Duration;
 
 /**
@@ -49,6 +53,8 @@ public class DungeonController {
     private boolean pauseFlag;
     
     private List<Entity> entities;
+    
+    private DungeonSelectScreen selectScreen;
     
 
     public DungeonController(Dungeon dungeon, List<ImageView> initialEntities) {
@@ -84,11 +90,6 @@ public class DungeonController {
     public void refreshEntityImage() {
     	
     	for (Entity e : this.entities) {
-    		
-    		// here
-//    		if (e instanceof Enemy) {
-//    			e.performMove();
-//    		}
     		
     		if (e instanceof Door) {
     			refreshDoor((Door) e);
@@ -133,6 +134,21 @@ public class DungeonController {
     	imageView.setImage(null);
     }
     
+    public void pauseAndPlay() {
+    	if(pauseFlag) {
+    		// click to play
+    		timeline.play();
+    		pauseFlag = false;
+    		Image pauseImg = new Image("/pause.png");
+        	pausePlayButton.setImage(pauseImg);
+    	} else {
+    		// click to pause
+    		timeline.stop();
+    		pauseFlag = true;
+    		Image playImg = new Image("/play.png");
+    		pausePlayButton.setImage(playImg);
+    	}
+    }
     
 
     @FXML
@@ -145,6 +161,50 @@ public class DungeonController {
                 squares.add(new ImageView(ground), x, y);
             }
         }
+        
+        Image box = new Image("/box.png");
+        int x = dungeon.getWidth();
+        for (int y = 0; y <= 2; y++) {
+    		squares.add(new ImageView(box), x, y);
+    	}
+        
+        Image pauseImg = new Image("/pause.png");
+		pausePlayButton = new ImageView(pauseImg);
+		pausePlayButton.addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+    	    @Override
+    	    public void handle(MouseEvent mouseEvent) {
+    	    	pauseAndPlay();
+    	    }
+    	}); 
+        squares.add(pausePlayButton, dungeon.getWidth(), dungeon.getHeight()-3);
+        
+        
+    	Image resetImg = new Image("/restart.png");
+    	ImageView reset = new ImageView(resetImg);
+    	reset.addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+    	    @Override
+    	    public void handle(MouseEvent mouseEvent) {
+    	        try {
+    	        	timeline.stop();
+					dungeonScreen.restart();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+    	    }
+    	});
+    	squares.add(reset, dungeon.getWidth(), dungeon.getHeight()-2);
+    	
+    	Image homeImg = new Image("/home.png");
+    	ImageView home = new ImageView(homeImg);
+    	home.addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+    	    @Override
+    	    public void handle(MouseEvent mouseEvent) {
+
+    	        	selectScreen.start();
+				
+    	    }
+    	});
+    	squares.add(home, dungeon.getWidth(), dungeon.getHeight()-1);
 
         for (ImageView entity : initialEntities)
             squares.getChildren().add(entity);
@@ -153,6 +213,9 @@ public class DungeonController {
 
     @FXML
     public void handleKeyPress(KeyEvent event) {
+    	
+    	if (pauseFlag) return;
+    	
         switch (event.getCode()) {
         case UP:
             player.moveUp();
@@ -191,8 +254,16 @@ public class DungeonController {
     	this.dungeonScreen = dungeonScreen;
     }
     
+    public void setDungeonSelectScreen(DungeonSelectScreen selectScreen) {
+    	this.selectScreen = selectScreen;
+    }
+    
     public void setEndGameScreen(DungeonEndScreen endScreen) {
     	this.endScreen = endScreen;
+    }
+    
+    public DungeonEndScreen getEndGameScreen() {
+    	return this.endScreen;
     }
 
     public void getMap(HashMap<Entity, ImageView> map) {
