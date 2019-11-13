@@ -65,15 +65,6 @@ public class DungeonController {
     public void controllerUpdate() {
     	
     	dungeon.updateDungeon();
-    	refreshDungeonImage();
-    	if (dungeon.isComplete()) {
-        	this.timeline.stop();
-        	endScreen.start(true);
-        }
-    	else if (dungeon.isFail()) {
-    		endScreen.start(true);
-    		
-    	}
 
     	for (Entity e : this.entities) {
     		
