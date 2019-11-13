@@ -1,0 +1,7 @@
+#focus {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+    -fx-text-fill: white;
+
+}
