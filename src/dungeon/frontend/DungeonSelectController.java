@@ -21,6 +21,9 @@ public class DungeonSelectController {
 	@FXML
 	private Button advanced;
 	
+	@FXML
+	private Button credits;
+	
 	private Stage stage;
 	private DungeonSelectScreen screen;
 	private DungeonScreen dungeonScreen;
@@ -28,6 +31,14 @@ public class DungeonSelectController {
 	public DungeonSelectController(Stage stage, DungeonSelectScreen screen) {
 		this.stage =stage;
 		this.screen = screen;
+	}
+	
+	@FXML
+	public void creditPage() throws IOException {
+		CreditScreen creditScreen = new CreditScreen(this.stage);
+		creditScreen.getController().setDungeonSelectScreen(this.screen);
+		creditScreen.start();
+		
 	}
 	
 	@FXML
@@ -41,7 +52,7 @@ public class DungeonSelectController {
 		dungeonScreen.getController().setEndGameScreen(endGameScreen);
 		dungeonScreen.getController().setDungeonSelectScreen(this.screen);
     	endGameScreen.getController().setDungeonScreen(dungeonScreen);
-    	endGameScreen.getController().setStageSelectScreen(this.screen);
+    	endGameScreen.getController().setDungeonSelectScreen(this.screen);
 		
     	dungeonScreen.start();
 	}
@@ -57,7 +68,7 @@ public class DungeonSelectController {
 		dungeonScreen.getController().setEndGameScreen(endGameScreen);
 		dungeonScreen.getController().setDungeonSelectScreen(this.screen);
     	endGameScreen.getController().setDungeonScreen(dungeonScreen);
-    	endGameScreen.getController().setStageSelectScreen(this.screen);
+    	endGameScreen.getController().setDungeonSelectScreen(this.screen);
 		
     	dungeonScreen.start();
 	}
@@ -73,7 +84,7 @@ public class DungeonSelectController {
 		dungeonScreen.getController().setEndGameScreen(endGameScreen);
 		dungeonScreen.getController().setDungeonSelectScreen(this.screen);
     	endGameScreen.getController().setDungeonScreen(dungeonScreen);
-    	endGameScreen.getController().setStageSelectScreen(this.screen);
+    	endGameScreen.getController().setDungeonSelectScreen(this.screen);
     	
     	dungeonScreen.start();
 	}

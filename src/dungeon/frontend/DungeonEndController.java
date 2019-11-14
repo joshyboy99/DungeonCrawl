@@ -25,21 +25,21 @@ public class DungeonEndController {
 	
 	private DungeonScreen dungeonScreen;
 	
-	private DungeonSelectScreen stageScreen;
+	private DungeonSelectScreen selectScreen;
 	
 	private DungeonEndScreen endScreen;
 
-	
-	public void setDungeonScreen(DungeonScreen dungeonScreen) {
-		this.dungeonScreen = dungeonScreen;
-	}
 	
 	public void setEndScreen(DungeonEndScreen endScreen) {
 		this.endScreen = endScreen;
 	}
 	
-	public void setStageSelectScreen(DungeonSelectScreen stageSelectScreen) {
-		this.stageScreen = stageSelectScreen;
+	public void setDungeonScreen(DungeonScreen dungeonScreen) {
+		this.dungeonScreen = dungeonScreen;
+	}
+	
+	public void setDungeonSelectScreen(DungeonSelectScreen selectScreen) {
+		this.selectScreen = selectScreen;
 	}
 	
 
@@ -57,7 +57,7 @@ public class DungeonEndController {
 	@FXML
 	public void handleSelect(ActionEvent event) {
 		this.endScreen.EndScreenMusic.stop();
-		stageScreen.start();
+		selectScreen.start();
 	}
 	
 	@FXML
