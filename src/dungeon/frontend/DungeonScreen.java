@@ -42,15 +42,19 @@ public class DungeonScreen {
     public void restart() throws IOException {
     	
     	DungeonEndScreen tempEnd = controller.getEndGameScreen();
+    	DungeonSelectScreen tempSelect = this.controller.getDungeonSelectScreen();
+    	
     	DungeonControllerLoader dungeonLoader = new DungeonControllerLoader(stageName);
     	this.controller = dungeonLoader.loadController();
     	this.controller.setEndGameScreen(tempEnd);
+    	this.controller.setDungeonSelectScreen(tempSelect);
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("DungeonView.fxml"));
     	loader.setController(controller);
     	Parent root = loader.load();
         scene = new Scene(root);
         root.requestFocus();
         this.controller.setDungeonScreen(this);
+        
     	
         start();
     }

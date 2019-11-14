@@ -42,6 +42,8 @@ public class DungeonController {
     
     private DungeonScreen dungeonScreen;
     
+    private DungeonSelectScreen selectScreen;
+    
     private DungeonEndScreen endScreen;
     
     private HashMap<Entity, ImageView> map;
@@ -54,7 +56,6 @@ public class DungeonController {
     
     private List<Entity> entities;
     
-    private DungeonSelectScreen selectScreen;
     
 
     public DungeonController(Dungeon dungeon, List<ImageView> initialEntities) {
@@ -66,6 +67,9 @@ public class DungeonController {
         this.timeline = new Timeline(new KeyFrame(Duration.millis(800), d -> this.controllerUpdate()));
         timeline.setCycleCount(Animation.INDEFINITE);
 		timeline.play();
+		
+		
+		
     }
     
     public void controllerUpdate() {
@@ -199,9 +203,8 @@ public class DungeonController {
     	home.addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
     	    @Override
     	    public void handle(MouseEvent mouseEvent) {
-
+    	    		timeline.stop();
     	        	selectScreen.start();
-				
     	    }
     	});
     	squares.add(home, dungeon.getWidth(), dungeon.getHeight()-1);
@@ -260,6 +263,10 @@ public class DungeonController {
     
     public void setEndGameScreen(DungeonEndScreen endScreen) {
     	this.endScreen = endScreen;
+    }
+    
+    public DungeonSelectScreen getDungeonSelectScreen() {
+    	return this.selectScreen;
     }
     
     public DungeonEndScreen getEndGameScreen() {
