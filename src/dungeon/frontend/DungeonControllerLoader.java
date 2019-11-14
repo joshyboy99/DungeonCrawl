@@ -34,7 +34,6 @@ public class DungeonControllerLoader extends DungeonLoader {
     private Image potionImage;
     private Image treasureImage;
     private Image closedDoorImage;
-    private Image openedDoorImage;
     private Image keyImage;
     private Image portalImage;
     
@@ -58,7 +57,6 @@ public class DungeonControllerLoader extends DungeonLoader {
         potionImage = new Image("/potion.gif");  
         treasureImage = new Image("/gold.gif");
         closedDoorImage = new Image("/closed_door.png");
-        openedDoorImage = new Image("/open_door.png");
         keyImage = new Image("/key.png");
         portalImage = new Image("/portal.gif");
         

@@ -2,8 +2,6 @@ package dungeon.frontend;
 
 import java.io.IOException;
 
-import org.json.JSONObject;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
@@ -26,7 +24,6 @@ public class DungeonSelectController {
 	
 	private Stage stage;
 	private DungeonSelectScreen screen;
-	private DungeonScreen dungeonScreen;
 	
 	public DungeonSelectController(Stage stage, DungeonSelectScreen screen) {
 		this.stage =stage;

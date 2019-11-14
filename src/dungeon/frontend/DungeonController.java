@@ -2,8 +2,6 @@ package dungeon.frontend;
 
 import dungeon.backend.entity.*;
 
-import static org.junit.Assert.assertTrue;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;

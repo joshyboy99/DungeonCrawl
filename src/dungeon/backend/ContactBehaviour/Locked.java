@@ -2,7 +2,6 @@ package dungeon.backend.ContactBehaviour;
 
 import dungeon.backend.InteractableBehaviour;
 import dungeon.backend.entity.Entity;
-import dungeon.backend.entity.Player;
 
 /**
  * This class is part of the group that Extends ContactBehaviour.

@@ -16,7 +16,6 @@ public class DungeonSelectScreen {
 	private String title;
 	private Scene scene;
 	private DungeonSelectController controller;
-	private DungeonApplication dungeonApplication;
 	
 	public  MediaPlayer selectScreenMusic;
 	
