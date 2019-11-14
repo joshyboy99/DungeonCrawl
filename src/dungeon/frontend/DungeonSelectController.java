@@ -35,6 +35,7 @@ public class DungeonSelectController {
 		String name = "boulders.json";
 		DungeonScreen dungeonScreen = new DungeonScreen(this.stage, name);
 		
+		this.screen.selectScreenMusic.stop();
 		
 		DungeonEndScreen endGameScreen = new DungeonEndScreen(this.stage);
 		dungeonScreen.getController().setEndGameScreen(endGameScreen);
@@ -48,8 +49,9 @@ public class DungeonSelectController {
 	@FXML
 	public void MazeStage() throws IOException {
 		String name = "maze.json";
-		
 		DungeonScreen dungeonScreen = new DungeonScreen(this.stage, name);
+		
+		this.screen.selectScreenMusic.stop();
 		
 		DungeonEndScreen endGameScreen = new DungeonEndScreen(this.stage);
 		dungeonScreen.getController().setEndGameScreen(endGameScreen);
@@ -64,6 +66,8 @@ public class DungeonSelectController {
 	public void AdvancedStage() throws IOException {
 		String name = "advanced.json";
 		DungeonScreen dungeonScreen = new DungeonScreen(this.stage, name);
+		
+		this.screen.selectScreenMusic.stop();
 		
 		DungeonEndScreen endGameScreen = new DungeonEndScreen(this.stage);
 		dungeonScreen.getController().setEndGameScreen(endGameScreen);

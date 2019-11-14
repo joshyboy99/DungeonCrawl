@@ -7,24 +7,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-//@Override
-//public void start(Stage primaryStage) throws IOException {
-//  primaryStage.setTitle("Dungeon");
-//
-//  DungeonControllerLoader dungeonLoader = new DungeonControllerLoader("maze.json");
-//
-//  DungeonController controller = dungeonLoader.loadController();
-//
-//  FXMLLoader loader = new FXMLLoader(getClass().getResource("DungeonView.fxml"));
-//  loader.setController(controller);
-//  Parent root = loader.load();
-//  Scene scene = new Scene(root);
-//  root.requestFocus();
-//  
-//  primaryStage.setScene(scene);
-//  primaryStage.show();
-//
-//}
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import java.io.File;
 
 public class DungeonSelectScreen {
 	private Stage stage;
@@ -32,6 +17,8 @@ public class DungeonSelectScreen {
 	private Scene scene;
 	private DungeonSelectController controller;
 	private DungeonApplication dungeonApplication;
+	
+	public  MediaPlayer selectScreenMusic;
 	
 	public DungeonSelectScreen (Stage stage) throws IOException {
 		this.stage = stage;
@@ -46,9 +33,18 @@ public class DungeonSelectScreen {
 	}
 
 	public void start() {
+		
+		String musicFile = "music/kahoot8bit.mp3";     // For example
+
+		Media sound = new Media(new File(musicFile).toURI().toString());
+		selectScreenMusic = new MediaPlayer(sound);
+		selectScreenMusic.play();
+		
 		stage.setTitle(this.title);
 		stage.setScene(this.scene);
 		stage.show();
+		
+		
 	}
 	
 	public DungeonSelectController getController() {
