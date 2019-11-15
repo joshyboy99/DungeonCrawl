@@ -26,6 +26,9 @@ public class Destroy extends InteractableBehaviour implements ContactBehaviour {
 	public void onTouch(Entity e) {
 		if(this.checkValidEntityClass(e)) {
 			e.removeSelf();
+			System.out.println(e);
+			System.out.println(e.getDungeon().checkEntitiesOnDungeon(e));
+			System.out.println(e.getDungeon().checkEntitiesOnDungeon(attached));
 		}
 	}
 

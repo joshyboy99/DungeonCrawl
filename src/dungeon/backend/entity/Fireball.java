@@ -1,6 +1,7 @@
 package dungeon.backend.entity;
 
 import dungeon.backend.Dungeon;
+import dungeon.backend.InteractableBehaviour;
 import dungeon.backend.ContactBehaviour.Destroy;
 import dungeon.backend.MoveBehaviour.PlayerControl;
 
@@ -13,6 +14,12 @@ public class Fireball extends Entity{
 	}
 	
 	
+	public Fireball() {
+		this.moveBehaviour = new PlayerControl(this);
+		this.contactBehaviour = new Destroy(this);
+	}
+
+
 	public boolean checkIfEndOfDungeon(){
 		//if reached max dungeon height
 		if (dungeon.getHeight() == this.getY()) {
@@ -35,9 +42,11 @@ public class Fireball extends Entity{
 		this.setX(startX);
 		this.setY(startY);
 		while(this.checkIfEndOfDungeon() == false){
-			System.out.println("here!nn");
+			System.out.println(this.getX());
+			System.out.println(this.getY());
 			this.setMx(1);
 			dungeon.scanTile(this, this.getX() + 1, this.getY());
+			kill(getX(), getY());
 			//failed to go anywhere, remove!!!!
 			if(this.getMx() == 0) {
 				this.removeSelf();
@@ -59,6 +68,7 @@ public class Fireball extends Entity{
 		while(this.checkIfEndOfDungeon() == false){
 			this.setMx(-1);
 			dungeon.scanTile(this, this.getX() - 1, this.getY());
+			kill(getX(), getY());
 			//failed to go anywhere, remove!!!!
 			if(this.getMx() == 0) {
 				this.removeSelf();
@@ -81,6 +91,7 @@ public class Fireball extends Entity{
 		while(this.checkIfEndOfDungeon() == false){
 			this.setMy(-1);
 			dungeon.scanTile(this, this.getX(), this.getY() - 1);
+			kill(getX(), getY());
 			if(this.getMy() == 0) {
 				this.removeSelf();
 				break;
@@ -102,6 +113,7 @@ public class Fireball extends Entity{
 		while(this.checkIfEndOfDungeon() == false){
 			this.setMy(1);
 			dungeon.scanTile(this, this.getX(), this.getY() + 1);
+			kill(getX(), getY());
 			if(this.getMy() == 0) {
 				this.removeSelf();
 				break;
@@ -116,6 +128,14 @@ public class Fireball extends Entity{
 			}
 		}
 		
+	}
+	
+	public void kill (int x, int y) {
+		for ( Entity e : this.dungeon.EntitiesOnTile(x, y)) {
+			if(e instanceof Enemy) {
+				e.removeSelf();
+			}
+		}
 	}
 	
 	

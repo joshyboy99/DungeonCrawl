@@ -24,5 +24,7 @@ public class testFireBall {
 	        assertTrue(invent.checkForItem(spellbook));
 	        player.shootMagic();
 	        assertFalse(dungeon.checkEntitiesOnDungeon(enemy0));
+	        
+
 	   }
 }
