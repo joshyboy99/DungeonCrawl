@@ -145,6 +145,12 @@ public abstract class DungeonLoader {
         	onLoad(fireball);
         	entity = fireball;
         	break;
+        	
+        case "mushroom":
+        	Mushroom mushroom = new Mushroom(x,y, dungeon);
+        	onLoad(mushroom);
+        	entity = mushroom;
+        	break;
         }
         dungeon.addEntity(entity);
         dungeon.addInitialEntity(entity);
@@ -178,6 +184,8 @@ public abstract class DungeonLoader {
 	public abstract void onLoad(SpellBook spellbook);
 
 	public abstract void onLoad(Fireball fireball);
+	
+	public abstract void onLoad(Mushroom mushroom);
 
 
     // TODO Create additional abstract methods for the other entities

@@ -38,6 +38,7 @@ public class DungeonControllerLoader extends DungeonLoader {
     private Image portalImage;
     private Image spellBookImage;
     private Image fireballImage;
+    private Image mushroomImage;
     
     private HashMap<Entity, ImageView> map;
 
@@ -63,6 +64,7 @@ public class DungeonControllerLoader extends DungeonLoader {
         portalImage = new Image("/portal.gif");
         spellBookImage = new Image("/spellbook.png");
         fireballImage = new Image("/fireball.gif");
+        mushroomImage = new Image("/mushroom.gif");
         
     }
 
@@ -148,6 +150,12 @@ public class DungeonControllerLoader extends DungeonLoader {
     public void onLoad(Fireball fireball) {
     	ImageView view = new ImageView(fireballImage);
     	addEntity(fireball, view);
+    }
+    
+    @Override
+    public void onLoad(Mushroom mushroom) {
+    	ImageView view = new ImageView(mushroomImage);
+    	addEntity(mushroom, view);
     }
 
     private void addEntity(Entity entity, ImageView view) {

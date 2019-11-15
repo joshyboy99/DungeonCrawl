@@ -78,12 +78,12 @@ public class DungeonController {
 
     	dungeon.updateDungeon();
 
-//    	for (Entity e : this.entities) {
-//
-//    		if (e instanceof Enemy) {
-//    			e.performMove();
-//    		}
-//    	}
+    	for (Entity e : this.entities) {
+
+    		if (e instanceof Enemy) {
+    			e.performMove();
+    		}
+    	}
     	
     }
     
