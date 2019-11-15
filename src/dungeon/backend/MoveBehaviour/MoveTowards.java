@@ -45,6 +45,7 @@ public class MoveTowards extends Behaviour implements MoveBehaviour {
 				attached.setY(attached.getY() + attached.getMy());
 			}
 			
+			
 		} 
 		
 		//if attached is to the right of targetEntity

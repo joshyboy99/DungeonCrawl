@@ -15,6 +15,8 @@ import dungeon.backend.PickUpBehaviour.*;
  */
 public class Potion extends Pickup implements Observer{
 	
+	boolean use = false;
+	
 	public Potion(int x, int y, Dungeon dungeon) {
 		super(x, y, dungeon);
 		this.moveBehaviour = new Static(this);
