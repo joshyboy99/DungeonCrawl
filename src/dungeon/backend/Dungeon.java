@@ -301,6 +301,15 @@ public class Dungeon implements Observable {
 		for (Entity e : this.observers) {
 			((Observer)e).update(player);
 		}
+		for (Entity e : this.entities) {
+			if(e instanceof Enemy) {
+				System.out.print(e);
+				System.out.print("\n");
+			}
+		}
+	
+		System.out.print("\n");
+		System.out.print("\n");
 	}
 	
 	public void addInitialEntity(Entity e) {
