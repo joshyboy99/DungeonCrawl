@@ -133,6 +133,18 @@ public class DungeonControllerLoader extends DungeonLoader {
     	ImageView view = new ImageView(portalImage);
     	addEntity(portal, view);
     }
+    
+    @Override
+    public void onLoad(SpellBook spellbook) {
+    	ImageView view = new ImageView(portalImage);
+    	addEntity(spellbook, view);
+    }
+    
+    @Override
+    public void onLoad(Fireball fireball) {
+    	ImageView view = new ImageView(portalImage);
+    	addEntity(fireball, view);
+    }
 
     private void addEntity(Entity entity, ImageView view) {
         trackPosition(entity, view);

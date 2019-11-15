@@ -163,6 +163,10 @@ public abstract class DungeonLoader {
     
     public abstract void onLoad(Portal portal);
 
+	public abstract void onLoad(SpellBook spellbook);
+
+	public abstract void onLoad(Fireball fireball);
+
 
     // TODO Create additional abstract methods for the other entities
 

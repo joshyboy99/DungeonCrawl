@@ -16,6 +16,7 @@ public class SpellBook extends Pickup{
 		this.contactBehaviour = new ActivePickup(this);
 		this.pickupBehaviour = new Store(this);
 		this.mana = 10;
+		this.fireball = new Fireball(x, y, dungeon);
 	}	
 	
 	
@@ -41,6 +42,7 @@ public class SpellBook extends Pickup{
 			break;
 		
 		case "RIGHT":
+			System.out.println("here!");
 			this.fireball.shootRight(x, y);
 			this.mana--;
 			break;

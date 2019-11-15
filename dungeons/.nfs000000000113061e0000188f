@@ -235,22 +235,12 @@
       "type": "enemy"
     },
     {
-      "x": 9,
+      "x": 10,
       "y": 5,
       "type": "enemy"
     },
     {
       "x": 15,
-      "y": 5,
-      "type": "enemy"
-    },
-    {
-      "x": 14,
-      "y": 5,
-      "type": "enemy"
-    },
-    {
-      "x": 13,
       "y": 5,
       "type": "enemy"
     },
@@ -430,11 +420,6 @@
       "x": 7,
       "y": 10,
       "type": "spellbook"
-    },
-    {
-      "x": 7,
-      "y": 11,
-      "type": "treasure"
     },
     {
       "x": 11,
