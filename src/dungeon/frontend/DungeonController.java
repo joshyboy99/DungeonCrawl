@@ -72,7 +72,7 @@ public class DungeonController {
     
     public void controllerUpdate() {
     	
-    	dungeon.updateDungeon();
+    	// dungeon.updateDungeon();
 
     	for (Entity e : this.entities) {
     		
@@ -86,6 +86,7 @@ public class DungeonController {
     
     public void refreshDungeonImage() {
     	refreshEntityImage();
+    	addToInventory();
 
     }
     
@@ -129,6 +130,60 @@ public class DungeonController {
     	swordImage.setImage(newSword);
     }
     
+    public void addToInventory() {
+    	boolean swordFlag = false;
+    	boolean keyFlag = false;
+    	boolean treasureFlag = false;
+    	
+    	int x = dungeon.getWidth();
+    	int y = 0;
+    	Inventory invent = player.getInventory();
+    	for (Pickup p : invent.getItems()) {
+    		if (p instanceof Key) {
+    			ImageView keyImage = map.get(p);
+    			Image key = new Image("/key.png");
+    			keyImage.setImage(key);
+    			keyFlag = true;
+    			y = 0;
+    			
+    		} else if (p instanceof Sword) {
+    			ImageView swordImage = map.get(p);
+    			Image sword = new Image("/sword.gif");
+    			swordImage.setImage(sword);
+    			swordFlag = true;
+    			y = 1;
+    			
+    		} else if (p instanceof Treasure) {
+    			ImageView treasureImage = map.get(p);
+    			Image treasure = new Image("/gold.gif");
+    			treasureImage.setImage(treasure);
+    			treasureFlag = true;
+    			y = 2;
+    		}
+    		p.x().set(x);
+    		p.y().set(y);
+    		
+    		if(keyFlag && swordFlag && treasureFlag) {
+    			break;
+    		}
+    	}
+    	
+    	for (Entity e : entities) {
+    		if (e instanceof Potion) {
+    			Potion p = (Potion) e;
+    			if (p.potionInEffect()) {
+    				ImageView potionImage = map.get(p);
+        			Image potion = new Image("/potion.gif");
+        			potionImage.setImage(potion);
+        			y = 3;	
+        			p.x().set(x);
+            		p.y().set(y);
+    			}
+    			
+    		}
+    	}
+    }
+    
     
     public void clearImage(Entity e) {
     	ImageView imageView = map.get(e);
@@ -166,7 +221,7 @@ public class DungeonController {
         
         Image box = new Image("/box.png");
         int x = dungeon.getWidth();
-        for (int y = 0; y <= 2; y++) {
+        for (int y = 0; y <= 3; y++) {
     		squares.add(new ImageView(box), x, y);
     	}
         
