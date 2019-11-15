@@ -19,8 +19,6 @@ public class Die extends InteractableBehaviour implements ContactBehaviour{
 	public Die(Entity attached) {
 		super(attached);
 		this.ValidEntities.add(new Enemy());
-		this.ValidEntities.add(new Player());
-		// TODO Auto-generated constructor stub
 	}
 	/**
 	 * This onTouch will kill the attached as long as the entity that touches it is on the valid entities list. 
