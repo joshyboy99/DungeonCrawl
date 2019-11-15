@@ -56,7 +56,7 @@ public class Fireball extends Entity{
 				this.setX(this.getMx() + this.getX());
 			}
 			try {
-				Thread.sleep(800);
+				Thread.sleep(200);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -78,7 +78,7 @@ public class Fireball extends Entity{
 				this.setX(this.getMx() + this.getX());
 			}
 			try {
-				Thread.sleep(800);
+				Thread.sleep(200);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -100,7 +100,7 @@ public class Fireball extends Entity{
 				this.setY(this.getMy() + this.getY());
 			}
 			try {
-				Thread.sleep(800);
+				Thread.sleep(200);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -122,7 +122,7 @@ public class Fireball extends Entity{
 				this.setY(this.getMy() + this.getY());
 			}
 			try {
-				Thread.sleep(800);
+				Thread.sleep(200);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

@@ -139,6 +139,12 @@ public abstract class DungeonLoader {
         	onLoad(spellbook);
         	entity = spellbook;
         	break;
+        
+        case "fireball":
+        	Fireball fireball = new Fireball(x,y, dungeon);
+        	onLoad(fireball);
+        	entity = fireball;
+        	break;
         }
         dungeon.addEntity(entity);
         dungeon.addInitialEntity(entity);

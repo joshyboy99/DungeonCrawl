@@ -46,7 +46,7 @@ public class SpellBook extends Pickup{
 			this.fireball.shootRight(x, y);
 			this.mana--;
 			break;
-	}	
+		}	
 	}
 	
 	public boolean checkEnoughMana() {
