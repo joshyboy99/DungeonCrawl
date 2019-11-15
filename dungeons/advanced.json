@@ -437,6 +437,11 @@
       "type": "treasure"
     },
     {
+      "x": 7,
+      "y": 12,
+      "type": "treasure"
+    },
+    {
       "x": 11,
       "y": 10,
       "type": "invincibility"

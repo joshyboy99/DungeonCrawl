@@ -36,6 +36,8 @@ public class DungeonControllerLoader extends DungeonLoader {
     private Image closedDoorImage;
     private Image keyImage;
     private Image portalImage;
+    private Image spellBookImage;
+    private Image fireballImage;
     
     private HashMap<Entity, ImageView> map;
 
@@ -59,6 +61,8 @@ public class DungeonControllerLoader extends DungeonLoader {
         closedDoorImage = new Image("/closed_door.png");
         keyImage = new Image("/key.png");
         portalImage = new Image("/portal.gif");
+        spellBookImage = new Image("/spellbook.png");
+        fireballImage = new Image("/fireball.gif");
         
     }
 
@@ -136,13 +140,13 @@ public class DungeonControllerLoader extends DungeonLoader {
     
     @Override
     public void onLoad(SpellBook spellbook) {
-    	ImageView view = new ImageView(portalImage);
+    	ImageView view = new ImageView(spellBookImage);
     	addEntity(spellbook, view);
     }
     
     @Override
     public void onLoad(Fireball fireball) {
-    	ImageView view = new ImageView(portalImage);
+    	ImageView view = new ImageView(fireballImage);
     	addEntity(fireball, view);
     }
 

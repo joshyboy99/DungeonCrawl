@@ -133,6 +133,12 @@ public abstract class DungeonLoader {
         	onLoad(portal);
         	entity = portal;
         	break;
+        	
+        case "spellbook":
+        	SpellBook spellbook = new SpellBook(x,y, dungeon);
+        	onLoad(spellbook);
+        	entity = spellbook;
+        	break;
         }
         dungeon.addEntity(entity);
         dungeon.addInitialEntity(entity);

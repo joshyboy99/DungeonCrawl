@@ -78,13 +78,12 @@ public class DungeonController {
 
     	dungeon.updateDungeon();
 
-    	for (Entity e : this.entities) {
-    		
-    		// here
-    		if (e instanceof Enemy) {
-    			e.performMove();
-    		}
-    	}
+//    	for (Entity e : this.entities) {
+//
+//    		if (e instanceof Enemy) {
+//    			e.performMove();
+//    		}
+//    	}
     	
     }
     
@@ -153,10 +152,8 @@ public class DungeonController {
     		if (p instanceof Treasure) {
     			c ++;
     		} 		
-    	}
-    	
+    	}	
     	return c;
-    	
     }
     
     public void addToInventory() {
@@ -200,10 +197,7 @@ public class DungeonController {
     			break;
     		}
     	}
-  
-    	
-    	
-    	
+	
     	for (Entity e : entities) {
     		if (e instanceof Potion) {
     			Potion p = (Potion) e;
@@ -325,6 +319,9 @@ public class DungeonController {
         	break;        	
         case S:
         	player.useSword();
+        	break;	
+        case D:
+        	player.shootMagic();
         	break;	
         default:
             break;
