@@ -235,4 +235,42 @@ public class Player extends Entity {
 		this.removeItem((Pickup) k1);
 	}
 	
+	/**
+	 * Shoots magic in the direction player is currently facing
+	 */
+	
+	public void shootMagic(){
+		if(playerHasSpellBook()) {
+			this.getSpellBook().shoot(this.getFacing(), this.getX(), this.getY());
+		}
+	}
+	
+	/**
+	 * Returns spell book in players inventory
+	 * @return spell book
+	 */
+
+	private SpellBook getSpellBook() {
+    	for(Pickup p: this.getInventory().getItems()) {
+    		if(p instanceof Sword) {
+    			return (SpellBook)p;
+    		}
+    	}
+    	return null; 
+	}
+	
+	/**
+	 * Will check if player has spellbook.
+	 * @return true or false, depending on whether or not player has spellbook. 
+	 */
+
+	private boolean playerHasSpellBook() {
+    	for(Pickup p: this.getInventory().getItems()) {
+    		if(p instanceof Sword) {
+    			return true;
+    		}
+    	}
+    	return false;
+	}
+	
 }

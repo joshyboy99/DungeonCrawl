@@ -4,12 +4,10 @@ import dungeon.backend.*;
 import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
 import dungeon.backend.PickUpBehaviour.Store;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 
 public class SpellBook extends Pickup{
 
-	private int successfulSpells;
+	private int mana;
 	private Fireball fireball; 
 	
 	public SpellBook(int x, int y, Dungeon dungeon) {
@@ -17,33 +15,47 @@ public class SpellBook extends Pickup{
 		this.moveBehaviour = new Static(this);
 		this.contactBehaviour = new ActivePickup(this);
 		this.pickupBehaviour = new Store(this);
-		this.successfulSpells = 0;
+		this.mana = 10;
 	}	
 	
 	
 	public void shoot(String facing, int x, int y) {
-		
+		if (checkEnoughMana() == false) {
+			this.removeFromInventory();
+		}
 		switch (facing) {
 		
 		case "UP":
 			this.fireball.shootUp(x, y);
-			successfulSpells++;
+			this.mana--;
 			break;
 		
 		case "DOWN":
 			this.fireball.shootDown(x, y);
-			successfulSpells++;
+			this.mana--;
 			break;
 		
 		case "LEFT":
 			this.fireball.shootLeft(x, y);
-			successfulSpells++;
+			this.mana--;
 			break;
 		
 		case "RIGHT":
 			this.fireball.shootRight(x, y);
-			successfulSpells++;
+			this.mana--;
 			break;
 	}	
+	}
+	
+	public boolean checkEnoughMana() {
+		if (this.mana == 0) {
+			return false; 
+		}
+		return true; 
+	}
+	
+	public void removeFromInventory() {
+		Inventory iven = dungeon.getPlayer().getInventory();
+		iven.remove(this);
 	}
 }
