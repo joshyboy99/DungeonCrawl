@@ -252,7 +252,7 @@ public class Player extends Entity {
 
 	private SpellBook getSpellBook() {
     	for(Pickup p: this.getInventory().getItems()) {
-    		if(p instanceof Sword) {
+    		if(p instanceof SpellBook) {
     			return (SpellBook)p;
     		}
     	}
@@ -266,7 +266,7 @@ public class Player extends Entity {
 
 	private boolean playerHasSpellBook() {
     	for(Pickup p: this.getInventory().getItems()) {
-    		if(p instanceof Sword) {
+    		if(p instanceof SpellBook) {
     			return true;
     		}
     	}

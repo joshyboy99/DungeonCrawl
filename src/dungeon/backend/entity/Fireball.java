@@ -35,6 +35,7 @@ public class Fireball extends Entity{
 		this.setX(startX);
 		this.setY(startY);
 		while(this.checkIfEndOfDungeon() == false){
+			System.out.println("here!nn");
 			this.setMx(1);
 			dungeon.scanTile(this, this.getX() + 1, this.getY());
 			//failed to go anywhere, remove!!!!
