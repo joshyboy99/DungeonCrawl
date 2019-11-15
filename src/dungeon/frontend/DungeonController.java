@@ -54,6 +54,8 @@ public class DungeonController {
     
     private List<Entity> entities;
     
+    private int treasures;
+    
     
 
     public DungeonController(Dungeon dungeon, List<ImageView> initialEntities) {
@@ -61,6 +63,7 @@ public class DungeonController {
         this.player = dungeon.getPlayer();
         this.entities = dungeon.getInitialEntities();
         this.initialEntities = new ArrayList<>(initialEntities);
+        this.treasures = treasureCounter();
         this.map = new HashMap<Entity, ImageView>();
         this.timeline = new Timeline(new KeyFrame(Duration.millis(800), d -> this.controllerUpdate()));
         timeline.setCycleCount(Animation.INDEFINITE);
@@ -130,6 +133,31 @@ public class DungeonController {
     	swordImage.setImage(newSword);
     }
     
+    private int treasureCounter() {
+    	
+    	int t = 0;
+    	for (Entity e : entities) {
+    		if (e instanceof Treasure) {
+    			t ++;
+    		} 		
+    	}
+    	
+    	return t;
+    }
+    
+    private int currentTreasure(ArrayList<Pickup> picks) {
+    	
+    	int c = 0;
+    	for (Pickup p : picks) {
+    		if (p instanceof Treasure) {
+    			c ++;
+    		} 		
+    	}
+    	
+    	return c;
+    	
+    }
+    
     public void addToInventory() {
     	boolean swordFlag = false;
     	boolean keyFlag = false;
@@ -138,6 +166,9 @@ public class DungeonController {
     	int x = dungeon.getWidth();
     	int y = 0;
     	Inventory invent = player.getInventory();
+    	
+    	int currentTreasures = currentTreasure(invent.getItems());
+    	
     	for (Pickup p : invent.getItems()) {
     		if (p instanceof Key) {
     			ImageView keyImage = map.get(p);
@@ -153,7 +184,8 @@ public class DungeonController {
     			swordFlag = true;
     			y = 1;
     			
-    		} else if (p instanceof Treasure) {
+    		} else if (this.treasures == currentTreasures) {
+    			
     			ImageView treasureImage = map.get(p);
     			Image treasure = new Image("/gold.gif");
     			treasureImage.setImage(treasure);
@@ -167,6 +199,9 @@ public class DungeonController {
     			break;
     		}
     	}
+  
+    	
+    	
     	
     	for (Entity e : entities) {
     		if (e instanceof Potion) {
@@ -179,7 +214,6 @@ public class DungeonController {
         			p.x().set(x);
             		p.y().set(y);
     			}
-    			
     		}
     	}
     }
