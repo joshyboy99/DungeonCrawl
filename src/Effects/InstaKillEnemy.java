@@ -91,6 +91,7 @@ public class InstaKillEnemy extends Behaviour implements Effect, Observer{
 				for(Entity e: dungeon.getEntities()) {
 					if(e instanceof Enemy) {
 						((Enemy) e).Hunt();
+						((Enemy)e).addValidEntityContact(player);
 					}
 				}
 			}
