@@ -386,6 +386,8 @@ public class DungeonController {
         case F:
         	player.summon();
         	break;	
+        case G:
+        	player.updateSummoners();
         default:
             break;
         }

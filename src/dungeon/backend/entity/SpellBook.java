@@ -41,7 +41,7 @@ public class SpellBook extends Pickup{
 			this.scanDungeonTile(x, y);
 			if(this.getMy() == 0) return; 
 			dungeon.addSummoned(new Summoned(x, y - 1, targetEnemy, dungeon));
-			this.mana--;
+			this.mana = 0;
 			break;
 		
 		case "DOWN":
@@ -49,7 +49,7 @@ public class SpellBook extends Pickup{
 			this.scanDungeonTile(x, y + 1);
 			if(this.getMy() == 0) return; 
 			dungeon.addSummoned(new Summoned(x, y + 1, targetEnemy, dungeon));
-			this.mana--;
+			this.mana = 0;
 			break;
 		
 		case "LEFT":
@@ -57,7 +57,7 @@ public class SpellBook extends Pickup{
 			this.scanDungeonTile(x - 1, y);
 			if(this.getMx() == 0) return; 
 			dungeon.addSummoned(new Summoned(x - 1, y, targetEnemy, dungeon));
-			this.mana--;
+			this.mana = 0;
 			break;
 		
 		case "RIGHT":
@@ -65,7 +65,7 @@ public class SpellBook extends Pickup{
 			this.scanDungeonTile(x + 1, y);
 			if(this.getMx() == 0) return; 
 			dungeon.addSummoned(new Summoned(x + 1, y, targetEnemy, dungeon));
-			this.mana--;
+			this.mana = 0;
 			break;
 		}
 	}

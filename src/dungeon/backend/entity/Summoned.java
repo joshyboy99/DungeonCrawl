@@ -22,14 +22,29 @@ public class Summoned extends Entity{
 	
 	public Summoned(int x, int y, Entity target, Dungeon dungeon) {
 		super(x, y, dungeon);
-		this.contactBehaviour = new Destroy(this);
-		this.addValidEntityContact(new Enemy());
-		((InteractableBehaviour) contactBehaviour).addEntity(new Enemy());;
+		this.player = dungeon.getPlayer();
+		this.contactBehaviour = new Repel(this);
 		this.dungeon = dungeon; 
 		this.moveBehaviour = new SummonedMovement(this, target, dungeon);
 	}
 	
 	public Summoned() {
+		
+	}
+
+	public void update() {
+		if(this.moveBehaviour instanceof SummonedMovement) {
+			this.moveBehaviour = new MoveTowards(this, player, dungeon);
+		} else {
+			//pick new enemy
+			for(Entity e: dungeon.getEntities()) {
+				if(e instanceof Enemy && e != null) {
+					this.moveBehaviour = new SummonedMovement(this, e, dungeon);
+					return;
+				}
+			}
+			this.moveBehaviour = new MoveTowards(this, player, dungeon);
+		}
 		
 	}
 	

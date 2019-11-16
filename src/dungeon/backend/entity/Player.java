@@ -282,4 +282,8 @@ public class Player extends Entity {
 		}
 	}
 	
+	public void updateSummoners() {
+		this.dungeon.updateSummoned();
+	}
+	
 }

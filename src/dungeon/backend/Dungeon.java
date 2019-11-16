@@ -426,6 +426,12 @@ public class Dungeon implements Observable {
 		}
 		return false;
 	}
+	
+	public void updateSummoned() {
+		for(Summoned s: this.summoned) {
+			s.update();
+		}
+	}
 }
 
    
