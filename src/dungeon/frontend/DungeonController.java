@@ -189,7 +189,7 @@ public class DungeonController {
     		text0.setText(mana);
     		text0.setDisable(true);
     		text0.setStyle("-fx-text-fill: blue;");
-        	squares.add(text0, 0, 0);
+        	squares.add(text0, dungeon.getWidth(), 5);
     	}
     }
     
@@ -262,7 +262,7 @@ public class DungeonController {
     			spellbookImage.setImage(spellbook);
     
     			spellbookFlag = true;
-    			y = 3;
+    			y = 4;
     		}
     		
     		p.x().set(x);
@@ -280,7 +280,7 @@ public class DungeonController {
     				ImageView potionImage = map.get(p);
         			Image potion = new Image("/potion.gif");
         			potionImage.setImage(potion);
-        			y = 4;	
+        			y = 3;	
         			p.x().set(x);
             		p.y().set(y);
     			}
