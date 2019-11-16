@@ -60,6 +60,10 @@ public class DungeonController {
 
     private boolean pauseFlag;
     
+    private TextField mana;
+    
+    private TextField swordSwings;
+    
     private List<Entity> entities;
     
     private int treasures;
@@ -189,12 +193,17 @@ public class DungeonController {
     		text0.setText(mana);
     		text0.setDisable(true);
     		TextField text1 = new TextField();
+    		this.mana = text0; 
     		text1.setText("M:");
     		text1.setDisable(true);
     		text0.setStyle("-fx-text-fill: blue;");
     		text1.setStyle("-fx-text-fill: blue;");
         	squares.add(text0, dungeon.getWidth() - 1, 1);
         	squares.add(text1, dungeon.getWidth() - 2, 1);
+    	}
+    	else if (dungeon.getPlayer().getMana() == -1 && this.mana != null) {
+    		this.mana.clear();
+    		this.mana.setText("0");
     	}
     }
     
@@ -204,6 +213,7 @@ public class DungeonController {
     		String swordSwings = Integer.toString(dungeon.getPlayer().getSwordSwings());
     		text0.setText(swordSwings);
     		text0.setDisable(true);
+    		this.swordSwings = text0;
     		TextField text1 = new TextField();
     		text1.setText("S:");
     		text1.setDisable(true);
@@ -211,6 +221,10 @@ public class DungeonController {
     		text1.setStyle("-fx-text-fill: grey;");
         	squares.add(text0, dungeon.getWidth() - 1, 0);
         	squares.add(text1, dungeon.getWidth() - 2, 0);
+    	}
+    	else if (dungeon.getPlayer().getSwordSwings() == -1 && this.swordSwings != null) {
+    		this.swordSwings.clear();
+    		this.swordSwings.setText("0");
     	}
     }
     
