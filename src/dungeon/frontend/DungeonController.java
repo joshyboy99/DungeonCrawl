@@ -12,6 +12,8 @@ import javafx.scene.input.MouseEvent;
 import dungeon.backend.*;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
@@ -34,6 +36,9 @@ public class DungeonController {
 
     @FXML
     private GridPane squares;
+    
+	@FXML
+	private TextArea instructions;
 
     private List<ImageView> initialEntities;
 
@@ -71,23 +76,13 @@ public class DungeonController {
         this.timeline = new Timeline(new KeyFrame(Duration.millis(800), d -> this.controllerUpdate()));
         timeline.setCycleCount(Animation.INDEFINITE);
 		timeline.play();
-		
-		
+				
 		
     }
     
     public void controllerUpdate() {
     	
-
-
     	dungeon.updateDungeon();
-//    	for (Entity e : this.entities) {
-//
-//    		if (e instanceof Enemy) {
-//    			e.performMove();
-//    		}
-//    	}
-
 
     	for (Entity e : this.entities) {
 
@@ -197,6 +192,7 @@ public class DungeonController {
     	boolean swordFlag = false;
     	boolean keyFlag = false;
     	boolean treasureFlag = false;
+    	boolean spellbookFlag = false;
     	
     	int x = dungeon.getWidth();
     	int y = 0;
@@ -219,18 +215,26 @@ public class DungeonController {
     			swordFlag = true;
     			y = 1;
     			
-    		} else if (this.treasures == currentTreasures) {
+    		} else if (this.treasures != 0 && this.treasures == currentTreasures) {
     			
     			ImageView treasureImage = map.get(p);
     			Image treasure = new Image("/gold.gif");
     			treasureImage.setImage(treasure);
     			treasureFlag = true;
     			y = 2;
+    		} else if (p instanceof SpellBook) {
+    			ImageView spellbookImage = map.get(p);
+    			Image spellbook = new Image("/spellbook.gif");
+    			spellbookImage.setImage(spellbook);
+    
+    			spellbookFlag = true;
+    			y = 3;
     		}
+    		
     		p.x().set(x);
     		p.y().set(y);
     		
-    		if(keyFlag && swordFlag && treasureFlag) {
+    		if(keyFlag && swordFlag && treasureFlag && spellbookFlag) {
     			break;
     		}
     	}
@@ -242,7 +246,7 @@ public class DungeonController {
     				ImageView potionImage = map.get(p);
         			Image potion = new Image("/potion.gif");
         			potionImage.setImage(potion);
-        			y = 3;	
+        			y = 4;	
         			p.x().set(x);
             		p.y().set(y);
     			}
@@ -285,11 +289,11 @@ public class DungeonController {
             }
         }
         
-        Image box = new Image("/box.png");
-        int x = dungeon.getWidth();
-        for (int y = 0; y <= 3; y++) {
-    		squares.add(new ImageView(box), x, y);
-    	}
+//        Image box = new Image("/box.png");
+//        int x = dungeon.getWidth();
+//        for (int y = 0; y <= 3; y++) {
+//    		squares.add(new ImageView(box), x, y);
+//    	}
         
         Image pauseImg = new Image("/pause.png");
 		pausePlayButton = new ImageView(pauseImg);
@@ -327,6 +331,8 @@ public class DungeonController {
     	    }
     	});
     	squares.add(home, dungeon.getWidth(), dungeon.getHeight()-1);
+    	
+    	
 
         for (ImageView entity : initialEntities)
             squares.getChildren().add(entity);
@@ -398,6 +404,16 @@ public class DungeonController {
     public void getMap(HashMap<Entity, ImageView> map) {
     	this.map = map;
     }
+    
+    public void setInstructions(String instructions) {
+    	this.instructions.setText(instructions);
+    }
+    
+    public String getInstructions() {
+    	return this.instructions.getText();
+    }
+    
+    
     /**
      * Set a node in a GridPane to have its position track the position of an
      * entity in the dungeon.

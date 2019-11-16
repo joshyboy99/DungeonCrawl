@@ -39,8 +39,10 @@ public class DungeonScreen {
     
     public void restart() throws IOException {
     	
-    	DungeonEndScreen tempEnd = controller.getEndGameScreen();
+    	String tempIns = this.controller.getInstructions();
+    	DungeonEndScreen tempEnd = this.controller.getEndGameScreen();
     	DungeonSelectScreen tempSelect = this.controller.getDungeonSelectScreen();
+    
     	
     	DungeonControllerLoader dungeonLoader = new DungeonControllerLoader(stageName);
     	this.controller = dungeonLoader.loadController();
@@ -51,6 +53,7 @@ public class DungeonScreen {
     	Parent root = loader.load();
         scene = new Scene(root);
         root.requestFocus();
+    	this.controller.setInstructions(tempIns);
         this.controller.setDungeonScreen(this);
         
     	
