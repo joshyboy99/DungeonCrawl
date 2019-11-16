@@ -1,0 +1,745 @@
+{
+  "width": 18,
+  "height": 16,
+  "entities": [
+    {
+    "x": 1,
+    "y": 1,
+    "type": "aang"
+    },
+
+    {
+      "x": 0,
+      "y": 0,
+      "type": "fire"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "type": "fire"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "type": "fire"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "type": "fire"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "type": "fire"
+    },
+    {
+      "x": 5,
+      "y": 0,
+      "type": "fire"
+    },
+    {
+      "x": 6,
+      "y": 0,
+      "type": "fire"
+    },
+    {
+      "x": 7,
+      "y": 0,
+      "type": "fire"
+    },
+    {
+      "x": 8,
+      "y": 0,
+      "type": "fire"
+    },
+    {
+      "x": 9,
+      "y": 0,
+      "type": "fire"
+    },
+    {
+      "x": 10,
+      "y": 0,
+      "type": "fire"
+    },
+    {
+      "x": 11,
+      "y": 0,
+      "type": "fire"
+    },
+    {
+      "x": 12,
+      "y": 0,
+      "type": "fire"
+    },
+    {
+      "x": 13,
+      "y": 0,
+      "type": "fire"
+    },
+    {
+      "x": 14,
+      "y": 0,
+      "type": "fire"
+    },
+    {
+      "x": 15,
+      "y": 0,
+      "type": "fire"
+    },
+    {
+      "x": 16,
+      "y": 0,
+      "type": "fire"
+    },
+    {
+      "x": 17,
+      "y": 0,
+      "type": "fire"
+    },
+
+
+
+
+
+
+
+    {
+      "x": 0,
+      "y": 1,
+      "type": "fire"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "type": "air"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "air"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "type": "air"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "type": "air"
+    },
+    {
+      "x": 5,
+      "y": 1,
+      "type": "air"
+    },
+    {
+      "x": 6,
+      "y": 1,
+      "type": "air"
+    },
+    {
+      "x": 7,
+      "y": 1,
+      "type": "air"
+    },
+    {
+      "x": 8,
+      "y": 1,
+      "type": "air"
+    },
+    {
+      "x": 9,
+      "y": 1,
+      "type": "air"
+    },
+    {
+      "x": 10,
+      "y": 1,
+      "type": "air"
+    },
+    {
+      "x": 11,
+      "y": 1,
+      "type": "air"
+    },
+    {
+      "x": 12,
+      "y": 1,
+      "type": "air"
+    },
+    {
+      "x": 13,
+      "y": 1,
+      "type": "air"
+    },
+    {
+      "x": 14,
+      "y": 1,
+      "type": "air"
+    },
+    {
+      "x": 15,
+      "y": 1,
+      "type": "air"
+    },
+    {
+      "x": 16,
+      "y": 1,
+      "type": "air"
+    },
+
+    {
+      "x": 17,
+      "y": 1,
+      "type": "fire"
+    },
+
+
+    {
+      "x": 0,
+      "y": 2,
+      "type": "fire"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "water"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "water"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "water"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "type": "water"
+    },
+    {
+      "x": 5,
+      "y": 2,
+      "type": "water"
+    },
+    {
+      "x": 6,
+      "y": 2,
+      "type": "water"
+    },
+    {
+      "x": 7,
+      "y": 2,
+      "type": "water"
+    },
+    {
+      "x": 8,
+      "y": 2,
+      "type": "water"
+    },
+    {
+      "x": 9,
+      "y": 2,
+      "type": "water"
+    },
+    {
+      "x": 10,
+      "y": 2,
+      "type": "water"
+    },
+    {
+      "x": 11,
+      "y": 2,
+      "type": "water"
+    },
+    {
+      "x": 12,
+      "y": 2,
+      "type": "water"
+    },
+    {
+      "x": 13,
+      "y": 2,
+      "type": "water"
+    },
+    {
+      "x": 16,
+      "y": 2,
+      "type": "switch"
+    },
+    {
+      "x": 15,
+      "y": 2,
+      "type": "boulder"
+    },
+    {
+      "x": 17,
+      "y": 2,
+      "type": "fire"
+    },
+
+    {
+      "x": 0,
+      "y": 3,
+      "type": "fire"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "water"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "water"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "water"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "type": "water"
+    },
+    {
+      "x": 5,
+      "y": 3,
+      "type": "water"
+    },
+    {
+      "x": 6,
+      "y": 3,
+      "type": "water"
+    },
+    {
+      "x": 7,
+      "y": 3,
+      "type": "water"
+    },
+    {
+      "x": 8,
+      "y": 3,
+      "type": "water"
+    },
+    {
+      "x": 9,
+      "y": 3,
+      "type": "water"
+    },
+    {
+      "x": 10,
+      "y": 3,
+      "type": "water"
+    },
+    {
+      "x": 11,
+      "y": 3,
+      "type": "water"
+    },
+    {
+      "x": 12,
+      "y": 3,
+      "type": "water"
+    },
+    {
+      "x": 13,
+      "y": 3,
+      "type": "water"
+    },
+    {
+      "x": 16,
+      "y": 3,
+      "type": "switch"
+    },
+    {
+      "x": 15,
+      "y": 3,
+      "type": "boulder"
+    },
+    {
+      "x": 17,
+      "y": 3,
+      "type": "fire"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "type": "fire"
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "type": "treasure"
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "type": "treasure"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "type": "treasure"
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "type": "treasure"
+    },
+    {
+      "x": 5,
+      "y": 4,
+      "type": "treasure"
+    },
+    {
+      "x": 6,
+      "y": 4,
+      "type": "treasure"
+    },
+    {
+      "x": 7,
+      "y": 4,
+      "type": "treasure"
+    },
+    {
+      "x": 8,
+      "y": 4,
+      "type": "treasure"
+    },
+    {
+      "x": 9,
+      "y": 4,
+      "type": "treasure"
+    },
+    {
+      "x": 10,
+      "y": 4,
+      "type": "treasure"
+    },
+    {
+      "x": 11,
+      "y": 4,
+      "type": "treasure"
+    },
+    {
+      "x": 12,
+      "y": 4,
+      "type": "treasure"
+    },
+    {
+      "x": 13,
+      "y": 4,
+      "type": "treasure"
+    },
+    {
+      "x": 15,
+      "y": 4,
+      "type": "fire"
+    },
+    {
+      "x": 16,
+      "y": 4,
+      "type": "fire"
+    },
+    {
+      "x": 17,
+      "y": 4,
+      "type": "fire"
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "type": "fire"
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "type": "air"
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "type": "air"
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "type": "air"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "type": "air"
+    },
+    {
+      "x": 5,
+      "y": 5,
+      "type": "air"
+    },
+    {
+      "x": 6,
+      "y": 5,
+      "type": "air"
+    },
+    {
+      "x": 7,
+      "y": 5,
+      "type": "air"
+    },
+    {
+      "x": 8,
+      "y": 5,
+      "type": "air"
+    },
+    {
+      "x": 9,
+      "y": 5,
+      "type": "air"
+    },
+    {
+      "x": 10,
+      "y": 5,
+      "type": "air"
+    },
+    {
+      "x": 11,
+      "y": 5,
+      "type": "air"
+    },
+    {
+      "x": 12,
+      "y": 5,
+      "type": "air"
+    },
+    {
+      "x": 13,
+      "y": 5,
+      "type": "air"
+    },
+    {
+      "x": 14,
+      "y": 5,
+      "type": "air"
+    },
+    {
+      "x": 15,
+      "y": 5,
+      "type": "air"
+    },
+    {
+      "x": 16,
+      "y": 5,
+      "type": "air"
+    },
+    {
+      "x": 17,
+      "y": 5,
+      "type": "fire"
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "type": "fire"
+    },
+
+    {
+      "x": 17,
+      "y": 6,
+      "type": "fire"
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "type": "fire"
+    },
+    {
+      "x": 17,
+      "y": 7,
+      "type": "fire"
+    },
+    {
+      "x": 0,
+      "y": 8,
+      "type": "fire"
+    },
+    {
+      "x": 17,
+      "y": 8,
+      "type": "fire"
+    },
+    {
+      "x": 0,
+      "y": 9,
+      "type": "fire"
+    },
+    {
+      "x": 17,
+      "y": 9,
+      "type": "fire"
+    },
+    {
+      "x": 0,
+      "y": 10,
+      "type": "fire"
+    },
+    {
+      "x": 17,
+      "y": 10,
+      "type": "fire"
+    },
+    {
+      "x": 0,
+      "y": 11,
+      "type": "fire"
+    },
+    {
+      "x": 17,
+      "y": 11,
+      "type": "fire"
+    },
+    {
+      "x": 0,
+      "y": 12,
+      "type": "fire"
+    },
+    {
+      "x": 17,
+      "y": 12,
+      "type": "fire"
+    },
+    {
+      "x": 0,
+      "y": 13,
+      "type": "fire"
+    },
+    {
+      "x": 17,
+      "y": 13,
+      "type": "fire"
+    },
+    {
+      "x": 0,
+      "y": 14,
+      "type": "fire"
+    },
+    {
+      "x": 1,
+      "y": 14,
+      "type": "toph"
+    },
+    {
+      "x": 17,
+      "y": 14,
+      "type": "fire"
+    },
+    {
+      "x": 0,
+      "y": 15,
+      "type": "fire"
+    },
+    {
+      "x": 1,
+      "y": 15,
+      "type": "fire"
+    },
+    {
+      "x": 2,
+      "y": 15,
+      "type": "fire"
+    },
+    {
+      "x": 3,
+      "y": 15,
+      "type": "fire"
+    },
+    {
+      "x": 4,
+      "y": 15,
+      "type": "fire"
+    },
+    {
+      "x": 5,
+      "y": 15,
+      "type": "fire"
+    },
+    {
+      "x": 6,
+      "y": 15,
+      "type": "fire"
+    },
+    {
+      "x": 7,
+      "y": 15,
+      "type": "fire"
+    },
+    {
+      "x": 8,
+      "y": 15,
+      "type": "fire"
+    },
+    {
+      "x": 9,
+      "y": 15,
+      "type": "fire"
+    },
+    {
+      "x": 10,
+      "y": 15,
+      "type": "fire"
+    },
+    {
+      "x": 11,
+      "y": 15,
+      "type": "fire"
+    },
+    {
+      "x": 12,
+      "y": 15,
+      "type": "fire"
+    },
+    {
+      "x": 13,
+      "y": 15,
+      "type": "fire"
+    },
+    {
+      "x": 14,
+      "y": 15,
+      "type": "fire"
+    },
+    {
+      "x": 15,
+      "y": 15,
+      "type": "fire"
+    },
+    {
+      "x": 16,
+      "y": 15,
+      "type": "fire"
+    },
+    {
+      "x": 17,
+      "y": 15,
+      "type": "fire"
+    }
+  ],
+  "goal-condition": {
+    "goal": "AND",
+    "subgoals": [
+      {
+        "goal": "boulders"
+      },
+      {
+        "goal": "treasure"
+      }
+    ]
+  }
+}

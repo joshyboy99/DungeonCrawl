@@ -20,6 +20,9 @@ public class DungeonSelectController {
 	private Button advanced;
 	
 	@FXML
+	private Button avatar;
+	
+	@FXML
 	private Button credits;
 	
 	private Stage stage;
@@ -72,7 +75,23 @@ public class DungeonSelectController {
 	
 	@FXML
 	public void AdvancedStage() throws IOException {
-		String name = "advanced.json";
+		String name = "avatar.json";
+		DungeonScreen dungeonScreen = new DungeonScreen(this.stage, name);
+		
+		this.screen.selectScreenMusic.stop();
+		
+		DungeonEndScreen endGameScreen = new DungeonEndScreen(this.stage);
+		dungeonScreen.getController().setEndGameScreen(endGameScreen);
+		dungeonScreen.getController().setDungeonSelectScreen(this.screen);
+    	endGameScreen.getController().setDungeonScreen(dungeonScreen);
+    	endGameScreen.getController().setDungeonSelectScreen(this.screen);
+    	
+    	dungeonScreen.start();
+	}
+	
+	@FXML
+	public void TheLastAirBender() throws IOException {
+		String name = "avatar.json";
 		DungeonScreen dungeonScreen = new DungeonScreen(this.stage, name);
 		
 		this.screen.selectScreenMusic.stop();

@@ -63,7 +63,7 @@ public abstract class DungeonLoader {
         case "player":
             Player player = new Player(dungeon, x, y);
             dungeon.setPlayer(player);
-            onLoad(player);
+            onLoad(player, 0);
             entity = player;
             break;
         case "wall":
@@ -97,7 +97,7 @@ public abstract class DungeonLoader {
 
         case "enemy":
         	Enemy enemy = new Enemy(x, y, dungeon);
-        	onLoad(enemy);
+        	onLoad(enemy, 0);
         	entity = enemy;
         	break;
 
@@ -151,13 +151,45 @@ public abstract class DungeonLoader {
         	onLoad(mushroom);
         	entity = mushroom;
         	break;
+        	
+        case "air":
+        	Air air = new Air(x,y, dungeon);
+        	onLoad(air);
+        	entity = air;
+        	break;
+        	
+        case "water":
+        	Water water = new Water(x,y, dungeon);
+        	onLoad(water);
+        	entity = water;
+        	break;
+        
+        case "fire":
+        	Fire fire = new Fire(x,y, dungeon);
+        	onLoad(fire);
+        	entity = fire;
+        	break;
+        case "aang":
+            Player aang = new Player(dungeon, x, y);
+            dungeon.setPlayer(aang);
+            onLoad(aang, 1);
+            entity = aang;
+            break;
+         
+        case "toph":
+        	Enemy toph = new Enemy(x, y, dungeon);
+        	onLoad(toph, 1);
+        	entity = toph;
+        	break;
+
+         
         }
         dungeon.addEntity(entity);
         dungeon.addInitialEntity(entity);
     }
     
     
-    public abstract void onLoad(Entity player);
+    public abstract void onLoad(Entity player, int num);
 
     public abstract void onLoad(Wall wall);
     
@@ -169,7 +201,7 @@ public abstract class DungeonLoader {
 
     public abstract void onLoad(FloorSwitch floorSwitch);
 
-    public abstract void onLoad(Enemy enemy);
+    public abstract void onLoad(Enemy enemy, int num);
 
     public abstract void onLoad(Potion potion);
 
@@ -186,6 +218,12 @@ public abstract class DungeonLoader {
 	public abstract void onLoad(Fireball fireball);
 	
 	public abstract void onLoad(Mushroom mushroom);
+	
+	public abstract void onLoad(Air air);
+	
+	public abstract void onLoad(Water water);
+	
+	public abstract void onLoad(Fire fire);
 
 
     // TODO Create additional abstract methods for the other entities

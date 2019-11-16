@@ -3,9 +3,14 @@ package dungeon.backend.entity;
 import dungeon.backend.Dungeon;
 import dungeon.backend.InteractableBehaviour;
 import dungeon.backend.ContactBehaviour.Destroy;
-import dungeon.backend.MoveBehaviour.MoveTowards;
 import dungeon.backend.MoveBehaviour.Static;
 
+/**
+ * A funny enemy character only moves when player is 
+ * invincible !! 
+ * @author JAG
+ *
+ */
 public class Mushroom extends Enemy {
 	
 	private Player player;
