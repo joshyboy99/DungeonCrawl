@@ -58,12 +58,17 @@ public class DungeonSelectController {
 		DungeonScreen dungeonScreen = new DungeonScreen(this.stage, name);
 		
 		//this.screen.selectScreenMusic.stop();
+	
 		
 		DungeonEndScreen endGameScreen = new DungeonEndScreen(this.stage);
 		dungeonScreen.getController().setEndGameScreen(endGameScreen);
 		dungeonScreen.getController().setDungeonSelectScreen(this.screen);
     	endGameScreen.getController().setDungeonScreen(dungeonScreen);
     	endGameScreen.getController().setDungeonSelectScreen(this.screen);
+    	
+    	String instructions = "Push all boulders on \n\n to the switch!";
+    	
+    	dungeonScreen.getController().setInstructions(instructions);
 		
     	dungeonScreen.start();
 	}
@@ -80,6 +85,10 @@ public class DungeonSelectController {
 		dungeonScreen.getController().setDungeonSelectScreen(this.screen);
     	endGameScreen.getController().setDungeonScreen(dungeonScreen);
     	endGameScreen.getController().setDungeonSelectScreen(this.screen);
+    	
+    	String instructions = "Reach the exit!\n\n hint: Pick up key using 'a' ";
+    	
+    	dungeonScreen.getController().setInstructions(instructions);
 		
     	dungeonScreen.start();
 	}
@@ -97,6 +106,10 @@ public class DungeonSelectController {
     	endGameScreen.getController().setDungeonScreen(dungeonScreen);
     	endGameScreen.getController().setDungeonSelectScreen(this.screen);
     	
+    	String instructions = "Slay enemy + Collect all treasure \n\n hint: \n\n - Collect Sword 'a' \n\n - Use Sword 'S'" ;
+    	
+    	dungeonScreen.getController().setInstructions(instructions);
+    	
     	dungeonScreen.start();
 	}
 	
@@ -112,6 +125,10 @@ public class DungeonSelectController {
 		dungeonScreen.getController().setDungeonSelectScreen(this.screen);
     	endGameScreen.getController().setDungeonScreen(dungeonScreen);
     	endGameScreen.getController().setDungeonSelectScreen(this.screen);
+    	
+    	String instructions = "Collect all treasure + push all boulder on to switch";
+    	
+    	dungeonScreen.getController().setInstructions(instructions);
     	
     	dungeonScreen.start();
 	}
