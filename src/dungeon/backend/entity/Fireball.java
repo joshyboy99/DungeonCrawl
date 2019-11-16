@@ -47,6 +47,7 @@ public class Fireball extends Entity{
 			this.removeSelf();
 			return;
 		}
+		this.kill(this.getX() + 1, this.getY());
 		this.setX(startX + 1);
 		this.setY(startY);
 		this.setFacing("RIGHT");
@@ -59,6 +60,7 @@ public class Fireball extends Entity{
 			this.removeSelf();
 			return;
 		}
+		this.kill(this.getX() -1, this.getY());
 		this.setX(startX - 1);
 		this.setY(startY);
 		this.setFacing("LEFT");
@@ -71,6 +73,7 @@ public class Fireball extends Entity{
 			this.removeSelf();
 			return;
 		}
+		this.kill(this.getX(), this.getY() - 1);
 		this.setX(startX);
 		this.setY(startY - 1);
 		this.setFacing("UP");
@@ -85,6 +88,7 @@ public class Fireball extends Entity{
 			this.removeSelf();
 			return;
 		}
+		this.kill(this.getX(), this.getY() + 1);
 		this.setX(startX);
 		this.setY(startY + 1);
 		this.setFacing("DOWN");
