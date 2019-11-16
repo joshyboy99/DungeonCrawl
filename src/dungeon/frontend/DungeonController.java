@@ -79,15 +79,6 @@ public class DungeonController {
     public void controllerUpdate() {
     	
 
-<<<<<<< HEAD
-    	dungeon.updateDungeon();
-//    	for (Entity e : this.entities) {
-//
-//    		if (e instanceof Enemy) {
-//    			e.performMove();
-//    		}
-//    	}
-=======
     	dungeon.updateDungeon();
 
     	for (Entity e : this.entities) {
@@ -95,9 +86,7 @@ public class DungeonController {
     		if (e instanceof Enemy) {
     			e.performMove();
     		}
-    	}
->>>>>>> 85505aaa1f80deb49643ea15436f262f2e15513b
-    	
+    	}    	
     }
     
     public void refreshDungeonImage() {
