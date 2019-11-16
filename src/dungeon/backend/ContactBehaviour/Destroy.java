@@ -15,6 +15,7 @@ public class Destroy extends InteractableBehaviour implements ContactBehaviour {
 	
 	public Destroy(Entity attached) {
 		super(attached);
+		//this.ValidEntities.add(new Enemy());
 	}	
 	
 	/**
@@ -23,9 +24,15 @@ public class Destroy extends InteractableBehaviour implements ContactBehaviour {
 	 */
 	@Override
 	public void onTouch(Entity e) {
-		if(this.checkValidEntityClass(e)) {
-			e.removeSelf();
+		if(e != null) {
+			if(this.checkValidEntityClass(e)) {
+				e.removeSelf();
+			}
+			else if (e.getClass().equals(attached.getClass())) {
+    			attached.resetNextMove();
+    			e.resetNextMove();
+    		}
 		}
+		
 	}
-
 }

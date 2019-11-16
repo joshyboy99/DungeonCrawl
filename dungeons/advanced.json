@@ -98,12 +98,29 @@
       "type": "wall"
     },
     {
+      "x": 2,
+      "y": 1,
+      "id": 1,
+      "type": "key"
+    },
+    {
       "x": 1,
       "y": 1,
       "type": "player"
     },
     {
+      "x": 5,
+      "y": 1,
+      "id": 1,
+      "type": "door"
+    },
+    {
       "x": 6,
+      "y": 1,
+      "type": "sword"
+    },
+    {
+      "x": 7,
       "y": 1,
       "type": "sword"
     },
@@ -213,9 +230,31 @@
       "type": "wall"
     },
     {
-      "x": 3,
+      "x": 10,
+      "y": 10,
+      "type": "mushroom"
+    },
+    {
+      "x": 14,
       "y": 5,
       "type": "enemy"
+    },
+    {
+      "x": 13,
+      "y": 5,
+      "type": "enemy"
+    },
+    {
+      "x": 10,
+      "y": 5,
+      "type": "portal",
+      "id": 1
+    },
+    {
+      "x": 8,
+      "y": 9,
+      "type": "portal",
+      "id": 1
     },
     {
       "x": 8,
@@ -380,6 +419,16 @@
     {
       "x": 7,
       "y": 10,
+      "type": "spellbook"
+    },
+    {
+      "x": 7,
+      "y": 11,
+      "type": "treasure"
+    },
+    {
+      "x": 7,
+      "y": 12,
       "type": "treasure"
     },
     {

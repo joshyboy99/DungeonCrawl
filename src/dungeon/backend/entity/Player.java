@@ -235,4 +235,77 @@ public class Player extends Entity {
 		this.removeItem((Pickup) k1);
 	}
 	
+	/**
+	 * Shoots magic in the direction player is currently facing
+	 */
+	
+	public void shootMagic(){
+		if(playerHasSpellBook()) {
+			this.getSpellBook().shoot(this.getFacing(), this.getX(), this.getY());
+		}
+	}
+	
+	/**
+	 * Returns spell book in players inventory
+	 * @return spell book
+	 */
+
+	private SpellBook getSpellBook() {
+    	for(Pickup p: this.getInventory().getItems()) {
+    		if(p instanceof SpellBook) {
+    			return (SpellBook)p;
+    		}
+    	}
+    	return null; 
+	}
+	
+	/**
+	 * Will check if player has spellbook.
+	 * @return true or false, depending on whether or not player has spellbook. 
+	 */
+
+	private boolean playerHasSpellBook() {
+    	for(Pickup p: this.getInventory().getItems()) {
+    		if(p instanceof SpellBook) {
+    			return true;
+    		}
+    	}
+    	return false;
+	}
+	
+	/**
+	 * Will summon entity on map
+	 */
+	public void summon(){
+		if(playerHasSpellBook()) {
+			this.getSpellBook().summon(this.getFacing(), this.getX(), this.getY());
+		}
+	}
+	
+	/**
+	 * updates summoners to either follow player or attack!
+	 */
+	public void updateSummoners() {
+		this.dungeon.updateSummoned();
+	}
+	/**
+	 * Gets mana left from spell book
+	 * @return mana from spell book
+	 */
+	public int getMana() {
+		if(! playerHasSpellBook()) {
+			return -1; 
+		} else {
+			return this.getSpellBook().getMana();
+		}
+	}
+	
+	public int getSwordSwings() {
+		if(! hasSword()) {
+			return -1; 
+		} else {
+			return this.getSword().getSwordHits();
+		}
+	}
+	
 }

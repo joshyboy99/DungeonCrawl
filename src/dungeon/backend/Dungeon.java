@@ -28,6 +28,14 @@ public class Dungeon implements Observable {
     private int width, height;
     
     /**
+     * A list containing all entities that have ever
+     * been loaded to the current dungeon. 
+     */
+    private List<Entity> initialEntities;
+    
+    
+
+	/**
      * The list of entity objects contained within this dungeon
      */
     private List<Entity> entities;
@@ -59,7 +67,23 @@ public class Dungeon implements Observable {
      * which can be used as a goal-condition.
      */
     private static int doors;
+    
+    /**
+     * entity list for deleted entity
+     */
+    private List<Entity> deletedEntities;
+    
+    
+    /**
+     * entity list for deleted entity
+     */
+    private List<Fireball> fireballs;
 
+    /**
+     * List of entities summoned by player
+     */
+	private List<Summoned> summoned;
+    
     /**
      * A constructor for the Dungeon Class. 
      * @param width The width of the Dungeon
@@ -70,9 +94,13 @@ public class Dungeon implements Observable {
         this.height = height;
         this.entities = new ArrayList<>();
         this.observers = new ArrayList<>();
+        this.initialEntities = new ArrayList<>();
         this.player = null;
         this.goalManager = null;
         this.fail = false;
+        this.deletedEntities = new ArrayList<>();
+        this.fireballs = new ArrayList<>();
+        this.summoned = new ArrayList<>();
         Dungeon.doors = 0;
         
     }
@@ -138,6 +166,22 @@ public class Dungeon implements Observable {
     	}
     	
         entities.add(entity);
+    }
+    
+    /**
+     * a way to add a new fireball to the dungeon
+     * @param f fireball to be added to dungeon
+     */
+    public void addFireball(Fireball f) {
+    	this.fireballs.add(f);
+    }
+    
+   /**
+    * a way to get the list of fireballs on the map
+    * @return list of current fireballs
+    */
+    public List<Fireball> getFireBalls() {
+    	return this.fireballs;
     }
     
     /**
@@ -212,7 +256,22 @@ public class Dungeon implements Observable {
      * @param e The entity ready to be removed
      */
     public void removeEntity(Entity e) {
-    	entities.remove(e);
+    	if(e instanceof Fireball && ! entityInDeletedEntities(e)) {
+    		this.addToDeletedEntities(e);
+    	} 
+    	else if (e instanceof Summoned) {
+    		this.addToDeletedEntities(e);
+    		e.setX(1000);
+    		e.setY(1000);
+    	}
+    	else if (e instanceof Enemy) {
+    		e.setX(1000);
+    		e.setY(1000);
+    		entities.remove(e);
+    	}
+    	else {
+    		entities.remove(e);
+    	}	
     }
     
     /**
@@ -230,6 +289,13 @@ public class Dungeon implements Observable {
      */
     public void setupGoal(JSONObject goalCondition) {
     	goalManager.setGoal(goalCondition);
+    }
+    
+    public boolean entityInDeletedEntities(Entity e) {
+    	if(this.deletedEntities.contains(e)) {
+    		return true;
+    	}
+    	return false; 
     }
 
     /**
@@ -285,8 +351,86 @@ public class Dungeon implements Observable {
 
 	@Override
 	public void updateDungeon() {
+		if (!this.checkEntitiesOnDungeon(player)) {
+			this.failStage();
+			return;
+		}
 		for (Entity e : this.observers) {
 			((Observer)e).update(player);
+		}
+		
+	}
+	
+	public void addInitialEntity(Entity e) {
+		this.initialEntities.add(e);
+	}
+	
+	public List<Entity> getInitialEntities() {
+		return initialEntities;
+	}
+
+	public void setInitialEntities(List<Entity> initialEntities) {
+		this.initialEntities = initialEntities;
+	}
+	
+	/**
+	 * Get deleted entities from dungeon
+	 * @return deleted entities
+	 */
+	public List<Entity> getDeletedEntities() {
+		return this.deletedEntities;
+	}
+	
+	/**
+	 * will add entity to deleted entity list
+	 * @param e entity being added
+	 */
+	public void addToDeletedEntities(Entity e) {
+		this.deletedEntities.add(e);
+		
+	}
+	/**
+	 * Will check if fireball is still on dungeon
+	 * @param entity the fireball you would like to check
+	 * @return true or false, depending if the fireball is on the dungeon or not
+	 */
+	public boolean checkFireballsOnDungeon(Entity entity) {
+		if(this.fireballs.contains(entity)) {
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * adds a summoned entity to list
+	 * @param summoned summoned entity to add to list
+	 */
+	public void addSummoned(Summoned summoned) {
+		this.summoned.add(summoned);
+		
+	}
+	
+	public List<Summoned> getSummoned(){
+		return this.summoned;
+		
+	}
+	/**
+	 * Will check if a summoned people on dungeon are on dungeon
+	 * @param entity to check
+	 * @return
+	 */
+	public boolean checkSummonedOnDungeon(Entity entity) {
+		if(this.summoned.contains(entity)) {
+			return true; 
+		}
+		return false;
+	}
+	/**
+	 * updates summoners to state of either attacking enemies or following player
+	 */
+	public void updateSummoned() {
+		for(Summoned s: this.summoned) {
+			s.update();
 		}
 	}
 }

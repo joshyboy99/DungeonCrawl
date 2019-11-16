@@ -2,7 +2,6 @@ package dungeon.backend.ContactBehaviour;
 
 import dungeon.backend.InteractableBehaviour;
 import dungeon.backend.entity.Entity;
-import dungeon.backend.entity.Player;
 
 /**
  * This class is part of the group that Extends ContactBehaviour.
@@ -19,7 +18,6 @@ public class Locked extends InteractableBehaviour implements ContactBehaviour {
 
 	public Locked(Entity attached) {
 		super(attached);
-		this.ValidEntities.add(new Player());
 	}	
 	
 	
@@ -30,8 +28,6 @@ public class Locked extends InteractableBehaviour implements ContactBehaviour {
 	 */
 	@Override
 	public void onTouch(Entity entity) {
-		
-		if(checkValidEntityClass(entity)) {
 			
 		// resets incoming entity next-position
 		entity.setMx(0);
@@ -39,7 +35,7 @@ public class Locked extends InteractableBehaviour implements ContactBehaviour {
 		
 		// calls attached entity's 'wasTouched' and passes in incoming entity. 
 		attached.wasTouched(entity);
-		} 
+		
 
 	}
 }

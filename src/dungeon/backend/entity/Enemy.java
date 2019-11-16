@@ -24,6 +24,7 @@ public class Enemy extends Entity implements Observer{
 		super(x, y, dungeon);
 		this.player = dungeon.getPlayer();
 		this.contactBehaviour = new Destroy(this);
+		this.addValidEntityContact(player);
 		((InteractableBehaviour) contactBehaviour).addEntity(player);
 		this.dungeon = dungeon; 
 		this.moveBehaviour = new MoveTowards(this, this.player, dungeon);
@@ -41,7 +42,7 @@ public class Enemy extends Entity implements Observer{
 	 */
 	public void Flee() {
 		this.moveBehaviour = new Flee(this, this.player, this.dungeon);
-		this.contactBehaviour = new NoContact(this);
+		this.contactBehaviour = new Die(this);
 	}
 	
 	/**
@@ -53,6 +54,7 @@ public class Enemy extends Entity implements Observer{
 		((InteractableBehaviour) contactBehaviour).addEntity(player);
 		
 		this.moveBehaviour = new MoveTowards(this, this.player, dungeon);
+
 	}
 
 	/**

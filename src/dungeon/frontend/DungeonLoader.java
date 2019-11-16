@@ -21,10 +21,12 @@ import dungeon.backend.*;
  *
  */
 public abstract class DungeonLoader {
-
+	
+	private String filename;
     private JSONObject json;
 
     public DungeonLoader(String filename) throws FileNotFoundException {
+    	this.filename = filename;
         json = new JSONObject(new JSONTokener(new FileReader("dungeons/" + filename)));
     }
 
@@ -43,6 +45,10 @@ public abstract class DungeonLoader {
         for (int i = 0; i < jsonEntities.length(); i++) {
             loadEntity(dungeon, jsonEntities.getJSONObject(i));
         }
+        
+        JSONObject goalCondition = json.getJSONObject("goal-condition");
+        dungeon.setupGoal(goalCondition);
+        
         return dungeon;
     }
 
@@ -57,7 +63,7 @@ public abstract class DungeonLoader {
         case "player":
             Player player = new Player(dungeon, x, y);
             dungeon.setPlayer(player);
-            onLoad(player);
+            onLoad(player, 0);
             entity = player;
             break;
         case "wall":
@@ -91,7 +97,7 @@ public abstract class DungeonLoader {
 
         case "enemy":
         	Enemy enemy = new Enemy(x, y, dungeon);
-        	onLoad(enemy);
+        	onLoad(enemy, 0);
         	entity = enemy;
         	break;
 
@@ -120,12 +126,70 @@ public abstract class DungeonLoader {
         	onLoad(key);
         	entity = key;
         	break;
+        	
+        case "portal":
+        	id = json.getInt("id");
+        	Portal portal = new Portal(x, y, dungeon, id);
+        	onLoad(portal);
+        	entity = portal;
+        	break;
+        	
+        case "spellbook":
+        	SpellBook spellbook = new SpellBook(x,y, dungeon);
+        	onLoad(spellbook);
+        	entity = spellbook;
+        	break;
+        
+        case "fireball":
+        	Fireball fireball = new Fireball(x,y, dungeon);
+        	onLoad(fireball);
+        	entity = fireball;
+        	break;
+        	
+        case "mushroom":
+        	Mushroom mushroom = new Mushroom(x,y, dungeon);
+        	onLoad(mushroom);
+        	entity = mushroom;
+        	break;
+        	
+        case "air":
+        	Air air = new Air(x,y, dungeon);
+        	onLoad(air);
+        	entity = air;
+        	break;
+        	
+        case "water":
+        	Water water = new Water(x,y, dungeon);
+        	onLoad(water);
+        	entity = water;
+        	break;
+        
+        case "fire":
+        	Fire fire = new Fire(x,y, dungeon);
+        	onLoad(fire);
+        	entity = fire;
+        	break;
+        case "aang":
+            Player aang = new Player(dungeon, x, y);
+            dungeon.setPlayer(aang);
+            onLoad(aang, 1);
+            entity = aang;
+            break;
+         
+        case "toph":
+        	Enemy toph = new Enemy(x, y, dungeon);
+        	onLoad(toph, 1);
+        	entity = toph;
+        	break;
+
+         
         }
         dungeon.addEntity(entity);
+        dungeon.addInitialEntity(entity);
     }
     
     
-    public abstract void onLoad(Entity player);
+    public abstract void onLoad(Entity player, int num);
 
     public abstract void onLoad(Wall wall);
     
@@ -137,7 +201,7 @@ public abstract class DungeonLoader {
 
     public abstract void onLoad(FloorSwitch floorSwitch);
 
-    public abstract void onLoad(Enemy enemy);
+    public abstract void onLoad(Enemy enemy, int num);
 
     public abstract void onLoad(Potion potion);
 
@@ -146,6 +210,20 @@ public abstract class DungeonLoader {
     public abstract void onLoad(Door door);
 
     public abstract void onLoad(Key key);
+    
+    public abstract void onLoad(Portal portal);
+
+	public abstract void onLoad(SpellBook spellbook);
+
+	public abstract void onLoad(Fireball fireball);
+	
+	public abstract void onLoad(Mushroom mushroom);
+	
+	public abstract void onLoad(Air air);
+	
+	public abstract void onLoad(Water water);
+	
+	public abstract void onLoad(Fire fire);
 
 
     // TODO Create additional abstract methods for the other entities

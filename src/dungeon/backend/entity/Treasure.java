@@ -20,4 +20,6 @@ public class Treasure extends Pickup {
 		this.pickupBehaviour = new Store(this);
 	}
 	
+	
+	
 }

@@ -19,7 +19,7 @@ public class Die extends InteractableBehaviour implements ContactBehaviour{
 	public Die(Entity attached) {
 		super(attached);
 		this.ValidEntities.add(new Enemy());
-		// TODO Auto-generated constructor stub
+		this.ValidEntities.add(new Player());
 	}
 	/**
 	 * This onTouch will kill the attached as long as the entity that touches it is on the valid entities list. 
@@ -28,6 +28,10 @@ public class Die extends InteractableBehaviour implements ContactBehaviour{
 	public void onTouch(Entity entity) {
 		if(this.checkValidEntityClass(entity)) {
 			attached.removeSelf();
+		}
+		else if (entity instanceof Summoned) {
+			entity.setMx(0);
+			entity.setMy(0);
 		}
 	}
 
