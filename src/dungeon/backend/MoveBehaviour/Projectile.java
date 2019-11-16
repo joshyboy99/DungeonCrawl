@@ -20,6 +20,7 @@ public class Projectile extends Behaviour implements MoveBehaviour{
 			case "RIGHT":
 			attached.setMx(1);
 			attached.dungeon.scanTile(attached, attached.getX() + 1, attached.getY());
+			attached.kill(attached.getX(), attached.getY());
 			//failed to go anywhere, remove!!!!
 			if(attached.getMx() == 0) {
 				attached.removeSelf();
@@ -32,37 +33,37 @@ public class Projectile extends Behaviour implements MoveBehaviour{
 			case "LEFT":
 			attached.setMx(-1);
 			attached.dungeon.scanTile(attached, attached.getX() - 1,attached.getY());
+			attached.kill(attached.getX(), attached.getY());
 			//failed to go anywhere, remove!!!!
 			if(attached.getMx() == 0) {
 				attached.removeSelf();
 				break;
 			}	
 			attached.setX(attached.getMx() + attached.getX());
-			attached.kill(attached.getX(), attached.getY());
 			break;
 			
 			case "UP":
 			attached.setMy(-1);
 			attached.dungeon.scanTile(attached, attached.getX(),attached.getY() - 1);
 			//failed to go anywhere, remove!!!!
+			attached.kill(attached.getX(), attached.getY());
 			if(attached.getMy() == 0) {
 				attached.removeSelf();
 				break;
 			}	
 			attached.setY(attached.getMy() + attached.getY());
-			attached.kill(attached.getX(), attached.getY());
 			break;
 			
 			case "DOWN":
 			attached.setMy(1);
 			attached.dungeon.scanTile(attached, attached.getX(),attached.getY() + 1);
 			//failed to go anywhere, remove!!!!
+			attached.kill(attached.getX(), attached.getY());
 			if(attached.getMy() == 0) {
 				attached.removeSelf();
 				break;
 			}	
 			attached.setY(attached.getMy() + attached.getY());
-			attached.kill(attached.getX(), attached.getY());
 			break;
 		}
 		

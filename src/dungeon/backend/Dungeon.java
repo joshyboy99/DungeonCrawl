@@ -73,6 +73,12 @@ public class Dungeon implements Observable {
      */
     private List<Entity> deletedEntities;
     
+    
+    /**
+     * entity list for deleted entity
+     */
+    private List<Fireball> fireballs;
+    
     /**
      * A constructor for the Dungeon Class. 
      * @param width The width of the Dungeon
@@ -88,6 +94,7 @@ public class Dungeon implements Observable {
         this.goalManager = null;
         this.fail = false;
         this.deletedEntities = new ArrayList<>();
+        this.fireballs = new ArrayList<>();
         Dungeon.doors = 0;
         
     }
@@ -153,6 +160,22 @@ public class Dungeon implements Observable {
     	}
     	
         entities.add(entity);
+    }
+    
+    /**
+     * a way to add a new fireball to the dungeon
+     * @param f fireball to be added to dungeon
+     */
+    public void addFireball(Fireball f) {
+    	this.fireballs.add(f);
+    }
+    
+   /**
+    * a way to get the list of fireballs on the map
+    * @return list of current fireballs
+    */
+    public List<Fireball> getFireBalls() {
+    	return this.fireballs;
     }
     
     /**
@@ -228,6 +251,7 @@ public class Dungeon implements Observable {
      */
     public void removeEntity(Entity e) {
     	if(e instanceof Fireball) {
+    		System.out.println("here");
     		this.addToDeletedEntities(e);
     	} else {
     		entities.remove(e);
@@ -341,6 +365,13 @@ public class Dungeon implements Observable {
 	public void addToDeletedEntities(Entity e) {
 		this.deletedEntities.add(e);
 		
+	}
+
+	public boolean checkFireballsOnDungeon(Entity entity) {
+		if(this.fireballs.contains(entity)) {
+			return true;
+		}
+		return false;
 	}
 }
 

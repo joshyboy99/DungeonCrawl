@@ -355,7 +355,7 @@ public abstract class Entity {
 	 * A method which removes this entity from the dungeon
 	 */
 	public void removeSelf(){
-		if(dungeon.checkEntitiesOnDungeon(this)) {
+		if(dungeon.checkEntitiesOnDungeon(this) || dungeon.checkFireballsOnDungeon(this)) {
 			dungeon.removeEntity(this);
 		}
 	}

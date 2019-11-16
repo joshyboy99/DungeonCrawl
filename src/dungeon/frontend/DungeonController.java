@@ -96,12 +96,12 @@ public class DungeonController {
     			
     		}
     	}
-    	for(Entity e: this.dungeon.getEntities()) {
-   			if(e instanceof Fireball && map.get(e) == null) {
-    			refreshFireball((Fireball) e);
+    	for(Fireball f: this.dungeon.getFireBalls()) {
+   			if(map.get(f) == null) {
+    			refreshFireball(f);
     		}	
-   			else if (e instanceof Fireball) {
-    			e.performMove();
+   			else{
+    			f.performMove();
     		}
     	}
     	for(Entity e: this.dungeon.getDeletedEntities()) {
