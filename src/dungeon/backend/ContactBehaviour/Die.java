@@ -29,6 +29,10 @@ public class Die extends InteractableBehaviour implements ContactBehaviour{
 		if(this.checkValidEntityClass(entity)) {
 			attached.removeSelf();
 		}
+		else if (entity instanceof Summoned) {
+			entity.setMx(0);
+			entity.setMy(0);
+		}
 	}
 
 }
