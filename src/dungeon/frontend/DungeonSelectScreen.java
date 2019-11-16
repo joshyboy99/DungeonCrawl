@@ -38,11 +38,11 @@ public class DungeonSelectScreen {
 		Media sound = new Media(new File(musicFile).toURI().toString());
 		selectScreenMusic = new MediaPlayer(sound);
 		selectScreenMusic.play();
-		
+				
 		stage.setTitle(this.title);
 		stage.setScene(this.scene);
 		stage.show();
-		
+
 		
 	}
 	

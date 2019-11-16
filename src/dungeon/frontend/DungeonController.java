@@ -11,6 +11,7 @@ import javafx.scene.input.MouseEvent;
 
 import dungeon.backend.*;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
@@ -19,6 +20,8 @@ import javafx.scene.layout.GridPane;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.util.Duration;
 
@@ -77,7 +80,6 @@ public class DungeonController {
     	
 
     	dungeon.updateDungeon();
-
 //    	for (Entity e : this.entities) {
 //
 //    		if (e instanceof Enemy) {
@@ -94,7 +96,7 @@ public class DungeonController {
     }
     
     public void refreshEntityImage() {
-    	
+    	System.out.println(this.dungeon.getEntities().size());
     	for (Entity e : this.entities) {
     		
     		if (e instanceof Door) {
@@ -113,10 +115,22 @@ public class DungeonController {
     				refreshSword((Sword) e);
     			}
     		}
-    		  		
+ 		
+    	}
+    	
+    	for (Entity e :this.dungeon.getEntities() ) {
+   			if(e instanceof Fireball) {
+   				System.out.println(e);
+    			refreshFireball((Fireball) e);
+    		}	 
     	}
     }
     
+    public void refreshFireball(Fireball f) {
+    	ImageView fireballImage = new ImageView("fireball.gif");
+    	this.map.put(f, fireballImage);
+    	trackPosition(f, fireballImage);
+    }
     public void refreshDoor(Door d) {
     	
 	   if (d.isOpened()) {
@@ -361,5 +375,34 @@ public class DungeonController {
     public void getMap(HashMap<Entity, ImageView> map) {
     	this.map = map;
     }
+    /**
+     * Set a node in a GridPane to have its position track the position of an
+     * entity in the dungeon.
+     *
+     * By connecting the model with the view in this way, the model requires no
+     * knowledge of the view and changes to the position of entities in the
+     * model will automatically be reflected in the view.
+     * @param entity
+     * @param node
+     */
+    private void trackPosition(Entity entity, Node node) {
+        GridPane.setColumnIndex(node, entity.getX());
+        GridPane.setRowIndex(node, entity.getY());
+        entity.x().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable,
+                    Number oldValue, Number newValue) {
+                GridPane.setColumnIndex(node, newValue.intValue());
+            }
+        });
+        entity.y().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable,
+                    Number oldValue, Number newValue) {
+                GridPane.setRowIndex(node, newValue.intValue());
+            }
+        });
+    }    
+    
 }
 

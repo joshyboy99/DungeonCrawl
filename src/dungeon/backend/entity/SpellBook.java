@@ -8,7 +8,6 @@ import dungeon.backend.PickUpBehaviour.Store;
 public class SpellBook extends Pickup{
 
 	private int mana;
-	private Fireball fireball; 
 	
 	public SpellBook(int x, int y, Dungeon dungeon) {
 		super(x, y, dungeon);
@@ -16,7 +15,6 @@ public class SpellBook extends Pickup{
 		this.contactBehaviour = new ActivePickup(this);
 		this.pickupBehaviour = new Store(this);
 		this.mana = 10;
-		this.fireball = new Fireball(x, y, dungeon);
 	}	
 	
 	
@@ -27,23 +25,31 @@ public class SpellBook extends Pickup{
 		switch (facing) {
 		
 		case "UP":
-			this.fireball.shootUp(x, y);
+			Fireball f0 = new Fireball(x, y, dungeon);
+			dungeon.addEntity(f0);
+			f0.shootUp(x, y);
 			this.mana--;
 			break;
 		
 		case "DOWN":
-			this.fireball.shootDown(x, y);
+			Fireball f1 = new Fireball(x, y, dungeon);
+			dungeon.addEntity(f1);
+			f1.shootUp(x, y);
 			this.mana--;
 			break;
 		
 		case "LEFT":
-			this.fireball.shootLeft(x, y);
+			Fireball f2 = new Fireball(x, y, dungeon);
+			dungeon.addEntity(f2);
+			f2.shootLeft(x, y);
 			this.mana--;
 			break;
 		
 		case "RIGHT":
-			System.out.println("here!");
-			this.fireball.shootRight(x, y);
+			Fireball f3 = new Fireball(x, y, dungeon);
+			dungeon.addEntity(f3);
+			System.out.println("size:" + dungeon.getEntities().size());
+			f3.shootRight(x, y);
 			this.mana--;
 			break;
 	}	

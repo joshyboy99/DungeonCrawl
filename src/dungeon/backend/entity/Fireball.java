@@ -39,27 +39,16 @@ public class Fireball extends Entity{
 	
 	
 	public void shootRight(int startX, int startY){
+		System.out.println("here!");
+		System.out.println("size:" + dungeon.getEntities().size());
 		this.setX(startX);
 		this.setY(startY);
-		while(this.checkIfEndOfDungeon() == false){
-			System.out.println(this.getX());
-			System.out.println(this.getY());
-			this.setMx(1);
-			dungeon.scanTile(this, this.getX() + 1, this.getY());
-			kill(getX(), getY());
-			//failed to go anywhere, remove!!!!
-			if(this.getMx() == 0) {
-				this.removeSelf();
-				break;
-			}
-			else {
-				this.setX(this.getMx() + this.getX());
-			}
-			try {
-				Thread.sleep(800);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+		this.setMx(1);
+		dungeon.scanTile(this, this.getX() + 1, this.getY());
+		kill(getX(), getY());
+		//failed to go anywhere, remove!!!!
+		if(this.getMx() == 0) {
+			this.removeSelf();
 		}
 	}
 	public void shootLeft(int startX, int startY){
