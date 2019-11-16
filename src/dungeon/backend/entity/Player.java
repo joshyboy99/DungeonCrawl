@@ -273,4 +273,13 @@ public class Player extends Entity {
     	return false;
 	}
 	
+	/**
+	 * Will summon entity on map
+	 */
+	public void summon(){
+		if(playerHasSpellBook()) {
+			this.getSpellBook().summon(this.getFacing(), this.getX(), this.getY());
+		}
+	}
+	
 }
