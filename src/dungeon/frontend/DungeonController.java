@@ -427,13 +427,13 @@ public class DungeonController {
         case S:
         	player.useSword();
         	break;	
-        case D:
+        case F:
         	player.shootMagic();
         	break;	
-        case F:
+        case W:
         	player.summon();
         	break;	
-        case G:
+        case D:
         	player.updateSummoners();
         default:
             break;

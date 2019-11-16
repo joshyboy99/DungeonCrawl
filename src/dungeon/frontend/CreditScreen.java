@@ -18,7 +18,6 @@ public class CreditScreen {
 		this.title = "Credits";
 		
 		controller = new CreditScreenController();
-		//controller.setEndScreen(this);
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("credit.fxml"));
 		loader.setController(controller);
 		

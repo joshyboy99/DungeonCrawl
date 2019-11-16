@@ -23,6 +23,9 @@ public class DungeonSelectController {
 	private Button avatar;
 	
 	@FXML
+	private Button escape;
+	
+	@FXML
 	private Button credits;
 	
 	@FXML
@@ -78,7 +81,7 @@ public class DungeonSelectController {
 		String name = "maze.json";
 		DungeonScreen dungeonScreen = new DungeonScreen(this.stage, name);
 		
-		//this.screen.selectScreenMusic.stop();
+//		this.screen.selectScreenMusic.stop();
 		
 		DungeonEndScreen endGameScreen = new DungeonEndScreen(this.stage);
 		dungeonScreen.getController().setEndGameScreen(endGameScreen);
@@ -98,7 +101,7 @@ public class DungeonSelectController {
 		String name = "advanced.json";
 		DungeonScreen dungeonScreen = new DungeonScreen(this.stage, name);
 		
-		//this.screen.selectScreenMusic.stop();
+//		this.screen.selectScreenMusic.stop();
 		
 		DungeonEndScreen endGameScreen = new DungeonEndScreen(this.stage);
 		dungeonScreen.getController().setEndGameScreen(endGameScreen);
@@ -118,7 +121,27 @@ public class DungeonSelectController {
 		String name = "avatar.json";
 		DungeonScreen dungeonScreen = new DungeonScreen(this.stage, name);
 		
-		//this.screen.selectScreenMusic.stop();
+//		this.screen.selectScreenMusic.stop();
+		
+		DungeonEndScreen endGameScreen = new DungeonEndScreen(this.stage);
+		dungeonScreen.getController().setEndGameScreen(endGameScreen);
+		dungeonScreen.getController().setDungeonSelectScreen(this.screen);
+    	endGameScreen.getController().setDungeonScreen(dungeonScreen);
+    	endGameScreen.getController().setDungeonSelectScreen(this.screen);
+    	
+    	String instructions = "Collect all treasure + push all boulder on to switch";
+    	
+    	dungeonScreen.getController().setInstructions(instructions);
+    	
+    	dungeonScreen.start();
+	}
+	
+	@FXML
+	public void Escape() throws IOException {
+		String name = "Escape.json";
+		DungeonScreen dungeonScreen = new DungeonScreen(this.stage, name);
+		
+//		this.screen.selectScreenMusic.stop();
 		
 		DungeonEndScreen endGameScreen = new DungeonEndScreen(this.stage);
 		dungeonScreen.getController().setEndGameScreen(endGameScreen);
