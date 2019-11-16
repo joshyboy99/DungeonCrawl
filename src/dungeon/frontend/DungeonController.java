@@ -184,10 +184,12 @@ public class DungeonController {
     
     public void refreshMana() {
     	if (dungeon.getPlayer().getMana() != -1) {
-    		TextField text = new TextField();
+    		TextField text0 = new TextField();
     		String mana = Integer.toString(dungeon.getPlayer().getMana());
-        	text.setText(mana);
-        	squares.add(text, 0, 0);
+    		text0.setText(mana);
+    		text0.setDisable(true);
+    		text0.setStyle("-fx-text-fill: blue;");
+        	squares.add(text0, 0, 0);
     	}
     }
     
