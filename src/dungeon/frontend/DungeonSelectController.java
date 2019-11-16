@@ -25,6 +25,9 @@ public class DungeonSelectController {
 	@FXML
 	private Button credits;
 	
+	@FXML
+	private Button help;
+	
 	private Stage stage;
 	private DungeonSelectScreen screen;
 	
@@ -38,6 +41,14 @@ public class DungeonSelectController {
 		CreditScreen creditScreen = new CreditScreen(this.stage);
 		creditScreen.getController().setDungeonSelectScreen(this.screen);
 		creditScreen.start();
+		
+	}
+	
+	@FXML
+	public void helpMenu() throws IOException {
+		HelpScreen helpScreen = new HelpScreen(this.stage);
+		helpScreen.getController().setDungeonSelectScreen(this.screen);
+		helpScreen.start();
 		
 	}
 	
