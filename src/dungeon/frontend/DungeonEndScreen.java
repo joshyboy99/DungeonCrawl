@@ -40,16 +40,16 @@ public class DungeonEndScreen {
 		
 		String musicFile = null;
 		
-//		if (complete) {
-//			controller.completeStage();
-//			musicFile = "music/nggyu8bit.mp3";  
-//		} else {
-//			musicFile = "music/rbweide.mp3";  
-//		} 
-//
-//		Media sound = new Media(new File(musicFile).toURI().toString());
-//		EndScreenMusic = new MediaPlayer(sound);
-//		EndScreenMusic.play();
+		if (complete) {
+			controller.completeStage();
+			musicFile = "music/nggyu8bit.mp3";  
+		} else {
+			musicFile = "music/rbweide.mp3";  
+		} 
+
+		Media sound = new Media(new File(musicFile).toURI().toString());
+		EndScreenMusic = new MediaPlayer(sound);
+		EndScreenMusic.play();
 	
 		stage.setTitle(this.title);
 		stage.setScene(this.scene);

@@ -23,7 +23,7 @@ public class HelpScreenController {
 	
 	@FXML
 	public void handleSelect(ActionEvent event) {
-//		this.selectScreen.selectScreenMusic.stop();
+		this.selectScreen.selectScreenMusic.stop();
 		
 		selectScreen.start();
 	}

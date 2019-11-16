@@ -33,11 +33,11 @@ public class DungeonSelectScreen {
 
 	public void start() {
 		
-//		String musicFile = "music/kahoot8bit.mp3";     // For example
-//
-//		Media sound = new Media(new File(musicFile).toURI().toString());
-//		selectScreenMusic = new MediaPlayer(sound);
-//		selectScreenMusic.play();
+		String musicFile = "music/kahoot8bit.mp3";     // For example
+
+		Media sound = new Media(new File(musicFile).toURI().toString());
+		selectScreenMusic = new MediaPlayer(sound);
+		selectScreenMusic.play();
 				
 		stage.setTitle(this.title);
 		stage.setScene(this.scene);
