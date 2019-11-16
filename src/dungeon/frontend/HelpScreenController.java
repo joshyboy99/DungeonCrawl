@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-public class CreditScreenController {
+public class HelpScreenController {
 	
 	@FXML
 	private Button select;
@@ -27,5 +27,6 @@ public class CreditScreenController {
 		
 		selectScreen.start();
 	}
+
 
 }
