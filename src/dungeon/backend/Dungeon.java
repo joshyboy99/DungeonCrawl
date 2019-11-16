@@ -256,7 +256,6 @@ public class Dungeon implements Observable {
      * @param e The entity ready to be removed
      */
     public void removeEntity(Entity e) {
-    	System.out.println("Removed" + e);
     	if(e instanceof Fireball && ! entityInDeletedEntities(e)) {
     		this.addToDeletedEntities(e);
     	} 
@@ -426,7 +425,9 @@ public class Dungeon implements Observable {
 		}
 		return false;
 	}
-	
+	/**
+	 * updates summoners to state of either attacking enemies or following player
+	 */
 	public void updateSummoned() {
 		for(Summoned s: this.summoned) {
 			s.update();
