@@ -79,7 +79,6 @@ public class DungeonController {
     public void controllerUpdate() {
     	
 
-<<<<<<< HEAD
     	dungeon.updateDungeon();
 //    	for (Entity e : this.entities) {
 //
@@ -87,17 +86,25 @@ public class DungeonController {
 //    			e.performMove();
 //    		}
 //    	}
-=======
     	dungeon.updateDungeon();
 
     	for (Entity e : this.entities) {
 
     		if (e instanceof Enemy) {
     			e.performMove();
+    			
     		}
     	}
->>>>>>> 85505aaa1f80deb49643ea15436f262f2e15513b
-    	
+    	for(Entity e: this.dungeon.getEntities()) {
+    		if (e instanceof Fireball) {
+    			e.performMove();
+    		}
+    	}
+    	for(Entity e: this.dungeon.getDeletedEntities()) {
+    		if (e instanceof Fireball) {
+    			map.get(e).setImage(null);
+    	    }
+        }
     }
     
     public void refreshDungeonImage() {
@@ -107,7 +114,6 @@ public class DungeonController {
     }
     
     public void refreshEntityImage() {
-    	System.out.println(this.dungeon.getEntities().size());
     	for (Entity e : this.entities) {
     		
     		if (e instanceof Door) {
@@ -130,17 +136,20 @@ public class DungeonController {
     	}
     	
     	for (Entity e :this.dungeon.getEntities() ) {
-   			if(e instanceof Fireball) {
-   				System.out.println(e);
+   			if(e instanceof Fireball && map.get(e) == null) {
     			refreshFireball((Fireball) e);
     		}	 
     	}
+  
     }
     
     public void refreshFireball(Fireball f) {
-    	ImageView fireballImage = new ImageView("fireball.gif");
-    	this.map.put(f, fireballImage);
+    	ImageView fireballImage = new ImageView();
+    	Image fireb = new Image("/fireball.gif");
+    	fireballImage.setImage(fireb);
     	trackPosition(f, fireballImage);
+        initialEntities.add(fireballImage);
+        this.map.put(f, fireballImage);
     }
     public void refreshDoor(Door d) {
     	
@@ -397,6 +406,7 @@ public class DungeonController {
      * @param node
      */
     private void trackPosition(Entity entity, Node node) {
+    	squares.add(node, entity.getX(), entity.getY());
         GridPane.setColumnIndex(node, entity.getX());
         GridPane.setRowIndex(node, entity.getY());
         entity.x().addListener(new ChangeListener<Number>() {
@@ -413,6 +423,7 @@ public class DungeonController {
                 GridPane.setRowIndex(node, newValue.intValue());
             }
         });
+        
     }    
     
 }

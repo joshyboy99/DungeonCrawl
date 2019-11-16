@@ -17,7 +17,7 @@ public class DungeonSelectScreen {
 	private Scene scene;
 	private DungeonSelectController controller;
 	
-	public  MediaPlayer selectScreenMusic;
+	//public  MediaPlayer selectScreenMusic;
 	
 	public DungeonSelectScreen (Stage stage) throws IOException {
 		this.stage = stage;
@@ -32,13 +32,13 @@ public class DungeonSelectScreen {
 	}
 
 	public void start() {
-		
+		/*
 		String musicFile = "music/kahoot8bit.mp3";     // For example
 
 		Media sound = new Media(new File(musicFile).toURI().toString());
 		selectScreenMusic = new MediaPlayer(sound);
 		selectScreenMusic.play();
-				
+				*/
 		stage.setTitle(this.title);
 		stage.setScene(this.scene);
 		stage.show();

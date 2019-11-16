@@ -53,7 +53,7 @@ public class DungeonEndController {
 	
 	@FXML
 	public void handleSelect(ActionEvent event) {
-		this.endScreen.EndScreenMusic.stop();
+		//this.endScreen.EndScreenMusic.stop();
 		selectScreen.start();
 	}
 	

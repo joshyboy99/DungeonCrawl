@@ -20,7 +20,7 @@ public class DungeonEndScreen {
 	
 	private DungeonEndController controller;
 	
-	public MediaPlayer EndScreenMusic;
+	//public MediaPlayer EndScreenMusic;
 	
 	public DungeonEndScreen (Stage stage) throws IOException {
 		this.stage = stage;
@@ -37,7 +37,7 @@ public class DungeonEndScreen {
 	
 	
 	public void start(boolean complete) {
-		
+		/*
 		String musicFile = null;
 		
 		if (complete) {
@@ -50,7 +50,7 @@ public class DungeonEndScreen {
 		Media sound = new Media(new File(musicFile).toURI().toString());
 		EndScreenMusic = new MediaPlayer(sound);
 		EndScreenMusic.play();
-		
+		*/
 		stage.setTitle(this.title);
 		stage.setScene(this.scene);
 		stage.show();

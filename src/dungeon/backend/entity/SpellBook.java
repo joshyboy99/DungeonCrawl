@@ -34,7 +34,7 @@ public class SpellBook extends Pickup{
 		case "DOWN":
 			Fireball f1 = new Fireball(x, y, dungeon);
 			dungeon.addEntity(f1);
-			f1.shootUp(x, y);
+			f1.shootDown(x, y);
 			this.mana--;
 			break;
 		

@@ -46,7 +46,7 @@ public class DungeonSelectController {
 		String name = "boulders.json";
 		DungeonScreen dungeonScreen = new DungeonScreen(this.stage, name);
 		
-		this.screen.selectScreenMusic.stop();
+		//this.screen.selectScreenMusic.stop();
 		
 		DungeonEndScreen endGameScreen = new DungeonEndScreen(this.stage);
 		dungeonScreen.getController().setEndGameScreen(endGameScreen);
@@ -62,7 +62,7 @@ public class DungeonSelectController {
 		String name = "maze.json";
 		DungeonScreen dungeonScreen = new DungeonScreen(this.stage, name);
 		
-		this.screen.selectScreenMusic.stop();
+		//this.screen.selectScreenMusic.stop();
 		
 		DungeonEndScreen endGameScreen = new DungeonEndScreen(this.stage);
 		dungeonScreen.getController().setEndGameScreen(endGameScreen);
@@ -78,7 +78,7 @@ public class DungeonSelectController {
 		String name = "advaced.json";
 		DungeonScreen dungeonScreen = new DungeonScreen(this.stage, name);
 		
-		this.screen.selectScreenMusic.stop();
+		//this.screen.selectScreenMusic.stop();
 		
 		DungeonEndScreen endGameScreen = new DungeonEndScreen(this.stage);
 		dungeonScreen.getController().setEndGameScreen(endGameScreen);
@@ -94,7 +94,7 @@ public class DungeonSelectController {
 		String name = "avatar.json";
 		DungeonScreen dungeonScreen = new DungeonScreen(this.stage, name);
 		
-		this.screen.selectScreenMusic.stop();
+		//this.screen.selectScreenMusic.stop();
 		
 		DungeonEndScreen endGameScreen = new DungeonEndScreen(this.stage);
 		dungeonScreen.getController().setEndGameScreen(endGameScreen);

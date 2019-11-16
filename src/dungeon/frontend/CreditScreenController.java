@@ -23,7 +23,7 @@ public class CreditScreenController {
 	
 	@FXML
 	public void handleSelect(ActionEvent event) {
-		this.selectScreen.selectScreenMusic.stop();
+		//this.selectScreen.selectScreenMusic.stop();
 		
 		selectScreen.start();
 	}

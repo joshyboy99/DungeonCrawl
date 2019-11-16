@@ -67,7 +67,12 @@ public class Dungeon implements Observable {
      * which can be used as a goal-condition.
      */
     private static int doors;
-
+    
+    /**
+     * entity list for deleted entity
+     */
+    private List<Entity> deletedEntities;
+    
     /**
      * A constructor for the Dungeon Class. 
      * @param width The width of the Dungeon
@@ -82,6 +87,7 @@ public class Dungeon implements Observable {
         this.player = null;
         this.goalManager = null;
         this.fail = false;
+        this.deletedEntities = new ArrayList<>();
         Dungeon.doors = 0;
         
     }
@@ -222,6 +228,7 @@ public class Dungeon implements Observable {
      */
     public void removeEntity(Entity e) {
     	entities.remove(e);
+    	this.addToDeletedEntities(e);
     }
     
     /**
@@ -301,6 +308,7 @@ public class Dungeon implements Observable {
 		for (Entity e : this.observers) {
 			((Observer)e).update(player);
 		}
+		
 	}
 	
 	public void addInitialEntity(Entity e) {
@@ -313,6 +321,23 @@ public class Dungeon implements Observable {
 
 	public void setInitialEntities(List<Entity> initialEntities) {
 		this.initialEntities = initialEntities;
+	}
+	
+	/**
+	 * Get deleted entities from dungeon
+	 * @return deleted entities
+	 */
+	public List<Entity> getDeletedEntities() {
+		return this.deletedEntities;
+	}
+	
+	/**
+	 * will add entity to deleted entity list
+	 * @param e entity being added
+	 */
+	public void addToDeletedEntities(Entity e) {
+		this.deletedEntities.add(e);
+		
 	}
 }
 

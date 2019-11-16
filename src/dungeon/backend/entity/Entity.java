@@ -58,6 +58,7 @@ public abstract class Entity {
      */
     public Dungeon dungeon;
     
+
    /**
     * Complex constructor for entity in the case that any of its behaviors
     * may be different from those usually assigned in the constructor of
@@ -428,5 +429,20 @@ public abstract class Entity {
 		this.setMx(0);
 		this.setMy(0);
 	}
+	/**
+	 * Will kill entity in square defined
+	 * @param x x coordinate of entitiy to be killed
+	 * @param y y coordinate of entitiy to be killed
+	 */
+	
+	public void kill (int x, int y) {
+		for ( Entity e : this.dungeon.EntitiesOnTile(x, y)) {
+			if(e instanceof Enemy) {
+				e.removeSelf();
+			}
+		}
+	}
+
+
 	
 }
