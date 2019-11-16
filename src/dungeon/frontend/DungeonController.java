@@ -79,6 +79,7 @@ public class DungeonController {
     public void controllerUpdate() {
     	
 
+
     	dungeon.updateDungeon();
 //    	for (Entity e : this.entities) {
 //
@@ -86,7 +87,7 @@ public class DungeonController {
 //    			e.performMove();
 //    		}
 //    	}
-    	dungeon.updateDungeon();
+
 
     	for (Entity e : this.entities) {
 
@@ -105,6 +106,8 @@ public class DungeonController {
     			map.get(e).setImage(null);
     	    }
         }
+
+
     }
     
     public void refreshDungeonImage() {
