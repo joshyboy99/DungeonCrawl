@@ -227,8 +227,11 @@ public class Dungeon implements Observable {
      * @param e The entity ready to be removed
      */
     public void removeEntity(Entity e) {
-    	entities.remove(e);
-    	this.addToDeletedEntities(e);
+    	if(e instanceof Fireball) {
+    		this.addToDeletedEntities(e);
+    	} else {
+    		entities.remove(e);
+    	}	
     }
     
     /**

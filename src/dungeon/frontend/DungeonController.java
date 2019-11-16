@@ -97,15 +97,19 @@ public class DungeonController {
     		}
     	}
     	for(Entity e: this.dungeon.getEntities()) {
-    		if (e instanceof Fireball) {
+   			if(e instanceof Fireball && map.get(e) == null) {
+    			refreshFireball((Fireball) e);
+    		}	
+   			else if (e instanceof Fireball) {
     			e.performMove();
     		}
     	}
     	for(Entity e: this.dungeon.getDeletedEntities()) {
-    		if (e instanceof Fireball) {
+    		if (e instanceof Fireball && map.get(e) != null) {
     			map.get(e).setImage(null);
     	    }
         }
+    	
 
 
     }
@@ -138,11 +142,7 @@ public class DungeonController {
  		
     	}
     	
-    	for (Entity e :this.dungeon.getEntities() ) {
-   			if(e instanceof Fireball && map.get(e) == null) {
-    			refreshFireball((Fireball) e);
-    		}	 
-    	}
+
   
     }
     
