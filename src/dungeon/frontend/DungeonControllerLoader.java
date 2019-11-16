@@ -55,7 +55,7 @@ public class DungeonControllerLoader extends DungeonLoader {
         
         entities = new ArrayList<>();
         playerImage = new Image("/human_new.png");
-        wallImage = new Image("/brick_brown_0.png");
+        wallImage = new Image("/wall.png");
         exitImage = new Image("/exit.png");
         swordImage = new Image("/sword.gif");
         boulderImage = new Image("/boulder.png");
