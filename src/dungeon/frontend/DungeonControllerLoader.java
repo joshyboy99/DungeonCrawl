@@ -66,7 +66,7 @@ public class DungeonControllerLoader extends DungeonLoader {
         closedDoorImage = new Image("/closed_door.png");
         keyImage = new Image("/key.png");
         portalImage = new Image("/portal.gif");
-        spellBookImage = new Image("/spellbook.png");
+        spellBookImage = new Image("/spellbook.gif");
         fireballImage = new Image("/fireball.gif");
         mushroomImage = new Image("/mushroom.gif");
         airImage = new Image("/air.gif");
