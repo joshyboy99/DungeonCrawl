@@ -29,6 +29,7 @@ public class SpellBook extends Pickup{
 	public void summon(String facing, int x, int y) {
 		if (checkEnoughMana() == false) {
 			this.removeFromInventory();
+			return; 
 		}
 		Enemy targetEnemy = getEnemy();
 		if(targetEnemy == null) {
@@ -38,7 +39,7 @@ public class SpellBook extends Pickup{
 		switch (facing) {
 		case "UP":
 			this.setMy(-1);
-			this.scanDungeonTile(x, y);
+			this.scanDungeonTile(x, y - 1);
 			if(this.getMy() == 0) return; 
 			dungeon.addSummoned(new Summoned(x, y - 1, targetEnemy, dungeon));
 			this.mana = 0;
@@ -74,6 +75,7 @@ public class SpellBook extends Pickup{
 	public void shoot(String facing, int x, int y) {
 		if (checkEnoughMana() == false) {
 			this.removeFromInventory();
+			return; 
 		}
 		switch (facing) {
 		
@@ -117,5 +119,10 @@ public class SpellBook extends Pickup{
 	public void removeFromInventory() {
 		Inventory iven = dungeon.getPlayer().getInventory();
 		iven.remove(this);
+	}
+
+	public int getMana() {
+		// TODO Auto-generated method stub
+		return this.mana;
 	}
 }

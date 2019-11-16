@@ -17,6 +17,7 @@ import dungeon.backend.MoveBehaviour.*;
  */
 public class Summoned extends Entity{
 	
+	private Entity target;
 	private Player player;
 	private Dungeon dungeon;
 	
@@ -25,6 +26,7 @@ public class Summoned extends Entity{
 		this.player = dungeon.getPlayer();
 		this.contactBehaviour = new Repel(this);
 		this.dungeon = dungeon; 
+		this.target = target; 
 		this.moveBehaviour = new SummonedMovement(this, target, dungeon);
 	}
 	
@@ -38,10 +40,16 @@ public class Summoned extends Entity{
 		} else {
 			//pick new enemy
 			for(Entity e: dungeon.getEntities()) {
-				if(e instanceof Enemy && e != null) {
+				if(e instanceof Enemy && e != null && ! e.equals(this.target)) {
+					this.target = e; 
 					this.moveBehaviour = new SummonedMovement(this, e, dungeon);
 					return;
 				}
+			}
+			//check if target only one left
+			if(this.target != null) {
+				this.moveBehaviour = new SummonedMovement(this, this.target, dungeon);
+				return;
 			}
 			this.moveBehaviour = new MoveTowards(this, player, dungeon);
 		}

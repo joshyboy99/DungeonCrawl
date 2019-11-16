@@ -282,8 +282,22 @@ public class Player extends Entity {
 		}
 	}
 	
+	/**
+	 * updates summoners to either follow player or attack!
+	 */
 	public void updateSummoners() {
 		this.dungeon.updateSummoned();
+	}
+
+	public int getMana() {
+		if(! playerHasSpellBook()) {
+			return -1; 
+		} else {
+			return this.getSpellBook().getMana();
+		}
+		
+		
+		
 	}
 	
 }

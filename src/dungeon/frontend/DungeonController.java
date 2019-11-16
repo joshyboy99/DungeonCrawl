@@ -182,6 +182,15 @@ public class DungeonController {
 
     }
     
+    public void refreshMana() {
+    	if (dungeon.getPlayer().getMana() != -1) {
+    		TextField text = new TextField();
+    		String mana = Integer.toString(dungeon.getPlayer().getMana());
+        	text.setText(mana);
+        	squares.add(text, 0, 0);
+    	}
+    }
+    
     public void refreshSword(Sword s) {
     	ImageView swordImage = map.get(s);
     	Image newSword = new Image("sword.gif");
@@ -406,6 +415,7 @@ public class DungeonController {
         	endScreen.start(false);
         }
         refreshDungeonImage();
+        refreshMana();
         
     }
     
