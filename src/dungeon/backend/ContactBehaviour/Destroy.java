@@ -28,7 +28,7 @@ public class Destroy extends InteractableBehaviour implements ContactBehaviour {
 			if(this.checkValidEntityClass(e)) {
 				e.removeSelf();
 			}
-			if (e.getClass().equals(attached.getClass())) {
+			else if (e.getClass().equals(attached.getClass())) {
     			attached.resetNextMove();
     			e.resetNextMove();
     		}

@@ -99,11 +99,25 @@ public class DungeonController {
     			f.performMove();
     		}
     	}
+    	for(Summoned s: this.dungeon.getSummoned()) {
+   			if(map.get(s) == null) {
+    			refreshFireball(s);
+    		}	
+   			else{
+    			s.performMove();
+    		}
+        }
+    	
     	for(Entity e: this.dungeon.getDeletedEntities()) {
     		if (e instanceof Fireball && map.get(e) != null) {
     			map.get(e).setImage(null);
     	    }
+    		if (e instanceof Summoned && map.get(e) != null) {
+    			map.get(e).setImage(null);
+    	    }
         }
+    	
+
     	
 
 
@@ -139,6 +153,15 @@ public class DungeonController {
     	
 
   
+    }
+    
+    public void refreshFireball(Summoned s) {
+    	ImageView summonedImage = new ImageView();
+    	Image summonedb = new Image("/gnome.png");
+    	summonedImage.setImage(summonedb);
+    	trackPosition(s, summonedImage);
+        initialEntities.add(summonedImage);
+        this.map.put(s, summonedImage);
     }
     
     public void refreshFireball(Fireball f) {
@@ -365,6 +388,9 @@ public class DungeonController {
         	break;	
         case D:
         	player.shootMagic();
+        	break;	
+        case F:
+        	player.summon();
         	break;	
         default:
             break;

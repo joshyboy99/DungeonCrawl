@@ -78,6 +78,11 @@ public class Dungeon implements Observable {
      * entity list for deleted entity
      */
     private List<Fireball> fireballs;
+
+    /**
+     * List of entities summoned by player
+     */
+	private List<Summoned> summoned;
     
     /**
      * A constructor for the Dungeon Class. 
@@ -95,6 +100,7 @@ public class Dungeon implements Observable {
         this.fail = false;
         this.deletedEntities = new ArrayList<>();
         this.fireballs = new ArrayList<>();
+        this.summoned = new ArrayList<>();
         Dungeon.doors = 0;
         
     }
@@ -250,9 +256,15 @@ public class Dungeon implements Observable {
      * @param e The entity ready to be removed
      */
     public void removeEntity(Entity e) {
+    	System.out.println("Removed" + e);
     	if(e instanceof Fireball && ! entityInDeletedEntities(e)) {
     		this.addToDeletedEntities(e);
     	} 
+    	else if (e instanceof Summoned) {
+    		this.addToDeletedEntities(e);
+    		e.setX(1000);
+    		e.setY(1000);
+    	}
     	else if (e instanceof Enemy) {
     		e.setX(1000);
     		e.setY(1000);
@@ -378,10 +390,39 @@ public class Dungeon implements Observable {
 		this.deletedEntities.add(e);
 		
 	}
-
+	/**
+	 * Will check if fireball is still on dungeon
+	 * @param entity the fireball you would like to check
+	 * @return true or false, depending if the fireball is on the dungeon or not
+	 */
 	public boolean checkFireballsOnDungeon(Entity entity) {
 		if(this.fireballs.contains(entity)) {
 			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * adds a summoned entity to list
+	 * @param summoned summoned entity to add to list
+	 */
+	public void addSummoned(Summoned summoned) {
+		this.summoned.add(summoned);
+		
+	}
+	
+	public List<Summoned> getSummoned(){
+		return this.summoned;
+		
+	}
+	/**
+	 * Will check if a summoned people on dungeon are on dungeon
+	 * @param entity to check
+	 * @return
+	 */
+	public boolean checkSummonedOnDungeon(Entity entity) {
+		if(this.summoned.contains(entity)) {
+			return true; 
 		}
 		return false;
 	}
