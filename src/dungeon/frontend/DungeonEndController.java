@@ -4,6 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class DungeonEndController {
@@ -17,7 +19,7 @@ public class DungeonEndController {
 	private Button exit;
 	
 	@FXML
-	private TextField result;
+	private ImageView gameResult;
 	
 	
 	private DungeonScreen dungeonScreen;
@@ -41,14 +43,17 @@ public class DungeonEndController {
 	
 
 	public void completeStage() {
-		result.setText("YOU WIN");
+		
+		Image win = new Image("/winner.gif");
+    	gameResult.setImage(win);
 	}
 
 
 	@FXML
 	public void initialize() {
-		result.setEditable(false);
-		result.setText("YOU LOSE");
+		
+    	Image lose = new Image("/gameover.gif");
+    	gameResult.setImage(lose);
 	}
 	
 	@FXML

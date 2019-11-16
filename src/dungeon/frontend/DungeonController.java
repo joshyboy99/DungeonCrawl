@@ -120,10 +120,6 @@ public class DungeonController {
     			map.get(e).setImage(null);
     	    }
         }
-    	
-
-    	
-
 
     }
     
