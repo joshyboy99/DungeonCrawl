@@ -549,6 +549,86 @@
       "y": 6,
       "type": "fire"
     },
+    {
+      "x": 1,
+      "y": 6,
+      "type": "air"
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "type": "air"
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "type": "air"
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "type": "air"
+    },
+    {
+      "x": 6,
+      "y": 6,
+      "type": "air"
+    },
+    {
+      "x": 5,
+      "y": 6,
+      "type": "air"
+    },
+    {
+      "x": 7,
+      "y": 6,
+      "type": "air"
+    },
+    {
+      "x": 8,
+      "y": 6,
+      "type": "air"
+    },
+    {
+      "x": 9,
+      "y": 6,
+      "type": "air"
+    },
+    {
+      "x": 10,
+      "y": 6,
+      "type": "air"
+    },
+    {
+      "x": 11,
+      "y": 6,
+      "type": "air"
+    },
+    {
+      "x": 12,
+      "y": 6,
+      "type": "air"
+    },
+    {
+      "x": 13,
+      "y": 6,
+      "type": "air"
+    },
+    {
+      "x": 14,
+      "y": 6,
+      "type": "air"
+    },
+    {
+      "x": 15,
+      "y": 6,
+      "type": "air"
+    },
+    {
+      "x": 16,
+      "y": 6,
+      "type": "air"
+    },
 
     {
       "x": 17,
@@ -561,6 +641,86 @@
       "type": "fire"
     },
     {
+      "x": 1,
+      "y": 7,
+      "type": "air"
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "type": "air"
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "type": "air"
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "type": "air"
+    },
+    {
+      "x": 5,
+      "y": 7,
+      "type": "air"
+    },
+    {
+      "x": 6,
+      "y": 7,
+      "type": "air"
+    },
+    {
+      "x": 7,
+      "y": 7,
+      "type": "air"
+    },
+    {
+      "x": 8,
+      "y": 7,
+      "type": "air"
+    },
+    {
+      "x": 9,
+      "y": 7,
+      "type": "air"
+    },
+    {
+      "x": 10,
+      "y": 7,
+      "type": "air"
+    },
+    {
+      "x": 11,
+      "y": 7,
+      "type": "air"
+    },
+    {
+      "x": 12,
+      "y": 7,
+      "type": "air"
+    },
+    {
+      "x": 13,
+      "y": 7,
+      "type": "air"
+    },
+    {
+      "x": 14,
+      "y": 7,
+      "type": "air"
+    },
+    {
+      "x": 15,
+      "y": 7,
+      "type": "air"
+    },
+    {
+      "x": 16,
+      "y": 7,
+      "type": "air"
+    },
+    {
       "x": 17,
       "y": 7,
       "type": "fire"
@@ -571,6 +731,86 @@
       "type": "fire"
     },
     {
+      "x": 1,
+      "y": 8,
+      "type": "air"
+    },
+    {
+      "x": 2,
+      "y": 8,
+      "type": "air"
+    },
+    {
+      "x": 3,
+      "y": 8,
+      "type": "air"
+    },
+    {
+      "x": 4,
+      "y": 8,
+      "type": "air"
+    },
+    {
+      "x": 5,
+      "y": 8,
+      "type": "air"
+    },
+    {
+      "x": 6,
+      "y": 8,
+      "type": "air"
+    },
+    {
+      "x": 7,
+      "y": 8,
+      "type": "air"
+    },
+    {
+      "x": 8,
+      "y": 8,
+      "type": "air"
+    },
+    {
+      "x": 9,
+      "y": 8,
+      "type": "air"
+    },
+    {
+      "x": 10,
+      "y": 8,
+      "type": "air"
+    },
+    {
+      "x": 11,
+      "y": 8,
+      "type": "air"
+    },
+    {
+      "x": 12,
+      "y": 8,
+      "type": "air"
+    },
+    {
+      "x": 13,
+      "y": 8,
+      "type": "air"
+    },
+    {
+      "x": 14,
+      "y": 8,
+      "type": "air"
+    },
+    {
+      "x": 15,
+      "y": 8,
+      "type": "air"
+    },
+    {
+      "x": 16,
+      "y": 8,
+      "type": "air"
+    },
+    {
       "x": 17,
       "y": 8,
       "type": "fire"
@@ -581,6 +821,86 @@
       "type": "fire"
     },
     {
+      "x": 1,
+      "y": 9,
+      "type": "treasure"
+    },
+    {
+      "x": 2,
+      "y": 9,
+      "type": "treasure"
+    },
+    {
+      "x": 3,
+      "y": 9,
+      "type": "treasure"
+    },
+    {
+      "x": 4,
+      "y": 9,
+      "type": "treasure"
+    },
+    {
+      "x": 5,
+      "y": 9,
+      "type": "treasure"
+    },
+    {
+      "x": 6,
+      "y": 9,
+      "type": "treasure"
+    },
+    {
+      "x": 7,
+      "y": 9,
+      "type": "treasure"
+    },
+    {
+      "x": 8,
+      "y": 9,
+      "type": "treasure"
+    },
+    {
+      "x": 9,
+      "y": 9,
+      "type": "treasure"
+    },
+    {
+      "x": 10,
+      "y": 9,
+      "type": "treasure"
+    },
+    {
+      "x": 11,
+      "y": 9,
+      "type": "treasure"
+    },
+    {
+      "x": 12,
+      "y": 9,
+      "type": "treasure"
+    },
+    {
+      "x": 13,
+      "y": 9,
+      "type": "treasure"
+    },
+    {
+      "x": 14,
+      "y": 9,
+      "type": "treasure"
+    },
+    {
+      "x": 15,
+      "y": 9,
+      "type": "treasure"
+    },
+    {
+      "x": 16,
+      "y": 9,
+      "type": "treasure"
+    },
+    {
       "x": 17,
       "y": 9,
       "type": "fire"
@@ -591,6 +911,86 @@
       "type": "fire"
     },
     {
+      "x": 1,
+      "y": 10,
+      "type": "treasure"
+    },
+    {
+      "x": 2,
+      "y": 10,
+      "type": "treasure"
+    },
+    {
+      "x": 3,
+      "y": 10,
+      "type": "treasure"
+    },
+    {
+      "x": 4,
+      "y": 10,
+      "type": "treasure"
+    },
+    {
+      "x": 5,
+      "y": 10,
+      "type": "treasure"
+    },
+    {
+      "x": 6,
+      "y": 10,
+      "type": "treasure"
+    },
+    {
+      "x": 7,
+      "y": 10,
+      "type": "treasure"
+    },
+    {
+      "x": 8,
+      "y": 10,
+      "type": "treasure"
+    },
+    {
+      "x": 9,
+      "y": 10,
+      "type": "treasure"
+    },
+    {
+      "x": 10,
+      "y": 10,
+      "type": "treasure"
+    },
+    {
+      "x": 11,
+      "y": 10,
+      "type": "treasure"
+    },
+    {
+      "x": 12,
+      "y": 10,
+      "type": "treasure"
+    },
+    {
+      "x": 13,
+      "y": 10,
+      "type": "treasure"
+    },
+    {
+      "x": 14,
+      "y": 10,
+      "type": "treasure"
+    },
+    {
+      "x": 15,
+      "y": 10,
+      "type": "treasure"
+    },
+    {
+      "x": 16,
+      "y": 10,
+      "type": "treasure"
+    },
+    {
       "x": 17,
       "y": 10,
       "type": "fire"
@@ -601,6 +1001,86 @@
       "type": "fire"
     },
     {
+      "x": 1,
+      "y": 11,
+      "type": "treasure"
+    },
+    {
+      "x": 2,
+      "y": 11,
+      "type": "treasure"
+    },
+    {
+      "x": 3,
+      "y": 11,
+      "type": "treasure"
+    },
+    {
+      "x": 4,
+      "y": 11,
+      "type": "treasure"
+    },
+    {
+      "x": 5,
+      "y": 11,
+      "type": "treasure"
+    },
+    {
+      "x": 6,
+      "y": 11,
+      "type": "treasure"
+    },
+    {
+      "x": 7,
+      "y": 11,
+      "type": "treasure"
+    },
+    {
+      "x": 8,
+      "y": 11,
+      "type": "treasure"
+    },
+    {
+      "x": 9,
+      "y": 11,
+      "type": "treasure"
+    },
+    {
+      "x": 10,
+      "y": 11,
+      "type": "treasure"
+    },
+    {
+      "x": 11,
+      "y": 11,
+      "type": "treasure"
+    },
+    {
+      "x": 12,
+      "y": 11,
+      "type": "treasure"
+    },
+    {
+      "x": 13,
+      "y": 11,
+      "type": "treasure"
+    },
+    {
+      "x": 14,
+      "y": 11,
+      "type": "treasure"
+    },
+    {
+      "x": 15,
+      "y": 11,
+      "type": "treasure"
+    },
+    {
+      "x": 16,
+      "y": 11,
+      "type": "treasure"
+    },
+    {
       "x": 17,
       "y": 11,
       "type": "fire"
@@ -611,18 +1091,88 @@
       "type": "fire"
     },
     {
+      "x": 1,
+      "y": 12,
+      "type": "treasure"
+    },
+    {
+      "x": 2,
+      "y": 12,
+      "type": "treasure"
+    },
+    {
+      "x": 3,
+      "y": 12,
+      "type": "treasure"
+    },
+    {
+      "x": 4,
+      "y": 12,
+      "type": "treasure"
+    },
+    {
+      "x": 5,
+      "y": 12,
+      "type": "treasure"
+    },
+    {
+      "x": 6,
+      "y": 12,
+      "type": "treasure"
+    },
+    {
+      "x": 7,
+      "y": 12,
+      "type": "treasure"
+    },
+    {
+      "x": 8,
+      "y": 12,
+      "type": "treasure"
+    },
+    {
+      "x": 9,
+      "y": 12,
+      "type": "treasure"
+    },
+    {
+      "x": 10,
+      "y": 12,
+      "type": "treasure"
+    },
+    {
+      "x": 11,
+      "y": 12,
+      "type": "treasure"
+    },
+    {
+      "x": 12,
+      "y": 12,
+      "type": "treasure"
+    },
+    {
+      "x": 13,
+      "y": 12,
+      "type": "treasure"
+    },
+    {
+      "x": 14,
+      "y": 12,
+      "type": "treasure"
+    },
+    {
+      "x": 15,
+      "y": 12,
+      "type": "treasure"
+    },
+    {
+      "x": 16,
+      "y": 12,
+      "type": "treasure"
+    },
+    {
       "x": 17,
       "y": 12,
-      "type": "fire"
-    },
-    {
-      "x": 0,
-      "y": 13,
-      "type": "fire"
-    },
-    {
-      "x": 17,
-      "y": 13,
       "type": "fire"
     },
     {
@@ -633,11 +1183,176 @@
     {
       "x": 1,
       "y": 14,
-      "type": "toph"
+      "type": "switch"
+    },
+    {
+      "x": 2,
+      "y": 14,
+      "type": "switch"
+    },
+    {
+      "x": 3,
+      "y": 14,
+      "type": "switch"
+    },
+    {
+      "x": 4,
+      "y": 14,
+      "type": "switch"
+    },
+    {
+      "x": 5,
+      "y": 14,
+      "type": "switch"
+    },
+    {
+      "x": 6,
+      "y": 14,
+      "type": "switch"
+    },
+    {
+      "x": 7,
+      "y": 14,
+      "type": "switch"
+    },
+    {
+      "x": 8,
+      "y": 14,
+      "type": "switch"
+    },
+    {
+      "x": 9,
+      "y": 14,
+      "type": "switch"
+    },
+    {
+      "x": 10,
+      "y": 14,
+      "type": "switch"
+    },
+    {
+      "x": 11,
+      "y": 14,
+      "type": "switch"
+    },
+    {
+      "x": 12,
+      "y": 14,
+      "type": "switch"
+    },
+    {
+      "x": 13,
+      "y": 14,
+      "type": "switch"
+    },
+    {
+      "x": 14,
+      "y": 14,
+      "type": "switch"
+    },
+    {
+      "x": 15,
+      "y": 14,
+      "type": "switch"
+    },
+    {
+      "x": 16,
+      "y": 14,
+      "type": "switch"
     },
     {
       "x": 17,
       "y": 14,
+      "type": "fire"
+    },
+    {
+      "x": 0,
+      "y": 13,
+      "type": "fire"
+    },
+    {
+      "x": 1,
+      "y": 13,
+      "type": "boulder"
+    },
+    {
+      "x": 2,
+      "y": 13,
+      "type": "boulder"
+    },
+    {
+      "x": 3,
+      "y": 13,
+      "type": "boulder"
+    },
+    {
+      "x": 4,
+      "y": 13,
+      "type": "boulder"
+    },
+    {
+      "x": 5,
+      "y": 13,
+      "type": "boulder"
+    },
+    {
+      "x": 6,
+      "y": 13,
+      "type": "boulder"
+    },
+    {
+      "x": 7,
+      "y": 13,
+      "type": "boulder"
+    },
+    {
+      "x": 8,
+      "y": 13,
+      "type": "boulder"
+    },
+    {
+      "x": 9,
+      "y": 13,
+      "type": "boulder"
+    },
+    {
+      "x": 10,
+      "y": 13,
+      "type": "boulder"
+    },
+    {
+      "x": 11,
+      "y": 13,
+      "type": "boulder"
+    },
+    {
+      "x": 12,
+      "y": 13,
+      "type": "boulder"
+    },
+    {
+      "x": 13,
+      "y": 13,
+      "type": "boulder"
+    },
+    {
+      "x": 14,
+      "y": 13,
+      "type": "boulder"
+    },
+    {
+      "x": 15,
+      "y": 13,
+      "type": "boulder"
+    },
+    {
+      "x": 16,
+      "y": 13,
+      "type": "boulder"
+    },
+    {
+      "x": 17,
+      "y": 13,
       "type": "fire"
     },
     {

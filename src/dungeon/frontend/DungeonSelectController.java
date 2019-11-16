@@ -75,7 +75,7 @@ public class DungeonSelectController {
 	
 	@FXML
 	public void AdvancedStage() throws IOException {
-		String name = "avatar.json";
+		String name = "advaced.json";
 		DungeonScreen dungeonScreen = new DungeonScreen(this.stage, name);
 		
 		this.screen.selectScreenMusic.stop();

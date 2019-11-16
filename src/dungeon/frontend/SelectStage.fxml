@@ -14,26 +14,26 @@
             <Image url="@../../../images/dungeonRoom.gif" />
          </image>
       </ImageView>
-      <ImageView fitHeight="433.0" fitWidth="483.0" layoutX="80.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="433.0" fitWidth="483.0" layoutX="77.0" layoutY="-58.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/title.png" />
          </image>
       </ImageView>
-   	  <Button id="green" fx:id="maze" layoutX="110.0" layoutY="267.0" mnemonicParsing="false" onAction="#MazeStage" prefHeight="27.0" prefWidth="102.0" stylesheets="@buttons.css" text="Maze">
+   	  <Button id="green" fx:id="maze" layoutX="110.0" layoutY="218.0" mnemonicParsing="false" onAction="#MazeStage" prefHeight="27.0" prefWidth="102.0" stylesheets="@buttons.css" text="Maze">
          <font>
             <Font name="8_bit_1_6 Regular" size="13.0" />
          </font>
          <tooltip>
             <Tooltip text="Beginner level" />
          </tooltip></Button>
-      <Button id="green" fx:id="boulder" layoutX="233.0" layoutY="267.0" mnemonicParsing="false" onAction="#BoulderStage" prefHeight="27.0" prefWidth="102.0" stylesheets="@buttons.css" text="Boulder">
+      <Button id="green" fx:id="boulder" layoutX="233.0" layoutY="218.0" mnemonicParsing="false" onAction="#BoulderStage" prefHeight="27.0" prefWidth="102.0" stylesheets="@buttons.css" text="Boulder">
          <tooltip>
             <Tooltip text="Intermediate level" />
          </tooltip>
          <font>
             <Font name="8_bit_1_6 Regular" size="13.0" />
          </font></Button>
-	  <Button id="green" fx:id="advanced" layoutX="360.0" layoutY="267.0" mnemonicParsing="false" onAction="#AdvancedStage" prefHeight="29.0" prefWidth="102.0" stylesheets="@buttons.css" text="Enemy">
+	  <Button id="green" fx:id="advanced" layoutX="355.0" layoutY="217.0" mnemonicParsing="false" onAction="#AdvancedStage" prefHeight="29.0" prefWidth="102.0" stylesheets="@buttons.css" text="Enemy">
          <font>
             <Font name="8_bit_1_6 Regular" size="13.0" />
          </font>
@@ -44,6 +44,11 @@
        <Button id="green" fx:id="credits" layoutX="233.0" layoutY="311.0" mnemonicParsing="false" onAction="#creditPage" prefHeight="27.0" prefWidth="102.0" stylesheets="@buttons.css" text="Credits">
          <font>
             <Font name="8_bit_1_6 Regular" size="13.0" />
-         </font></Button>	 
+         </font></Button>
+      <Button id="green" fx:id="avatar" layoutX="172.0" layoutY="259.0" mnemonicParsing="false" onAction="#TheLastAirBender" prefHeight="27.0" prefWidth="224.0" stylesheets="@buttons.css" text="The Last Airbender">
+         <font>
+            <Font name="8_bit_1_6 Regular" size="13.0" />
+         </font>
+      </Button>	 
    </children>
 </Pane>
