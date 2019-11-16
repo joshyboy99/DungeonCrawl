@@ -321,12 +321,6 @@ public class DungeonController {
             }
         }
         
-//        Image box = new Image("/box.png");
-//        int x = dungeon.getWidth();
-//        for (int y = 0; y <= 3; y++) {
-//    		squares.add(new ImageView(box), x, y);
-//    	}
-        
         Image pauseImg = new Image("/pause.png");
 		pausePlayButton = new ImageView(pauseImg);
 		pausePlayButton.addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
