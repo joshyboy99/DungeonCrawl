@@ -48,7 +48,6 @@ public class SpellBook extends Pickup{
 		case "RIGHT":
 			Fireball f3 = new Fireball(x, y, dungeon);
 			dungeon.addFireball(f3);
-			System.out.println("size:" + dungeon.getEntities().size());
 			f3.shootRight(x, y);
 			this.mana--;
 			break;

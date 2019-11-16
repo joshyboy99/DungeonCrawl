@@ -250,10 +250,15 @@ public class Dungeon implements Observable {
      * @param e The entity ready to be removed
      */
     public void removeEntity(Entity e) {
-    	if(e instanceof Fireball) {
-    		System.out.println("here");
+    	if(e instanceof Fireball && ! entityInDeletedEntities(e)) {
     		this.addToDeletedEntities(e);
-    	} else {
+    	} 
+    	else if (e instanceof Enemy) {
+    		e.setX(1000);
+    		e.setY(1000);
+    		entities.remove(e);
+    	}
+    	else {
     		entities.remove(e);
     	}	
     }
@@ -273,6 +278,13 @@ public class Dungeon implements Observable {
      */
     public void setupGoal(JSONObject goalCondition) {
     	goalManager.setGoal(goalCondition);
+    }
+    
+    public boolean entityInDeletedEntities(Entity e) {
+    	if(this.deletedEntities.contains(e)) {
+    		return true;
+    	}
+    	return false; 
     }
 
     /**

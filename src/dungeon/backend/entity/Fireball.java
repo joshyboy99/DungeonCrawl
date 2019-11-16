@@ -88,7 +88,6 @@ public class Fireball extends Entity{
 		this.setX(startX);
 		this.setY(startY + 1);
 		this.setFacing("DOWN");
-		System.out.println("HERE");
 		
 	}
 	
