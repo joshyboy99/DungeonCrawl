@@ -149,7 +149,7 @@ public class DungeonSelectController {
     	endGameScreen.getController().setDungeonScreen(dungeonScreen);
     	endGameScreen.getController().setDungeonSelectScreen(this.screen);
     	
-    	String instructions = "Collect all treasure + push all boulder on to switch";
+    	String instructions = "Turn the right keys before the enemies can catch you!";
     	
     	dungeonScreen.getController().setInstructions(instructions);
     	
