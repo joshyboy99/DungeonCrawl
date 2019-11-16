@@ -188,8 +188,13 @@ public class DungeonController {
     		String mana = Integer.toString(dungeon.getPlayer().getMana());
     		text0.setText(mana);
     		text0.setDisable(true);
+    		TextField text1 = new TextField();
+    		text1.setText("M:");
+    		text1.setDisable(true);
     		text0.setStyle("-fx-text-fill: blue;");
-        	squares.add(text0, 0, 0);
+    		text1.setStyle("-fx-text-fill: blue;");
+        	squares.add(text0, 1, 0);
+        	squares.add(text1, 0, 0);
     	}
     }
     
