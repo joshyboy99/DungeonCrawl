@@ -288,16 +288,24 @@ public class Player extends Entity {
 	public void updateSummoners() {
 		this.dungeon.updateSummoned();
 	}
-
+	/**
+	 * Gets mana left from spell book
+	 * @return mana from spell book
+	 */
 	public int getMana() {
 		if(! playerHasSpellBook()) {
 			return -1; 
 		} else {
 			return this.getSpellBook().getMana();
 		}
-		
-		
-		
+	}
+	
+	public int getSwordSwings() {
+		if(! hasSword()) {
+			return -1; 
+		} else {
+			return this.getSword().getSwordHits();
+		}
 	}
 	
 }

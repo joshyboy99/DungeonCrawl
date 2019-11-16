@@ -128,4 +128,8 @@ public class Sword extends Pickup {
 		Inventory i = p.getInventory();
 		i.remove(this);
 	}
+
+	public int getSwordHits() {
+		return this.maxSwings - this.successfulSwings;
+	}
 }

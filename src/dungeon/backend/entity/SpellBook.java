@@ -83,28 +83,28 @@ public class SpellBook extends Pickup{
 			Fireball f0 = new Fireball(x, y, dungeon);
 			dungeon.addFireball(f0);
 			f0.shootUp(x, y);
-			this.mana--;
+			this.mana = this.mana - 5;
 			break;
 		
 		case "DOWN":
 			Fireball f1 = new Fireball(x, y, dungeon);
 			dungeon.addFireball(f1);
 			f1.shootDown(x, y);
-			this.mana--;
+			this.mana = this.mana - 5;
 			break;
 		
 		case "LEFT":
 			Fireball f2 = new Fireball(x, y, dungeon);
 			dungeon.addFireball(f2);
 			f2.shootLeft(x, y);
-			this.mana--;
+			this.mana = this.mana - 5;
 			break;
 		
 		case "RIGHT":
 			Fireball f3 = new Fireball(x, y, dungeon);
 			dungeon.addFireball(f3);
 			f3.shootRight(x, y);
-			this.mana--;
+			this.mana = this.mana - 5;
 			break;
 		}	
 	}
