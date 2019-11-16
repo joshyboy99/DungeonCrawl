@@ -256,42 +256,40 @@ public class DungeonController {
     	int currentTreasures = currentTreasure(invent.getItems());
     	
     	for (Pickup p : invent.getItems()) {
-    		if (p instanceof Key) {
+    		if (p instanceof Key && keyFlag == false) {
     			ImageView keyImage = map.get(p);
     			Image key = new Image("/key.png");
     			keyImage.setImage(key);
     			keyFlag = true;
     			y = 0;
     			
-    		} else if (p instanceof Sword) {
+    		} else if (p instanceof Sword && swordFlag == false) {
     			ImageView swordImage = map.get(p);
     			Image sword = new Image("/sword.gif");
     			swordImage.setImage(sword);
     			swordFlag = true;
     			y = 1;
     			
-    		} else if (this.treasures != 0 && this.treasures == currentTreasures) {
+    		} else if (this.treasures != 0 && this.treasures == currentTreasures 
+    				&& treasureFlag == false) {
     			
     			ImageView treasureImage = map.get(p);
     			Image treasure = new Image("/gold.gif");
     			treasureImage.setImage(treasure);
     			treasureFlag = true;
     			y = 2;
-    		} else if (p instanceof SpellBook) {
+    		} else if (p instanceof SpellBook && spellbookFlag == false) {
     			ImageView spellbookImage = map.get(p);
     			Image spellbook = new Image("/spellbook.gif");
     			spellbookImage.setImage(spellbook);
     
     			spellbookFlag = true;
-    			y = 3;
+    			y = 4;
     		}
     		
     		p.x().set(x);
     		p.y().set(y);
     		
-    		if(keyFlag && swordFlag && treasureFlag && spellbookFlag) {
-    			break;
-    		}
     	}
 	
     	for (Entity e : entities) {
@@ -301,7 +299,7 @@ public class DungeonController {
     				ImageView potionImage = map.get(p);
         			Image potion = new Image("/potion.gif");
         			potionImage.setImage(potion);
-        			y = 4;	
+        			y = 3;	
         			p.x().set(x);
             		p.y().set(y);
     			}
@@ -343,12 +341,6 @@ public class DungeonController {
                 squares.add(new ImageView(ground), x, y);
             }
         }
-        
-//        Image box = new Image("/box.png");
-//        int x = dungeon.getWidth();
-//        for (int y = 0; y <= 3; y++) {
-//    		squares.add(new ImageView(box), x, y);
-//    	}
         
         Image pauseImg = new Image("/pause.png");
 		pausePlayButton = new ImageView(pauseImg);
