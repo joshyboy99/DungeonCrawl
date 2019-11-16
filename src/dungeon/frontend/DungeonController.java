@@ -193,8 +193,8 @@ public class DungeonController {
     		text1.setDisable(true);
     		text0.setStyle("-fx-text-fill: blue;");
     		text1.setStyle("-fx-text-fill: blue;");
-        	squares.add(text0, 1, 0);
-        	squares.add(text1, 0, 0);
+        	squares.add(text0, dungeon.getWidth() - 1, 1);
+        	squares.add(text1, dungeon.getWidth() - 2, 1);
     	}
     }
     
@@ -244,6 +244,7 @@ public class DungeonController {
     }
     
     public void addToInventory() {
+    	
     	boolean swordFlag = false;
     	boolean keyFlag = false;
     	boolean treasureFlag = false;
@@ -261,16 +262,18 @@ public class DungeonController {
     			Image key = new Image("/key.png");
     			keyImage.setImage(key);
     			keyFlag = true;
-    			y = 0;
+    			y = 4;
     			
     		} else if (p instanceof Sword && swordFlag == false) {
     			ImageView swordImage = map.get(p);
-    			Image sword = new Image("/sword.gif");
+    			Image sword = new Image("/sword.png");
     			swordImage.setImage(sword);
     			swordFlag = true;
-    			y = 1;
+    			y = 0;
     			
-    		} else if (this.treasures != 0 && this.treasures == currentTreasures 
+    		} else if (p instanceof Treasure && 
+    				this.treasures != 0 && 
+    				this.treasures == currentTreasures 
     				&& treasureFlag == false) {
     			
     			ImageView treasureImage = map.get(p);
@@ -284,7 +287,7 @@ public class DungeonController {
     			spellbookImage.setImage(spellbook);
     
     			spellbookFlag = true;
-    			y = 4;
+    			y = 1;
     		}
     		
     		p.x().set(x);
