@@ -198,6 +198,22 @@ public class DungeonController {
     	}
     }
     
+    public void refreshSwordHits() {
+    	if (dungeon.getPlayer().getSwordSwings() != -1) {
+    		TextField text0 = new TextField();
+    		String swordSwings = Integer.toString(dungeon.getPlayer().getSwordSwings());
+    		text0.setText(swordSwings);
+    		text0.setDisable(true);
+    		TextField text1 = new TextField();
+    		text1.setText("S:");
+    		text1.setDisable(true);
+    		text0.setStyle("-fx-text-fill: grey;");
+    		text1.setStyle("-fx-text-fill: grey;");
+        	squares.add(text0, dungeon.getWidth() - 1, 0);
+        	squares.add(text1, dungeon.getWidth() - 2, 0);
+    	}
+    }
+    
     public void refreshSword(Sword s) {
     	ImageView swordImage = map.get(s);
     	Image newSword = new Image("sword.gif");
@@ -423,7 +439,7 @@ public class DungeonController {
         }
         refreshDungeonImage();
         refreshMana();
-        
+    	refreshSwordHits();
     }
     
     public void setDungeonScreen(DungeonScreen dungeonScreen) {
