@@ -52,7 +52,7 @@ public class SpellBook extends Pickup{
 			f3.shootRight(x, y);
 			this.mana--;
 			break;
-	}	
+		}	
 	}
 	
 	public boolean checkEnoughMana() {

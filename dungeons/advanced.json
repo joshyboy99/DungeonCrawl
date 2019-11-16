@@ -230,19 +230,9 @@
       "type": "wall"
     },
     {
-      "x": 3,
-      "y": 5,
-      "type": "enemy"
-    },
-    {
-      "x": 9,
-      "y": 5,
-      "type": "enemy"
-    },
-    {
-      "x": 15,
-      "y": 5,
-      "type": "enemy"
+      "x": 10,
+      "y": 10,
+      "type": "mushroom"
     },
     {
       "x": 14,

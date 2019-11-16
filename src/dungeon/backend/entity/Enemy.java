@@ -55,6 +55,7 @@ public class Enemy extends Entity implements Observer{
 		((InteractableBehaviour) contactBehaviour).addEntity(player);
 		
 		this.moveBehaviour = new MoveTowards(this, this.player, dungeon);
+
 	}
 
 	/**

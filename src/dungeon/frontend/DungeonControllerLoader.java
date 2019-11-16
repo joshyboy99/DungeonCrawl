@@ -38,6 +38,12 @@ public class DungeonControllerLoader extends DungeonLoader {
     private Image portalImage;
     private Image spellBookImage;
     private Image fireballImage;
+    private Image mushroomImage;
+    private Image airImage;
+    private Image fireImage;
+    private Image waterImage;
+    private Image aangImage;
+    private Image tophImage;
     
     private HashMap<Entity, ImageView> map;
 
@@ -54,8 +60,7 @@ public class DungeonControllerLoader extends DungeonLoader {
         swordImage = new Image("/sword.gif");
         boulderImage = new Image("/boulder.png");
         switchImage = new Image("/pressure_plate.png");
-        // Maybe this can be changed
-        enemyImage = new Image("/gnome.png");
+        enemyImage = new Image("/enemy.gif");
         potionImage = new Image("/potion.gif");  
         treasureImage = new Image("/gold.gif");
         closedDoorImage = new Image("/closed_door.png");
@@ -63,12 +68,25 @@ public class DungeonControllerLoader extends DungeonLoader {
         portalImage = new Image("/portal.gif");
         spellBookImage = new Image("/spellbook.png");
         fireballImage = new Image("/fireball.gif");
+        mushroomImage = new Image("/mushroom.gif");
+        airImage = new Image("/air.gif");
+        waterImage = new Image("/water.gif");
+        fireImage = new Image("/fire.gif");
+        aangImage = new Image("/aang.png");
+        tophImage = new Image("/toph.png");
         
     }
 
     @Override
-    public void onLoad(Entity player) {
-        ImageView view = new ImageView(playerImage);
+    public void onLoad(Entity player, int num) {
+    	ImageView view = new ImageView(playerImage);
+    	
+    	if (num == 0) {
+    		view = new ImageView(playerImage);
+    	} else if (num == 1) {
+    		view = new ImageView(aangImage);
+    	}
+    	
         addEntity(player, view);
     }
 
@@ -103,8 +121,16 @@ public class DungeonControllerLoader extends DungeonLoader {
     }
     
     @Override
-    public void onLoad(Enemy enemy) {
+    public void onLoad(Enemy enemy, int num) {
+    	
     	ImageView view = new ImageView(enemyImage);
+    	
+    	if (num == 0) {
+    		view = new ImageView(enemyImage);
+    	} else if (num == 1) {
+    		view = new ImageView(tophImage);
+    	}
+
     	addEntity(enemy, view);
     }
     
@@ -149,6 +175,31 @@ public class DungeonControllerLoader extends DungeonLoader {
     	ImageView view = new ImageView(fireballImage);
     	addEntity(fireball, view);
     }
+    
+    @Override
+    public void onLoad(Mushroom mushroom) {
+    	ImageView view = new ImageView(mushroomImage);
+    	addEntity(mushroom, view);
+    }
+    
+    @Override
+    public void onLoad(Air air) {
+    	ImageView view = new ImageView(airImage);
+    	addEntity(air, view);
+    }
+    
+    @Override
+    public void onLoad(Water water) {
+    	ImageView view = new ImageView(waterImage);
+    	addEntity(water, view);
+    }
+    
+    @Override
+    public void onLoad(Fire fire) {
+    	ImageView view = new ImageView(fireImage);
+    	addEntity(fire, view);
+    }
+
 
     private void addEntity(Entity entity, ImageView view) {
         trackPosition(entity, view);
