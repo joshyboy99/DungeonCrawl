@@ -5,8 +5,8 @@ import dungeon.backend.ContactBehaviour.Destroy;
 import dungeon.backend.MoveBehaviour.Static;
 
 /**
- * The Fire entity. This entity kills you when
- * you touch it.
+ * The Fire entity. This entity kills the player when
+ * they touch it.
  * @author JAG
  *
  */

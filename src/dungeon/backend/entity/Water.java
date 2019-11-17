@@ -6,7 +6,8 @@ import dungeon.backend.MoveBehaviour.Static;
 
 
 /**
- * Water element! Die once you touch
+ * The water entity. This entity kills the player when
+ * they touch it.
  * @author JAG
  *
  */

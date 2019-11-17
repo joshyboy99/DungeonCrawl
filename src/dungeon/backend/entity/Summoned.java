@@ -6,11 +6,9 @@ import dungeon.backend.ContactBehaviour.*;
 import dungeon.backend.MoveBehaviour.*;
 
 /**
- * The Entity - Enemy, is an antagonist to the player entity
- * and will normally follow and destroy the player on contact.
- * The enemy can be destroyed with the swing of a sword, or by
- * contacting the player while the InstaKillEnemy effect is active
- * on that player. 
+ * The Entity - summoned, is an antagonist to the enemy entity
+ * and will normally follow and destroy the enemy on contact.
+ * The player can summon one of these entities using a SpellBook.
  * 
  * @author JAG
  *
@@ -31,13 +29,16 @@ public class Summoned extends Entity{
 	}
 	
 	public Summoned() {
-		
 	}
 
+	/**
+	 * Changes the target of the summoned entity to a new enemy once one has been removed from play.
+	 */
 	public void update() {
 		if(this.moveBehaviour instanceof SummonedMovement) {
 			this.moveBehaviour = new MoveTowards(this, player, dungeon);
 		} else {
+			
 			//pick new enemy
 			for(Entity e: dungeon.getEntities()) {
 				if(e instanceof Enemy && e != null && ! e.equals(this.target)) {

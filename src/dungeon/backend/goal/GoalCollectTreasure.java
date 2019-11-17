@@ -3,7 +3,9 @@ import dungeon.backend.entity.*;
 import dungeon.backend.*;
 
 /**
- * The Goal that make sure all the treasures has been collected
+ * This Goal object is completed when all of the
+ * treasure entities in the dungeon have been 
+ * collected.
  * @author JAG
  *
  */
