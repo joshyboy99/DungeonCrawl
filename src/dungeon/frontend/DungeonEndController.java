@@ -8,6 +8,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
+/**
+ * Controller for the Dungeon end screen. 
+ * @author Amy
+ *
+ */
 public class DungeonEndController {
 
 //	private static final Stage DungeonScreen = null;
@@ -58,7 +63,7 @@ public class DungeonEndController {
 	
 	@FXML
 	public void handleSelect(ActionEvent event) {
-		//this.endScreen.EndScreenMusic.stop();
+		this.endScreen.EndScreenMusic.stop();
 		selectScreen.start();
 	}
 	

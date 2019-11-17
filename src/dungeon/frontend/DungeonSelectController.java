@@ -6,9 +6,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+/**
+ * A controller object for the primary opening page of the game
+ * to allow the user to choose how to navigate the application.
+ * @author Amy
+ *
+ */
 public class DungeonSelectController {
-	// FXML STUFF
-	// how many stages + what other features we have
 	
 	@FXML
 	private Button boulder;
@@ -60,7 +64,7 @@ public class DungeonSelectController {
 		String name = "boulders.json";
 		DungeonScreen dungeonScreen = new DungeonScreen(this.stage, name);
 		
-		//this.screen.selectScreenMusic.stop();
+		this.screen.selectScreenMusic.stop();
 	
 		
 		DungeonEndScreen endGameScreen = new DungeonEndScreen(this.stage);
@@ -81,7 +85,7 @@ public class DungeonSelectController {
 		String name = "maze.json";
 		DungeonScreen dungeonScreen = new DungeonScreen(this.stage, name);
 		
-//		this.screen.selectScreenMusic.stop();
+		this.screen.selectScreenMusic.stop();
 		
 		DungeonEndScreen endGameScreen = new DungeonEndScreen(this.stage);
 		dungeonScreen.getController().setEndGameScreen(endGameScreen);
@@ -89,7 +93,7 @@ public class DungeonSelectController {
     	endGameScreen.getController().setDungeonScreen(dungeonScreen);
     	endGameScreen.getController().setDungeonSelectScreen(this.screen);
     	
-    	String instructions = "Reach the exit!\n\n hint: Pick up key using 'a' ";
+    	String instructions = "Under stand basic control & reach the exit!\n\n hint: Pick up key using 'a' ";
     	
     	dungeonScreen.getController().setInstructions(instructions);
 		
@@ -101,7 +105,7 @@ public class DungeonSelectController {
 		String name = "advanced.json";
 		DungeonScreen dungeonScreen = new DungeonScreen(this.stage, name);
 		
-//		this.screen.selectScreenMusic.stop();
+		this.screen.selectScreenMusic.stop();
 		
 		DungeonEndScreen endGameScreen = new DungeonEndScreen(this.stage);
 		dungeonScreen.getController().setEndGameScreen(endGameScreen);
@@ -121,7 +125,7 @@ public class DungeonSelectController {
 		String name = "avatar.json";
 		DungeonScreen dungeonScreen = new DungeonScreen(this.stage, name);
 		
-//		this.screen.selectScreenMusic.stop();
+		this.screen.selectScreenMusic.stop();
 		
 		DungeonEndScreen endGameScreen = new DungeonEndScreen(this.stage);
 		dungeonScreen.getController().setEndGameScreen(endGameScreen);
@@ -141,7 +145,7 @@ public class DungeonSelectController {
 		String name = "Escape.json";
 		DungeonScreen dungeonScreen = new DungeonScreen(this.stage, name);
 		
-//		this.screen.selectScreenMusic.stop();
+		this.screen.selectScreenMusic.stop();
 		
 		DungeonEndScreen endGameScreen = new DungeonEndScreen(this.stage);
 		dungeonScreen.getController().setEndGameScreen(endGameScreen);
@@ -149,7 +153,7 @@ public class DungeonSelectController {
     	endGameScreen.getController().setDungeonScreen(dungeonScreen);
     	endGameScreen.getController().setDungeonSelectScreen(this.screen);
     	
-    	String instructions = "Collect all treasure + push all boulder on to switch";
+    	String instructions = "Turn the right keys before the enemies can catch you!";
     	
     	dungeonScreen.getController().setInstructions(instructions);
     	

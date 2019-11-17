@@ -3,7 +3,8 @@ import dungeon.backend.entity.*;
 import dungeon.backend.*;
 
 /**
- * The Goal that make sure all the enemies has been slained
+ * This Goal is completed once all of the enemies 
+ * in the dungeon have been destroyed. 
  * @author JAG
  *
  */

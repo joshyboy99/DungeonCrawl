@@ -7,6 +7,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * Tutorial page for the application, allowing the 
+ * user to gain an understanding for the controls of the
+ * game.
+ * @author joshy
+ *
+ */
 public class HelpScreen {
 
 		private Stage stage;

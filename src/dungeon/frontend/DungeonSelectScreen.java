@@ -11,6 +11,12 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import java.io.File;
 
+/**
+ * Primary Greeting page for the application
+ * allowing the user to choose where to navigate to.
+ * @author joshy
+ *
+ */
 public class DungeonSelectScreen {
 	private Stage stage;
 	private String title;
@@ -33,11 +39,11 @@ public class DungeonSelectScreen {
 
 	public void start() {
 		
-//		String musicFile = "music/kahoot8bit.mp3";     // For example
-//
-//		Media sound = new Media(new File(musicFile).toURI().toString());
-//		selectScreenMusic = new MediaPlayer(sound);
-//		selectScreenMusic.play();
+		String musicFile = "music/kahoot8bit.mp3";     // For example
+
+		Media sound = new Media(new File(musicFile).toURI().toString());
+		selectScreenMusic = new MediaPlayer(sound);
+		selectScreenMusic.play();
 				
 		stage.setTitle(this.title);
 		stage.setScene(this.scene);

@@ -4,7 +4,8 @@ import dungeon.backend.*;
 import dungeon.backend.entity.*;
 
 /**
- * The Goal that make sure all the switches has been triggered
+ * This Goal is passed when all of the floor switch
+ * entities in the dungeon are in the closed state.
  * @author JAG
  *
  */

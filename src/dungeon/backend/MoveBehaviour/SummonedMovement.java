@@ -4,6 +4,13 @@ import dungeon.backend.Behaviour;
 import dungeon.backend.Dungeon;
 import dungeon.backend.entity.Entity;
 
+/**
+ * This movement behavior is used for summoned
+ * entities that move towards enemy entities 
+ * for the porpose of assisting the player.
+ * @author Shelby 
+ *
+ */
 public class SummonedMovement extends Behaviour implements MoveBehaviour    {
 	
 	Entity targetEntity;

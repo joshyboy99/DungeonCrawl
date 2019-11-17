@@ -3,8 +3,11 @@ import dungeon.backend.*;
 import dungeon.backend.entity.*;
 
 /**
- * The abstract class that looks at all the possibility of different
- * Goals
+ * This base component of the composite pattern
+ * used for goals. This base component
+ * allows for the setting of different kinds of goal
+ * objects that are extended from this abstract 
+ * class.
  * @author JAG
  *
  */

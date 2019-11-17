@@ -4,6 +4,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
+/**
+ * This class is responsible for handling
+ * all of the behaviour of the credit screen.
+ * @author Amy
+ *
+ */
 public class CreditScreenController {
 	
 	@FXML
@@ -23,7 +29,7 @@ public class CreditScreenController {
 	
 	@FXML
 	public void handleSelect(ActionEvent event) {		
-		// this.selectScreen.selectScreenMusic.stop();		
+		this.selectScreen.selectScreenMusic.stop();		
 		selectScreen.start();
 	}
 

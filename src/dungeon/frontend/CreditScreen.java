@@ -7,6 +7,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * The screen displaying the creators of the
+ * game.  
+ * @author Amy
+ *
+ */
 public class CreditScreen {
 		private Stage stage;
 		private String title;

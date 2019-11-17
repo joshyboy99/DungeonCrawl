@@ -1,7 +1,10 @@
 package dungeon.backend.goal;
 
 /**
- * Goal Interface 
+ * An interface to share methods for
+ * goal objects, which represent the
+ * tasks that the player must complete
+ * in order to win the level. 
  * @author JAG
  *
  */

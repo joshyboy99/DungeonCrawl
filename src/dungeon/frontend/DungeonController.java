@@ -84,6 +84,11 @@ public class DungeonController {
 		
     }
     
+    /**
+     * This method calls update dungeon so that
+     * the screen can display the new states of each
+     * entity with every update.
+     */
     public void controllerUpdate() {
     	
     	dungeon.updateDungeon();
@@ -123,12 +128,23 @@ public class DungeonController {
 
     }
     
+    /**
+     * This manager method calls the 
+     * methods necessary to update the 
+     * images on the dungeon to the most
+     * recent state. 
+     */
     public void refreshDungeonImage() {
     	refreshEntityImage();
     	addToInventory();
 
     }
     
+    /**
+     * this method refreshes the images
+     * for all of the entities on the dungeon individually
+     * 
+     */
     public void refreshEntityImage() {
     	for (Entity e : this.entities) {
     		
@@ -155,6 +171,7 @@ public class DungeonController {
   
     }
     
+    
     public void refreshFireball(Summoned s) {
     	ImageView summonedImage = new ImageView();
     	Image summonedb = new Image("/gnome.png");
@@ -172,6 +189,13 @@ public class DungeonController {
         initialEntities.add(fireballImage);
         this.map.put(f, fireballImage);
     }
+    
+    /**
+     * This method updates all the doors in 
+     * the dungeon to display the open
+     * image for those which have been opened.
+     * @param d
+     */
     public void refreshDoor(Door d) {
     	
 	   if (d.isOpened()) {
@@ -182,6 +206,10 @@ public class DungeonController {
 
     }
     
+    /**
+     * this method updates the mana counter
+     * to the most recent value. 
+     */
     public void refreshMana() {
     	if (dungeon.getPlayer().getMana() != -1) {
     		TextField text0 = new TextField();
@@ -203,6 +231,10 @@ public class DungeonController {
     	}
     }
     
+    /**
+     * This method updates the sword hit counter
+     * to the most recent number.
+     */
     public void refreshSwordHits() {
     	if (dungeon.getPlayer().getSwordSwings() != -1) {
     		TextField text0 = new TextField();
@@ -230,6 +262,11 @@ public class DungeonController {
     	swordImage.setImage(newSword);
     }
     
+    /**
+     * Counts the instances of treasure left
+     * in the dungeon
+     * @return the numeber of treasure entities in the dungeon as an int. 
+     */
     private int treasureCounter() {
     	
     	int t = 0;
@@ -242,6 +279,11 @@ public class DungeonController {
     	return t;
     }
     
+    /**
+     * Returns the current amount of treasure inside an inventory list.
+     * @param picks a list of Pickup objects.
+     * @return the number of treasure entites in the list as an int. 
+     */
     private int currentTreasure(ArrayList<Pickup> picks) {
     	
     	int c = 0;
@@ -253,6 +295,10 @@ public class DungeonController {
     	return c;
     }
     
+    /**
+     * Removes entities from the dungeon that have been added
+     * to the players inventory. 
+     */
     public void addToInventory() {
     	
     	boolean swordFlag = false;
@@ -268,6 +314,12 @@ public class DungeonController {
     	
     	for (Pickup p : invent.getItems()) {
     		if (p instanceof Key && keyFlag == false) {
+    			Key k = (Key) p;
+    			TextField text0 = new TextField();
+        		String keyId = Integer.toString(k.getKeyID());
+        		text0.setText(keyId);
+    			squares.add(text0, dungeon.getWidth() - 1, 4);
+    			
     			ImageView keyImage = map.get(p);
     			Image key = new Image("/key.png");
     			keyImage.setImage(key);

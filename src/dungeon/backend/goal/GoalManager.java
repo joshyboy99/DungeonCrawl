@@ -7,7 +7,9 @@ import dungeon.backend.*;
 import dungeon.backend.entity.*;
 
 /**
- * A Goal Manager, responsible to create goals, 
+ * This Class is responsible for the 
+ * adding and checking of goals for 
+ * the dungeon.  
  * @author JAG
  *
  */
@@ -22,13 +24,18 @@ public class GoalManager {
 		this.goal = null;
 	}
 	
+	/**
+	 * Checks if the overall goal of the
+	 * dungeon has been completed.
+	 * @return true if all goals passed, false otherwise. 
+	 */
 	public boolean checkComplete() {
 		if (this.goal == null) {
 			return false;
 		}
 		return this.goal.isComplete();
 	}
-	
+
 	public void setGoal(JSONObject goalCondition) {
 		this.goal = createGoal(goalCondition);
 	}
@@ -37,6 +44,12 @@ public class GoalManager {
 		return this.goal;
 	}
 	
+	/**
+	 * Processes a JSON object and creates the goals for the level]
+	 * from the information stored within.
+	 * @param goalCondition a JSON object containing all the goals for the level. 
+	 * @return the composite goal for the dungeon as a goal object.
+	 */
 	public Goal createGoal(JSONObject goalCondition) {
 		
     	Goal newGoal = null;

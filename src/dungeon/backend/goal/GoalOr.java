@@ -3,8 +3,8 @@ package dungeon.backend.goal;
 import java.util.List;
 
 /**
- * Looks at all the OR goals, if any of the goals are 
- * completed, then return true
+ * A type of composite goal that is completed
+ * when any of the contained goals are complete.
  * @author JAG
  *
  */

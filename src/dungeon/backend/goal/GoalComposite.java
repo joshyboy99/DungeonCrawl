@@ -19,6 +19,13 @@ public class GoalComposite implements Goal {
 		this.goalList = new ArrayList<Goal>();
 	}
 	
+	/**
+	 * Creates a new composite goal 
+	 * @param type specifies whether 
+	 * this goal will be an and or an or condition
+	 * for the goals it is composed of.
+	 * @return
+	 */
 	public GoalCompositeType createType(String type) {
 		if (type.equals("AND"))
 			return new GoalAnd();

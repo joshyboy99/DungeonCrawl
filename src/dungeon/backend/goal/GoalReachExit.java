@@ -4,7 +4,8 @@ import dungeon.backend.*;
 import dungeon.backend.entity.*;
 
 /**
- * The Goal that make sure it has reached the EXIT
+ * This Goal is completed once the player has reached the 
+ * exit entity, and all other goals have been completed.
  * @author JAG
  *
  */

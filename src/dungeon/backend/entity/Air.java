@@ -6,7 +6,8 @@ import dungeon.backend.MoveBehaviour.Static;
 
 
 /**
- * Air element! Die once you touch
+ * The Air entity. This entity kills you when
+ * you touch it.
  * @author JAG
  *
  */

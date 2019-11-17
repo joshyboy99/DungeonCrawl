@@ -4,6 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
+/**
+ * Controller Object for the instruction screen of the Game.
+ * @author joshy
+ *
+ */
 public class HelpScreenController {
 	
 	@FXML
@@ -23,7 +28,7 @@ public class HelpScreenController {
 	
 	@FXML
 	public void handleSelect(ActionEvent event) {
-//		this.selectScreen.selectScreenMusic.stop();
+		this.selectScreen.selectScreenMusic.stop();
 		
 		selectScreen.start();
 	}
