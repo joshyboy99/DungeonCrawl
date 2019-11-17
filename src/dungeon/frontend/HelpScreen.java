@@ -26,7 +26,6 @@ public class HelpScreen {
 		this.title = "Help Menu";
 		
 		controller = new HelpScreenController();
-		//controller.setEndScreen(this);
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("helpMenu.fxml"));
 		loader.setController(controller);
 		
