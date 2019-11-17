@@ -107,20 +107,40 @@
       "y": 1,
       "type": "wall"
     },
+
+    {
+      "x": 3,
+      "y": 2,
+      "type": "portal",
+      "id": 1
+    },
+    {
+      "x": 5,
+      "y": 15,
+      "type": "portal",
+      "id": 1
+    },
+
+    {
+      "x": 8,
+      "y": 15,
+      "type": "key",
+      "id": 2
+    },
+    {
+      "x": 15,
+      "y": 15,
+      "type": "spellbook"
+    },
     {
       "x": 1,
       "y": 1,
       "type": "player"
     },
     {
-      "x": 2,
-      "y": 1,
-      "type": "spellbook"
-    },
-    {
-      "x": 10,
-      "y": 1,
-      "type": "enemy"
+      "x": 16,
+      "y": 8,
+      "type": "mushroom"
     },
     {
       "x": 15,
