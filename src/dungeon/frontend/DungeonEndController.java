@@ -8,6 +8,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
+/**
+ * Controller for the Dungeon end screen. 
+ * @author Amy
+ *
+ */
 public class DungeonEndController {
 
 //	private static final Stage DungeonScreen = null;

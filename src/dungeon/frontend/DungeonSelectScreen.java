@@ -11,6 +11,12 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import java.io.File;
 
+/**
+ * Primary Greeting page for the application
+ * allowing the user to choose where to navigate to.
+ * @author joshy
+ *
+ */
 public class DungeonSelectScreen {
 	private Stage stage;
 	private String title;

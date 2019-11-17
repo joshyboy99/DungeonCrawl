@@ -6,9 +6,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+/**
+ * A controller object for the primary opening page of the game
+ * to allow the user to choose how to navigate the application.
+ * @author Amy
+ *
+ */
 public class DungeonSelectController {
-	// FXML STUFF
-	// how many stages + what other features we have
 	
 	@FXML
 	private Button boulder;

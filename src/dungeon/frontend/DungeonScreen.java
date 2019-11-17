@@ -7,6 +7,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * The DungeonScreen is the screen on which each level is displayed.
+ * @author Amy
+ *
+ */
 public class DungeonScreen {
 	
 	private Stage stage;
@@ -37,6 +42,10 @@ public class DungeonScreen {
     	stage.show();
     }
     
+    /**
+     * Reloads the level to its initial state.
+     * @throws IOException
+     */
     public void restart() throws IOException {
     	
     	String tempIns = this.controller.getInstructions();

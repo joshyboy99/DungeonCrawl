@@ -11,7 +11,12 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import java.io.File;
 
-
+/**
+ * The dungeon End Screen is displayed
+ * when the player wins the level. 
+ * @author joshy
+ *
+ */
 public class DungeonEndScreen {
 
 	private Stage stage;

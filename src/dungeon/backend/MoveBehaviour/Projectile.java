@@ -4,7 +4,9 @@ import dungeon.backend.Behaviour;
 import dungeon.backend.entity.Entity;
 
 /**
- * Behaviour if player's control
+ * This Behaviour is used for all projectile
+ * entities. Projectiles continue to move in a
+ * singular direction.
  * @author JAG
  *
  */

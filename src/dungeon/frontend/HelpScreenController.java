@@ -4,6 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
+/**
+ * Controller Object for the instruction screen of the Game.
+ * @author joshy
+ *
+ */
 public class HelpScreenController {
 	
 	@FXML
