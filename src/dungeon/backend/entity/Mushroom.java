@@ -6,8 +6,8 @@ import dungeon.backend.ContactBehaviour.Destroy;
 import dungeon.backend.MoveBehaviour.Static;
 
 /**
- * A funny enemy character only moves when player is 
- * invincible !! 
+ * An enemy entity that kills the player upon contact, destroys fireballs
+ * and hunts the player,
  * @author JAG
  *
  */
