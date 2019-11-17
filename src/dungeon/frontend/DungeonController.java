@@ -314,6 +314,12 @@ public class DungeonController {
     	
     	for (Pickup p : invent.getItems()) {
     		if (p instanceof Key && keyFlag == false) {
+    			Key k = (Key) p;
+    			TextField text0 = new TextField();
+        		String keyId = Integer.toString(k.getKeyID());
+        		text0.setText(keyId);
+    			squares.add(text0, dungeon.getWidth() - 1, 4);
+    			
     			ImageView keyImage = map.get(p);
     			Image key = new Image("/key.png");
     			keyImage.setImage(key);
