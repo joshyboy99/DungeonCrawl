@@ -89,7 +89,7 @@ public class DungeonSelectController {
     	endGameScreen.getController().setDungeonScreen(dungeonScreen);
     	endGameScreen.getController().setDungeonSelectScreen(this.screen);
     	
-    	String instructions = "Reach the exit!\n\n hint: Pick up key using 'a' ";
+    	String instructions = "Under stand basic control & reach the exit!\n\n hint: Pick up key using 'a' ";
     	
     	dungeonScreen.getController().setInstructions(instructions);
 		
