@@ -77,6 +77,11 @@
          <font>
             <Font name="8_bit_1_6 Regular" size="13.0" />
          </font>
+      </Button>
+      <Button id="green" fx:id="m3Test" layoutX="443.0" layoutY="348.0" mnemonicParsing="false" onAction="#m3Test" prefHeight="27.0" prefWidth="102.0" stylesheets="@buttons.css" text="M3 Test">
+         <font>
+            <Font name="8_bit_1_6 Regular" size="13.0" />
+         </font>
       </Button>	
       
    </children>
