@@ -30,6 +30,9 @@ public class DungeonSelectController {
 	private Button escape;
 	
 	@FXML
+	private Button m3Test;
+	
+	@FXML
 	private Button credits;
 	
 	@FXML
@@ -57,6 +60,27 @@ public class DungeonSelectController {
 		helpScreen.getController().setDungeonSelectScreen(this.screen);
 		helpScreen.start();
 		
+	}
+
+	@FXML
+	public void m3Test() throws IOException {
+		String name = "test.json";
+		DungeonScreen dungeonScreen = new DungeonScreen(this.stage, name);
+		
+		this.screen.selectScreenMusic.stop();
+	
+		
+		DungeonEndScreen endGameScreen = new DungeonEndScreen(this.stage);
+		dungeonScreen.getController().setEndGameScreen(endGameScreen);
+		dungeonScreen.getController().setDungeonSelectScreen(this.screen);
+    	endGameScreen.getController().setDungeonScreen(dungeonScreen);
+    	endGameScreen.getController().setDungeonSelectScreen(this.screen);
+    	
+    	String instructions = "Testing Stage with m3";
+    	
+    	dungeonScreen.getController().setInstructions(instructions);
+		
+    	dungeonScreen.start();
 	}
 	
 	@FXML
